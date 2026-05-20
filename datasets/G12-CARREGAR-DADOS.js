@@ -22,7 +22,7 @@ function createDataset(fields, constraints, sortFields) {
         "COLIGADA",
         "FILIAL",
         "IDPRJ",
-        "CNPJ",
+        "CNPJ_CLIENTE",
         "CENTRO_DE_CUSTO",
         "CODIGO_DO_PROJETO",
         "DESCRICAO_PROJETO",
@@ -42,7 +42,8 @@ function createDataset(fields, constraints, sortFields) {
         "PERIODICIDADE_MEDICAO",
         "CONDICAO_PAGAMENTO",
         "NOME_PRODUTO",
-        "CODIGO_PRODUTO"
+        "CODIGO_PRODUTO",
+        "CNPJ_EMPRESA"
     ];
 
     try {
@@ -107,7 +108,7 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("COLIGADA") ? row.get("COLIGADA") : "",
                 row.has("FILIAL") ? row.get("FILIAL") : "",
                 row.has("IDPRJ") ? row.get("IDPRJ") : "",
-                row.has("CNPJ") ? row.get("CNPJ") : "",
+                row.has("CNPJ_CLIENTE") ? row.get("CNPJ_CLIENTE") : "",
                 row.has("CENTRO_DE_CUSTO") ? row.get("CENTRO_DE_CUSTO") : "",
                 row.has("CODIGO_DO_PROJETO") ? row.get("CODIGO_DO_PROJETO") : "",
                 row.has("DESCRICAO_PROJETO") ? row.get("DESCRICAO_PROJETO") : "",
@@ -127,7 +128,8 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("PERIODICIDADE_MEDICAO") ? row.get("PERIODICIDADE_MEDICAO") : "",
                 row.has("CONDICAO_PAGAMENTO") ? row.get("CONDICAO_PAGAMENTO") : "",
                 row.has("NOME_PRODUTO") ? row.get("NOME_PRODUTO") : "",
-                row.has("CODIGO_PRODUTO") ? row.get("CODIGO_PRODUTO") : ""
+                row.has("CODIGO_PRODUTO") ? row.get("CODIGO_PRODUTO") : "",
+                row.has("CNPJ_EMPRESA") ? row.get("CNPJ_EMPRESA") : ""
             );
         }
 

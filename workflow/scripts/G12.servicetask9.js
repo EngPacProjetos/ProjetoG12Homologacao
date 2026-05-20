@@ -45,7 +45,8 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('coligada', safe(dataset.getValue(0, "COLIGADA")));
         hAPI.setCardValue('filial', safe(dataset.getValue(0, "FILIAL")));
         hAPI.setCardValue('idprj', safe(dataset.getValue(0, "IDPRJ")));
-        hAPI.setCardValue('cnpj', safe(dataset.getValue(0, "CNPJ")));
+        hAPI.setCardValue('cnpj', safe(dataset.getValue(0, "CNPJ_EMPRESA")));
+        hAPI.setCardValue('cnpjCliente', safe(dataset.getValue(0, "CNPJ_CLIENTE")));
         hAPI.setCardValue('centro_de_custo', safe(dataset.getValue(0, "CENTRO_DE_CUSTO")));
         hAPI.setCardValue('codigo_do_projeto', safe(dataset.getValue(0, "CODIGO_DO_PROJETO")));
         hAPI.setCardValue('descricao_projeto', safe(dataset.getValue(0, "DESCRICAO_PROJETO")));

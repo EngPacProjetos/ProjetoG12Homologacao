@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
 	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Carregamento.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Main.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -80,6 +81,7 @@
 										<input type="text" class="form-control" name="cnpj" id="cnpj" readonly>
 									</div>
 								</div>
+
 							</div>
 
 							<div class="row">
@@ -237,6 +239,13 @@
 											id="condicao_pagamento" readonly>
 									</div>
 								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>CNPJ do Cliente</label>
+										<input type="text" class="form-control" name="cnpjCliente" id="cnpjCliente"
+											readonly>
+									</div>
+								</div>
 							</div>
 
 							<div class="row">
@@ -259,6 +268,7 @@
 						</div>
 					</div>
 
+					<!-- APROVACAO DO SETOR TECNICO  -->
 					<div class="panel panel-default" style="margin-bottom: 16px;">
 						<div class="panel-heading">
 							<h2 class="panel-title">Aprovação do setor técnico</h2>
@@ -267,6 +277,41 @@
 							<div class="row">
 								<div class="col-md-12"><label for="ajusteSetorTecnico">Informações para ajuste</label>
 									<textarea name="ajusteSetorTecnico" id="ajusteSetorTecnico"
+										class="form-control"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- VALIDACAO DE COTRATOS  -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">Validação de contratos</h2>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="idmovContratos">IDMOV Recibo de serviço</label>
+										<input type="zoom" class="form-control" id="idmovContratos" name="idmovContratos" data-zoom="{
+											'datasetId':'G12-MOVIMENTOS-2102',
+											'displayKey':'IDMOV',
+											'maximumSelectionLength':'1',
+											'placeholder':'SELECIONE UM IDMOV',
+											'fields':[
+												{
+													'field':'IDMOV',
+													'label':'IDMOV',
+													'standard':'true'
+												}
+											]
+										}">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12"><label for="ajusteContratos">Informações para ajuste</label>
+									<textarea name="ajusteContratos" id="ajusteContratos"
 										class="form-control"></textarea>
 								</div>
 							</div>

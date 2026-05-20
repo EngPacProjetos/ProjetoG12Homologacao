@@ -28,7 +28,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G12</processId>
-      <version>33</version>
+      <version>36</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>68555</formId>
@@ -380,8 +380,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1260</positionX>
-      <positionY>310</positionY>
+      <positionX>1700</positionX>
+      <positionY>210</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -430,8 +430,162 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1260</positionX>
-      <positionY>210</positionY>
+      <positionX>1680</positionX>
+      <positionY>70</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>43</sequence>
+      </processStatePK>
+      <stateName>AJUSTE DE SOLICITAÇÃO</stateName>
+      <stateDescription>AJUSTE DE SOLICITAÇÃO</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1720</positionX>
+      <positionY>460</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>61</sequence>
+      </processStatePK>
+      <stateName>ENVIAR NOTA</stateName>
+      <stateDescription>ENVIAR NOTA</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;4ef20412-7687-40a4-b1c8-095c0a92503e&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>910</positionX>
+      <positionY>450</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>62</sequence>
+      </processStatePK>
+      <stateName>AGUARDANDO RECEBIMENTO</stateName>
+      <stateDescription>AGUARDANDO RECEBIMENTO</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;4ef20412-7687-40a4-b1c8-095c0a92503e&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1140</positionX>
+      <positionY>440</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -528,8 +682,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1340</positionX>
-      <positionY>320</positionY>
+      <positionX>1780</positionX>
+      <positionY>220</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -575,8 +729,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1170</positionX>
-      <positionY>334</positionY>
+      <positionX>1580</positionX>
+      <positionY>230</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -623,7 +777,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>680</positionX>
-      <positionY>317</positionY>
+      <positionY>240</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -645,11 +799,11 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <sequence>25</sequence>
+        <sequence>44</sequence>
       </processStatePK>
-      <stateName>Fim</stateName>
-      <stateDescription>Fim</stateDescription>
-      <instruction>Atividade final do processo</instruction>
+      <stateName>CHEGADA AJUSTE DE SOLICITACAO</stateName>
+      <stateDescription>CHEGADA AJUSTE DE SOLICITACAO</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
@@ -659,33 +813,174 @@
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
       <frequenceAuthorityTime>1</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>280</positionX>
-      <positionY>472</positionY>
+      <positionX>1560</positionX>
+      <positionY>479</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
       <periodId></periodId>
-      <stateType>6</stateType>
-      <bpmnType>60</bpmnType>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
       <signalId>0</signalId>
       <counterSign>false</counterSign>
       <openInstances>0</openInstances>
       <destinationStates/>
       <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>48</sequence>
+      </processStatePK>
+      <stateName>SAIDA AJUSTE DE SOLICITACAO</stateName>
+      <stateDescription>SAIDA AJUSTE DE SOLICITACAO</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>690</positionX>
+      <positionY>350</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>53</sequence>
+      </processStatePK>
+      <stateName>SAIDA PARA AJUSTE DE SOLICITACAO</stateName>
+      <stateDescription>SAIDA PARA AJUSTE DE SOLICITACAO</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>700</positionX>
+      <positionY>420</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>69</sequence>
+      </processStatePK>
+      <stateName>CANCELAR</stateName>
+      <stateDescription>CANCELAR</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>700</positionX>
+      <positionY>510</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
     </ProcessState>
     <ProcessState>
       <processStatePK>
@@ -716,8 +1011,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1440</positionX>
-      <positionY>340</positionY>
+      <positionX>1900</positionX>
+      <positionY>197</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -728,6 +1023,100 @@
       <periodId></periodId>
       <stateType>6</stateType>
       <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>65</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1330</positionX>
+      <positionY>455</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>67</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1960</positionX>
+      <positionY>479</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
       <signalId>0</signalId>
       <counterSign>false</counterSign>
       <openInstances>0</openInstances>
@@ -861,40 +1250,6 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>26</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>21</initialStateSequence>
-      <finalStateSequence>25</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G12</processId>
-        <version>1</version>
-        <linkSequence>27</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>23</initialStateSequence>
-      <finalStateSequence>21</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G12</processId>
-        <version>1</version>
         <linkSequence>33</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -970,6 +1325,23 @@
       <initialStateSequence>17</initialStateSequence>
       <finalStateSequence>39</finalStateSequence>
       <returnLabel></returnLabel>
+      <name>CANCELAR</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>45</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>43</finalStateSequence>
+      <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -980,11 +1352,178 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>41</linkSequence>
+        <linkSequence>49</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>17</initialStateSequence>
+      <finalStateSequence>48</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>AJUSTAR SOLICITACAO</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>56</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>53</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>AJUSTE DE SOLICITACAO</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>63</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>61</initialStateSequence>
+      <finalStateSequence>62</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>64</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>23</initialStateSequence>
+      <finalStateSequence>61</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>66</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>62</initialStateSequence>
+      <finalStateSequence>65</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>68</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>43</initialStateSequence>
+      <finalStateSequence>67</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>70</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>69</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>CANCELAR</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>71</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>39</initialStateSequence>
+      <finalStateSequence>37</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>72</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>48</initialStateSequence>
+      <finalStateSequence>44</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>73</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
+      <finalStateSequence>44</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>74</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>69</initialStateSequence>
       <finalStateSequence>37</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
@@ -1001,127 +1540,127 @@
         <processId>G12</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask30(attempt, message) {
-	try {
-		Cancelamento();
-	} catch (e) {
-		throw &quot;servicetask30 &quot; + e;
-	}
-}
-
-function Cancelamento() {
-	try {
-		var usuario = getAccess()[0];
-		var pass = getAccess()[1];
-		var senha = new java.lang.String(pass);
-
-		log.info(&quot;USUARIO LOGADO PARA CANCELAMENTO - &gt; &quot; + usuario)
-		log.info(&quot;SENHA LOGADA PARA CANCELAMENTO - &gt; &quot; + senha)
-
-		var codColigada = hAPI.getCardValue(&quot;CodColigada&quot;);
-		var idMov = hAPI.getCardValue(&quot;IdMov&quot;);
-		var numeroMov = hAPI.getCardValue(&quot;numeroMov&quot;);
-
-		log.info(&quot;========== G12 servicetask30 - INICIO ==========&quot;);
-		log.info(&quot;&gt;&gt; codColigada : [&quot; + codColigada + &quot;]&quot;);
-		log.info(&quot;&gt;&gt; idMov       : [&quot; + idMov + &quot;]&quot;);
-		log.info(&quot;&gt;&gt; numeroMov   : [&quot; + numeroMov + &quot;]&quot;);
-		log.info(&quot;&gt;&gt; usuario     : [&quot; + usuario + &quot;]&quot;);
-
-		var hoje = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;)
-			.format(new java.util.Date());
-
-
-		var XML = &quot;&lt;MovCancelMovProcParams&gt;&quot;;
-		XML += &quot;&lt;MovimentosACancelar&gt;&quot;;
-		XML += &quot;&lt;MovimentosCancelar&gt;&quot;;
-		XML += &quot;&lt;ApagarMovRelac&gt;false&lt;/ApagarMovRelac&gt;&quot;;
-		XML += &quot;&lt;CancelarMovimentosGeradosSimultFaturamento&gt;false&lt;/CancelarMovimentosGeradosSimultFaturamento&gt;&quot;;
-		XML += &quot;&lt;CancelarMovimentosGeradosSimultReabriCotacao&gt;false&lt;/CancelarMovimentosGeradosSimultReabriCotacao&gt;&quot;;
-		XML += &quot;&lt;CodColigada&gt;&quot; + codColigada + &quot;&lt;/CodColigada&gt;&quot;;
-		XML += &quot;&lt;CodSistemaLogado&gt;T&lt;/CodSistemaLogado&gt;&quot;;
-		XML += &quot;&lt;CodUsuarioLogado&gt;fluig&lt;/CodUsuarioLogado&gt;&quot;;
-		XML += ValidaCampo(&quot;DataCancelamento&quot;, hoje);
-		XML += &quot;&lt;ExcluirItensDaCotacao&gt;false&lt;/ExcluirItensDaCotacao&gt;&quot;;
-		XML += ValidaCampo(&quot;IdMov&quot;, idMov);
-		XML += ValidaCampo(&quot;MotivoCancelamento&quot;, &quot;Movimento Cancelado por WorkFlow Fluig&quot;);
-		XML += ValidaCampo(&quot;NumeroMov&quot;, numeroMov);
-		XML += &quot;&lt;/MovimentosCancelar&gt;&quot;;
-		XML += &quot;&lt;/MovimentosACancelar&gt;&quot;;
-		XML += &quot;&lt;/MovCancelMovProcParams&gt;&quot;;
-
-		log.info(&quot;&gt;&gt; XML enviado : [&quot; + XML + &quot;]&quot;);
-
-		var NOME_SERVICO = &quot;wsProcess&quot;;
-		var CAMINHO_SERVICO = &quot;com.totvs.WsProcess&quot;;
-		var servico = ServiceManager.getServiceInstance(NOME_SERVICO);
-		var serviceHelper = servico.getBean();
-		var instancia = servico.instantiate(CAMINHO_SERVICO);
-		var ws = instancia.getRMIwsProcess();
-		var authenticatedService = serviceHelper.getBasicAuthenticatedClient(ws, &quot;com.totvs.IwsProcess&quot;, usuario, senha);
-
-		log.info(&quot;&gt;&gt; Chamando RM - MovCancelMovProc...&quot;);
-		var response = authenticatedService.executeWithParams(&quot;MovCancelMovProc&quot;, XML);
-		log.info(&quot;&gt;&gt; Response RM completo : [&quot; + response + &quot;]&quot;);
-
-
-		log.warn(&quot;TIPO RESPONSE: &quot; + typeof response);
-		log.warn(&quot;RESPONSE RAW: &quot; + response);
-
-		if (response != null &amp;&amp; (
-			response.indexOf(&quot;===&quot;) != -1 ||
-			response.indexOf(&quot;System.Exception&quot;) != -1 ||
-			response.indexOf(&quot;Exception&quot;) != -1 ||
-			response.indexOf(&quot;erro&quot;) != -1 ||
-			response.indexOf(&quot;Erro&quot;) != -1
-		)) {
-			log.error(&quot;&gt;&gt; ERRO do RM detectado: [&quot; + response + &quot;]&quot;);
-			throw &quot;Erro RM: &quot; + response;
-		}
-
-
-		log.info(&quot;&gt;&gt; Cancelamento executado com sucesso&quot;);
-		log.info(&quot;========== G12 servicetask30 - FIM ==========&quot;);
-
-		var dataset = DatasetBuilder.newDataset();
-		dataset.addColumn(&quot;result&quot;);
-		dataset.addRow(new Array(response));
-		return dataset;
-
-	} catch (e) {
-		log.error(&quot;&gt;&gt; EXCECAO: [&quot; + e.toString() + &quot;]&quot;);
-		return getDatasetError(&quot;ERRO:&quot; + e.toString());
-	}
-}
-
-function ValidaCampo(campo, valor) {
-	if ((valor != null) &amp;&amp; (valor != &quot;&quot;)) {
-		return &quot;&lt;&quot; + campo + &quot;&gt;&quot; + valor + &quot;&lt;/&quot; + campo + &quot;&gt;&quot;;
-	} else {
-		log.warn(&quot;&gt;&gt; Campo [&quot; + campo + &quot;] vazio - ignorado no XML&quot;);
-		return &quot;&quot;;
-	}
-}
-
-function getAccess() {
-	try {
-		var response = new Array();
-		var dataset = DatasetFactory.getDataset(&quot;dsTBCConnector&quot;, null, null, null);
-		var u = dataset.getValue(0, &quot;user&quot;);
-		var p = dataset.getValue(0, &quot;pass&quot;);
-		log.info(&quot;&gt;&gt; getAccess: usuario [&quot; + u + &quot;]&quot;);
-		response.push(u, p);
-		return response;
-	} catch (e) {
-		throw &quot;getAccess / &quot; + e.toString();
-	}
-}
-
-function getDatasetError(exception) {
-	var dtsError = DatasetBuilder.newDataset();
-	dtsError.addColumn(&quot;ERROR&quot;);
-	dtsError.addRow([exception.toString()]);
-	return dtsError;
+      <eventDescription>function servicetask30(attempt, message) {&#xd;
+	try {&#xd;
+		Cancelamento();&#xd;
+	} catch (e) {&#xd;
+		throw &quot;servicetask30 &quot; + e;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function Cancelamento() {&#xd;
+	try {&#xd;
+		var usuario = getAccess()[0];&#xd;
+		var pass = getAccess()[1];&#xd;
+		var senha = new java.lang.String(pass);&#xd;
+&#xd;
+		log.info(&quot;USUARIO LOGADO PARA CANCELAMENTO - &gt; &quot; + usuario)&#xd;
+		log.info(&quot;SENHA LOGADA PARA CANCELAMENTO - &gt; &quot; + senha)&#xd;
+&#xd;
+		var codColigada = hAPI.getCardValue(&quot;CodColigada&quot;);&#xd;
+		var idMov = hAPI.getCardValue(&quot;IdMov&quot;);&#xd;
+		var numeroMov = hAPI.getCardValue(&quot;numeroMov&quot;);&#xd;
+&#xd;
+		log.info(&quot;========== G12 servicetask30 - INICIO ==========&quot;);&#xd;
+		log.info(&quot;&gt;&gt; codColigada : [&quot; + codColigada + &quot;]&quot;);&#xd;
+		log.info(&quot;&gt;&gt; idMov       : [&quot; + idMov + &quot;]&quot;);&#xd;
+		log.info(&quot;&gt;&gt; numeroMov   : [&quot; + numeroMov + &quot;]&quot;);&#xd;
+		log.info(&quot;&gt;&gt; usuario     : [&quot; + usuario + &quot;]&quot;);&#xd;
+&#xd;
+		var hoje = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;)&#xd;
+			.format(new java.util.Date());&#xd;
+&#xd;
+&#xd;
+		var XML = &quot;&lt;MovCancelMovProcParams&gt;&quot;;&#xd;
+		XML += &quot;&lt;MovimentosACancelar&gt;&quot;;&#xd;
+		XML += &quot;&lt;MovimentosCancelar&gt;&quot;;&#xd;
+		XML += &quot;&lt;ApagarMovRelac&gt;false&lt;/ApagarMovRelac&gt;&quot;;&#xd;
+		XML += &quot;&lt;CancelarMovimentosGeradosSimultFaturamento&gt;false&lt;/CancelarMovimentosGeradosSimultFaturamento&gt;&quot;;&#xd;
+		XML += &quot;&lt;CancelarMovimentosGeradosSimultReabriCotacao&gt;false&lt;/CancelarMovimentosGeradosSimultReabriCotacao&gt;&quot;;&#xd;
+		XML += &quot;&lt;CodColigada&gt;&quot; + codColigada + &quot;&lt;/CodColigada&gt;&quot;;&#xd;
+		XML += &quot;&lt;CodSistemaLogado&gt;T&lt;/CodSistemaLogado&gt;&quot;;&#xd;
+		XML += &quot;&lt;CodUsuarioLogado&gt;fluig&lt;/CodUsuarioLogado&gt;&quot;;&#xd;
+		XML += ValidaCampo(&quot;DataCancelamento&quot;, hoje);&#xd;
+		XML += &quot;&lt;ExcluirItensDaCotacao&gt;false&lt;/ExcluirItensDaCotacao&gt;&quot;;&#xd;
+		XML += ValidaCampo(&quot;IdMov&quot;, idMov);&#xd;
+		XML += ValidaCampo(&quot;MotivoCancelamento&quot;, &quot;Movimento Cancelado por WorkFlow Fluig&quot;);&#xd;
+		XML += ValidaCampo(&quot;NumeroMov&quot;, numeroMov);&#xd;
+		XML += &quot;&lt;/MovimentosCancelar&gt;&quot;;&#xd;
+		XML += &quot;&lt;/MovimentosACancelar&gt;&quot;;&#xd;
+		XML += &quot;&lt;/MovCancelMovProcParams&gt;&quot;;&#xd;
+&#xd;
+		log.info(&quot;&gt;&gt; XML enviado : [&quot; + XML + &quot;]&quot;);&#xd;
+&#xd;
+		var NOME_SERVICO = &quot;wsProcess&quot;;&#xd;
+		var CAMINHO_SERVICO = &quot;com.totvs.WsProcess&quot;;&#xd;
+		var servico = ServiceManager.getServiceInstance(NOME_SERVICO);&#xd;
+		var serviceHelper = servico.getBean();&#xd;
+		var instancia = servico.instantiate(CAMINHO_SERVICO);&#xd;
+		var ws = instancia.getRMIwsProcess();&#xd;
+		var authenticatedService = serviceHelper.getBasicAuthenticatedClient(ws, &quot;com.totvs.IwsProcess&quot;, usuario, senha);&#xd;
+&#xd;
+		log.info(&quot;&gt;&gt; Chamando RM - MovCancelMovProc...&quot;);&#xd;
+		var response = authenticatedService.executeWithParams(&quot;MovCancelMovProc&quot;, XML);&#xd;
+		log.info(&quot;&gt;&gt; Response RM completo : [&quot; + response + &quot;]&quot;);&#xd;
+&#xd;
+&#xd;
+		log.warn(&quot;TIPO RESPONSE: &quot; + typeof response);&#xd;
+		log.warn(&quot;RESPONSE RAW: &quot; + response);&#xd;
+&#xd;
+		if (response != null &amp;&amp; (&#xd;
+			response.indexOf(&quot;===&quot;) != -1 ||&#xd;
+			response.indexOf(&quot;System.Exception&quot;) != -1 ||&#xd;
+			response.indexOf(&quot;Exception&quot;) != -1 ||&#xd;
+			response.indexOf(&quot;erro&quot;) != -1 ||&#xd;
+			response.indexOf(&quot;Erro&quot;) != -1&#xd;
+		)) {&#xd;
+			log.error(&quot;&gt;&gt; ERRO do RM detectado: [&quot; + response + &quot;]&quot;);&#xd;
+			throw &quot;Erro RM: &quot; + response;&#xd;
+		}&#xd;
+&#xd;
+&#xd;
+		log.info(&quot;&gt;&gt; Cancelamento executado com sucesso&quot;);&#xd;
+		log.info(&quot;========== G12 servicetask30 - FIM ==========&quot;);&#xd;
+&#xd;
+		var dataset = DatasetBuilder.newDataset();&#xd;
+		dataset.addColumn(&quot;result&quot;);&#xd;
+		dataset.addRow(new Array(response));&#xd;
+		return dataset;&#xd;
+&#xd;
+	} catch (e) {&#xd;
+		log.error(&quot;&gt;&gt; EXCECAO: [&quot; + e.toString() + &quot;]&quot;);&#xd;
+		return getDatasetError(&quot;ERRO:&quot; + e.toString());&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function ValidaCampo(campo, valor) {&#xd;
+	if ((valor != null) &amp;&amp; (valor != &quot;&quot;)) {&#xd;
+		return &quot;&lt;&quot; + campo + &quot;&gt;&quot; + valor + &quot;&lt;/&quot; + campo + &quot;&gt;&quot;;&#xd;
+	} else {&#xd;
+		log.warn(&quot;&gt;&gt; Campo [&quot; + campo + &quot;] vazio - ignorado no XML&quot;);&#xd;
+		return &quot;&quot;;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function getAccess() {&#xd;
+	try {&#xd;
+		var response = new Array();&#xd;
+		var dataset = DatasetFactory.getDataset(&quot;dsTBCConnector&quot;, null, null, null);&#xd;
+		var u = dataset.getValue(0, &quot;user&quot;);&#xd;
+		var p = dataset.getValue(0, &quot;pass&quot;);&#xd;
+		log.info(&quot;&gt;&gt; getAccess: usuario [&quot; + u + &quot;]&quot;);&#xd;
+		response.push(u, p);&#xd;
+		return response;&#xd;
+	} catch (e) {&#xd;
+		throw &quot;getAccess / &quot; + e.toString();&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function getDatasetError(exception) {&#xd;
+	var dtsError = DatasetBuilder.newDataset();&#xd;
+	dtsError.addColumn(&quot;ERROR&quot;);&#xd;
+	dtsError.addRow([exception.toString()]);&#xd;
+	return dtsError;&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -1131,100 +1670,101 @@ function getDatasetError(exception) {
         <processId>G12</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask9(attempt, message) {
-
-    /***********************************************************************************************
- * @author      ENOS ROCHA - PROGRAMADOR FULL STACK
- * @data        18/05/2026
- * @Versao RM   12.1.2302.160
- * @Descricao   Carrega dados do contrato G12 via dataset G12-CARREGAR-DADOS
- *              e popula os campos do formulário via hAPI.setCardValue
- ***********************************************************************************************/
-
-    try {
-        // Nomes EXATOS que o RM envia — confirmados no log
-        var codColigada = String(hAPI.getCardValue(&apos;CodColigada&apos;));
-        var idMov = String(hAPI.getCardValue(&apos;IdMov&apos;));
-
-        // hAPI.setCardValue(&quot;IdMov&quot;, idMov);
-
-        log.info(&quot;[G12] CodColigada: &quot; + codColigada);
-        log.info(&quot;[G12] IdMov: &quot; + idMov);
-
-        loadDsG12(codColigada, idMov);
-
-    } catch (e) {
-        throw &quot;Erro servicetask_g12: &quot; + String(e) + &quot; - Linha &quot; + e.lineNumber;
-    }
-}
-
-function loadDsG12(codColigada, idMov) {
-    try {
-        var c1 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idMov, idMov, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset(&quot;G12-CARREGAR-DADOS&quot;, null, [c1, c2], null);
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn(&quot;[G12] Nenhum dado retornado. CodColigada=&quot; + codColigada + &quot; IdMov=&quot; + idMov);
-            return;
-        }
-
-        // Seção 1 — Identificação e Endereço
-
-        log.info(&quot;VALOR DO IDMOV -&gt; &quot; + dataset.getValue(0, &quot;IDMOV&quot;));
-        hAPI.setCardValue(&apos;IDMOV_numero&apos;, safe(dataset.getValue(0, &quot;IDMOV&quot;)));
-        hAPI.setCardValue(&apos;NumeroMov&apos;, safe(dataset.getValue(0, &quot;NUMERO_MOVIMENTO&quot;)));
-        hAPI.setCardValue(&apos;coligada&apos;, safe(dataset.getValue(0, &quot;COLIGADA&quot;)));
-        hAPI.setCardValue(&apos;filial&apos;, safe(dataset.getValue(0, &quot;FILIAL&quot;)));
-        hAPI.setCardValue(&apos;idprj&apos;, safe(dataset.getValue(0, &quot;IDPRJ&quot;)));
-        hAPI.setCardValue(&apos;cnpj&apos;, safe(dataset.getValue(0, &quot;CNPJ&quot;)));
-        hAPI.setCardValue(&apos;centro_de_custo&apos;, safe(dataset.getValue(0, &quot;CENTRO_DE_CUSTO&quot;)));
-        hAPI.setCardValue(&apos;codigo_do_projeto&apos;, safe(dataset.getValue(0, &quot;CODIGO_DO_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;descricao_projeto&apos;, safe(dataset.getValue(0, &quot;DESCRICAO_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;rua_projeto&apos;, safe(dataset.getValue(0, &quot;RUA_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;estado_projeto&apos;, safe(dataset.getValue(0, &quot;ESTADO_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;cidade_projeto&apos;, safe(dataset.getValue(0, &quot;CIDADE_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;complemento_projeto&apos;, safe(dataset.getValue(0, &quot;COMPLEMENTO_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;bairro_projeto&apos;, safe(dataset.getValue(0, &quot;BAIRRO_PROJETO&quot;)));
-        hAPI.setCardValue(&apos;numero_endereco_projeto&apos;, safe(dataset.getValue(0, &quot;NUMERO_ENDERECO_PROJETO&quot;)));
-
-        // Seção 2 — Detalhes do Contrato
-        hAPI.setCardValue(&apos;numero_contrato&apos;, safe(dataset.getValue(0, &quot;NUMERO_CONTRATO&quot;)));
-        hAPI.setCardValue(&apos;tipo_contrato&apos;, safe(dataset.getValue(0, &quot;TIPO_CONTRATO&quot;)));
-        hAPI.setCardValue(&apos;numero_licitacao&apos;, safe(dataset.getValue(0, &quot;NUMERO_LICITACAO&quot;)));
-        hAPI.setCardValue(&apos;codigo_cliente&apos;, safe(dataset.getValue(0, &quot;CODIGO_CLIENTE&quot;)));
-        hAPI.setCardValue(&apos;data_contrato&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_CONTRATO&quot;))));
-        hAPI.setCardValue(&apos;data_inicio_contrato&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_INICIO_CONTRATO&quot;))));
-        hAPI.setCardValue(&apos;data_termino&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_TERMINO&quot;))));
-        hAPI.setCardValue(&apos;periodicidade_medicao&apos;, safe(dataset.getValue(0, &quot;PERIODICIDADE_MEDICAO&quot;)));
-        hAPI.setCardValue(&apos;condicao_pagamento&apos;, safe(dataset.getValue(0, &quot;CONDICAO_PAGAMENTO&quot;)));
-        hAPI.setCardValue(&apos;nome_produto&apos;, safe(dataset.getValue(0, &quot;NOME_PRODUTO&quot;)));
-        hAPI.setCardValue(&apos;codigo_produto&apos;, safe(dataset.getValue(0, &quot;CODIGO_PRODUTO&quot;)));
-
-        log.info(&quot;[G12] Campos preenchidos com sucesso para IdMov=&quot; + idMov);
-
-    } catch (e) {
-        throw &quot;Erro loadDsG12: &quot; + String(e) + &quot; - Linha &quot; + e.lineNumber;
-    }
-}
-
-function safe(valor) {
-    log.info(&quot;VALOR DO IDMOV QUE ENTROU DENTRO DO CAMPO DE VALIDACAO DE CARREGAMENTO&quot; + valor)
-    if (valor == null || valor == undefined) return &quot;&quot;;
-    var s = String(valor).trim();
-    return (s == &quot;null&quot; || s == &quot;undefined&quot;) ? &quot;&quot; : s;
-}
-
-function formatDate(rawDate) {
-    if (!rawDate || rawDate == &quot;&quot;) return &quot;&quot;;
-    try {
-        var inputFormat = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&quot;);
-        var outputFormat = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;);
-        return outputFormat.format(inputFormat.parse(rawDate));
-    } catch (e) {
-        return rawDate;
-    }
+      <eventDescription>function servicetask9(attempt, message) {&#xd;
+&#xd;
+    /***********************************************************************************************&#xd;
+ * @author      ENOS ROCHA - PROGRAMADOR FULL STACK&#xd;
+ * @data        18/05/2026&#xd;
+ * @Versao RM   12.1.2302.160&#xd;
+ * @Descricao   Carrega dados do contrato G12 via dataset G12-CARREGAR-DADOS&#xd;
+ *              e popula os campos do formulário via hAPI.setCardValue&#xd;
+ ***********************************************************************************************/&#xd;
+&#xd;
+    try {&#xd;
+        // Nomes EXATOS que o RM envia — confirmados no log&#xd;
+        var codColigada = String(hAPI.getCardValue(&apos;CodColigada&apos;));&#xd;
+        var idMov = String(hAPI.getCardValue(&apos;IdMov&apos;));&#xd;
+&#xd;
+        // hAPI.setCardValue(&quot;IdMov&quot;, idMov);&#xd;
+&#xd;
+        log.info(&quot;[G12] CodColigada: &quot; + codColigada);&#xd;
+        log.info(&quot;[G12] IdMov: &quot; + idMov);&#xd;
+&#xd;
+        loadDsG12(codColigada, idMov);&#xd;
+&#xd;
+    } catch (e) {&#xd;
+        throw &quot;Erro servicetask_g12: &quot; + String(e) + &quot; - Linha &quot; + e.lineNumber;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function loadDsG12(codColigada, idMov) {&#xd;
+    try {&#xd;
+        var c1 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);&#xd;
+        var c2 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idMov, idMov, ConstraintType.MUST);&#xd;
+&#xd;
+        var dataset = DatasetFactory.getDataset(&quot;G12-CARREGAR-DADOS&quot;, null, [c1, c2], null);&#xd;
+&#xd;
+        if (dataset == null || dataset.rowsCount == 0) {&#xd;
+            log.warn(&quot;[G12] Nenhum dado retornado. CodColigada=&quot; + codColigada + &quot; IdMov=&quot; + idMov);&#xd;
+            return;&#xd;
+        }&#xd;
+&#xd;
+        // Seção 1 — Identificação e Endereço&#xd;
+&#xd;
+        log.info(&quot;VALOR DO IDMOV -&gt; &quot; + dataset.getValue(0, &quot;IDMOV&quot;));&#xd;
+        hAPI.setCardValue(&apos;IDMOV_numero&apos;, safe(dataset.getValue(0, &quot;IDMOV&quot;)));&#xd;
+        hAPI.setCardValue(&apos;NumeroMov&apos;, safe(dataset.getValue(0, &quot;NUMERO_MOVIMENTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;coligada&apos;, safe(dataset.getValue(0, &quot;COLIGADA&quot;)));&#xd;
+        hAPI.setCardValue(&apos;filial&apos;, safe(dataset.getValue(0, &quot;FILIAL&quot;)));&#xd;
+        hAPI.setCardValue(&apos;idprj&apos;, safe(dataset.getValue(0, &quot;IDPRJ&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cnpj&apos;, safe(dataset.getValue(0, &quot;CNPJ_EMPRESA&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cnpjCliente&apos;, safe(dataset.getValue(0, &quot;CNPJ_CLIENTE&quot;)));&#xd;
+        hAPI.setCardValue(&apos;centro_de_custo&apos;, safe(dataset.getValue(0, &quot;CENTRO_DE_CUSTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codigo_do_projeto&apos;, safe(dataset.getValue(0, &quot;CODIGO_DO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;descricao_projeto&apos;, safe(dataset.getValue(0, &quot;DESCRICAO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;rua_projeto&apos;, safe(dataset.getValue(0, &quot;RUA_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;estado_projeto&apos;, safe(dataset.getValue(0, &quot;ESTADO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cidade_projeto&apos;, safe(dataset.getValue(0, &quot;CIDADE_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;complemento_projeto&apos;, safe(dataset.getValue(0, &quot;COMPLEMENTO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;bairro_projeto&apos;, safe(dataset.getValue(0, &quot;BAIRRO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;numero_endereco_projeto&apos;, safe(dataset.getValue(0, &quot;NUMERO_ENDERECO_PROJETO&quot;)));&#xd;
+&#xd;
+        // Seção 2 — Detalhes do Contrato&#xd;
+        hAPI.setCardValue(&apos;numero_contrato&apos;, safe(dataset.getValue(0, &quot;NUMERO_CONTRATO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;tipo_contrato&apos;, safe(dataset.getValue(0, &quot;TIPO_CONTRATO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;numero_licitacao&apos;, safe(dataset.getValue(0, &quot;NUMERO_LICITACAO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codigo_cliente&apos;, safe(dataset.getValue(0, &quot;CODIGO_CLIENTE&quot;)));&#xd;
+        hAPI.setCardValue(&apos;data_contrato&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_CONTRATO&quot;))));&#xd;
+        hAPI.setCardValue(&apos;data_inicio_contrato&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_INICIO_CONTRATO&quot;))));&#xd;
+        hAPI.setCardValue(&apos;data_termino&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_TERMINO&quot;))));&#xd;
+        hAPI.setCardValue(&apos;periodicidade_medicao&apos;, safe(dataset.getValue(0, &quot;PERIODICIDADE_MEDICAO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;condicao_pagamento&apos;, safe(dataset.getValue(0, &quot;CONDICAO_PAGAMENTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nome_produto&apos;, safe(dataset.getValue(0, &quot;NOME_PRODUTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codigo_produto&apos;, safe(dataset.getValue(0, &quot;CODIGO_PRODUTO&quot;)));&#xd;
+&#xd;
+        log.info(&quot;[G12] Campos preenchidos com sucesso para IdMov=&quot; + idMov);&#xd;
+&#xd;
+    } catch (e) {&#xd;
+        throw &quot;Erro loadDsG12: &quot; + String(e) + &quot; - Linha &quot; + e.lineNumber;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function safe(valor) {&#xd;
+    log.info(&quot;VALOR DO IDMOV QUE ENTROU DENTRO DO CAMPO DE VALIDACAO DE CARREGAMENTO&quot; + valor)&#xd;
+    if (valor == null || valor == undefined) return &quot;&quot;;&#xd;
+    var s = String(valor).trim();&#xd;
+    return (s == &quot;null&quot; || s == &quot;undefined&quot;) ? &quot;&quot; : s;&#xd;
+}&#xd;
+&#xd;
+function formatDate(rawDate) {&#xd;
+    if (!rawDate || rawDate == &quot;&quot;) return &quot;&quot;;&#xd;
+    try {&#xd;
+        var inputFormat = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&quot;);&#xd;
+        var outputFormat = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;);&#xd;
+        return outputFormat.format(inputFormat.parse(rawDate));&#xd;
+    } catch (e) {&#xd;
+        return rawDate;&#xd;
+    }&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
   </list>
@@ -1233,7 +1773,7 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>FFFFFF</color>
       <height>700</height>
-      <width>781</width>
+      <width>1281</width>
       <positionX>130</positionX>
       <positionY>50</positionY>
       <stateName>G12</stateName>
@@ -1249,7 +1789,7 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>0080FF</color>
       <height>175</height>
-      <width>751</width>
+      <width>1251</width>
       <positionX>160</positionX>
       <positionY>50</positionY>
       <stateName>CARREGAMENTO</stateName>
@@ -1265,7 +1805,7 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>80FF80</color>
       <height>175</height>
-      <width>751</width>
+      <width>1251</width>
       <positionX>160</positionX>
       <positionY>225</positionY>
       <stateName>SETOR TÉCNICO</stateName>
@@ -1281,7 +1821,7 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>FF8080</color>
       <height>175</height>
-      <width>751</width>
+      <width>1251</width>
       <positionX>160</positionX>
       <positionY>400</positionY>
       <stateName>CONTRATOS</stateName>
@@ -1297,7 +1837,7 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>FFFF80</color>
       <height>175</height>
-      <width>751</width>
+      <width>1251</width>
       <positionX>160</positionX>
       <positionY>575</positionY>
       <stateName>FINANCEIRO</stateName>
@@ -1313,9 +1853,9 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>FFFFFF</color>
       <height>290</height>
-      <width>430</width>
-      <positionX>1070</positionX>
-      <positionY>183</positionY>
+      <width>559</width>
+      <positionX>1500</positionX>
+      <positionY>50</positionY>
       <stateName>CANCELAMENO</stateName>
       <type>1</type>
       <parentSequence>0</parentSequence>
@@ -1329,9 +1869,9 @@ function formatDate(rawDate) {
     <SwimLane>
       <color>FF0000</color>
       <height>290</height>
-      <width>400</width>
-      <positionX>1100</positionX>
-      <positionY>183</positionY>
+      <width>529</width>
+      <positionX>1530</positionX>
+      <positionY>50</positionY>
       <stateName></stateName>
       <type>2</type>
       <parentSequence>6</parentSequence>
@@ -1342,6 +1882,38 @@ function formatDate(rawDate) {
         <sequence>7</sequence>
       </swimLanePK>
     </SwimLane>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>290</height>
+      <width>560</width>
+      <positionX>1499</positionX>
+      <positionY>366</positionY>
+      <stateName>AJUSTE</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>8</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>290</height>
+      <width>530</width>
+      <positionX>1529</positionX>
+      <positionY>366</positionY>
+      <stateName></stateName>
+      <type>2</type>
+      <parentSequence>8</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </swimLanePK>
+    </SwimLane>
   </list>
   <list/>
   <list/>
@@ -1350,23 +1922,12 @@ function formatDate(rawDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>33</version>
-        <linkSequence>27</linkSequence>
+        <version>36</version>
+        <linkSequence>64</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>644</positionX>
+      <positionX>961</positionX>
       <positionY>664</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>G12</processId>
-        <version>33</version>
-        <linkSequence>27</linkSequence>
-        <bendSequence>2</bendSequence>
-      </processLinkBendPK>
-      <positionX>644</positionX>
-      <positionY>488</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
@@ -1397,7 +1958,158 @@ function formatDate(rawDate) {
     </ProcessStateService>
   </list>
   <list/>
-  <list/>
+  <list>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>17</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>17</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>17</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>17</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>21</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>17</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>39</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>61</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>61</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>61</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>61</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>61</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>62</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>62</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>62</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>62</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>G12</processId>
+      <processVersion>36</processVersion>
+      <stateSequence>62</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description></description>
+    </ProcessAppConfiguration>
+  </list>
   <list/>
   <list/>
 </list>

@@ -4,7 +4,7 @@ var MAPA_CAMPOS = {
     "FILIAL": "filial",
     "IDMOV": "IDMOV_numero",
     "IDPRJ": "idprj",
-    "CNPJ": "cnpj",
+    "CNPJ_CLIENTE": "cnpjCliente",
     "CENTRO_DE_CUSTO": "centro_de_custo",
     "CODIGO_DO_PROJETO": "codigo_do_projeto",
     "DESCRICAO_PROJETO": "descricao_projeto",
@@ -25,7 +25,8 @@ var MAPA_CAMPOS = {
     "CONDICAO_PAGAMENTO": "condicao_pagamento",
     "NOME_PRODUTO": "nome_produto",
     "CODIGO_PRODUTO": "codigo_produto",
-    "NUMERO_MOVIMENTO":"NumeroMov"
+    "NUMERO_MOVIMENTO":"NumeroMov",
+    "CNPJ_EMPRESA":"cnpj"
 };
 
 function preencherFormulario(ds) {
