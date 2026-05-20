@@ -17,6 +17,8 @@ function createDataset(fields, constraints, sortFields) {
 
     // Colunas alinhadas com o retorno real da consulta G12FORMULARIO para contratos
     var COLUNAS = [
+        "IDMOV",
+        "NUMERO_MOVIMENTO",
         "COLIGADA",
         "FILIAL",
         "IDPRJ",
@@ -100,6 +102,8 @@ function createDataset(fields, constraints, sortFields) {
         // Funcao auxiliar para montar uma linha com fallback seguro
         function buildRow(row) {
             return new Array(
+                row.has("IDMOV") ? row.get("IDMOV") : "",
+                row.has("NUMERO_MOVIMENTO") ? row.get("NUMERO_MOVIMENTO") : "",
                 row.has("COLIGADA") ? row.get("COLIGADA") : "",
                 row.has("FILIAL") ? row.get("FILIAL") : "",
                 row.has("IDPRJ") ? row.get("IDPRJ") : "",

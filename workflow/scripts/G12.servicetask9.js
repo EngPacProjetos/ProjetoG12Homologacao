@@ -13,7 +13,7 @@ function servicetask9(attempt, message) {
         var codColigada = String(hAPI.getCardValue('CodColigada'));
         var idMov = String(hAPI.getCardValue('IdMov'));
 
-        hAPI.setCardValue("IdMov", idMov);
+        // hAPI.setCardValue("IdMov", idMov);
 
         log.info("[G12] CodColigada: " + codColigada);
         log.info("[G12] IdMov: " + idMov);
@@ -38,6 +38,10 @@ function loadDsG12(codColigada, idMov) {
         }
 
         // Seção 1 — Identificação e Endereço
+
+        log.info("VALOR DO IDMOV -> " + dataset.getValue(0, "IDMOV"));
+        hAPI.setCardValue('IDMOV_numero', safe(dataset.getValue(0, "IDMOV")));
+        hAPI.setCardValue('NumeroMov', safe(dataset.getValue(0, "NUMERO_MOVIMENTO")));
         hAPI.setCardValue('coligada', safe(dataset.getValue(0, "COLIGADA")));
         hAPI.setCardValue('filial', safe(dataset.getValue(0, "FILIAL")));
         hAPI.setCardValue('idprj', safe(dataset.getValue(0, "IDPRJ")));
@@ -73,6 +77,7 @@ function loadDsG12(codColigada, idMov) {
 }
 
 function safe(valor) {
+    log.info("VALOR DO IDMOV QUE ENTROU DENTRO DO CAMPO DE VALIDACAO DE CARREGAMENTO" + valor)
     if (valor == null || valor == undefined) return "";
     var s = String(valor).trim();
     return (s == "null" || s == "undefined") ? "" : s;

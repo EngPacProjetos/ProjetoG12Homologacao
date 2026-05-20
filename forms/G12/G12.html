@@ -6,15 +6,10 @@
 	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
 	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Carregamento.js" charset="utf-8"></script>
 </head>
 
 <body>
-	<!-- Campos recebidos do RM — não visíveis ao usuário -->
-	<input type="hidden" name="IdMov" id="IdMov">
-	<input type="hidden" name="CodColigada" id="CodColigada">
-
-
-
 	<div class="fluig-style-guide">
 		<form name="form" role="form">
 			<div class="panel panel-default">
@@ -22,8 +17,29 @@
 					<h2 class="panel-title">G12 — Dados do Contrato</h2>
 				</div>
 				<div class="panel-body">
-					<!--  -----------------------------------------CABECALHO DA SOLICITACAO -------------------------------- -->
-					<div class="panel panel-primary" style="margin-bottom: 24px;">
+
+					<!-- Campos ocultos que guardam os parâmetros vindos do RM -->
+					<input type="hidden" name="IdMov" id="IdMov">
+					<input type="hidden" name="CodColigada" id="CodColigada">
+					<input type="hidden" name="NumeroMov" id="NumeroMov">
+
+					<!-- Indicador de carregamento -->
+					<div id="loadingDados" style="display:none; margin-bottom: 16px;">
+						<div class="alert alert-info">
+							<i class="fa fa-spinner fa-spin"></i> Carregando dados do contrato...
+						</div>
+					</div>
+
+					<!-- Mensagem de erro -->
+					<div id="erroDados" style="display:none; margin-bottom: 16px;">
+						<div class="alert alert-danger">
+							<i class="fa fa-exclamation-triangle"></i>
+							<strong>Erro ao carregar dados:</strong> <span id="msgErro"></span>
+						</div>
+					</div>
+
+					<!-- IDENTIFICAÇÃO DO PROJETO -->
+					<div class="panel panel-default" style="margin-bottom: 24px;">
 						<div class="panel-heading">
 							<h3 class="panel-title">
 								<i class="fa fa-building" style="margin-right: 6px;"></i>
@@ -33,27 +49,34 @@
 						<div class="panel-body">
 
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-2">
 									<div class="form-group">
-										<label for="coligada">Coligada</label>
+										<label>Coligada</label>
 										<input type="text" class="form-control" name="coligada" id="coligada" readonly>
 									</div>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-2">
 									<div class="form-group">
-										<label for="filial">Filial</label>
+										<label>Filial</label>
 										<input type="text" class="form-control" name="filial" id="filial" readonly>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label>IDMOV</label>
+										<input type="text" class="form-control" name="IDMOV_numero" id="IDMOV_numero"
+											readonly>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="idprj">ID Projeto</label>
+										<label>ID Projeto</label>
 										<input type="text" class="form-control" name="idprj" id="idprj" readonly>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="cnpj">CNPJ</label>
+										<label>CNPJ</label>
 										<input type="text" class="form-control" name="cnpj" id="cnpj" readonly>
 									</div>
 								</div>
@@ -62,21 +85,21 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="centro_de_custo">Centro de Custo</label>
+										<label>Centro de Custo</label>
 										<input type="text" class="form-control" name="centro_de_custo"
 											id="centro_de_custo" readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="codigo_do_projeto">Código do Projeto</label>
+										<label>Código do Projeto</label>
 										<input type="text" class="form-control" name="codigo_do_projeto"
 											id="codigo_do_projeto" readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="descricao_projeto">Descrição do Projeto</label>
+										<label>Descrição do Projeto</label>
 										<input type="text" class="form-control" name="descricao_projeto"
 											id="descricao_projeto" readonly>
 									</div>
@@ -86,28 +109,28 @@
 							<div class="row">
 								<div class="col-md-5">
 									<div class="form-group">
-										<label for="rua_projeto">Rua</label>
+										<label>Rua</label>
 										<input type="text" class="form-control" name="rua_projeto" id="rua_projeto"
 											readonly>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
-										<label for="numero_endereco_projeto">Número</label>
+										<label>Número</label>
 										<input type="text" class="form-control" name="numero_endereco_projeto"
 											id="numero_endereco_projeto" readonly>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="bairro_projeto">Bairro</label>
+										<label>Bairro</label>
 										<input type="text" class="form-control" name="bairro_projeto"
 											id="bairro_projeto" readonly>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
-										<label for="complemento_projeto">Complemento</label>
+										<label>Complemento</label>
 										<input type="text" class="form-control" name="complemento_projeto"
 											id="complemento_projeto" readonly>
 									</div>
@@ -117,14 +140,14 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="cidade_projeto">Cidade</label>
+										<label>Cidade</label>
 										<input type="text" class="form-control" name="cidade_projeto"
 											id="cidade_projeto" readonly>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
-										<label for="estado_projeto">Estado</label>
+										<label>Estado</label>
 										<input type="text" class="form-control" name="estado_projeto"
 											id="estado_projeto" readonly>
 									</div>
@@ -134,7 +157,7 @@
 						</div>
 					</div>
 
-					<!-- ------------------------------ DADOS DO CONTRATO ----------------------------  -->
+					<!-- DETALHES DO CONTRATO -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">
@@ -147,28 +170,28 @@
 							<div class="row">
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="numero_contrato">Número do Contrato</label>
+										<label>Número do Contrato</label>
 										<input type="text" class="form-control" name="numero_contrato"
 											id="numero_contrato" readonly>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="tipo_contrato">Tipo de Contrato</label>
+										<label>Tipo de Contrato</label>
 										<input type="text" class="form-control" name="tipo_contrato" id="tipo_contrato"
 											readonly>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="numero_licitacao">Número da Licitação</label>
+										<label>Número da Licitação</label>
 										<input type="text" class="form-control" name="numero_licitacao"
 											id="numero_licitacao" readonly>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label for="codigo_cliente">Código do Cliente</label>
+										<label>Código do Cliente</label>
 										<input type="text" class="form-control" name="codigo_cliente"
 											id="codigo_cliente" readonly>
 									</div>
@@ -178,21 +201,21 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="data_contrato">Data do Contrato</label>
+										<label>Data do Contrato</label>
 										<input type="text" class="form-control" name="data_contrato" id="data_contrato"
 											readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="data_inicio_contrato">Data de Início</label>
+										<label>Data de Início</label>
 										<input type="text" class="form-control" name="data_inicio_contrato"
 											id="data_inicio_contrato" readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="data_termino">Data de Término</label>
+										<label>Data de Término</label>
 										<input type="text" class="form-control" name="data_termino" id="data_termino"
 											readonly>
 									</div>
@@ -202,14 +225,14 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="periodicidade_medicao">Periodicidade de Medição</label>
+										<label>Periodicidade de Medição</label>
 										<input type="text" class="form-control" name="periodicidade_medicao"
 											id="periodicidade_medicao" readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="condicao_pagamento">Condição de Pagamento</label>
+										<label>Condição de Pagamento</label>
 										<input type="text" class="form-control" name="condicao_pagamento"
 											id="condicao_pagamento" readonly>
 									</div>
@@ -219,27 +242,44 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="nome_produto">Nome do Produto</label>
+										<label>Nome do Produto</label>
 										<input type="text" class="form-control" name="nome_produto" id="nome_produto"
 											readonly>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="codigo_produto">Código do Produto</label>
+										<label>Código do Produto</label>
 										<input type="text" class="form-control" name="codigo_produto"
 											id="codigo_produto" readonly>
 									</div>
 								</div>
 							</div>
 
-						</div><!-- /panel-body detalhes -->
-					</div><!-- /panel detalhes -->
+						</div>
+					</div>
 
-				</div><!-- /panel-body externo -->
-			</div><!-- /panel externo -->
+					<div class="panel panel-default" style="margin-bottom: 16px;">
+						<div class="panel-heading">
+							<h2 class="panel-title">Aprovação do setor técnico</h2>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12"><label for="ajusteSetorTecnico">Informações para ajuste</label>
+									<textarea name="ajusteSetorTecnico" id="ajusteSetorTecnico"
+										class="form-control"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</form>
 	</div>
+
+
+
 </body>
 
 </html>
