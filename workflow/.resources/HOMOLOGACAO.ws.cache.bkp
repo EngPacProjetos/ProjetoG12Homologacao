@@ -11,7 +11,7 @@
   </void>
   <void method="put">
    <string>mecanismo</string>
-   <array class="[Ljava.lang.Object;" length="45">
+   <array class="[Ljava.lang.Object;" length="47">
     <void index="0">
      <array class="java.lang.Object" length="2">
       <void index="0">
@@ -145,16 +145,36 @@
     <void index="13">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>G3-ANALISE-CONTROLADORIA</string>
+       <string>G12-APROVACAO-ST</string>
       </void>
       <void index="1">
-       <string>G3-ANALISE-CONTROLADORIA</string>
+       <string>G12-APROVACAO-ST</string>
       </void>
      </array>
     </void>
     <void index="14">
      <array class="java.lang.Object" length="2">
       <void index="0">
+       <string>G12-CONTRATOS-VALIDA</string>
+      </void>
+      <void index="1">
+       <string>G12-CONTRATOS-VALIDA</string>
+      </void>
+     </array>
+    </void>
+    <void index="15">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G3-ANALISE-CONTROLADORIA</string>
+      </void>
+      <void index="1">
+       <string>G3-ANALISE-CONTROLADORIA</string>
+      </void>
+     </array>
+    </void>
+    <void index="16">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
        <string>G4-RETIRADALOGISTICA</string>
       </void>
       <void index="1">
@@ -162,7 +182,7 @@
       </void>
      </array>
     </void>
-    <void index="15">
+    <void index="17">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G5_SolicitacaoEmAnalise</string>
@@ -172,7 +192,7 @@
       </void>
      </array>
     </void>
-    <void index="16">
+    <void index="18">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G6 - Almoxarifado - Homologação</string>
@@ -182,7 +202,7 @@
       </void>
      </array>
     </void>
-    <void index="17">
+    <void index="19">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G6 - LogisticaMont.DeRota</string>
@@ -192,37 +212,37 @@
       </void>
      </array>
     </void>
-    <void index="18">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G6-Estoque</string>
-      </void>
-      <void index="1">
-       <string>G6-Estoque</string>
-      </void>
-     </array>
-    </void>
-    <void index="19">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G6-LogisticaEmRota</string>
-      </void>
-      <void index="1">
-       <string>G6-LogisticaEmRota</string>
-      </void>
-     </array>
-    </void>
     <void index="20">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>G6-LogisticaEnt.Parcial</string>
+       <string>G6-Estoque</string>
       </void>
       <void index="1">
-       <string>G6-LogisticaEnt.Parcial</string>
+       <string>G6-Estoque</string>
       </void>
      </array>
     </void>
     <void index="21">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G6-LogisticaEmRota</string>
+      </void>
+      <void index="1">
+       <string>G6-LogisticaEmRota</string>
+      </void>
+     </array>
+    </void>
+    <void index="22">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G6-LogisticaEnt.Parcial</string>
+      </void>
+      <void index="1">
+       <string>G6-LogisticaEnt.Parcial</string>
+      </void>
+     </array>
+    </void>
+    <void index="23">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string></string>
@@ -232,27 +252,27 @@
       </void>
      </array>
     </void>
-    <void index="22">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G6-LogisticaMat.Pend.</string>
-      </void>
-      <void index="1">
-       <string>G6-LogisticaMat.Pend.</string>
-      </void>
-     </array>
-    </void>
-    <void index="23">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G6-ProdutosSeparados</string>
-      </void>
-      <void index="1">
-       <string>G6-ProdutosSeparados</string>
-      </void>
-     </array>
-    </void>
     <void index="24">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G6-LogisticaMat.Pend.</string>
+      </void>
+      <void index="1">
+       <string>G6-LogisticaMat.Pend.</string>
+      </void>
+     </array>
+    </void>
+    <void index="25">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G6-ProdutosSeparados</string>
+      </void>
+      <void index="1">
+       <string>G6-ProdutosSeparados</string>
+      </void>
+     </array>
+    </void>
+    <void index="26">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G8-MecanismoContabilidadeNF</string>
@@ -262,39 +282,39 @@
       </void>
      </array>
     </void>
-    <void index="25">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G8-MecanismoFinanceiroNF</string>
-      </void>
-      <void index="1">
-       <string>G8-MecanismoFinanceiroNF</string>
-      </void>
-     </array>
-    </void>
-    <void index="26">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G8-MecanismoNFemissao</string>
-      </void>
-      <void index="1">
-       <string>G8-MecanismoNFemissao</string>
-      </void>
-     </array>
-    </void>
     <void index="27">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>G8-MecanismoNFemitida</string>
+       <string>G8-MecanismoFinanceiroNF</string>
       </void>
       <void index="1">
-       <string>G8-MecanismoNFemitida</string>
+       <string>G8-MecanismoFinanceiroNF</string>
       </void>
      </array>
     </void>
     <void index="28">
      <array class="java.lang.Object" length="2">
       <void index="0">
+       <string>G8-MecanismoNFemissao</string>
+      </void>
+      <void index="1">
+       <string>G8-MecanismoNFemissao</string>
+      </void>
+     </array>
+    </void>
+    <void index="29">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G8-MecanismoNFemitida</string>
+      </void>
+      <void index="1">
+       <string>G8-MecanismoNFemitida</string>
+      </void>
+     </array>
+    </void>
+    <void index="30">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
        <string>G8-NovasSolicitacoesFIN</string>
       </void>
       <void index="1">
@@ -302,7 +322,7 @@
       </void>
      </array>
     </void>
-    <void index="29">
+    <void index="31">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Grupo</string>
@@ -312,7 +332,7 @@
       </void>
      </array>
     </void>
-    <void index="30">
+    <void index="32">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Grupos do Colaborador</string>
@@ -322,7 +342,7 @@
       </void>
      </array>
     </void>
-    <void index="31">
+    <void index="33">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G4 - Grupo Compras</string>
@@ -332,7 +352,7 @@
       </void>
      </array>
     </void>
-    <void index="32">
+    <void index="34">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G4 - Grupo Estoque</string>
@@ -342,7 +362,7 @@
       </void>
      </array>
     </void>
-    <void index="33">
+    <void index="35">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G4 - Grupo Financeiro</string>
@@ -352,7 +372,7 @@
       </void>
      </array>
     </void>
-    <void index="34">
+    <void index="36">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>MecanismoContratosNF</string>
@@ -362,7 +382,7 @@
       </void>
      </array>
     </void>
-    <void index="35">
+    <void index="37">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>MecanismoEngNF - G8</string>
@@ -372,37 +392,37 @@
       </void>
      </array>
     </void>
-    <void index="36">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>mecanismoPersonalizado</string>
-      </void>
-      <void index="1">
-       <string>mecanismoPersonalizado</string>
-      </void>
-     </array>
-    </void>
-    <void index="37">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>MecRetiradaFornecedorG10</string>
-      </void>
-      <void index="1">
-       <string>MecRetiradaFornecedorG10</string>
-      </void>
-     </array>
-    </void>
     <void index="38">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>mec_notificacao</string>
+       <string>mecanismoPersonalizado</string>
       </void>
       <void index="1">
-       <string>mec_notificacao</string>
+       <string>mecanismoPersonalizado</string>
       </void>
      </array>
     </void>
     <void index="39">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>MecRetiradaFornecedorG10</string>
+      </void>
+      <void index="1">
+       <string>MecRetiradaFornecedorG10</string>
+      </void>
+     </array>
+    </void>
+    <void index="40">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>mec_notificacao</string>
+      </void>
+      <void index="1">
+       <string>mec_notificacao</string>
+      </void>
+     </array>
+    </void>
+    <void index="41">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Papel</string>
@@ -412,7 +432,7 @@
       </void>
      </array>
     </void>
-    <void index="40">
+    <void index="42">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição para um Grupo</string>
@@ -422,7 +442,7 @@
       </void>
      </array>
     </void>
-    <void index="41">
+    <void index="43">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição para um Papel</string>
@@ -432,27 +452,27 @@
       </void>
      </array>
     </void>
-    <void index="42">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>Recotação_G3</string>
-      </void>
-      <void index="1">
-       <string>Recotação_G3</string>
-      </void>
-     </array>
-    </void>
-    <void index="43">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>SetorTecnico_G4</string>
-      </void>
-      <void index="1">
-       <string>SetorTecnico_G4</string>
-      </void>
-     </array>
-    </void>
     <void index="44">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Recotação_G3</string>
+      </void>
+      <void index="1">
+       <string>Recotação_G3</string>
+      </void>
+     </array>
+    </void>
+    <void index="45">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>SetorTecnico_G4</string>
+      </void>
+      <void index="1">
+       <string>SetorTecnico_G4</string>
+      </void>
+     </array>
+    </void>
+    <void index="46">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Usuário</string>

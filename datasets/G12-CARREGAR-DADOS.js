@@ -43,7 +43,42 @@ function createDataset(fields, constraints, sortFields) {
         "CONDICAO_PAGAMENTO",
         "NOME_PRODUTO",
         "CODIGO_PRODUTO",
-        "CNPJ_EMPRESA"
+        "CNPJ_EMPRESA",
+        // Prestador do serviço (GFILIAL)
+        "NOME_PRESTADOR",
+        "INCRICAO_PRESTADOR",
+        "TELEFONE_PRESTADOR",
+        "EMAIL_PRESTADOR",
+        "RUA_PRESTADOR",
+        "NUMERO_PRESTADOR",
+        "BAIRRO_PRESTADOR",
+        "CIDADE_PRESTADOR",
+        "ESTADO_PRESTADOR",
+        "CEP_PRESTADOR",
+        // Tomador do serviço (FCFO)
+        "INSCRICAO_TOMADOR",
+        "TELEFONE_TOMADOR",
+        "RUA_TOMADOR",
+        "NUMERO_TOMADOR",
+        "BAIRRO_TOMADOR",
+        "CIDADE_TOMADOR",
+        "CEP_TOMADOR",
+        "NOME_TOMADOR",
+        "EMAIL_TOMADOR",
+        // Local de atuação IBS (TMOV)
+        "COD_MUNI_IBS",
+        "COD_UF_IBS",
+        // Item (TITMMOV)
+        "UNIDADE_ITEM",
+        "QUANTIDADE_ITEM",
+        // Tributação
+        "TRIBUTOS_NACIONAIS",
+        "NATUREZA_ORCAMENTARIA",
+        "IRRF_DO_ITEM",
+        "INSS_DO_ITEM",
+        "TRIBUTOS_MUNICIPAIS",
+        // Histórico
+        "INFORMACOES_COMPLEMENTARES_NOTA"
     ];
 
     try {
@@ -129,7 +164,36 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("CONDICAO_PAGAMENTO") ? row.get("CONDICAO_PAGAMENTO") : "",
                 row.has("NOME_PRODUTO") ? row.get("NOME_PRODUTO") : "",
                 row.has("CODIGO_PRODUTO") ? row.get("CODIGO_PRODUTO") : "",
-                row.has("CNPJ_EMPRESA") ? row.get("CNPJ_EMPRESA") : ""
+                row.has("CNPJ_EMPRESA") ? row.get("CNPJ_EMPRESA") : "",
+                row.has("NOME_PRESTADOR") ? row.get("NOME_PRESTADOR") : "",
+                row.has("INCRICAO_PRESTADOR") ? row.get("INCRICAO_PRESTADOR") : "",
+                row.has("TELEFONE_PRESTADOR") ? row.get("TELEFONE_PRESTADOR") : "",
+                row.has("EMAIL_PRESTADOR") ? row.get("EMAIL_PRESTADOR") : "",
+                row.has("RUA_PRESTADOR") ? row.get("RUA_PRESTADOR") : "",
+                row.has("NUMERO_PRESTADOR") ? row.get("NUMERO_PRESTADOR") : "",
+                row.has("BAIRRO_PRESTADOR") ? row.get("BAIRRO_PRESTADOR") : "",
+                row.has("CIDADE_PRESTADOR") ? row.get("CIDADE_PRESTADOR") : "",
+                row.has("ESTADO_PRESTADOR") ? row.get("ESTADO_PRESTADOR") : "",
+                row.has("CEP_PRESTADOR") ? row.get("CEP_PRESTADOR") : "",
+                row.has("INSCRICAO_TOMADOR") ? row.get("INSCRICAO_TOMADOR") : "",
+                row.has("TELEFONE_TOMADOR") ? row.get("TELEFONE_TOMADOR") : "",
+                row.has("RUA_TOMADOR") ? row.get("RUA_TOMADOR") : "",
+                row.has("NUMERO_TOMADOR") ? row.get("NUMERO_TOMADOR") : "",
+                row.has("BAIRRO_TOMADOR") ? row.get("BAIRRO_TOMADOR") : "",
+                row.has("CIDADE_TOMADOR") ? row.get("CIDADE_TOMADOR") : "",
+                row.has("CEP_TOMADOR") ? row.get("CEP_TOMADOR") : "",
+                row.has("NOME_TOMADOR") ? row.get("NOME_TOMADOR") : "",
+                row.has("EMAIL_TOMADOR") ? row.get("EMAIL_TOMADOR") : "",
+                row.has("COD_MUNI_IBS") ? row.get("COD_MUNI_IBS") : "",
+                row.has("COD_UF_IBS") ? row.get("COD_UF_IBS") : "",
+                row.has("UNIDADE_ITEM") ? row.get("UNIDADE_ITEM") : "",
+                row.has("QUANTIDADE_ITEM") ? row.get("QUANTIDADE_ITEM") : "",
+                row.has("TRIBUTOS_NACIONAIS") ? row.get("TRIBUTOS_NACIONAIS") : "",
+                row.has("NATUREZA_ORCAMENTARIA") ? row.get("NATUREZA_ORCAMENTARIA") : "",
+                row.has("IRRF_DO_ITEM") ? row.get("IRRF_DO_ITEM") : "",
+                row.has("INSS_DO_ITEM") ? row.get("INSS_DO_ITEM") : "",
+                row.has("TRIBUTOS_MUNICIPAIS") ? row.get("TRIBUTOS_MUNICIPAIS") : "",
+                row.has("INFORMACOES_COMPLEMENTARES_NOTA") ? row.get("INFORMACOES_COMPLEMENTARES_NOTA") : ""
             );
         }
 

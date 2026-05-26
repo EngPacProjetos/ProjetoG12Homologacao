@@ -1,5 +1,6 @@
 
 var MAPA_CAMPOS = {
+    // Identificação
     "COLIGADA": "coligada",
     "FILIAL": "filial",
     "IDMOV": "IDMOV_numero",
@@ -14,6 +15,7 @@ var MAPA_CAMPOS = {
     "COMPLEMENTO_PROJETO": "complemento_projeto",
     "CIDADE_PROJETO": "cidade_projeto",
     "ESTADO_PROJETO": "estado_projeto",
+    // Contrato
     "NUMERO_CONTRATO": "numero_contrato",
     "TIPO_CONTRATO": "tipo_contrato",
     "NUMERO_LICITACAO": "numero_licitacao",
@@ -25,9 +27,134 @@ var MAPA_CAMPOS = {
     "CONDICAO_PAGAMENTO": "condicao_pagamento",
     "NOME_PRODUTO": "nome_produto",
     "CODIGO_PRODUTO": "codigo_produto",
-    "NUMERO_MOVIMENTO":"NumeroMov",
-    "CNPJ_EMPRESA":"cnpj"
+    "NUMERO_MOVIMENTO": "NumeroMov",
+    "CNPJ_EMPRESA": "cnpj",
+    // Prestador (campos hidden — GFILIAL)
+    "NOME_PRESTADOR": "nomePrestador",
+    "INCRICAO_PRESTADOR": "incricaoPrestador",
+    "TELEFONE_PRESTADOR": "telefonePrestador",
+    "EMAIL_PRESTADOR": "emailPrestador",
+    "RUA_PRESTADOR": "ruaPrestador",
+    "NUMERO_PRESTADOR": "numeroPrestador",
+    "BAIRRO_PRESTADOR": "bairroPrestador",
+    "CIDADE_PRESTADOR": "cidadePrestador",
+    "ESTADO_PRESTADOR": "estadoPrestador",
+    "CEP_PRESTADOR": "cepPrestador",
+    // Tomador (campos hidden — FCFO)
+    "INSCRICAO_TOMADOR": "incricaoTomador",
+    "TELEFONE_TOMADOR": "telefoneTomador",
+    "NOME_TOMADOR": "nomeEmpresarial",
+    "EMAIL_TOMADOR": "emailTomador",
+    "RUA_TOMADOR": "ruaTomador",
+    "NUMERO_TOMADOR": "numeroTomador",
+    "BAIRRO_TOMADOR": "bairroTomador",
+    "CIDADE_TOMADOR": "cidadeTomador",
+    "CEP_TOMADOR": "cepTomador",
+    // Local IBS (TMOV)
+    "COD_MUNI_IBS": "codMuniIbs",
+    "COD_UF_IBS": "codUfIbs",
+    // Item (TITMMOV)
+    "UNIDADE_ITEM": "unidadeItem",
+    "QUANTIDADE_ITEM": "quantidadeItem",
+    // Tributação
+    "TRIBUTOS_NACIONAIS": "tributosNacionais",
+    "NATUREZA_ORCAMENTARIA": "naturezaOrcamentaria",
+    "IRRF_DO_ITEM": "irrfDoItem",
+    "INSS_DO_ITEM": "inssDoItem",
+    "TRIBUTOS_MUNICIPAIS": "tributosMunicipais",
+    // Histórico
+    "INFORMACOES_COMPLEMENTARES_NOTA": "informacoesComplementaresNota"
 };
+
+
+
+function parseTributosNacionais(raw) {
+    var resultado = [];
+    if (!raw || !raw.trim()) return resultado;
+    var entradas = raw.split(" | ");
+    for (var i = 0; i < entradas.length; i++) {
+        var e = entradas[i].trim();
+        if (!e) continue;
+        var m = e.match(/C[ÓO]DIGO:\s*(.+?)\s+-\s+VALOR:\s*(.+?)\s+-\s+ALIQUOTA:\s*(.+?)\s+-\s+BASE:\s*(.+)/i);
+        if (m) {
+            resultado.push({
+                codigo: m[1].trim(),
+                valor: m[2].trim(),
+                aliquota: m[3].trim(),
+                base: m[4].trim()
+            });
+        }
+    }
+    return resultado;
+}
+
+function parseTributosMunicipais(raw) {
+    var resultado = [];
+    if (!raw || !raw.trim()) return resultado;
+    var entradas = raw.split(" | ");
+    for (var i = 0; i < entradas.length; i++) {
+        var e = entradas[i].trim();
+        if (!e) continue;
+        var m = e.match(/CODIGO:\s*(.+?)\s+-\s+ALIQUOTA:\s*(.+?)\s+-\s+FATOR ISS MUNICIPAL:\s*(.+)/i);
+        if (m) {
+            resultado.push({
+                codigo: m[1].trim(),
+                aliquota: m[2].trim(),
+                fator: m[3].trim()
+            });
+        }
+    }
+    return resultado;
+}
+
+
+// RENDERIZAÇÃO DAS TABELAS NA PÁGINA (chamado por preencherFormulario)
+
+
+function renderizarTabelasTributacao(rawNac, rawMun, natureza) {
+    var $nat = $("#naturezaOrcamentariaDisplay");
+    if ($nat.length) $nat.text(natureza || "—");
+
+    var tributosNac = parseTributosNacionais(rawNac);
+    var $cNac = $("#tabelaTributosNacionais");
+    if ($cNac.length) {
+        if (!tributosNac.length) {
+            $cNac.html("<p class='text-muted'>Nenhum tributo nacional registrado.</p>");
+        } else {
+            var h = "<table class='table table-bordered table-condensed table-hover'>";
+            h += "<thead><tr><th>Código</th><th>Valor</th><th>Alíquota</th><th>Base de Cálculo</th></tr></thead><tbody>";
+            for (var i = 0; i < tributosNac.length; i++) {
+                var t = tributosNac[i];
+                h += "<tr><td>" + (t.codigo || "—") + "</td><td>" + (t.valor || "—") +
+                    "</td><td>" + (t.aliquota || "—") + "</td><td>" + (t.base || "—") + "</td></tr>";
+            }
+            h += "</tbody></table>";
+            $cNac.html(h);
+        }
+    }
+
+    var tributosMun = parseTributosMunicipais(rawMun);
+    var $cMun = $("#tabelaTributosMunicipais");
+    if ($cMun.length) {
+        if (!tributosMun.length) {
+            $cMun.html("<p class='text-muted'>Nenhum tributo municipal registrado.</p>");
+        } else {
+            var hm = "<table class='table table-bordered table-condensed table-hover'>";
+            hm += "<thead><tr><th>Código</th><th>Alíquota</th><th>Fator ISS Municipal</th></tr></thead><tbody>";
+            for (var j = 0; j < tributosMun.length; j++) {
+                var tm = tributosMun[j];
+                hm += "<tr><td>" + (tm.codigo || "—") + "</td><td>" + (tm.aliquota || "—") +
+                    "</td><td>" + (tm.fator || "—") + "</td></tr>";
+            }
+            hm += "</tbody></table>";
+            $cMun.html(hm);
+        }
+    }
+}
+
+// =============================================================
+// PREENCHIMENTO DO FORMULÁRIO
+// =============================================================
 
 function preencherFormulario(ds) {
     if (!ds || ds.rowsCount === 0) {
@@ -38,8 +165,33 @@ function preencherFormulario(ds) {
     for (var coluna in MAPA_CAMPOS) {
         var idCampo = MAPA_CAMPOS[coluna];
         var valor = ds.getValue(0, coluna);
-        $("#" + idCampo).val(valor || "");
+        $("#" + idCampo).val(valor || "CAMPO NAO ENCONTRADO");
     }
+
+    // Compõe endereços compostos (usados como fallback pelo G12-NF-e.js)
+    var ruaP = ds.getValue(0, "RUA_PRESTADOR") || "";
+    var numP = ds.getValue(0, "NUMERO_PRESTADOR") || "";
+    var baiP = ds.getValue(0, "BAIRRO_PRESTADOR") || "";
+    $("#enderecoPrestador").val([ruaP, numP, baiP].filter(Boolean).join(", "));
+    $("#municipioPrestador").val(ds.getValue(0, "CIDADE_PRESTADOR") || "");
+    $("#nomeEmpresarialPrestador").val(ds.getValue(0, "NOME_PRESTADOR") || "");
+    $("#inscricaoMunicipalPrestador").val(ds.getValue(0, "INCRICAO_PRESTADOR") || "");
+
+    var ruaT = ds.getValue(0, "RUA_TOMADOR") || "";
+    var numT = ds.getValue(0, "NUMERO_TOMADOR") || "";
+    var baiT = ds.getValue(0, "BAIRRO_TOMADOR") || "";
+    $("#enderecoTomador").val([ruaT, numT, baiT].filter(Boolean).join(", "));
+    $("#municipioTomador").val(ds.getValue(0, "CIDADE_TOMADOR") || "");
+
+    // Preenche os <p> de exibição no painel de tributação
+    $("#irrfDisplay").text(ds.getValue(0, "IRRF_DO_ITEM") || "—");
+    $("#inssDisplay").text(ds.getValue(0, "INSS_DO_ITEM") || "—");
+
+    renderizarTabelasTributacao(
+        ds.getValue(0, "TRIBUTOS_NACIONAIS") || "",
+        ds.getValue(0, "TRIBUTOS_MUNICIPAIS") || "",
+        ds.getValue(0, "NATUREZA_ORCAMENTARIA") || ""
+    );
 }
 
 function mostrarErro(msg) {
@@ -66,6 +218,8 @@ function carregarDadosContrato(codColigada, idMov) {
             mostrarErro(ds.getValue(0, "ERROR"));
             return;
         }
+        console.log("NAO DEU ERRO NO CARREGAMENTO")
+        $("#coligada").css("color", "red");
 
         preencherFormulario(ds);
 
@@ -76,7 +230,6 @@ function carregarDadosContrato(codColigada, idMov) {
 
 
 function onLoad() {
-
     var idMov = $("#IdMov").val();
     var codColigada = $("#CodColigada").val();
 
@@ -97,4 +250,3 @@ function onLoad() {
 function onLoadView() {
     console.log("[G12] onLoadView - formulário em modo visualização.");
 }
-

@@ -8,6 +8,11 @@
 	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Carregamento.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Main.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Zoom.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-NF-e.js" charset="utf-8"></script>
+
+
+	<link rel="stylesheet" href="G12-Style.css">
 </head>
 
 <body>
@@ -23,6 +28,61 @@
 					<input type="hidden" name="IdMov" id="IdMov">
 					<input type="hidden" name="CodColigada" id="CodColigada">
 					<input type="hidden" name="NumeroMov" id="NumeroMov">
+
+
+
+
+					<!-- DADOS PARA PREENCHIMENTO DO ESPELHO DE NOTA FISCAL -->
+
+					<!-- PRESTADOR DO SERVIÇO (GFILIAL) -->
+					<input type="text" name="nomePrestador" id="nomePrestador">
+					<input type="text" name="nomeEmpresarialPrestador" id="nomeEmpresarialPrestador">
+					<input type="text" name="incricaoPrestador" id="incricaoPrestador">
+					<input type="text" name="inscricaoMunicipalPrestador" id="inscricaoMunicipalPrestador">
+					<input type="text" name="telefonePrestador" id="telefonePrestador">
+					<input type="text" name="emailPrestador" id="emailPrestador">
+					<input type="text" name="ruaPrestador" id="ruaPrestador">
+					<input type="text" name="numeroPrestador" id="numeroPrestador">
+					<input type="text" name="bairroPrestador" id="bairroPrestador">
+					<input type="text" name="cidadePrestador" id="cidadePrestador">
+					<input type="text" name="estadoPrestador" id="estadoPrestador">
+					<input type="text" name="cepPrestador" id="cepPrestador">
+					<!-- campos compostos mantidos por compatibilidade com G12-NF-e.js -->
+					<input type="text" name="enderecoPrestador" id="enderecoPrestador">
+					<input type="text" name="municipioPrestador" id="municipioPrestador">
+
+					<!-- TOMADOR DO SERVIÇO (FCFO) -->
+					<input type="text" name="incricaoTomador" id="incricaoTomador">
+					<input type="text" name="telefoneTomador" id="telefoneTomador">
+					<input type="text" name="nomeEmpresarial" id="nomeEmpresarial">
+					<input type="text" name="emailTomador" id="emailTomador">
+					<input type="text" name="ruaTomador" id="ruaTomador">
+					<input type="text" name="numeroTomador" id="numeroTomador">
+					<input type="text" name="bairroTomador" id="bairroTomador">
+					<input type="text" name="cidadeTomador" id="cidadeTomador">
+					<input type="text" name="cepTomador" id="cepTomador">
+					<!-- campos compostos mantidos por compatibilidade com G12-NF-e.js -->
+					<input type="text" name="enderecoTomador" id="enderecoTomador">
+					<input type="text" name="municipioTomador" id="municipioTomador">
+
+					<!-- LOCAL DE ATUAÇÃO IBS (TMOV) -->
+					<input type="text" name="codMuniIbs" id="codMuniIbs">
+					<input type="text" name="codUfIbs" id="codUfIbs">
+
+					<!-- ITEM (TITMMOV) -->
+					<input type="text" name="unidadeItem" id="unidadeItem">
+					<input type="text" name="quantidadeItem" id="quantidadeItem">
+
+					<!-- TRIBUTAÇÃO -->
+					<input type="text" name="tributosNacionais" id="tributosNacionais">
+					<input type="text" name="naturezaOrcamentaria" id="naturezaOrcamentaria">
+					<input type="text" name="irrfDoItem" id="irrfDoItem">
+					<input type="text" name="inssDoItem" id="inssDoItem">
+					<input type="text" name="tributosMunicipais" id="tributosMunicipais">
+
+					<!-- HISTÓRICO (TMOVHISTORICO) -->
+					<input type="text" name="informacoesComplementaresNota" id="informacoesComplementaresNota">
+
 
 					<!-- Indicador de carregamento -->
 					<div id="loadingDados" style="display:none; margin-bottom: 16px;">
@@ -268,6 +328,54 @@
 						</div>
 					</div>
 
+					<!-- TRIBUTAÇÃO -->
+					<div class="panel panel-default" style="margin-bottom: 24px;">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<i class="fa fa-calculator" style="margin-right: 6px;"></i>
+								Tributação
+							</h3>
+						</div>
+						<div class="panel-body">
+
+							<div class="row" style="margin-bottom: 12px;">
+								<div class="col-md-6">
+									<div class="form-group" style="margin-bottom: 0;">
+										<label>Natureza Orçamentária</label>
+										<p id="naturezaOrcamentariaDisplay" class="form-control-static">—</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group" style="margin-bottom: 0;">
+										<label>IRRF do Item</label>
+										<p id="irrfDisplay" class="form-control-static">—</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group" style="margin-bottom: 0;">
+										<label>INSS do Item</label>
+										<p id="inssDisplay" class="form-control-static">—</p>
+									</div>
+								</div>
+							</div>
+
+							<h4 style="margin-top: 16px; margin-bottom: 8px;">
+								<i class="fa fa-globe" style="margin-right: 4px;"></i>Tributos Nacionais
+							</h4>
+							<div id="tabelaTributosNacionais">
+								<p class="text-muted">Aguardando carregamento...</p>
+							</div>
+
+							<h4 style="margin-top: 20px; margin-bottom: 8px;">
+								<i class="fa fa-building-o" style="margin-right: 4px;"></i>Tributos Municipais
+							</h4>
+							<div id="tabelaTributosMunicipais">
+								<p class="text-muted">Aguardando carregamento...</p>
+							</div>
+
+						</div>
+					</div>
+
 					<!-- APROVACAO DO SETOR TECNICO  -->
 					<div class="panel panel-default" style="margin-bottom: 16px;">
 						<div class="panel-heading">
@@ -293,7 +401,8 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="idmovContratos">IDMOV Recibo de serviço</label>
-										<input type="zoom" class="form-control" id="idmovContratos" name="idmovContratos" data-zoom="{
+										<input type="zoom" class="form-control" id="idmovContratos"
+											name="idmovContratos" data-zoom="{
 											'datasetId':'G12-MOVIMENTOS-2102',
 											'displayKey':'IDMOV',
 											'maximumSelectionLength':'1',
@@ -315,6 +424,298 @@
 										class="form-control"></textarea>
 								</div>
 							</div>
+							<div class="nfe-trigger-wrap">
+								<button type="button" id="btnVisualizarNFe" class="btn-nfe-visualizar"
+									onclick="NFeModal.abrir()">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+										<polyline points="14 2 14 8 20 8" />
+										<line x1="16" y1="13" x2="8" y2="13" />
+										<line x1="16" y1="17" x2="8" y2="17" />
+										<polyline points="10 9 9 9 8 9" />
+									</svg>
+									Visualizar NFS-e
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- MODAL DE EXIBICAO DE NF-E  -->
+					<div id="modalNFe" class="nfe-overlay" role="dialog" aria-modal="true"
+						aria-labelledby="nfe-modal-title">
+						<div class="nfe-modal">
+
+							<!-- HEADER DO MODAL -->
+							<div class="nfe-modal-header">
+								<span class="nfe-modal-titulo" id="nfe-modal-title">DANFSe v1.0 — Documento Auxiliar da
+									NFS-e</span>
+								<button type="button" class="nfe-fechar" onclick="NFeModal.fechar()"
+									aria-label="Fechar">&times;</button>
+							</div>
+
+							<!-- CORPO DO DOCUMENTO -->
+							<div class="nfe-modal-body" id="nfeDocumento">
+
+								<!-- TOPO: LOGO + TÍTULO + MUNICIPIO -->
+								<div class="nfe-topo">
+									<div class="nfe-topo-logo">
+										<div class="nfe-logo-box">
+											<span class="nfe-logo-sigla">NFS<em>e</em></span>
+											<span class="nfe-logo-sub">Nota Fiscal de<br>Serviço Eletrônica</span>
+										</div>
+									</div>
+									<div class="nfe-topo-centro">
+										<strong>DANFSe v1.0</strong><br>
+										Documento Auxiliar da NFS-e
+									</div>
+									<div class="nfe-topo-municipio" id="nfe-municipio-topo">
+										<!-- preenchido por JS -->
+									</div>
+								</div>
+
+								<!-- CHAVE DE ACESSO -->
+								<div class="nfe-secao nfe-chave-acesso">
+									<span class="nfe-field-label">Chave de Acesso da NFS-e</span>
+									<span class="nfe-field-value" id="nfe-chave-acesso">—</span>
+								</div>
+
+								<!-- LINHA: NÚMERO, COMPETÊNCIA, DATA EMISSÃO -->
+								<div class="nfe-secao nfe-grid-3">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Número da NFS-e</span>
+										<span class="nfe-field-value" id="nfe-numero">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Competência da NFS-e</span>
+										<span class="nfe-field-value" id="nfe-competencia">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Data e Hora da emissão da NFS-e</span>
+										<span class="nfe-field-value" id="nfe-data-emissao">—</span>
+									</div>
+								</div>
+
+								<!-- EMITENTE -->
+								<div class="nfe-secao-titulo">EMITENTE DA NFS-e</div>
+								<div class="nfe-secao nfe-grid-3">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Prestador do Serviço</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">CNPJ / CPF / NIF</span>
+										<span class="nfe-field-value" id="nfe-emitente-cnpj">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Inscrição Municipal</span>
+										<span class="nfe-field-value" id="nfe-emitente-im">—</span>
+									</div>
+								</div>
+								<div class="nfe-secao nfe-grid-2">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Nome / Nome Empresarial</span>
+										<span class="nfe-field-value" id="nfe-emitente-nome">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">E-mail</span>
+										<span class="nfe-field-value" id="nfe-emitente-email">—</span>
+									</div>
+								</div>
+								<div class="nfe-secao nfe-grid-3">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Endereço</span>
+										<span class="nfe-field-value" id="nfe-emitente-end">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Município</span>
+										<span class="nfe-field-value" id="nfe-emitente-mun">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">CEP</span>
+										<span class="nfe-field-value" id="nfe-emitente-cep">—</span>
+									</div>
+								</div>
+
+								<!-- TOMADOR -->
+								<div class="nfe-secao-titulo">TOMADOR DO SERVIÇO</div>
+								<div class="nfe-secao nfe-grid-3">
+									<div class="nfe-field">
+										<span class="nfe-field-label">CNPJ / CPF / NIF</span>
+										<span class="nfe-field-value" id="nfe-tomador-cnpj">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Inscrição Municipal</span>
+										<span class="nfe-field-value" id="nfe-tomador-im">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Telefone</span>
+										<span class="nfe-field-value" id="nfe-tomador-tel">—</span>
+									</div>
+								</div>
+								<div class="nfe-secao nfe-grid-2">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Nome / Nome Empresarial</span>
+										<span class="nfe-field-value" id="nfe-tomador-nome">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">E-mail</span>
+										<span class="nfe-field-value" id="nfe-tomador-email">—</span>
+									</div>
+								</div>
+								<div class="nfe-secao nfe-grid-3">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Endereço</span>
+										<span class="nfe-field-value" id="nfe-tomador-end">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Município</span>
+										<span class="nfe-field-value" id="nfe-tomador-mun">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">CEP</span>
+										<span class="nfe-field-value" id="nfe-tomador-cep">—</span>
+									</div>
+								</div>
+
+								<!-- SERVIÇO -->
+								<div class="nfe-secao-titulo">SERVIÇO PRESTADO</div>
+								<div class="nfe-secao nfe-grid-3">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Código de Tributação Nacional</span>
+										<span class="nfe-field-value" id="nfe-ctn">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Código de Tributação Municipal</span>
+										<span class="nfe-field-value" id="nfe-ctm">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Local da Prestação</span>
+										<span class="nfe-field-value" id="nfe-local">—</span>
+									</div>
+								</div>
+								<div class="nfe-secao">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Descrição do Serviço</span>
+										<span class="nfe-field-value" id="nfe-descricao-servico">—</span>
+									</div>
+								</div>
+
+								<!-- TRIBUTAÇÃO MUNICIPAL -->
+								<div class="nfe-secao-titulo">TRIBUTAÇÃO MUNICIPAL</div>
+								<div class="nfe-secao nfe-grid-4">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Valor do Serviço</span>
+										<span class="nfe-field-value" id="nfe-valor-servico">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">BC ISSQN</span>
+										<span class="nfe-field-value" id="nfe-bc-issqn">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Alíquota Aplicada</span>
+										<span class="nfe-field-value" id="nfe-aliquota">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">ISSQN Apurado</span>
+										<span class="nfe-field-value" id="nfe-issqn-apurado">—</span>
+									</div>
+								</div>
+
+								<!-- TRIBUTAÇÃO FEDERAL -->
+								<div class="nfe-secao-titulo">TRIBUTAÇÃO FEDERAL</div>
+								<div class="nfe-secao nfe-grid-4">
+									<div class="nfe-field">
+										<span class="nfe-field-label">IRRF</span>
+										<span class="nfe-field-value" id="nfe-irrf">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Contrib. Previdenciária - Retida</span>
+										<span class="nfe-field-value" id="nfe-prev">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">PIS</span>
+										<span class="nfe-field-value" id="nfe-pis">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">COFINS</span>
+										<span class="nfe-field-value" id="nfe-cofins">—</span>
+									</div>
+								</div>
+
+								<!-- VALOR TOTAL -->
+								<div class="nfe-secao-titulo">VALOR TOTAL DA NFS-E</div>
+								<div class="nfe-secao nfe-grid-4 nfe-totais">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Valor do Serviço</span>
+										<span class="nfe-field-value" id="nfe-total-servico">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">ISSQN Retido</span>
+										<span class="nfe-field-value" id="nfe-issqn-retido">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Total Retenções Federais</span>
+										<span class="nfe-field-value" id="nfe-total-retencoes">—</span>
+									</div>
+									<div class="nfe-field nfe-destaque">
+										<span class="nfe-field-label">Valor Líquido da NFS-e</span>
+										<span class="nfe-field-value" id="nfe-valor-liquido">—</span>
+									</div>
+								</div>
+
+								<!-- TOTAIS TRIBUTOS -->
+								<div class="nfe-secao-titulo">TOTAIS APROXIMADOS DOS TRIBUTOS</div>
+								<div class="nfe-secao nfe-grid-3 nfe-tributos-aprox">
+									<div class="nfe-field">
+										<span class="nfe-field-label">Federais</span>
+										<span class="nfe-field-value" id="nfe-trib-fed">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Estaduais</span>
+										<span class="nfe-field-value" id="nfe-trib-est">—</span>
+									</div>
+									<div class="nfe-field">
+										<span class="nfe-field-label">Municipais</span>
+										<span class="nfe-field-value" id="nfe-trib-mun">—</span>
+									</div>
+								</div>
+
+								<!-- DETALHAMENTO DOS TRIBUTOS NACIONAIS -->
+								<div class="nfe-secao-titulo">DETALHAMENTO DOS TRIBUTOS NACIONAIS</div>
+								<div class="nfe-secao nfe-detalhe-tributos" id="nfe-detalhe-tributos-nacionais"
+									style="padding: 8px 10px;">—</div>
+
+								<!-- DETALHAMENTO DOS TRIBUTOS MUNICIPAIS -->
+								<div class="nfe-secao-titulo">DETALHAMENTO DOS TRIBUTOS MUNICIPAIS</div>
+								<div class="nfe-secao nfe-detalhe-tributos" id="nfe-detalhe-tributos-municipais"
+									style="padding: 8px 10px;">—</div>
+
+								<!-- INFORMAÇÕES COMPLEMENTARES -->
+								<div class="nfe-secao-titulo">INFORMAÇÕES COMPLEMENTARES</div>
+								<div class="nfe-secao">
+									<div class="nfe-field">
+										<span class="nfe-field-value nfe-inf-comp" id="nfe-inf-comp">—</span>
+									</div>
+								</div>
+
+							</div><!-- /nfe-modal-body -->
+
+							<!-- RODAPÉ COM AÇÕES -->
+							<div class="nfe-modal-footer">
+								<button type="button" class="btn-nfe-imprimir" onclick="NFeModal.imprimir()">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2">
+										<polyline points="6 9 6 2 18 2 18 9" />
+										<path
+											d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+										<rect x="6" y="14" width="12" height="8" />
+									</svg>
+									Imprimir
+								</button>
+								<button type="button" class="btn-nfe-fechar-rodape"
+									onclick="NFeModal.fechar()">Fechar</button>
+							</div>
+
 						</div>
 					</div>
 
