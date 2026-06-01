@@ -593,5 +593,387 @@
     </void>
    </array>
   </void>
+  <void method="put">
+   <string>forms</string>
+   <object class="java.util.LinkedList">
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>FLUIGADHOCPROCESS</string>
+      </void>
+      <void property="documentDescription">
+       <string>FLUIGADHOCPROCESS</string>
+      </void>
+      <void property="documentId">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSG3</string>
+      </void>
+      <void property="documentDescription">
+       <string>G3</string>
+      </void>
+      <void property="documentId">
+       <int>45</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSG2</string>
+      </void>
+      <void property="documentDescription">
+       <string>G2</string>
+      </void>
+      <void property="documentId">
+       <int>1367</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSG1</string>
+      </void>
+      <void property="documentDescription">
+       <string>G1</string>
+      </void>
+      <void property="documentId">
+       <int>1844</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSG4</string>
+      </void>
+      <void property="documentDescription">
+       <string>G4</string>
+      </void>
+      <void property="documentId">
+       <int>11400</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_consultaCadastroAtribuicoes</string>
+      </void>
+      <void property="documentDescription">
+       <string>Cadastro de Atribuições</string>
+      </void>
+      <void property="documentId">
+       <int>20352</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_00-FLUIG</string>
+      </void>
+      <void property="documentDescription">
+       <string>00-FLUIG</string>
+      </void>
+      <void property="documentId">
+       <int>21706</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSTesteSuporte</string>
+      </void>
+      <void property="documentDescription">
+       <string>TesteSuporte</string>
+      </void>
+      <void property="documentId">
+       <int>59624</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DemandaLogistica</string>
+      </void>
+      <void property="documentDescription">
+       <string>FormularioDemandaLogistica</string>
+      </void>
+      <void property="documentId">
+       <int>59626</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_G5</string>
+      </void>
+      <void property="documentDescription">
+       <string>G5</string>
+      </void>
+      <void property="documentId">
+       <int>59631</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_CadastroItens</string>
+      </void>
+      <void property="documentDescription">
+       <string>CadastroItens</string>
+      </void>
+      <void property="documentId">
+       <int>60109</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_Cadastro De Veículos</string>
+      </void>
+      <void property="documentDescription">
+       <string>Cadastro De Veículos</string>
+      </void>
+      <void property="documentId">
+       <int>60210</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_G52</string>
+      </void>
+      <void property="documentDescription">
+       <string>G5 testes </string>
+      </void>
+      <void property="documentId">
+       <int>60896</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ControleDePatrimonio</string>
+      </void>
+      <void property="documentDescription">
+       <string>ControleDePatrimônio</string>
+      </void>
+      <void property="documentId">
+       <int>62083</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>dsFormTesteAnexo</string>
+      </void>
+      <void property="documentDescription">
+       <string>Teste Anexo</string>
+      </void>
+      <void property="documentId">
+       <int>63291</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>Cadastro De Produtos</string>
+      </void>
+      <void property="documentDescription">
+       <string>Cadastro De Produtos</string>
+      </void>
+      <void property="documentId">
+       <int>63634</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>Emissao NF</string>
+      </void>
+      <void property="documentDescription">
+       <string>Emissao Nota Fiscal</string>
+      </void>
+      <void property="documentId">
+       <int>63695</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>CadastroContratos</string>
+      </void>
+      <void property="documentDescription">
+       <string>Cadastro De Contratos</string>
+      </void>
+      <void property="documentId">
+       <int>63696</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ComponenteANEXO</string>
+      </void>
+      <void property="documentDescription">
+       <string>ComponenteANEXO</string>
+      </void>
+      <void property="documentId">
+       <int>64122</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G8Homologação</string>
+      </void>
+      <void property="documentDescription">
+       <string>G8</string>
+      </void>
+      <void property="documentId">
+       <int>64138</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G8-NF</string>
+      </void>
+      <void property="documentDescription">
+       <string>G8</string>
+      </void>
+      <void property="documentId">
+       <int>64177</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_G7</string>
+      </void>
+      <void property="documentDescription">
+       <string>G7</string>
+      </void>
+      <void property="documentId">
+       <int>64381</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G9Homologação</string>
+      </void>
+      <void property="documentDescription">
+       <string>G9</string>
+      </void>
+      <void property="documentId">
+       <int>65923</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G8EspelhoProd</string>
+      </void>
+      <void property="documentDescription">
+       <string>G8EspelhoProd</string>
+      </void>
+      <void property="documentId">
+       <int>65924</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G10_ControleDeLocacao</string>
+      </void>
+      <void property="documentDescription">
+       <string>G10</string>
+      </void>
+      <void property="documentId">
+       <int>66054</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>G10_ProcessoLocacao</string>
+      </void>
+      <void property="documentDescription">
+       <string>G10</string>
+      </void>
+      <void property="documentId">
+       <int>66327</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>CobrancaObraClick</string>
+      </void>
+      <void property="documentDescription">
+       <string>CobrancaObraClick</string>
+      </void>
+      <void property="documentId">
+       <int>67751</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSG11</string>
+      </void>
+      <void property="documentDescription">
+       <string>G11</string>
+      </void>
+      <void property="documentId">
+       <int>68091</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>DSG12</string>
+      </void>
+      <void property="documentDescription">
+       <string>G12</string>
+      </void>
+      <void property="documentId">
+       <int>68555</int>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
 	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="G12-Main.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Zoom.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-NF-e.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-TabelaDeTributos.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -35,53 +36,53 @@
 					<!-- DADOS PARA PREENCHIMENTO DO ESPELHO DE NOTA FISCAL -->
 
 					<!-- PRESTADOR DO SERVIÇO (GFILIAL) -->
-					<input type="text" name="nomePrestador" id="nomePrestador">
-					<input type="text" name="nomeEmpresarialPrestador" id="nomeEmpresarialPrestador">
-					<input type="text" name="incricaoPrestador" id="incricaoPrestador">
-					<input type="text" name="inscricaoMunicipalPrestador" id="inscricaoMunicipalPrestador">
-					<input type="text" name="telefonePrestador" id="telefonePrestador">
-					<input type="text" name="emailPrestador" id="emailPrestador">
-					<input type="text" name="ruaPrestador" id="ruaPrestador">
-					<input type="text" name="numeroPrestador" id="numeroPrestador">
-					<input type="text" name="bairroPrestador" id="bairroPrestador">
-					<input type="text" name="cidadePrestador" id="cidadePrestador">
-					<input type="text" name="estadoPrestador" id="estadoPrestador">
-					<input type="text" name="cepPrestador" id="cepPrestador">
+					<input type="hidden" name="nomePrestador" id="nomePrestador" readonly>
+					<input type="hidden" name="nomeEmpresarialPrestador" id="nomeEmpresarialPrestador" readonly>
+					<input type="hidden" name="incricaoPrestador" id="incricaoPrestador" readonly>
+					<input type="hidden" name="inscricaoMunicipalPrestador" id="inscricaoMunicipalPrestador" readonly>
+					<input type="hidden" name="telefonePrestador" id="telefonePrestador" readonly>
+					<input type="hidden" name="emailPrestador" id="emailPrestador" readonly>
+					<input type="hidden" name="ruaPrestador" id="ruaPrestador" readonly>
+					<input type="hidden" name="numeroPrestador" id="numeroPrestador" readonly>
+					<input type="hidden" name="bairroPrestador" id="bairroPrestador" readonly>
+					<input type="hidden" name="cidadePrestador" id="cidadePrestador" readonly>
+					<input type="hidden" name="estadoPrestador" id="estadoPrestador" readonly>
+					<input type="hidden" name="cepPrestador" id="cepPrestador" readonly>
 					<!-- campos compostos mantidos por compatibilidade com G12-NF-e.js -->
-					<input type="text" name="enderecoPrestador" id="enderecoPrestador">
-					<input type="text" name="municipioPrestador" id="municipioPrestador">
+					<input type="hidden" name="enderecoPrestador" id="enderecoPrestador" readonly>
+					<input type="hidden" name="municipioPrestador" id="municipioPrestador" readonly>
 
 					<!-- TOMADOR DO SERVIÇO (FCFO) -->
-					<input type="text" name="incricaoTomador" id="incricaoTomador">
-					<input type="text" name="telefoneTomador" id="telefoneTomador">
-					<input type="text" name="nomeEmpresarial" id="nomeEmpresarial">
-					<input type="text" name="emailTomador" id="emailTomador">
-					<input type="text" name="ruaTomador" id="ruaTomador">
-					<input type="text" name="numeroTomador" id="numeroTomador">
-					<input type="text" name="bairroTomador" id="bairroTomador">
-					<input type="text" name="cidadeTomador" id="cidadeTomador">
-					<input type="text" name="cepTomador" id="cepTomador">
+					<input type="hidden" name="incricaoTomador" id="incricaoTomador" readonly>
+					<input type="hidden" name="telefoneTomador" id="telefoneTomador" readonly>
+					<input type="hidden" name="nomeEmpresarial" id="nomeEmpresarial" readonly>
+					<input type="hidden" name="emailTomador" id="emailTomador" readonly>
+					<input type="hidden" name="ruaTomador" id="ruaTomador" readonly>
+					<input type="hidden" name="numeroTomador" id="numeroTomador" readonly>
+					<input type="hidden" name="bairroTomador" id="bairroTomador" readonly>
+					<input type="hidden" name="cidadeTomador" id="cidadeTomador" readonly>
+					<input type="hidden" name="cepTomador" id="cepTomador" readonly>
 					<!-- campos compostos mantidos por compatibilidade com G12-NF-e.js -->
-					<input type="text" name="enderecoTomador" id="enderecoTomador">
-					<input type="text" name="municipioTomador" id="municipioTomador">
+					<input type="hidden" name="enderecoTomador" id="enderecoTomador" readonly>
+					<input type="hidden" name="municipioTomador" id="municipioTomador" readonly>
 
 					<!-- LOCAL DE ATUAÇÃO IBS (TMOV) -->
-					<input type="text" name="codMuniIbs" id="codMuniIbs">
-					<input type="text" name="codUfIbs" id="codUfIbs">
+					<input type="hidden" name="codMuniIbs" id="codMuniIbs" readonly>
+					<input type="hidden" name="codUfIbs" id="codUfIbs" readonly>
 
 					<!-- ITEM (TITMMOV) -->
-					<input type="text" name="unidadeItem" id="unidadeItem">
-					<input type="text" name="quantidadeItem" id="quantidadeItem">
+					<input type="hidden" name="unidadeItem" id="unidadeItem" readonly>
+					<input type="hidden" name="quantidadeItem" id="quantidadeItem" readonly>
 
 					<!-- TRIBUTAÇÃO -->
-					<input type="text" name="tributosNacionais" id="tributosNacionais">
-					<input type="text" name="naturezaOrcamentaria" id="naturezaOrcamentaria">
-					<input type="text" name="irrfDoItem" id="irrfDoItem">
-					<input type="text" name="inssDoItem" id="inssDoItem">
-					<input type="text" name="tributosMunicipais" id="tributosMunicipais">
+					<input type="hidden" name="tributosNacionais" id="tributosNacionais" readonly>
+					<input type="hidden" name="naturezaOrcamentaria" id="naturezaOrcamentaria" readonly>
+					<input type="hidden" name="irrfDoItem" id="irrfDoItem" readonly>
+					<input type="hidden" name="inssDoItem" id="inssDoItem" readonly>
+					<input type="hidden" name="tributosMunicipais" id="tributosMunicipais" readonly>
 
 					<!-- HISTÓRICO (TMOVHISTORICO) -->
-					<input type="text" name="informacoesComplementaresNota" id="informacoesComplementaresNota">
+					<input type="hidden" name="informacoesComplementaresNota" id="informacoesComplementaresNota" readonly>
 
 
 					<!-- Indicador de carregamento -->
@@ -215,6 +216,17 @@
 									</div>
 								</div>
 							</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-6">
+									<label for="art">ART</label>
+									<input type="text" name="art" id="art" class="form-control" readonly>
+								</div>
+								<div class="col-md-6">
+									<label for="cno">CNO</label>
+									<input type="text" name="cno" id="cno" class="form-control" readonly>
+								</div>
+							</div>
 
 						</div>
 					</div>
@@ -292,11 +304,18 @@
 											id="periodicidade_medicao" readonly>
 									</div>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<div class="form-group">
 										<label>Condição de Pagamento</label>
 										<input type="text" class="form-control" name="condicao_pagamento"
 											id="condicao_pagamento" readonly>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label>Nome do cliente</label>
+										<input type="text" class="form-control" name="nome_cliente" id="nome_cliente"
+											readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -307,7 +326,7 @@
 									</div>
 								</div>
 							</div>
-
+							<hr>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -316,12 +335,25 @@
 											readonly>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-3">
 									<div class="form-group">
 										<label>Código do Produto</label>
 										<input type="text" class="form-control" name="codigo_produto"
 											id="codigo_produto" readonly>
 									</div>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<label for="unidade_produto">Unidade do produto</label>
+									<input type="text" name="unidade_produto" id="unidade_produto" class="form-control"
+										readonly>
+								</div>
+								<div class="col-md-4">
+									<label for="quantidade_produto">Quantidade do produto</label>
+									<input type="text" name="quantidade_produto" id="quantidade_produto"
+										class="form-control" readonly>
 								</div>
 							</div>
 
@@ -716,6 +748,18 @@
 									onclick="NFeModal.fechar()">Fechar</button>
 							</div>
 
+						</div>
+					</div>
+
+					<div id="historicomovimento">
+						<div class="row">
+							<div class="vol-md-12">
+								<label for="historicoMovimento">Histórico do movimento</label>
+								<textarea name="historicoMovimento" id="historicoMovimento" class="form-control"
+									rows="5" readonly>
+
+								</textarea>
+							</div>
 						</div>
 					</div>
 

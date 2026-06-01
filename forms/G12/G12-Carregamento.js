@@ -157,16 +157,19 @@ function renderizarTabelasTributacao(rawNac, rawMun, natureza) {
 // =============================================================
 
 function preencherFormulario(ds) {
+
     if (!ds || ds.rowsCount === 0) {
         mostrarErro("Dataset retornou vazio. Verifique IDMOV e CodColigada.");
         return;
     }
 
+
     for (var coluna in MAPA_CAMPOS) {
         var idCampo = MAPA_CAMPOS[coluna];
         var valor = ds.getValue(0, coluna);
-        $("#" + idCampo).val(valor || "CAMPO NAO ENCONTRADO");
+        $("#" + idCampo).val(valor || "CAMPO NAO PREENCHIDO");
     }
+
 
     // Compõe endereços compostos (usados como fallback pelo G12-NF-e.js)
     var ruaP = ds.getValue(0, "RUA_PRESTADOR") || "";
@@ -218,9 +221,7 @@ function carregarDadosContrato(codColigada, idMov) {
             mostrarErro(ds.getValue(0, "ERROR"));
             return;
         }
-        console.log("NAO DEU ERRO NO CARREGAMENTO")
-        $("#coligada").css("color", "red");
-
+        
         preencherFormulario(ds);
 
     } catch (e) {
@@ -229,24 +230,43 @@ function carregarDadosContrato(codColigada, idMov) {
 }
 
 
+// Indica que estamos em modo de visualização e precisamos aguardar o Fluig
+// restaurar os campos antes de renderizar (a restauração é assíncrona).
+var _aguardandoRestauracao = false;
+
 function onLoad() {
-    var idMov = $("#IdMov").val();
-    var codColigada = $("#CodColigada").val();
+    setTimeout(_renderizarVisuais, 500);
+}
 
-    console.log("[G12] onLoad - IdMov: " + idMov + " | CodColigada: " + codColigada);
+function onLoadView() {
+    _aguardandoRestauracao = true;
+    setTimeout(_renderizarVisuais, 500);
+}
 
-    if (!idMov || !codColigada || idMov.trim() === "" || codColigada.trim() === "") {
-        mostrarErro(
-            "IdMov ou CodColigada não foram recebidos pelo formulário. " +
-            "Verifique se o startProcess() está passando esses valores corretamente."
-        );
+function _renderizarVisuais(tentativas) {
+    tentativas = tentativas || 0;
+
+    var rawNac   = $("#tributosNacionais").val()    || "";
+    var rawMun   = $("#tributosMunicipais").val()   || "";
+    var natureza = $("#naturezaOrcamentaria").val() || "";
+    var irrf     = $("#irrfDoItem").val()           || "—";
+    var inss     = $("#inssDoItem").val()           || "—";
+
+    // Em modo de visualização, o Fluig restaura os campos de forma assíncrona.
+    // Usa numero_contrato como sentinela: enquanto estiver vazio, os dados
+    // ainda não chegaram — reagenda com backoff até 8 tentativas (~4 s total).
+    if (_aguardandoRestauracao && tentativas < 8 && !$("#numero_contrato").val()) {
+        setTimeout(function () { _renderizarVisuais(tentativas + 1); }, 500);
         return;
     }
 
-    carregarDadosContrato(codColigada, idMov);
-}
+    _aguardandoRestauracao = false;
 
+    $("#irrfDisplay").text(irrf);
+    $("#inssDisplay").text(inss);
 
-function onLoadView() {
-    console.log("[G12] onLoadView - formulário em modo visualização.");
+    renderizarTabelasTributacao(rawNac, rawMun, natureza);
+
+    console.log("[G12] Visuais renderizados (tentativa " + (tentativas + 1) + ") | tributosNacionais=" + rawNac.length +
+                " chars | tributosMunicipais=" + rawMun.length + " chars");
 }

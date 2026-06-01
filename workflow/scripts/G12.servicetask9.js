@@ -37,44 +37,120 @@ function loadDsG12(codColigada, idMov) {
             return;
         }
 
-        // Seção 1 — Identificação e Endereço
-
+        // Seção 1 — Identificação e Endereço do Projeto
         log.info("VALOR DO IDMOV -> " + dataset.getValue(0, "IDMOV"));
-        hAPI.setCardValue('IDMOV_numero', safe(dataset.getValue(0, "IDMOV")));
-        hAPI.setCardValue('NumeroMov', safe(dataset.getValue(0, "NUMERO_MOVIMENTO")));
-        hAPI.setCardValue('coligada', safe(dataset.getValue(0, "COLIGADA")));
-        hAPI.setCardValue('filial', safe(dataset.getValue(0, "FILIAL")));
-        hAPI.setCardValue('idprj', safe(dataset.getValue(0, "IDPRJ")));
-        hAPI.setCardValue('cnpj', safe(dataset.getValue(0, "CNPJ_EMPRESA")));
-        hAPI.setCardValue('cnpjCliente', safe(dataset.getValue(0, "CNPJ_CLIENTE")));
-        hAPI.setCardValue('centro_de_custo', safe(dataset.getValue(0, "CENTRO_DE_CUSTO")));
-        hAPI.setCardValue('codigo_do_projeto', safe(dataset.getValue(0, "CODIGO_DO_PROJETO")));
-        hAPI.setCardValue('descricao_projeto', safe(dataset.getValue(0, "DESCRICAO_PROJETO")));
-        hAPI.setCardValue('rua_projeto', safe(dataset.getValue(0, "RUA_PROJETO")));
-        hAPI.setCardValue('estado_projeto', safe(dataset.getValue(0, "ESTADO_PROJETO")));
-        hAPI.setCardValue('cidade_projeto', safe(dataset.getValue(0, "CIDADE_PROJETO")));
-        hAPI.setCardValue('complemento_projeto', safe(dataset.getValue(0, "COMPLEMENTO_PROJETO")));
-        hAPI.setCardValue('bairro_projeto', safe(dataset.getValue(0, "BAIRRO_PROJETO")));
+        hAPI.setCardValue('IDMOV_numero',            safe(dataset.getValue(0, "IDMOV")));
+        hAPI.setCardValue('NumeroMov',               safe(dataset.getValue(0, "NUMERO_MOVIMENTO")));
+        hAPI.setCardValue('coligada',                safe(dataset.getValue(0, "COLIGADA")));
+        hAPI.setCardValue('filial',                  safe(dataset.getValue(0, "FILIAL")));
+        hAPI.setCardValue('idprj',                   safe(dataset.getValue(0, "IDPRJ")));
+        hAPI.setCardValue('cnpj',                    safe(dataset.getValue(0, "CNPJ_EMPRESA")));
+        hAPI.setCardValue('cnpjCliente',             safe(dataset.getValue(0, "CNPJ_CLIENTE")));
+        hAPI.setCardValue('centro_de_custo',         safe(dataset.getValue(0, "CENTRO_DE_CUSTO")));
+        hAPI.setCardValue('codigo_do_projeto',       safe(dataset.getValue(0, "CODIGO_DO_PROJETO")));
+        hAPI.setCardValue('descricao_projeto',       safe(dataset.getValue(0, "DESCRICAO_PROJETO")));
+        hAPI.setCardValue('rua_projeto',             safe(dataset.getValue(0, "RUA_PROJETO")));
+        hAPI.setCardValue('estado_projeto',          safe(dataset.getValue(0, "ESTADO_PROJETO")));
+        hAPI.setCardValue('cidade_projeto',          safe(dataset.getValue(0, "CIDADE_PROJETO")));
+        hAPI.setCardValue('complemento_projeto',     safe(dataset.getValue(0, "COMPLEMENTO_PROJETO")));
+        hAPI.setCardValue('bairro_projeto',          safe(dataset.getValue(0, "BAIRRO_PROJETO")));
         hAPI.setCardValue('numero_endereco_projeto', safe(dataset.getValue(0, "NUMERO_ENDERECO_PROJETO")));
+        
+        hAPI.setCardValue('unidade_produto', safe(dataset.getValue(0, "UNIDADE_ITEM")));
+        hAPI.setCardValue('quantidade_produto', safe(dataset.getValue(0, "QUANTIDADE_ITEM")));
+
+        hAPI.setCardValue('cno', safe(dataset.getValue(0, "CNO")));
+        hAPI.setCardValue('art', safe(dataset.getValue(0, "ART")));
 
         // Seção 2 — Detalhes do Contrato
-        hAPI.setCardValue('numero_contrato', safe(dataset.getValue(0, "NUMERO_CONTRATO")));
-        hAPI.setCardValue('tipo_contrato', safe(dataset.getValue(0, "TIPO_CONTRATO")));
-        hAPI.setCardValue('numero_licitacao', safe(dataset.getValue(0, "NUMERO_LICITACAO")));
-        hAPI.setCardValue('codigo_cliente', safe(dataset.getValue(0, "CODIGO_CLIENTE")));
-        hAPI.setCardValue('data_contrato', formatDate(safe(dataset.getValue(0, "DATA_CONTRATO"))));
-        hAPI.setCardValue('data_inicio_contrato', formatDate(safe(dataset.getValue(0, "DATA_INICIO_CONTRATO"))));
-        hAPI.setCardValue('data_termino', formatDate(safe(dataset.getValue(0, "DATA_TERMINO"))));
-        hAPI.setCardValue('periodicidade_medicao', safe(dataset.getValue(0, "PERIODICIDADE_MEDICAO")));
-        hAPI.setCardValue('condicao_pagamento', safe(dataset.getValue(0, "CONDICAO_PAGAMENTO")));
-        hAPI.setCardValue('nome_produto', safe(dataset.getValue(0, "NOME_PRODUTO")));
-        hAPI.setCardValue('codigo_produto', safe(dataset.getValue(0, "CODIGO_PRODUTO")));
+        hAPI.setCardValue('numero_contrato',        safe(dataset.getValue(0, "NUMERO_CONTRATO")));
+        hAPI.setCardValue('tipo_contrato',          safe(dataset.getValue(0, "TIPO_CONTRATO")));
+        hAPI.setCardValue('numero_licitacao',       safe(dataset.getValue(0, "NUMERO_LICITACAO")));
+        hAPI.setCardValue('codigo_cliente',         safe(dataset.getValue(0, "CODIGO_CLIENTE")));
+        hAPI.setCardValue('data_contrato',          formatDate(safe(dataset.getValue(0, "DATA_CONTRATO"))));
+        hAPI.setCardValue('data_inicio_contrato',   formatDate(safe(dataset.getValue(0, "DATA_INICIO_CONTRATO"))));
+        hAPI.setCardValue('data_termino',           formatDate(safe(dataset.getValue(0, "DATA_TERMINO"))));
+        hAPI.setCardValue('periodicidade_medicao',  safe(dataset.getValue(0, "PERIODICIDADE_MEDICAO")));
+        hAPI.setCardValue('condicao_pagamento',     safe(dataset.getValue(0, "CONDICAO_PAGAMENTO")));
+        hAPI.setCardValue('nome_produto',           safe(dataset.getValue(0, "NOME_PRODUTO")));
+        hAPI.setCardValue('codigo_produto',         safe(dataset.getValue(0, "CODIGO_PRODUTO")));
 
-        log.info("[G12] Campos preenchidos com sucesso para IdMov=" + idMov);
+        // Seção 3 — Prestador do Serviço (GFILIAL)
+        hAPI.setCardValue('nomePrestador',              safe(dataset.getValue(0, "NOME_PRESTADOR")));
+        hAPI.setCardValue('nomeEmpresarialPrestador',   safe(dataset.getValue(0, "NOME_PRESTADOR")));
+        hAPI.setCardValue('incricaoPrestador',          safe(dataset.getValue(0, "INCRICAO_PRESTADOR")));
+        hAPI.setCardValue('inscricaoMunicipalPrestador',safe(dataset.getValue(0, "INCRICAO_PRESTADOR")));
+        hAPI.setCardValue('telefonePrestador',          safe(dataset.getValue(0, "TELEFONE_PRESTADOR")));
+        hAPI.setCardValue('emailPrestador',             safe(dataset.getValue(0, "EMAIL_PRESTADOR")));
+        hAPI.setCardValue('ruaPrestador',               safe(dataset.getValue(0, "RUA_PRESTADOR")));
+        hAPI.setCardValue('numeroPrestador',            safe(dataset.getValue(0, "NUMERO_PRESTADOR")));
+        hAPI.setCardValue('bairroPrestador',            safe(dataset.getValue(0, "BAIRRO_PRESTADOR")));
+        hAPI.setCardValue('cidadePrestador',            safe(dataset.getValue(0, "CIDADE_PRESTADOR")));
+        hAPI.setCardValue('estadoPrestador',            safe(dataset.getValue(0, "ESTADO_PRESTADOR")));
+        hAPI.setCardValue('cepPrestador',               safe(dataset.getValue(0, "CEP_PRESTADOR")));
+
+        // Campos compostos do prestador (usados pelo G12-NF-e.js)
+        var endPrestador = joinNonEmpty([
+            safe(dataset.getValue(0, "RUA_PRESTADOR")),
+            safe(dataset.getValue(0, "NUMERO_PRESTADOR")),
+            safe(dataset.getValue(0, "BAIRRO_PRESTADOR"))
+        ], ", ");
+        hAPI.setCardValue('enderecoPrestador',  endPrestador);
+        hAPI.setCardValue('municipioPrestador', safe(dataset.getValue(0, "CIDADE_PRESTADOR")));
+
+        // Seção 4 — Tomador do Serviço (FCFO)
+        hAPI.setCardValue('incricaoTomador',  safe(dataset.getValue(0, "INSCRICAO_TOMADOR")));
+        hAPI.setCardValue('telefoneTomador',  safe(dataset.getValue(0, "TELEFONE_TOMADOR")));
+        hAPI.setCardValue('nomeEmpresarial',  safe(dataset.getValue(0, "NOME_TOMADOR")));
+        hAPI.setCardValue('nome_cliente',  safe(dataset.getValue(0, "NOME_TOMADOR")));
+        hAPI.setCardValue('emailTomador',     safe(dataset.getValue(0, "EMAIL_TOMADOR")));
+        hAPI.setCardValue('ruaTomador',       safe(dataset.getValue(0, "RUA_TOMADOR")));
+        hAPI.setCardValue('numeroTomador',    safe(dataset.getValue(0, "NUMERO_TOMADOR")));
+        hAPI.setCardValue('bairroTomador',    safe(dataset.getValue(0, "BAIRRO_TOMADOR")));
+        hAPI.setCardValue('cidadeTomador',    safe(dataset.getValue(0, "CIDADE_TOMADOR")));
+        hAPI.setCardValue('cepTomador',       safe(dataset.getValue(0, "CEP_TOMADOR")));
+
+        // Campos compostos do tomador (usados pelo G12-NF-e.js)
+        var endTomador = joinNonEmpty([
+            safe(dataset.getValue(0, "RUA_TOMADOR")),
+            safe(dataset.getValue(0, "NUMERO_TOMADOR")),
+            safe(dataset.getValue(0, "BAIRRO_TOMADOR"))
+        ], ", ");
+        hAPI.setCardValue('enderecoTomador',  endTomador);
+        hAPI.setCardValue('municipioTomador', safe(dataset.getValue(0, "CIDADE_TOMADOR")));
+
+        // Seção 5 — Local de Atuação IBS (TMOV)
+        hAPI.setCardValue('codMuniIbs', safe(dataset.getValue(0, "COD_MUNI_IBS")));
+        hAPI.setCardValue('codUfIbs',   safe(dataset.getValue(0, "COD_UF_IBS")));
+
+        // Seção 6 — Item (TITMMOV)
+        hAPI.setCardValue('unidadeItem',    safe(dataset.getValue(0, "UNIDADE_ITEM")));
+        hAPI.setCardValue('quantidadeItem', safe(dataset.getValue(0, "QUANTIDADE_ITEM")));
+
+        // Seção 7 — Tributação
+        hAPI.setCardValue('tributosNacionais',   safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
+        hAPI.setCardValue('naturezaOrcamentaria',safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
+        hAPI.setCardValue('irrfDoItem',          safe(dataset.getValue(0, "IRRF_DO_ITEM")));
+        hAPI.setCardValue('inssDoItem',          safe(dataset.getValue(0, "INSS_DO_ITEM")));
+        hAPI.setCardValue('tributosMunicipais',  safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
+
+        // Seção 8 — Histórico (TMOVHISTORICO)
+        hAPI.setCardValue('informacoesComplementaresNota', safe(dataset.getValue(0, "INFORMACOES_COMPLEMENTARES_NOTA")));
+        hAPI.setCardValue('historicoMovimento', safe(dataset.getValue(0, "INFORMACOES_COMPLEMENTARES_NOTA")));
+
+        log.info("[G12] Todos os campos preenchidos com sucesso para IdMov=" + idMov);
 
     } catch (e) {
         throw "Erro loadDsG12: " + String(e) + " - Linha " + e.lineNumber;
     }
+}
+
+function joinNonEmpty(parts, separator) {
+    var result = [];
+    for (var i = 0; i < parts.length; i++) {
+        if (parts[i] && parts[i] !== "") result.push(parts[i]);
+    }
+    return result.join(separator);
 }
 
 function safe(valor) {

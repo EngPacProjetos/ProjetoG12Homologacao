@@ -78,7 +78,9 @@ function createDataset(fields, constraints, sortFields) {
         "INSS_DO_ITEM",
         "TRIBUTOS_MUNICIPAIS",
         // Histórico
-        "INFORMACOES_COMPLEMENTARES_NOTA"
+        "INFORMACOES_COMPLEMENTARES_NOTA",
+        "ART", 
+        "CNO"
     ];
 
     try {
@@ -193,7 +195,9 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("IRRF_DO_ITEM") ? row.get("IRRF_DO_ITEM") : "",
                 row.has("INSS_DO_ITEM") ? row.get("INSS_DO_ITEM") : "",
                 row.has("TRIBUTOS_MUNICIPAIS") ? row.get("TRIBUTOS_MUNICIPAIS") : "",
-                row.has("INFORMACOES_COMPLEMENTARES_NOTA") ? row.get("INFORMACOES_COMPLEMENTARES_NOTA") : ""
+                row.has("INFORMACOES_COMPLEMENTARES_NOTA") ? row.get("INFORMACOES_COMPLEMENTARES_NOTA") : "",
+                row.has("ART") ? row.get("ART") : "",
+                row.has("CNO") ? row.get("CNO") : ""
             );
         }
 
