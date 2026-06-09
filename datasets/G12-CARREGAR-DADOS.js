@@ -72,15 +72,17 @@ function createDataset(fields, constraints, sortFields) {
         "UNIDADE_ITEM",
         "QUANTIDADE_ITEM",
         // Tributação
-        "TRIBUTOS_NACIONAIS",
-        "NATUREZA_ORCAMENTARIA",
-        "IRRF_DO_ITEM",
-        "INSS_DO_ITEM",
-        "TRIBUTOS_MUNICIPAIS",
+        // "TRIBUTOS_NACIONAIS",
+        // "NATUREZA_ORCAMENTARIA",
+        // "IRRF_DO_ITEM",
+        // "INSS_DO_ITEM",
+        // "TRIBUTOS_MUNICIPAIS",
         // Histórico
         "INFORMACOES_COMPLEMENTARES_NOTA",
         "ART", 
-        "CNO"
+        "CNO", 
+        "NOME_FANTASIA", // DO PRESTADOR DE SERVICO 
+        "VALOR_ITEM" // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
     ];
 
     try {
@@ -190,14 +192,16 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("COD_UF_IBS") ? row.get("COD_UF_IBS") : "",
                 row.has("UNIDADE_ITEM") ? row.get("UNIDADE_ITEM") : "",
                 row.has("QUANTIDADE_ITEM") ? row.get("QUANTIDADE_ITEM") : "",
-                row.has("TRIBUTOS_NACIONAIS") ? row.get("TRIBUTOS_NACIONAIS") : "",
-                row.has("NATUREZA_ORCAMENTARIA") ? row.get("NATUREZA_ORCAMENTARIA") : "",
-                row.has("IRRF_DO_ITEM") ? row.get("IRRF_DO_ITEM") : "",
-                row.has("INSS_DO_ITEM") ? row.get("INSS_DO_ITEM") : "",
-                row.has("TRIBUTOS_MUNICIPAIS") ? row.get("TRIBUTOS_MUNICIPAIS") : "",
+                // row.has("TRIBUTOS_NACIONAIS") ? row.get("TRIBUTOS_NACIONAIS") : "",
+                // row.has("NATUREZA_ORCAMENTARIA") ? row.get("NATUREZA_ORCAMENTARIA") : "",
+                // row.has("IRRF_DO_ITEM") ? row.get("IRRF_DO_ITEM") : "",
+                // row.has("INSS_DO_ITEM") ? row.get("INSS_DO_ITEM") : "",
+                // row.has("TRIBUTOS_MUNICIPAIS") ? row.get("TRIBUTOS_MUNICIPAIS") : "",
                 row.has("INFORMACOES_COMPLEMENTARES_NOTA") ? row.get("INFORMACOES_COMPLEMENTARES_NOTA") : "",
                 row.has("ART") ? row.get("ART") : "",
-                row.has("CNO") ? row.get("CNO") : ""
+                row.has("CNO") ? row.get("CNO") : "",
+                row.has("NOME_FANTASIA") ? row.get("NOME_FANTASIA") : "",
+                row.has("VALOR_ITEM") ? row.get("VALOR_ITEM") : ""
             );
         }
 

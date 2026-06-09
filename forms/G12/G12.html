@@ -11,6 +11,8 @@
 	<script type="text/javascript" src="G12-Zoom.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-NF-e.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-TabelaDeTributos.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-AtualizarMovimento.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-CalcularAjusteTributos.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -30,8 +32,36 @@
 					<input type="hidden" name="CodColigada" id="CodColigada">
 					<input type="hidden" name="NumeroMov" id="NumeroMov">
 
+					<!-- INPUTS PARA INTEGRACAO DE AJUSTE DE IMPOSTOS NO RM VIA SOAP  -->
+					<div class="form-group">
+						<label>COFINS RF</label>
+						<input type="text" class="form-control" name="COFINSRF" placeholder="COFINS RF">
+					</div>
 
+					<div class="form-group">
+						<label>CSLL RF</label>
+						<input type="text" class="form-control" name="CSLLRF" placeholder="CSLL RF">
+					</div>
 
+					<div class="form-group">
+						<label>INSS PJ</label>
+						<input type="text" class="form-control" name="INSSPJ" placeholder="INSS PJ">
+					</div>
+
+					<div class="form-group">
+						<label>IRRF</label>
+						<input type="text" class="form-control" name="IRRF" placeholder="IRRF">
+					</div>
+
+					<div class="form-group">
+						<label>ISS</label>
+						<input type="text" class="form-control" name="ISS" placeholder="ISS">
+					</div>
+
+					<div class="form-group">
+						<label>PIS RF</label>
+						<input type="text" class="form-control" name="PISRF" placeholder="PIS RF">
+					</div>
 
 					<!-- DADOS PARA PREENCHIMENTO DO ESPELHO DE NOTA FISCAL -->
 
@@ -82,7 +112,8 @@
 					<input type="hidden" name="tributosMunicipais" id="tributosMunicipais" readonly>
 
 					<!-- HISTÓRICO (TMOVHISTORICO) -->
-					<input type="hidden" name="informacoesComplementaresNota" id="informacoesComplementaresNota" readonly>
+					<input type="hidden" name="informacoesComplementaresNota" id="informacoesComplementaresNota"
+						readonly>
 
 
 					<!-- Indicador de carregamento -->
@@ -103,6 +134,10 @@
 					<!-- IDENTIFICAÇÃO DO PROJETO -->
 					<div class="panel panel-default" style="margin-bottom: 24px;">
 						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/ilgzgiqi.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
 							<h3 class="panel-title">
 								<i class="fa fa-building" style="margin-right: 6px;"></i>
 								Identificação do Projeto
@@ -148,12 +183,19 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
+										<label>Nome da filial</label>
+										<input type="text" class="form-control" name="nome_filial" id="nome_filial"
+											readonly>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
 										<label>Centro de Custo</label>
 										<input type="text" class="form-control" name="centro_de_custo"
 											id="centro_de_custo" readonly>
 									</div>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<div class="form-group">
 										<label>Código do Projeto</label>
 										<input type="text" class="form-control" name="codigo_do_projeto"
@@ -234,6 +276,10 @@
 					<!-- DETALHES DO CONTRATO -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
 							<h3 class="panel-title">
 								<i class="fa fa-file-text" style="margin-right: 6px;"></i>
 								Detalhes do Contrato
@@ -355,7 +401,48 @@
 									<input type="text" name="quantidade_produto" id="quantidade_produto"
 										class="form-control" readonly>
 								</div>
+								<div class="col-md-4">
+									<label for="unidade_produto">Valor do item</label>
+									<input type="text" name="valor_item" id="valor_item" class="form-control" readonly>
+								</div>
 							</div>
+
+						</div>
+					</div>
+					<!-- SECAO DE HISTORICO DO MOVIMENTO  - SEPARADA DOS DEMAIS PONTOS DO FORMULARIO  -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/yxsbonud.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
+							<h2 class="panel-title">Histórico do movimento</h2>
+						</div>
+						<div class="panel-body">
+							<div id="historicomovimento">
+								<div class="row">
+									<div class="vol-md-12">
+										<label for="historicoMovimento">Histórico do movimento</label>
+										<textarea name="historicoMovimento" id="historicoMovimento" class="form-control"
+											rows="5" readonly>
+
+								</textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- SECAO DE ANEXOS DO GED RM  -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/yrtftktn.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
+							<h2 class="panel-title">Anexos</h2>
+						</div>
+						<div class="panel-body">
 
 						</div>
 					</div>
@@ -363,6 +450,10 @@
 					<!-- TRIBUTAÇÃO -->
 					<div class="panel panel-default" style="margin-bottom: 24px;">
 						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/rhmhivzj.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
 							<h3 class="panel-title">
 								<i class="fa fa-calculator" style="margin-right: 6px;"></i>
 								Tributação
@@ -405,12 +496,109 @@
 								<p class="text-muted">Aguardando carregamento...</p>
 							</div>
 
+							<div id="botaoajustarimpostos" style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="exibirTabelaAtualizarTributos()"> Ajustar impostos</button>
+								</button>
+							</div>
+
+
+
+
 						</div>
+					</div>
+
+					<!-- DIV PARA EXIBICAO DOS IMPOSTOS QUE PODEM SER AJUSTADOS  -->
+					<div id="impostosajustaveis" class="invisible">
+						<div id="ajustesTabelaAjusteImpostos">
+							<table id="tblajustarimpostos" tablename="tblajustarimpostos"
+								class="table table-condensed table-striped" noaddbutton="true">
+								<thead class="fs-display-none">
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="card-imposto">
+										<td>
+
+											<div class="form-group">
+												<label for="impostos_selecao">Imposto</label>
+												<input style="z-index: 99999px;" type="zoom" class="form-control"
+													id="impostos_selecao" name="impostos_selecao" data-zoom="{
+                           'datasetId':'G12-AJUSTAR-TRIBUTOS',
+                           'displayKey':'',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO',
+                                   'label':'IMPOSTO',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'TIPO',
+                                   'label':'TIPO',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+											</div>
+										</td>
+										<td><label for="valorImposto">Valor</label><input type="text"
+												class="form-control" id="valorImposto" name="valorImposto"></td>
+										<td><label for="aliquota">Alíquota</label><input type="text"
+												class="form-control" id="aliquota" name="aliquota"></td>
+										<td><label for="baseCalculo">Base de Cálculo</label><input type="text"
+												class="form-control" id="baseCalculo" name="baseCalculo"
+												onblur="ajustarValorTributo(this)"></td>
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<div
+														style="display:flex; justify-content:flex-end; align-items: center;">
+														<button type="button" class="btn btn-danger btn-sm"
+															onclick="removerComAnimacao(this)">
+															<i class="flaticon flaticon-trash icon-lg"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="salvarAjusterRmImpostos(this)">
+									Salvar ajustes
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="wdkAddChild('tblajustarimpostos'), setSelectedZoomItem();">
+									+ Imposto
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="esconderTabelaAtualizarTributos()">
+									Fechar
+								</button>
+							</div>
+						</div>
+
+
 					</div>
 
 					<!-- APROVACAO DO SETOR TECNICO  -->
 					<div class="panel panel-default" style="margin-bottom: 16px;">
 						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/ietuubpb.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
 							<h2 class="panel-title">Aprovação do setor técnico</h2>
 						</div>
 						<div class="panel-body">
@@ -426,28 +614,17 @@
 					<!-- VALIDACAO DE COTRATOS  -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h2 class="panel-title">Validação de contratos</h2>
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/tobsqthh.json" trigger="loop" delay="2000"
+								style="width:60px;height:60px">
+							</lord-icon>
+							<h2 class="panel-title">Faturar notas</h2>
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="idmovContratos">IDMOV Recibo de serviço</label>
-										<input type="zoom" class="form-control" id="idmovContratos"
-											name="idmovContratos" data-zoom="{
-											'datasetId':'G12-MOVIMENTOS-2102',
-											'displayKey':'IDMOV',
-											'maximumSelectionLength':'1',
-											'placeholder':'SELECIONE UM IDMOV',
-											'fields':[
-												{
-													'field':'IDMOV',
-													'label':'IDMOV',
-													'standard':'true'
-												}
-											]
-										}">
-									</div>
+								<div class="col-md-4">
+									<label for="idmov2">IDMOV movimento 2.1.02</label>
+									<input type="text" name="idmov2" id="idmov2" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="row">
@@ -748,18 +925,6 @@
 									onclick="NFeModal.fechar()">Fechar</button>
 							</div>
 
-						</div>
-					</div>
-
-					<div id="historicomovimento">
-						<div class="row">
-							<div class="vol-md-12">
-								<label for="historicoMovimento">Histórico do movimento</label>
-								<textarea name="historicoMovimento" id="historicoMovimento" class="form-control"
-									rows="5" readonly>
-
-								</textarea>
-							</div>
 						</div>
 					</div>
 

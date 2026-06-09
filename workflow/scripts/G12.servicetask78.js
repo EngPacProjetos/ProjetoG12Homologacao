@@ -1,23 +1,19 @@
-function servicetask71(attempt, message) {
+function servicetask78(attempt, message) {
     /**
      * AUTHOR: ENOS DESENVOLVEDOR FLUIG/FULL STACK 
      * CRIADO EM: 29/05/2026
-     * PROPOSITO: FATURAR OS MOVIMENTOS DE VENDAS DO TIPO 2.1.01 , CRIAR MOVIMENTO 2.1.02 E GERAR O RELACIONAMENTO ENTRE ELES DENTRO DO RM 
-     * PUXAR OS DADOS DE TRIBUTACAO DO MOVIMENTO 2.1.02 PARA ATUALIZAR DENTRO DA TAELA DE IMPOSTOS DO FORMULARIO
+     * PROPOSITO: FATURAR OS MOVIMENTOS DE VENDAS DO TIPO 2.1.02 , CRIAR MOVIMENTO 2.2.01 E GERAR O RELACIONAMENTO ENTRE ELES DENTRO DO RM 
     */
 
 
 
     var codColigada = hAPI.getCardValue("CodColigada");
-    var idMov = hAPI.getCardValue("IdMov");
-    var idmovMovimento02;
+    var idMov = hAPI.getCardValue("idmovContratos");
     var codFilial = hAPI.getCardValue("filial");
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 
     var usuario_rm = getConstante("rm_usuario");
     var senha_rm = getConstante("rm_senha");
-
-
 
     try {
 
@@ -54,8 +50,8 @@ function servicetask71(attempt, message) {
             '<movCopiaFatPar>' +
             '<CodColigada>' + codColigada + '</CodColigada>' +
             '<CodSistema>T</CodSistema>' +
-            '<CodTmvDestino>2.1.02</CodTmvDestino>' +
-            '<CodTmvOrigem>2.1.01</CodTmvOrigem>' +
+            '<CodTmvDestino>2.2.01</CodTmvDestino>' +
+            '<CodTmvOrigem>2.1.02</CodTmvOrigem>' +
             '<CodUsuario>fluig</CodUsuario>' +
             '<GrupoFaturamento></GrupoFaturamento>' +
             '<IdExercicioFiscal>3</IdExercicioFiscal>' +
@@ -82,61 +78,6 @@ function servicetask71(attempt, message) {
     }
 
 
-    // PARTE RESPONSAVEL POR ATUALIZAR OS DADOS DE TRIBUTACAO APOS SAI DA VALIDACAO DE CONTRATOS 
-    try {
-        var c2 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset("G12-MOVIMENTOS-2102", null, [c2], null);
-
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum movimento retornado." + "IdMov=" + idMov);
-            return;
-        }
-
-        hAPI.setCardValue('idmov2', safe(dataset.getValue(0, "IDMOV")));
-        var idmovMovimento02 = safe(dataset.getValue(0, "IDMOV"));
-
-
-
-
-
-    } catch (error) {
-        log.error("### Erro ao carregar movimento 2.1.02 no dataset - > : " + error);
-        throw error;
-
-    }
-
-    // BUSCA OS IMPOSTOS DO MOVIMENTO 2.1.02 APOS A ATUALIZACAO DO FATURAMENTO DO 2.1.01 E SEU FATUTRAMENTO, COM A GERACAO DO 2.1.02
-    
-
-    try {
-        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint("IDMOV", idmovMovimento02, idmovMovimento02, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset("G12-CARREGAR-TRIBUTOS", null, [c1, c2], null);
-
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmovMovimento02);
-            return;
-        }
-
-
-        hAPI.setCardValue('tributosNacionais', safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
-        hAPI.setCardValue('naturezaOrcamentaria', safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
-        hAPI.setCardValue('irrfDoItem', safe(dataset.getValue(0, "IRRF_DO_ITEM")));
-        hAPI.setCardValue('inssDoItem', safe(dataset.getValue(0, "INSS_DO_ITEM")));
-        hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
-
-
-    } catch (e) {
-        log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
-        throw e;
-    }
-
-
-
 
 }
 
@@ -151,11 +92,4 @@ function getConstante(param) {
         }
     }
     return '0';
-}
-
-function safe(valor) {
-    log.info("VALOR DO IDMOV QUE ENTROU DENTRO DO CAMPO DE VALIDACAO DE CARREGAMENTO" + valor)
-    if (valor == null || valor == undefined) return "";
-    var s = String(valor).trim();
-    return (s == "null" || s == "undefined") ? "" : s;
 }

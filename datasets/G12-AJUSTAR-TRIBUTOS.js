@@ -3,7 +3,7 @@
  * @CRIACAO 18/05/2026
  * @PURPOSE CRIA UM DATASET RESPONSAVEL POR EXTRAIR TODAS AS INFORMACOES DE UMA CONSULTA SQL NO TOTVS RM
  *          E CARREGAR OS DADOS DIRETO DENTRO DO FORMULARIO FLUIG
- * @CONSULTA G12MOV02 (cod 2) — Retorna os IDMOV dos movimentos gerados a partir do 2.1.02
+ * @CONSULTA G12AJUSTARTRIBU — Retorna tributos nacionais e municipais por CODCOLIGADA, IDMOV
  */
 function createDataset(fields, constraints, sortFields) {
 
@@ -12,11 +12,12 @@ function createDataset(fields, constraints, sortFields) {
     var NOME_SERVICO = "WSCONSSQL";
     var CAMINHO_SERVICO = "com.totvs.WsConsultaSQL";
 
+    var CODCOLIGADA;
     var IDMOV;
 
-    // Colunas alinhadas com o retorno real da consulta G12FORMULARIO para contratos
     var COLUNAS = [
-        "IDMOV"
+        "CODIGO",
+        "TIPO"
     ];
 
     try {
@@ -35,16 +36,23 @@ function createDataset(fields, constraints, sortFields) {
         // Leitura dos constraints
         if (constraints != null) {
             for (var i = 0; i < constraints.length; i++) {
+                if (constraints[i].fieldName == "CODCOLIGADA") CODCOLIGADA = constraints[i].initialValue;
                 if (constraints[i].fieldName == "IDMOV") IDMOV = constraints[i].initialValue;
             }
         }
 
-        log.info("IDMOV: " + IDMOV);
+        log.info("[dsContratoRM] CODCOLIGADA: " + CODCOLIGADA);
+        log.info("[dsContratoRM] IDMOV: " + IDMOV);
 
         // Validacoes dos parametros obrigatorios
+        if (CODCOLIGADA == undefined || CODCOLIGADA == null || String(CODCOLIGADA).trim() == "") {
+            log.error("[dsContratoRM] CODCOLIGADA nao foi informado. Abortando.");
+            return retornarErro("CODCOLIGADA nao foi informado", null, CODCOLIGADA, IDMOV);
+        }
+
         if (IDMOV == undefined || IDMOV == null || String(IDMOV).trim() == "") {
             log.error("[dsContratoRM] IDMOV nao foi informado. Abortando.");
-            return retornarErro("IDMOV nao foi informado", null, IDMOV);
+            return retornarErro("IDMOV nao foi informado", null, CODCOLIGADA, IDMOV);
         }
 
         var servico = ServiceManager.getService(NOME_SERVICO);
@@ -53,31 +61,37 @@ function createDataset(fields, constraints, sortFields) {
         var serviceHelper = servico.getBean();
         var authService = serviceHelper.getBasicAuthenticatedClient(ws, "com.totvs.IwsConsultaSQL", usuario, senha);
 
-        var PARAMS = "IDMOV=" + IDMOV;
+
+        var IDMOV_INT = java.lang.Integer.parseInt(String(IDMOV));
+
+        var PARAMS = "CODCOLIGADA=" + CODCOLIGADA + ";IDMOV=" + IDMOV_INT;
         log.info("[dsContratoRM] PARAMS enviados: " + PARAMS);
 
-        var result = authService.realizarConsultaSQL("G12MOV02", 0, "F", PARAMS);
+        var result = authService.realizarConsultaSQL("G12AJUSTARTRIBU", 0, "T", PARAMS);
         log.info("[dsContratoRM] Retorno bruto do RM: " + result);
 
         var JSONObj = org.json.XML.toJSONObject(result);
         log.info("[dsContratoRM] JSON parseado: " + JSONObj);
 
+        // Trata NewDataSet vazio
         var dados = JSONObj.get("NewDataSet").get("Resultado");
-        log.info("[dsContratoRM] Dados extraidos: " + dados);
+        if (dados == null || dados.toString().trim() == "") {
+            log.warn("[dsContratoRM] Nenhum dado retornado pelo RM para IDMOV=" + IDMOV);
+            return dataset;
+        }
 
-        // Funcao auxiliar para montar uma linha com fallback seguro
+
         function buildRow(row) {
             return new Array(
-                row.has("IDMOV_DESTINO") ? row.get("IDMOV_DESTINO") : ""
+                row.has("CODIGO") ? row.get("CODIGO") : "",
+                row.has("TIPO") ? row.get("TIPO") : ""
             );
         }
 
         if (dados.isNull(0)) {
             log.info("[dsContratoRM] Registro unico encontrado.");
             dataset.addRow(buildRow(dados));
-
         } else {
-            // Multiplos registros
             log.info("[dsContratoRM] Multiplos registros encontrados: " + dados.length());
             for (var i = 0; i < dados.length(); i++) {
                 dataset.addRow(buildRow(dados.get(i)));
@@ -86,25 +100,26 @@ function createDataset(fields, constraints, sortFields) {
 
     } catch (e) {
         log.error("[dsContratoRM] ERRO: " + String(e) + " | Linha: " + e.lineNumber);
-        return retornarErro(String(e), e.lineNumber, IDMOV);
+        return retornarErro(String(e), e.lineNumber, CODCOLIGADA, IDMOV);
     }
 
     return dataset;
 }
 
-function retornarErro(mensagem, linha, idMov) {
+function retornarErro(mensagem, linha, codColigada, idMov) {
     var dsError = DatasetBuilder.newDataset();
     dsError.addColumn("ERROR");
     dsError.addColumn("LINE");
+    dsError.addColumn("CODCOLIGADA");
     dsError.addColumn("IDMOV");
     dsError.addRow(new Array(
         mensagem,
         linha != null ? linha : "",
+        codColigada != null ? codColigada : "",
         idMov != null ? idMov : ""
     ));
     return dsError;
 }
-
 
 function getAccess() {
     try {
@@ -117,7 +132,4 @@ function getAccess() {
     }
 }
 
-
-function onMobileSync(user) {
-
-}
+function onMobileSync(user) { }

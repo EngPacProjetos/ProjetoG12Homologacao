@@ -88,6 +88,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('cidadePrestador',            safe(dataset.getValue(0, "CIDADE_PRESTADOR")));
         hAPI.setCardValue('estadoPrestador',            safe(dataset.getValue(0, "ESTADO_PRESTADOR")));
         hAPI.setCardValue('cepPrestador',               safe(dataset.getValue(0, "CEP_PRESTADOR")));
+        hAPI.setCardValue('nome_filial',               safe(dataset.getValue(0, "NOME_FANTASIA")));
 
         // Campos compostos do prestador (usados pelo G12-NF-e.js)
         var endPrestador = joinNonEmpty([
@@ -126,13 +127,14 @@ function loadDsG12(codColigada, idMov) {
         // Seção 6 — Item (TITMMOV)
         hAPI.setCardValue('unidadeItem',    safe(dataset.getValue(0, "UNIDADE_ITEM")));
         hAPI.setCardValue('quantidadeItem', safe(dataset.getValue(0, "QUANTIDADE_ITEM")));
+        hAPI.setCardValue('valor_item', safe(dataset.getValue(0, "VALOR_ITEM")));
 
         // Seção 7 — Tributação
-        hAPI.setCardValue('tributosNacionais',   safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
-        hAPI.setCardValue('naturezaOrcamentaria',safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
-        hAPI.setCardValue('irrfDoItem',          safe(dataset.getValue(0, "IRRF_DO_ITEM")));
-        hAPI.setCardValue('inssDoItem',          safe(dataset.getValue(0, "INSS_DO_ITEM")));
-        hAPI.setCardValue('tributosMunicipais',  safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
+        // hAPI.setCardValue('tributosNacionais',   safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
+        // hAPI.setCardValue('naturezaOrcamentaria',safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
+        // hAPI.setCardValue('irrfDoItem',          safe(dataset.getValue(0, "IRRF_DO_ITEM")));
+        // hAPI.setCardValue('inssDoItem',          safe(dataset.getValue(0, "INSS_DO_ITEM")));
+        // hAPI.setCardValue('tributosMunicipais',  safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
 
         // Seção 8 — Histórico (TMOVHISTORICO)
         hAPI.setCardValue('informacoesComplementaresNota', safe(dataset.getValue(0, "INFORMACOES_COMPLEMENTARES_NOTA")));
