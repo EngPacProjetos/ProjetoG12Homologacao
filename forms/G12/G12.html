@@ -34,7 +34,7 @@
 					<input type="hidden" name="NumeroMov" id="NumeroMov">
 
 					<!-- INPUTS PARA INTEGRACAO DE AJUSTE DE IMPOSTOS NO RM VIA SOAP  -->
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label>COFINS RF</label>
 						<input type="text" class="form-control" name="COFINSRF" placeholder="COFINS RF">
 					</div>
@@ -62,7 +62,7 @@
 					<div class="form-group">
 						<label>PIS RF</label>
 						<input type="text" class="form-control" name="PISRF" placeholder="PIS RF">
-					</div>
+					</div> -->
 
 					<!-- DADOS PARA PREENCHIMENTO DO ESPELHO DE NOTA FISCAL -->
 
@@ -487,7 +487,7 @@
 							</div>
 
 							<h4 style="margin-top: 16px; margin-bottom: 8px;">
-								<i class="fa fa-globe" style="margin-right: 4px;"></i>Tributos Nacionais
+								<i class="fa fa-globe" style="margin-right: 4px;"></i>Tributos Do Movimento
 							</h4>
 							<div id="tabelaTributosNacionais">
 								<p class="text-muted">Aguardando carregamento...</p>
@@ -502,12 +502,12 @@
 
 							<div id="botoesTributos">
 
-								<button type="button" class="btn btn-success btn-sm"
-									onclick="exibirTabelaAtualizarTributos()"> Ajustar impostos</button>
+								<button type="button" class="btn btn-info btn-sm"
+									onclick="exibirTabelaAtualizarTributos()"> Ajustar Tributo do movimento</button>
 								</button>
 
-								<button type="button" class="btn btn-success btn-sm"
-									onclick="exibirTabelaCdastrarMunicipais()"> + Tributo Municipal</button>
+								<button type="button" class="btn btn-info btn-sm"
+									onclick="exibirTabelaCdastrarMunicipais()"> Cadastrar / Ajustar Tributo Municipal</button>
 								</button>
 
 							</div>
@@ -637,9 +637,8 @@
 										<td><label for="aliquotaMunicipal">Alíquota</label><input type="text"
 												class="form-control" id="aliquotaMunicipal" name="aliquotaMunicipal">
 										</td>
-										<!-- <td><label for="baseCalculo">Base de Cálculo</label><input type="text"
-												class="form-control" id="baseCalculo" name="baseCalculo"
-												onblur="ajustarValorTributo(this)"></td> -->
+										<td><label for="baseReucaoMunicipal">Base Redução ISS(%)</label><input type="text"
+												class="form-control" id="baseReucaoMunicipal" name="baseReucaoMunicipal"></td>
 										<td>
 											<div class="row">
 												<div class="col-md-12">

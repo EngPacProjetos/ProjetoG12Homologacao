@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G12</processId>
-      <version>148</version>
+      <version>151</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>68555</formId>
@@ -3037,10 +3037,12 @@ function getDatasetError(exception) {&#xd;
         if (codtrbN == null || codtrbN == &quot;&quot; || codtrbN == &quot;null&quot; || codtrbN == undefined) break;
 
         var aliqN = hAPI.getCardValue(&quot;aliquotaMunicipal&quot; + sufixo);
+        var reduN = hAPI.getCardValue(&quot;baseReucaoMunicipal&quot; + sufixo);
 
         tributos.push({
             codtrb: String(codtrbN).trim(),
-            aliquota: aliqN ? String(aliqN).replace(&quot;,&quot;, &quot;.&quot;) : &quot;0.0000&quot;
+            aliquota: aliqN ? String(aliqN).replace(&quot;,&quot;, &quot;.&quot;) : &quot;0.0000&quot;,
+            reducao: reduN ? String(reduN).replace(&quot;,&quot;, &quot;.&quot;) : &quot;0.0000&quot;
         });
 
         log.info(&quot;[G12-AjustarTributosMunicipais] Tributo coletado: &quot; + String(codtrbN).trim() + &quot; aliquota=&quot; + aliqN);
@@ -3084,6 +3086,7 @@ function getDatasetError(exception) {&#xd;
                 &quot;&lt;CODTRB&gt;&quot; + tributos[t].codtrb + &quot;&lt;/CODTRB&gt;&quot; +
                 &quot;&lt;IDPRD&gt;&quot; + idprd + &quot;&lt;/IDPRD&gt;&quot; +
                 &quot;&lt;ALIQUOTA&gt;&quot; + formatarParaRM(tributos[t].aliquota) + &quot;&lt;/ALIQUOTA&gt;&quot; +
+                &quot;&lt;FATORISS&gt;&quot; + formatarParaRM(tributos[t].reducao) + &quot;&lt;/FATORISS&gt;&quot; +
                 &quot;&lt;/DTrbMunicipioPrd&gt;&quot; +
                 &quot;&lt;/FisTrbMunicipioPrd&gt;&quot;;
 
@@ -3717,7 +3720,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>148</version>
+        <version>151</version>
         <linkSequence>84</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -3728,7 +3731,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>148</version>
+        <version>151</version>
         <linkSequence>84</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -3739,7 +3742,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>148</version>
+        <version>151</version>
         <linkSequence>86</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -3824,7 +3827,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -3834,7 +3837,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -3844,7 +3847,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -3854,7 +3857,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -3864,7 +3867,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -3874,7 +3877,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -3884,7 +3887,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -3894,7 +3897,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -3904,7 +3907,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -3914,7 +3917,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -3924,7 +3927,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -3934,7 +3937,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -3944,7 +3947,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -3954,7 +3957,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -3964,7 +3967,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>148</processVersion>
+      <processVersion>151</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

@@ -24,10 +24,12 @@ function servicetask108(attempt, message) {
         if (codtrbN == null || codtrbN == "" || codtrbN == "null" || codtrbN == undefined) break;
 
         var aliqN = hAPI.getCardValue("aliquotaMunicipal" + sufixo);
+        var reduN = hAPI.getCardValue("baseReucaoMunicipal" + sufixo);
 
         tributos.push({
             codtrb: String(codtrbN).trim(),
-            aliquota: aliqN ? String(aliqN).replace(",", ".") : "0.0000"
+            aliquota: aliqN ? String(aliqN).replace(",", ".") : "0.0000",
+            reducao: reduN ? String(reduN).replace(",", ".") : "0.0000"
         });
 
         log.info("[G12-AjustarTributosMunicipais] Tributo coletado: " + String(codtrbN).trim() + " aliquota=" + aliqN);
@@ -71,6 +73,7 @@ function servicetask108(attempt, message) {
                 "<CODTRB>" + tributos[t].codtrb + "</CODTRB>" +
                 "<IDPRD>" + idprd + "</IDPRD>" +
                 "<ALIQUOTA>" + formatarParaRM(tributos[t].aliquota) + "</ALIQUOTA>" +
+                "<FATORISS>" + formatarParaRM(tributos[t].reducao) + "</FATORISS>" +
                 "</DTrbMunicipioPrd>" +
                 "</FisTrbMunicipioPrd>";
 
