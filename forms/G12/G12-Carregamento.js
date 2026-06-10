@@ -95,7 +95,7 @@ function parseTributosMunicipais(raw) {
     for (var i = 0; i < entradas.length; i++) {
         var e = entradas[i].trim();
         if (!e) continue;
-        var m = e.match(/CODIGO:\s*(.+?)\s+-\s+ALIQUOTA:\s*(.+?)\s+-\s+FATOR ISS MUNICIPAL:\s*(.+)/i);
+        var m = e.match(/CODIGO:\s*(.+?)\s+-\s+ALIQUOTA:\s*(.+?)\s+-\s+BASE REDUCAO ISS\(%\):\s*(.*)/i);
         if (m) {
             resultado.push({
                 codigo: m[1].trim(),
@@ -140,7 +140,7 @@ function renderizarTabelasTributacao(rawNac, rawMun, natureza) {
             $cMun.html("<p class='text-muted'>Nenhum tributo municipal registrado.</p>");
         } else {
             var hm = "<table class='table table-bordered table-condensed table-hover'>";
-            hm += "<thead><tr><th>Código</th><th>Alíquota</th><th>Fator ISS Municipal</th></tr></thead><tbody>";
+            hm += "<thead><tr><th>Código</th><th>Alíquota</th><th>Base Redução ISS (%)</th></tr></thead><tbody>";
             for (var j = 0; j < tributosMun.length; j++) {
                 var tm = tributosMun[j];
                 hm += "<tr><td>" + (tm.codigo || "—") + "</td><td>" + (tm.aliquota || "—") +

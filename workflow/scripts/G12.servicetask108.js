@@ -1,14 +1,10 @@
-function servicetask87(attempt, message) {
-
-    var codColigada = hAPI.getCardValue("CodColigada");
-    var idmov = hAPI.getCardValue("idmov2");
-    var codFilial = hAPI.getCardValue("filial") || "1";
+function servicetask108(attempt, message) {
 
 
     var usuario_rm = getConstante("rm_usuario");
     var senha_rm = getConstante("rm_senha");
 
-    log.info("[G12-AjustarTributos] Iniciando - CODCOLIGADA=" + codColigada + " IDMOV=" + idmov);
+    log.info("[G12-AjustarTributosMunicipais] Iniciando cadastro de tributo");
 
     var tributosFormulario = {};
     var i = 1;
@@ -134,33 +130,22 @@ function servicetask87(attempt, message) {
     }
 
 
-    try {
 
-        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint("IDMOV", idmov, idmov, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset("G12-CARREGAR-TRIBUTOS", null, [c1, c2], null);
-
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmov);
-            return;
-        }
-
-
-        hAPI.setCardValue('tributosNacionais', safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
-        hAPI.setCardValue('naturezaOrcamentaria', safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
-        hAPI.setCardValue('irrfDoItem', safe(dataset.getValue(0, "IRRF_DO_ITEM")));
-        hAPI.setCardValue('inssDoItem', safe(dataset.getValue(0, "INSS_DO_ITEM")));
-        hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
-
-
-    } catch (e) {
-        log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
-        throw e;
+    function guardarXMLExemplo() {
+        var xmlexemplo =
+            "<FisTrbMunicipioPrd>" +
+            " < DTrbMunicipioPrd >" +
+            "<CODCOLIGADA>2</CODCOLIGADA>" +
+            "<CODMUNICIPIO>123456</CODMUNICIPIO>" +
+            "<CODETDMUNICIPIO>MG</CODETDMUNICIPIO>" +
+            "<CODTRB>ISS</CODTRB>" +
+            "<IDPRD>100</IDPRD>" +
+            "<ALIQUOTA>5.00</ALIQUOTA>" +
+            "</DTrbMunicipioPrd >" +
+            "</FisTrbMunicipioPrd > "
     }
-
 }
+
 
 function getConstante(param) {
     var oConstantes = DatasetFactory.getDataset('ds_Constantes', null, null, null);
@@ -170,18 +155,4 @@ function getConstante(param) {
         }
     }
     return '0';
-}
-
-function guardarXMLExemplo() {
-    var xmlexemplo =
-        "<FisTrbMunicipioPrd>" +
-        " < DTrbMunicipioPrd >" +
-        "<CODCOLIGADA>2</CODCOLIGADA>" +
-        "<CODMUNICIPIO>123456</CODMUNICIPIO>" +
-        "<CODETDMUNICIPIO>MG</CODETDMUNICIPIO>" +
-        "<CODTRB>ISS</CODTRB>" +
-        "<IDPRD>100</IDPRD>" +
-        "<ALIQUOTA>5.00</ALIQUOTA>" +
-        "</DTrbMunicipioPrd >" +
-        "</FisTrbMunicipioPrd > "
 }

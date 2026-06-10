@@ -117,7 +117,7 @@ var NFeModal = (function ($) {
     h += "<thead><tr style='background:#eef2f8'>" +
          "<th style='border:1px solid #ccc;padding:3px 6px'>Código</th>" +
          "<th style='border:1px solid #ccc;padding:3px 6px'>Alíquota</th>" +
-         "<th style='border:1px solid #ccc;padding:3px 6px'>Fator ISS Municipal</th>" +
+         "<th style='border:1px solid #ccc;padding:3px 6px'>Base Redução ISS (%)</th>" +
          "</tr></thead><tbody>";
     for (var i = 0; i < tributos.length; i++) {
       var t = tributos[i];

@@ -110,6 +110,7 @@
 					<input type="hidden" name="irrfDoItem" id="irrfDoItem" readonly>
 					<input type="hidden" name="inssDoItem" id="inssDoItem" readonly>
 					<input type="hidden" name="tributosMunicipais" id="tributosMunicipais" readonly>
+					<input type="hidden" name="codigoMunicipio" id="codigoMunicipio" readonly>
 
 					<!-- HISTÓRICO (TMOVHISTORICO) -->
 					<input type="hidden" name="informacoesComplementaresNota" id="informacoesComplementaresNota"
@@ -524,6 +525,90 @@
 
 											<div class="form-group">
 												<label for="impostos_selecao">Imposto</label>
+												<input style="z-index: 99999px;" type="zoom" class="form-control"
+													id="impostos_selecao" name="impostos_selecao" data-zoom="{
+                           'datasetId':'G12-AJUSTAR-TRIBUTOS',
+                           'displayKey':'',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO',
+                                   'label':'IMPOSTO',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'TIPO',
+                                   'label':'TIPO',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+											</div>
+										</td>
+										<td><label for="valorImposto">Valor</label><input type="text"
+												class="form-control" id="valorImposto" name="valorImposto"></td>
+										<td><label for="aliquota">Alíquota</label><input type="text"
+												class="form-control" id="aliquota" name="aliquota"></td>
+										<td><label for="baseCalculo">Base de Cálculo</label><input type="text"
+												class="form-control" id="baseCalculo" name="baseCalculo"
+												onblur="ajustarValorTributo(this)"></td>
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<div
+														style="display:flex; justify-content:flex-end; align-items: center;">
+														<button type="button" class="btn btn-danger btn-sm"
+															onclick="removerComAnimacao(this)">
+															<i class="flaticon flaticon-trash icon-lg"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="salvarAjusterRmImpostos(this)">
+									Salvar ajustes
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="wdkAddChild('tblajustarimpostos'), setSelectedZoomItem();">
+									+ Imposto
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="esconderTabelaAtualizarTributos()">
+									Fechar
+								</button>
+							</div>
+						</div>
+
+
+					</div>
+
+					<!-- DIV DOCADASTRO DE TRIBUTOS MUNICIPAIS -->
+					<div id="cadastrotributosmunicipais" class="invisible">
+						<div id="divcadastrotributosmunicipais">
+							<table id="tblcadastrotributosmuni" tablename="tblcadastrotributosmuni"
+								class="table table-condensed table-striped" noaddbutton="true">
+								<thead class="fs-display-none">
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="card-imposto">
+										<td>
+
+											<div class="form-group">
+												<label for="impostos_selecao_municipal">Imposto</label>
 												<input style="z-index: 99999px;" type="zoom" class="form-control"
 													id="impostos_selecao" name="impostos_selecao" data-zoom="{
                            'datasetId':'G12-AJUSTAR-TRIBUTOS',

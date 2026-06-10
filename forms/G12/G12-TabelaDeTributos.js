@@ -43,7 +43,7 @@ function CarregarTabelasDeTriutos() {
             $cMun.html("<p class='text-muted'>Nenhum tributo municipal registrado.</p>");
         } else {
             var hm = "<table class='table table-bordered table-condensed table-hover'>";
-            hm += "<thead><tr><th>Código</th><th>Alíquota</th><th>Fator ISS Municipal</th></tr></thead><tbody>";
+            hm += "<thead><tr><th>Código</th><th>Alíquota</th><th>Base Redução ISS (%)</th></tr></thead><tbody>";
             for (var j = 0; j < tributosMun.length; j++) {
                 var tm = tributosMun[j];
                 hm += "<tr><td>" + (tm.codigo || "—") + "</td><td>" + (tm.aliquota || "—") +

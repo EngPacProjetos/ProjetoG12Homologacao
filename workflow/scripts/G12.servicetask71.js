@@ -10,6 +10,7 @@ function servicetask71(attempt, message) {
 
     var codColigada = hAPI.getCardValue("CodColigada");
     var idMov = hAPI.getCardValue("IdMov");
+    var municipio = hAPI.getCardValue("cidade_projeto");
     var idmovMovimento02;
     var codFilial = hAPI.getCardValue("filial");
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
@@ -107,8 +108,9 @@ function servicetask71(attempt, message) {
 
     }
 
-    // BUSCA OS IMPOSTOS DO MOVIMENTO 2.1.02 APOS A ATUALIZACAO DO FATURAMENTO DO 2.1.01 E SEU FATUTRAMENTO, COM A GERACAO DO 2.1.02
-    
+    // BUSCA OS IMPOSTOS DO MOVIMENTO 2.1.02 APOS A ATUALIZACAO DO FATURAMENTO DO 2.1.01 E SEU FATUTRAMENTO, COM A GERACAO DO 2.1.02 
+    //APENAS OS IMPOSTOS DO MOVIMENTO ,NAO VAO INCLUI OS MUNICIPAIS DO MUNICIPIO
+
 
     try {
         var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
@@ -127,7 +129,28 @@ function servicetask71(attempt, message) {
         hAPI.setCardValue('naturezaOrcamentaria', safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
         hAPI.setCardValue('irrfDoItem', safe(dataset.getValue(0, "IRRF_DO_ITEM")));
         hAPI.setCardValue('inssDoItem', safe(dataset.getValue(0, "INSS_DO_ITEM")));
+
+
+    } catch (e) {
+        log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
+        throw e;
+    }
+
+
+    try {
+        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint("IDMOV", idmovMovimento02, idmovMovimento02, ConstraintType.MUST);
+        var c3 = DatasetFactory.createConstraint("NOMEMUNICIPIO", municipio, municipio, ConstraintType.MUST);
+
+        var dataset = DatasetFactory.getDataset("G12-TRIBUTOS-MUNICIPAIS", null, [c1, c2, c3], null);
+
+
+        if (dataset == null || dataset.rowsCount == 0) {
+            log.warn("[G12] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmovMovimento02 + " Municipio=" + municipio);
+            return;
+        }
         hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
+        hAPI.setCardValue('codigoMunicipio', safe(dataset.getValue(0, "CODIGO_MUNICIPIO")));
 
 
     } catch (e) {
