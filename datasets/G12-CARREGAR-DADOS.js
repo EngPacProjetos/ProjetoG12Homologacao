@@ -81,6 +81,7 @@ function createDataset(fields, constraints, sortFields) {
         "INFORMACOES_COMPLEMENTARES_NOTA",
         "ART", 
         "CNO", 
+        "IDPRD", 
         "NOME_FANTASIA", // DO PRESTADOR DE SERVICO 
         "VALOR_ITEM" // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
     ];
@@ -200,6 +201,7 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("INFORMACOES_COMPLEMENTARES_NOTA") ? row.get("INFORMACOES_COMPLEMENTARES_NOTA") : "",
                 row.has("ART") ? row.get("ART") : "",
                 row.has("CNO") ? row.get("CNO") : "",
+                row.has("IDPRD") ? row.get("IDPRD") : "",
                 row.has("NOME_FANTASIA") ? row.get("NOME_FANTASIA") : "",
                 row.has("VALOR_ITEM") ? row.get("VALOR_ITEM") : ""
             );

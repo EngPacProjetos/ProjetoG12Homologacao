@@ -33,7 +33,6 @@
 }
 
 
-/* ---- BOTAO TRIGGER DO MODAL ---- */
 .nfe-trigger-wrap {
   margin: 8px 0 4px;
 }
@@ -61,7 +60,6 @@
   box-shadow: 0 4px 12px rgba(15, 19, 22, 0.35);
 }
 
-/* ---- OVERLAY ---- */
 .nfe-overlay {
   display: none;
   position: fixed;
@@ -89,7 +87,6 @@
   }
 }
 
-/* ---- CAIXA MODAL ---- */
 .nfe-modal {
   background: #fff;
   width: 100%;
@@ -115,7 +112,6 @@
   }
 }
 
-/* ---- HEADER ---- */
 .nfe-modal-header {
   display: flex;
   justify-content: space-between;
@@ -148,14 +144,12 @@
   opacity: 1;
 }
 
-/* ---- BODY ---- */
 .nfe-modal-body {
   padding: 0;
   max-height: 75vh;
   overflow-y: auto;
 }
 
-/* ---- TOPO DO DOCUMENTO (logo + t�tulo + munic�pio) ---- */
 .nfe-topo {
   display: grid;
   grid-template-columns: 180px 1fr 200px;
@@ -219,7 +213,6 @@
   color: #1a4f8a;
 }
 
-/* ---- SE��ES ---- */
 .nfe-secao {
   border-bottom: 1px solid #d4dde8;
   padding: 0;
@@ -235,7 +228,6 @@
   text-transform: uppercase;
 }
 
-/* ---- GRIDS ---- */
 .nfe-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -263,7 +255,6 @@
   border-right: none;
 }
 
-/* ---- CAMPO INDIVIDUAL ---- */
 .nfe-field {
   padding: 5px 12px 6px;
   min-height: 36px;
@@ -290,7 +281,6 @@
   word-break: break-word;
 }
 
-/* ---- CHAVE DE ACESSO ---- */
 .nfe-chave-acesso {
   padding: 6px 12px;
 }
@@ -303,7 +293,6 @@
   font-weight: 700;
 }
 
-/* ---- TOTAIS � destaque ---- */
 .nfe-totais {
   background: #f4f8ff;
 }
@@ -318,7 +307,6 @@
   color: #1a4f8a;
 }
 
-/* ---- INFORMA��ES COMPLEMENTARES ---- */
 .nfe-inf-comp {
   font-size: 10.5px;
   line-height: 1.6;
@@ -327,14 +315,12 @@
   padding: 4px 0;
 }
 
-/* ---- TRIBUTOS APROXIMADOS ---- */
 .nfe-tributos-aprox .nfe-field-value {
   font-size: 13px;
   color: #1a4f8a;
   font-weight: 700;
 }
 
-/* ---- FOOTER ---- */
 .nfe-modal-footer {
   display: flex;
   justify-content: flex-end;
@@ -381,7 +367,6 @@
   background: #545b62;
 }
 
-/* ---- IMPRESSAO ---- */
 @media print {
   .nfe-overlay {
     position: static !important;
@@ -408,7 +393,6 @@
   }
 }
 
-/* ---- RESPONSIVO ---- */
 @media (max-width: 640px) {
   .nfe-topo {
     grid-template-columns: 1fr;
@@ -453,7 +437,7 @@
   width: 80%;
   height: 60%;
   background-color: #fff;
-  overflow: auto;  
+  overflow: auto;
   padding: 15px !important;
   display: flex;
   gap: 10px !important;
@@ -473,10 +457,69 @@
 
 
 
-/* Ou para todos os tds */
 #tblajustarimpostos tbody tr td {
-    min-width: 180px;
-    vertical-align: middle;
+  min-width: 180px;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+#tblcadastrotributosmuni tbody tr td:first-child {
+  display: none !important;
+}
+
+#tblcadastrotributosmuni thead tr th:first-child {
+  display: none !important;
+}
+
+
+
+#cadastrotributosmunicipais {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  overflow: hidden;
+}
+
+#divcadastrotributosmunicipais {
+  width: 80%;
+  height: 60%;
+  background-color: #fff;
+  overflow: auto;
+  padding: 15px !important;
+  display: flex;
+  gap: 10px !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+
+
+#botaoajustarimpostosmunicipal {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end
+}
+
+
+
+
+#tblcadastrotributosmuni tbody tr td {
+  min-width: 180px;
+  vertical-align: middle;
 }
 
 .invisible {
@@ -489,17 +532,28 @@
 
 
 .card-removendo {
-    animation: sairSuave 0.4s ease forwards;
+  animation: sairSuave 0.4s ease forwards;
 }
 
-@keyframes sairSuave {
-    0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 
-    100% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
+#botoesTributos {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end !important;
+  gap: 5px !important;
+
+}
+
+
+
+@keyframes sairSuave {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
 }

@@ -11,8 +11,9 @@
 	<script type="text/javascript" src="G12-Zoom.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-NF-e.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-TabelaDeTributos.js" charset="utf-8"></script>
-	<script type="text/javascript" src="G12-AtualizarMovimento.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-TributosDoMovimento.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-CalcularAjusteTributos.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-TributosMunicipaisFuncoesAuxiliares.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -111,6 +112,8 @@
 					<input type="hidden" name="inssDoItem" id="inssDoItem" readonly>
 					<input type="hidden" name="tributosMunicipais" id="tributosMunicipais" readonly>
 					<input type="hidden" name="codigoMunicipio" id="codigoMunicipio" readonly>
+
+					<input type="hidden" name="IDPRD" id="IDPRD" readonly>
 
 					<!-- HISTÓRICO (TMOVHISTORICO) -->
 					<input type="hidden" name="informacoesComplementaresNota" id="informacoesComplementaresNota"
@@ -497,11 +500,18 @@
 								<p class="text-muted">Aguardando carregamento...</p>
 							</div>
 
-							<div id="botaoajustarimpostos" style="display: flex; justify-content: flex-end;">
+							<div id="botoesTributos">
+
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="exibirTabelaAtualizarTributos()"> Ajustar impostos</button>
 								</button>
+
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="exibirTabelaCdastrarMunicipais()"> + Tributo Municipal</button>
+								</button>
+
 							</div>
+
 
 
 
@@ -570,12 +580,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<div style="display: flex; justify-content: flex-end;">
-								<button type="button" class="btn btn-danger btn-sm"
-									onclick="salvarAjusterRmImpostos(this)">
-									Salvar ajustes
-								</button>
-							</div>
+
 							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblajustarimpostos'), setSelectedZoomItem();">
@@ -585,7 +590,7 @@
 							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaAtualizarTributos()">
-									Fechar
+									Fechar e Salvar
 								</button>
 							</div>
 						</div>
@@ -610,8 +615,9 @@
 											<div class="form-group">
 												<label for="impostos_selecao_municipal">Imposto</label>
 												<input style="z-index: 99999px;" type="zoom" class="form-control"
-													id="impostos_selecao" name="impostos_selecao" data-zoom="{
-                           'datasetId':'G12-AJUSTAR-TRIBUTOS',
+													id="impostos_selecao_municipal" name="impostos_selecao_municipal"
+													data-zoom="{
+                           'datasetId':'G12-CADASTRAR-TRIBUTO-MUNICIPAL',
                            'displayKey':'',
                            'maximumSelectionLength':'1',
                            'placeholder':'SELECIONE UM IMPOSTO',
@@ -620,24 +626,20 @@
                                    'field':'CODIGO',
                                    'label':'IMPOSTO',
                                    'standard':'true'
-                               },
-                               {
-                                   'field':'TIPO',
-                                   'label':'TIPO',
-                                   'standard':'true'
                                }
                            ]
                        }">
 
 											</div>
 										</td>
-										<td><label for="valorImposto">Valor</label><input type="text"
-												class="form-control" id="valorImposto" name="valorImposto"></td>
-										<td><label for="aliquota">Alíquota</label><input type="text"
-												class="form-control" id="aliquota" name="aliquota"></td>
-										<td><label for="baseCalculo">Base de Cálculo</label><input type="text"
+										<!-- <td><label for="valorImposto">Valor</label><input type="text"
+												class="form-control" id="valorImposto" name="valorImposto"></td> -->
+										<td><label for="aliquotaMunicipal">Alíquota</label><input type="text"
+												class="form-control" id="aliquotaMunicipal" name="aliquotaMunicipal">
+										</td>
+										<!-- <td><label for="baseCalculo">Base de Cálculo</label><input type="text"
 												class="form-control" id="baseCalculo" name="baseCalculo"
-												onblur="ajustarValorTributo(this)"></td>
+												onblur="ajustarValorTributo(this)"></td> -->
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -655,21 +657,15 @@
 								</tbody>
 							</table>
 							<div style="display: flex; justify-content: flex-end;">
-								<button type="button" class="btn btn-danger btn-sm"
-									onclick="salvarAjusterRmImpostos(this)">
-									Salvar ajustes
-								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-success btn-sm"
-									onclick="wdkAddChild('tblajustarimpostos'), setSelectedZoomItem();">
+									onclick="wdkAddChild('tblcadastrotributosmuni')">
 									+ Imposto
 								</button>
 							</div>
 							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
-									onclick="esconderTabelaAtualizarTributos()">
-									Fechar
+									onclick="esconderTabelaCdastrarMunicipais()">
+									Fechar e Salvar
 								</button>
 							</div>
 						</div>

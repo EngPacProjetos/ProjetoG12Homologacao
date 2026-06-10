@@ -61,6 +61,7 @@ function loadDsG12(codColigada, idMov) {
 
         hAPI.setCardValue('cno', safe(dataset.getValue(0, "CNO")));
         hAPI.setCardValue('art', safe(dataset.getValue(0, "ART")));
+        hAPI.setCardValue('IDPRD', safe(dataset.getValue(0, "IDPRD")));
 
         // Seção 2 — Detalhes do Contrato
         hAPI.setCardValue('numero_contrato',        safe(dataset.getValue(0, "NUMERO_CONTRATO")));
