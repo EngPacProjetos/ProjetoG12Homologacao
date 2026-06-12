@@ -3,6 +3,48 @@ function setSelectedZoomItem(selectedItem) {
     var coligada = $("#CodColigada").val();
     var idmov = $("#idmov2").val();
 
+
+    if (selectedItem.inputName.indexOf("ajusteIrrfZoom") != -1) {
+
+        var codigo = selectedItem.CODIGO_IRRF;
+
+        console.log("CODIGO IRRF SELECIONADO", codigo)
+
+        var descricao = selectedItem.DESCRICAO_IRRF;
+
+        console.log("DESCRICAO DE IRRF SELECIONADA", descricao);
+
+        $("#irrfCodigoAjuste").val(codigo);
+        $("#irrfDescricaoAjuste").val(descricao);
+
+    }
+
+
+
+    if (selectedItem.inputName.indexOf("ajusteInssZoom") != -1) {
+
+        var codigo = selectedItem.CODIGO_INSS;
+        var descricao = selectedItem.DESCRICAO_INSS;
+
+        $("#inssCodigoAjuste").val(codigo)
+        $("#inssDescricaoAjuste").val(descricao)
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     console.log("PRINTANDO SELECTED ITEM DO ZOOM", selectedItem);
 
     var parans = "CODCOLIGADA," + coligada + ",IDMOV," + idmov;

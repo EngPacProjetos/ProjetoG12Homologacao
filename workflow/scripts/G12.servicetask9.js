@@ -37,7 +37,7 @@ function loadDsG12(codColigada, idMov) {
             return;
         }
 
-        // Seção 1 — Identificação e Endereço do Projeto
+        // INFORMACOES DO PROJETO
         log.info("VALOR DO IDMOV -> " + dataset.getValue(0, "IDMOV"));
         hAPI.setCardValue('IDMOV_numero',            safe(dataset.getValue(0, "IDMOV")));
         hAPI.setCardValue('NumeroMov',               safe(dataset.getValue(0, "NUMERO_MOVIMENTO")));
@@ -62,8 +62,9 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('cno', safe(dataset.getValue(0, "CNO")));
         hAPI.setCardValue('art', safe(dataset.getValue(0, "ART")));
         hAPI.setCardValue('IDPRD', safe(dataset.getValue(0, "IDPRD")));
+        hAPI.setCardValue('coligadaCliente', safe(dataset.getValue(0, "COLIGADA_CLIENTE")));
 
-        // Seção 2 — Detalhes do Contrato
+        // CONTRATO
         hAPI.setCardValue('numero_contrato',        safe(dataset.getValue(0, "NUMERO_CONTRATO")));
         hAPI.setCardValue('tipo_contrato',          safe(dataset.getValue(0, "TIPO_CONTRATO")));
         hAPI.setCardValue('numero_licitacao',       safe(dataset.getValue(0, "NUMERO_LICITACAO")));
@@ -76,7 +77,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('nome_produto',           safe(dataset.getValue(0, "NOME_PRODUTO")));
         hAPI.setCardValue('codigo_produto',         safe(dataset.getValue(0, "CODIGO_PRODUTO")));
 
-        // Seção 3 — Prestador do Serviço (GFILIAL)
+        // CAMPOS DO PRESTADOR
         hAPI.setCardValue('nomePrestador',              safe(dataset.getValue(0, "NOME_PRESTADOR")));
         hAPI.setCardValue('nomeEmpresarialPrestador',   safe(dataset.getValue(0, "NOME_PRESTADOR")));
         hAPI.setCardValue('incricaoPrestador',          safe(dataset.getValue(0, "INCRICAO_PRESTADOR")));
@@ -91,7 +92,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('cepPrestador',               safe(dataset.getValue(0, "CEP_PRESTADOR")));
         hAPI.setCardValue('nome_filial',               safe(dataset.getValue(0, "NOME_FANTASIA")));
 
-        // Campos compostos do prestador (usados pelo G12-NF-e.js)
+        // CAMPOS DO PRESTADOR - ENDERECO
         var endPrestador = joinNonEmpty([
             safe(dataset.getValue(0, "RUA_PRESTADOR")),
             safe(dataset.getValue(0, "NUMERO_PRESTADOR")),
@@ -100,7 +101,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('enderecoPrestador',  endPrestador);
         hAPI.setCardValue('municipioPrestador', safe(dataset.getValue(0, "CIDADE_PRESTADOR")));
 
-        // Seção 4 — Tomador do Serviço (FCFO)
+        // CAMPOS DO TOMADOR
         hAPI.setCardValue('incricaoTomador',  safe(dataset.getValue(0, "INSCRICAO_TOMADOR")));
         hAPI.setCardValue('telefoneTomador',  safe(dataset.getValue(0, "TELEFONE_TOMADOR")));
         hAPI.setCardValue('nomeEmpresarial',  safe(dataset.getValue(0, "NOME_TOMADOR")));
@@ -112,7 +113,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('cidadeTomador',    safe(dataset.getValue(0, "CIDADE_TOMADOR")));
         hAPI.setCardValue('cepTomador',       safe(dataset.getValue(0, "CEP_TOMADOR")));
 
-        // Campos compostos do tomador (usados pelo G12-NF-e.js)
+        // CAMPOS DO TOMADOR PARA NF
         var endTomador = joinNonEmpty([
             safe(dataset.getValue(0, "RUA_TOMADOR")),
             safe(dataset.getValue(0, "NUMERO_TOMADOR")),
@@ -121,11 +122,11 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('enderecoTomador',  endTomador);
         hAPI.setCardValue('municipioTomador', safe(dataset.getValue(0, "CIDADE_TOMADOR")));
 
-        // Seção 5 — Local de Atuação IBS (TMOV)
+        // LOCAL DE ATUACAO 
         hAPI.setCardValue('codMuniIbs', safe(dataset.getValue(0, "COD_MUNI_IBS")));
         hAPI.setCardValue('codUfIbs',   safe(dataset.getValue(0, "COD_UF_IBS")));
 
-        // Seção 6 — Item (TITMMOV)
+        // ITEM
         hAPI.setCardValue('unidadeItem',    safe(dataset.getValue(0, "UNIDADE_ITEM")));
         hAPI.setCardValue('quantidadeItem', safe(dataset.getValue(0, "QUANTIDADE_ITEM")));
         hAPI.setCardValue('valor_item', safe(dataset.getValue(0, "VALOR_ITEM")));

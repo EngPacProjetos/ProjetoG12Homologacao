@@ -83,7 +83,8 @@ function createDataset(fields, constraints, sortFields) {
         "CNO", 
         "IDPRD", 
         "NOME_FANTASIA", // DO PRESTADOR DE SERVICO 
-        "VALOR_ITEM" // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
+        "VALOR_ITEM", // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
+        "COLIGADA_CLIENTE"
     ];
 
     try {
@@ -203,7 +204,8 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("CNO") ? row.get("CNO") : "",
                 row.has("IDPRD") ? row.get("IDPRD") : "",
                 row.has("NOME_FANTASIA") ? row.get("NOME_FANTASIA") : "",
-                row.has("VALOR_ITEM") ? row.get("VALOR_ITEM") : ""
+                row.has("VALOR_ITEM") ? row.get("VALOR_ITEM") : "",
+                row.has("COLIGADA_CLIENTE") ? row.get("COLIGADA_CLIENTE") : ""
             );
         }
 

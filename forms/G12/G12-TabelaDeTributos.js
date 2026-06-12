@@ -11,8 +11,26 @@ function CarregarTabelasDeTriutos() {
     var irrf = $("#irrfDoItem").val();
     var inss = $("#inssDoItem").val();
 
-    $("#irrfDisplay").text(irrf);
-    $("#inssDisplay").text(inss);
+    var irrfDescricao = $("#irrfDescricao").val();
+    var irrfAliquota = $("#irrfAliquota").val();
+    var irrfTipoDePessoa = $("#irrfTipoDePessoa").val();
+    var inssDescricao = $("#inssDescricao").val();
+    var inssAliquota = $("#inssAliquota").val();
+
+    var tabelaClienteElement = $("#irrfInss");
+
+    var tableCliente = "<table class='table table-bordered table-condensed table-hover'>";
+
+    tableCliente += "<thead><tr><th>Código</th><th>Descrição</th><th>Alíquota</th><th>Tipo de pessoa</th></tr></thead><tbody>";
+
+    tableCliente += "<tr><td>" + (irrf || "—") + "</td><td>" + (irrfDescricao || "—") + "<td>" + (irrfAliquota || "—") + "<td>" + (irrfTipoDePessoa || "—") + "</td>" + "</td></tr>";
+
+    tableCliente += "<tr><td>" + (inss || "—") + "</td><td>" + (inssDescricao || "—") + "<td>" + (inssAliquota || "—") + "<td>" + ("—") + "</td>" + "</td></tr>";
+
+    tableCliente += "</tbody></table>";
+
+    tabelaClienteElement.html(tableCliente);
+
 
 
     var $nat = $("#naturezaOrcamentariaDisplay");

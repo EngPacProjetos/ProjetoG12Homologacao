@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="G12-TributosDoMovimento.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-CalcularAjusteTributos.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-TributosMunicipaisFuncoesAuxiliares.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-IRRF-INSS.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -110,8 +111,22 @@
 					<input type="hidden" name="naturezaOrcamentaria" id="naturezaOrcamentaria" readonly>
 					<input type="hidden" name="irrfDoItem" id="irrfDoItem" readonly>
 					<input type="hidden" name="inssDoItem" id="inssDoItem" readonly>
+					<input type="hidden" name="irrfDescricao" id="irrfDescricao" readonly>
+					<input type="hidden" name="irrfAliquota" id="irrfAliquota" readonly>
+					<input type="hidden" name="irrfTipoDePessoa" id="irrfTipoDePessoa" readonly>
+					<input type="hidden" name="inssDescricao" id="inssDescricao" readonly>
+					<input type="hidden" name="inssAliquota" id="inssAliquota" readonly>
 					<input type="hidden" name="tributosMunicipais" id="tributosMunicipais" readonly>
 					<input type="hidden" name="codigoMunicipio" id="codigoMunicipio" readonly>
+					
+					<!-- AJUSTE DO IRRF CLIENTE FORNECEDOR -->
+					<input type="hidden" name="coligadaCliente" id="coligadaCliente" readonly>
+					<input type="hidden" name="irrfCodigoAjuste" id="irrfCodigoAjuste" readonly>
+					<input type="hidden" name="irrfDescricaoAjuste" id="irrfDescricaoAjuste" readonly>
+					
+					<!-- AJUSTE DO INSS CLIENTE FORNECEDOR -->
+					<input type="hidden" name="inssCodigoAjuste" id="inssCodigoAjuste" readonly>
+					<input type="hidden" name="inssDescricaoAjuste" id="inssDescricaoAjuste" readonly>
 
 					<input type="hidden" name="IDPRD" id="IDPRD" readonly>
 
@@ -472,18 +487,6 @@
 										<p id="naturezaOrcamentariaDisplay" class="form-control-static">—</p>
 									</div>
 								</div>
-								<div class="col-md-3">
-									<div class="form-group" style="margin-bottom: 0;">
-										<label>IRRF do Item</label>
-										<p id="irrfDisplay" class="form-control-static">—</p>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group" style="margin-bottom: 0;">
-										<label>INSS do Item</label>
-										<p id="inssDisplay" class="form-control-static">—</p>
-									</div>
-								</div>
 							</div>
 
 							<h4 style="margin-top: 16px; margin-bottom: 8px;">
@@ -507,7 +510,8 @@
 								</button>
 
 								<button type="button" class="btn btn-info btn-sm"
-									onclick="exibirTabelaCdastrarMunicipais()"> Cadastrar / Ajustar Tributo Municipal</button>
+									onclick="exibirTabelaCdastrarMunicipais()"> Cadastrar / Ajustar Tributo
+									Municipal</button>
 								</button>
 
 							</div>
@@ -637,8 +641,9 @@
 										<td><label for="aliquotaMunicipal">Alíquota</label><input type="text"
 												class="form-control" id="aliquotaMunicipal" name="aliquotaMunicipal">
 										</td>
-										<td><label for="baseReucaoMunicipal">Base Redução ISS(%)</label><input type="text"
-												class="form-control" id="baseReucaoMunicipal" name="baseReucaoMunicipal"></td>
+										<td><label for="baseReucaoMunicipal">Base Redução ISS(%)</label><input
+												type="text" class="form-control" id="baseReucaoMunicipal"
+												name="baseReucaoMunicipal"></td>
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -670,6 +675,314 @@
 						</div>
 
 
+					</div>
+
+					<!-- DIV AJUSTES DO IRRF -->
+					<div id="ajusteIrrf" class="invisible">
+						<div id="divAjusteIrrf">
+							<table id="tblAjusteIrrf" tablename="tblAjusteIrrf"
+								class="table table-condensed table-striped" noaddbutton="true">
+								<thead class="fs-display-none">
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="card-imposto">
+										<td style="width: 95%">
+
+											<div class="form-group">
+												<label for="ajusteIrrfZoom">Código IRRF / Descrição </label>
+												<input style="z-index: 99999px;" type="zoom" class="form-control"
+													id="ajusteIrrfZoom" name="ajusteIrrfZoom" data-zoom="{
+                           'datasetId':'G12-IRRF-ZOOM',
+                           'displayKey':'DESCRICAO_IRRF',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO_IRRF',
+                                   'label':'CODIGO DO IRRF',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'DESCRICAO_IRRF',
+                                   'label':'DESCRICAO DO IRRF',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+											</div>
+										</td>
+										<td>
+
+											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
+												<button type="button" class="btn btn-danger btn-sm"
+													onclick="removerComAnimacao(this)">
+													<i class="flaticon flaticon-trash icon-lg"></i>
+												</button>
+											</div>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="wdkAddChild('tblAjusteIrrf')">
+									Adicionar Ajuste
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="esconderTabelaAtualizarIRRF()">
+									Fechar e Salvar
+								</button>
+							</div>
+						</div>
+
+
+					</div>
+					
+					<!-- DIV AJUSTES DO INSS -->
+					<div id="ajusteInss" class="invisible">
+						<div id="divajusteInss">
+							<table id="tblajusteInss" tablename="tblajusteInss"
+								class="table table-condensed table-striped" noaddbutton="true">
+								<thead class="fs-display-none">
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="card-imposto">
+										<td style="width: 95%">
+
+											<div class="form-group">
+												<label for="ajusteInssZoom">Código INSS / Descrição </label>
+												<input style="z-index: 99999px;" type="zoom" class="form-control"
+													id="ajusteInssZoom" name="ajusteInssZoom" data-zoom="{
+                           'datasetId':'G12-INSS-ZOOM',
+                           'displayKey':'DESCRICAO_INSS',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO_INSS',
+                                   'label':'CODIGO DO INSS',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'DESCRICAO_INSS',
+                                   'label':'DESCRICAO DO INSS',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+											</div>
+										</td>
+										<td>
+
+											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
+												<button type="button" class="btn btn-danger btn-sm"
+													onclick="removerComAnimacao(this)">
+													<i class="flaticon flaticon-trash icon-lg"></i>
+												</button>
+											</div>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="wdkAddChild('tblajusteInss')">
+									Adicionar Ajuste
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="esconderTabelaAtualizarINSS()">
+									Fechar e Salvar
+								</button>
+							</div>
+						</div>
+
+
+					</div>
+					
+					<!-- DIV CADASTRAR IRRF -->
+					<div id="cadastrarIrrf" class="invisible">
+						<div id="divCadastrarIrrf">
+							<table id="tblcAdastrarIrrf" tablename="tblcAdastrarIrrf"
+								class="table table-condensed table-striped" noaddbutton="true">
+								<thead class="fs-display-none">
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="card-imposto">
+										<td style="width: 95%">
+
+											<div class="form-group">
+												<label for="cadastroInssZoom">Código INSS / Descrição </label>
+												<input style="z-index: 99999px;" type="zoom" class="form-control"
+													id="cadastroInssZoom" name="cadastroInssZoom" data-zoom="{
+                           'datasetId':'G12-INSS-ZOOM',
+                           'displayKey':'DESCRICAO_INSS',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO_INSS',
+                                   'label':'CODIGO DO INSS',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'DESCRICAO_INSS',
+                                   'label':'DESCRICAO DO INSS',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+											</div>
+										</td>
+										<td>
+
+											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
+												<button type="button" class="btn btn-danger btn-sm"
+													onclick="removerComAnimacao(this)">
+													<i class="flaticon flaticon-trash icon-lg"></i>
+												</button>
+											</div>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="wdkAddChild('tblcAdastrarIrrf')">
+									Adicionar Ajuste
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="esconderTabelaCadastrarIrrf()">
+									Fechar e Salvar
+								</button>
+							</div>
+						</div>
+
+
+					</div>
+					
+					<!-- DIV CADASTRAR INSS -->
+					<div id="cadastrarIrrf" class="invisible">
+						<div id="divCadastrarIrrf">
+							<table id="tblcAdastrarIrrf" tablename="tblcAdastrarIrrf"
+								class="table table-condensed table-striped" noaddbutton="true">
+								<thead class="fs-display-none">
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="card-imposto">
+										<td style="width: 95%">
+
+											<div class="form-group">
+												<label for="cadastroInssZoom">Código INSS / Descrição </label>
+												<input style="z-index: 99999px;" type="zoom" class="form-control"
+													id="cadastroInssZoom" name="cadastroInssZoom" data-zoom="{
+                           'datasetId':'G12-INSS-ZOOM',
+                           'displayKey':'DESCRICAO_INSS',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO_INSS',
+                                   'label':'CODIGO DO INSS',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'DESCRICAO_INSS',
+                                   'label':'DESCRICAO DO INSS',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+											</div>
+										</td>
+										<td>
+
+											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
+												<button type="button" class="btn btn-danger btn-sm"
+													onclick="removerComAnimacao(this)">
+													<i class="flaticon flaticon-trash icon-lg"></i>
+												</button>
+											</div>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-success btn-sm"
+									onclick="wdkAddChild('tblcAdastrarIrrf')">
+									Adicionar Ajuste
+								</button>
+							</div>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="btn btn-danger btn-sm"
+									onclick="esconderTabelaCadastrarIrrf()">
+									Fechar e Salvar
+								</button>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<script src="https://cdn.lordicon.com/lordicon.js"></script>
+							<lord-icon src="https://cdn.lordicon.com/zdwrqfmb.json" trigger="loop" delay="1500"
+								style="width:60px;height:60px">
+							</lord-icon>
+							<h2 class="panel-title">Cliente/Fornecedor</h2>
+						</div>
+						<div class="panel-body">
+							<div id="irrfInss">
+
+
+							</div>
+
+							<div id="botoesTributos">
+
+								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaAtualizarIRRF()">
+									Ajustar IRRF</button>
+								</button>
+
+								<button type="button" class="btn btn-info btn-sm"
+									onclick="exibirTabelaAtualizarINSS()"> Ajustar INSS</button>
+								</button>
+
+								<button type="button" class="btn btn-info btn-sm"
+									onclick="exibirTabelaCadastrarIrrf()"> Cadastrar IRRF </button>
+								</button>
+								
+								<button type="button" class="btn btn-info btn-sm"
+									onclick="exibirTabelaAtualizarINSS()"> Cadastrar INSS </button>
+								</button>
+
+							</div>
+						</div>
 					</div>
 
 					<!-- APROVACAO DO SETOR TECNICO  -->

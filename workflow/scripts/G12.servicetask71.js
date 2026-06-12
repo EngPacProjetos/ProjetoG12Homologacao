@@ -129,6 +129,12 @@ function servicetask71(attempt, message) {
         hAPI.setCardValue('naturezaOrcamentaria', safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
         hAPI.setCardValue('irrfDoItem', safe(dataset.getValue(0, "IRRF_DO_ITEM")));
         hAPI.setCardValue('inssDoItem', safe(dataset.getValue(0, "INSS_DO_ITEM")));
+        hAPI.setCardValue('irrfDescricao', safe(dataset.getValue(0, "IRRF_DESCRICAO")));
+        hAPI.setCardValue('irrfAliquota', safe(dataset.getValue(0, "IRRF_ALIQUOTA")));
+        hAPI.setCardValue('irrfTipoDePessoa', safe(dataset.getValue(0, "TIPO_DE_PESSOA")));
+        hAPI.setCardValue('inssDescricao', safe(dataset.getValue(0, "INSS_DESCRICAO")));
+        hAPI.setCardValue('inssAliquota', safe(dataset.getValue(0, "INSS_ALIQUOTA")));
+
 
 
     } catch (e) {

@@ -20,7 +20,11 @@ function createDataset(fields, constraints, sortFields) {
         "TRIBUTOS_NACIONAIS",
         "IRRF_DO_ITEM",
         "INSS_DO_ITEM",
-        // "TRIBUTOS_MUNICIPAIS"
+        "IRRF_DESCRICAO",
+        "IRRF_ALIQUOTA",
+        "TIPO_DE_PESSOA",
+        "INSS_DESCRICAO",
+        "INSS_ALIQUOTA"
     ];
 
     try {
@@ -83,6 +87,12 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("TRIBUTOS_NACIONAIS") ? row.get("TRIBUTOS_NACIONAIS") : "",
                 row.has("IRRF_DO_ITEM") ? row.get("IRRF_DO_ITEM") : "",
                 row.has("INSS_DO_ITEM") ? row.get("INSS_DO_ITEM") : "",
+                row.has("IRRF_DESCRICAO") ? row.get("IRRF_DESCRICAO") : "",
+                row.has("IRRF_ALIQUOTA") ? row.get("IRRF_ALIQUOTA") : "",
+                row.has("TIPO_DE_PESSOA") ? row.get("TIPO_DE_PESSOA") : "",
+                row.has("INSS_DESCRICAO") ? row.get("INSS_DESCRICAO") : "",
+                row.has("INSS_ALIQUOTA") ? row.get("INSS_ALIQUOTA") : ""
+
                 // row.has("TRIBUTOS_MUNICIPAIS") ? row.get("TRIBUTOS_MUNICIPAIS") : ""
              
             );
