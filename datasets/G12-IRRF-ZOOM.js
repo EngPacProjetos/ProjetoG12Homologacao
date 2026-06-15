@@ -15,7 +15,6 @@ function createDataset(fields, constraints, sortFields) {
     var CODCOLIGADA;
     var IDMOV;
 
-    // Colunas alinhadas com o retorno real da consulta G12TRIBUTOS para tributos
     var COLUNAS = [
         "CODIGO_IRRF",
         "DESCRICAO_IRRF"

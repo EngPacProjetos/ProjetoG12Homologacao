@@ -24,9 +24,19 @@ function esconderTabelaCadastrarIrrf() {
 
 
 function exibirTabelaCadastrarInss() {
-    $("#cadastrarIrrf").removeClass("invisible");
+    $("#cadastrarInss").removeClass("invisible");
 }
 
 function esconderTabelaCadastrarInss() {
-    $("#cadastrarIrrf").addClass("invisible");
+    $("#cadastrarInss").addClass("invisible");
+}
+
+
+function salvarIndex() {
+    var index = document.querySelectorAll("#codigoIrrfCadastro").length;
+    $("#indexIrrCadastro").val(index);
+}
+function salvarIndexInss() {
+    var index = document.querySelectorAll("#codigoInssCadastro").length;
+    $("#indexInssCadastro").val(index);
 }

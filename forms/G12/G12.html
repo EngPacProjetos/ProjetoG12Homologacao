@@ -118,15 +118,17 @@
 					<input type="hidden" name="inssAliquota" id="inssAliquota" readonly>
 					<input type="hidden" name="tributosMunicipais" id="tributosMunicipais" readonly>
 					<input type="hidden" name="codigoMunicipio" id="codigoMunicipio" readonly>
-					
+
 					<!-- AJUSTE DO IRRF CLIENTE FORNECEDOR -->
 					<input type="hidden" name="coligadaCliente" id="coligadaCliente" readonly>
 					<input type="hidden" name="irrfCodigoAjuste" id="irrfCodigoAjuste" readonly>
 					<input type="hidden" name="irrfDescricaoAjuste" id="irrfDescricaoAjuste" readonly>
-					
+					<input type="hidden" name="indexIrrCadastro" id="indexIrrCadastro" readonly>
+
 					<!-- AJUSTE DO INSS CLIENTE FORNECEDOR -->
 					<input type="hidden" name="inssCodigoAjuste" id="inssCodigoAjuste" readonly>
 					<input type="hidden" name="inssDescricaoAjuste" id="inssDescricaoAjuste" readonly>
+					<input type="hidden" name="indexInssCadastro" id="indexInssCadastro" readonly>
 
 					<input type="hidden" name="IDPRD" id="IDPRD" readonly>
 
@@ -717,7 +719,8 @@
 										</td>
 										<td>
 
-											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
+											<div
+												style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
 												<button type="button" class="btn btn-danger btn-sm"
 													onclick="removerComAnimacao(this)">
 													<i class="flaticon flaticon-trash icon-lg"></i>
@@ -744,7 +747,7 @@
 
 
 					</div>
-					
+
 					<!-- DIV AJUSTES DO INSS -->
 					<div id="ajusteInss" class="invisible">
 						<div id="divajusteInss">
@@ -785,7 +788,8 @@
 										</td>
 										<td>
 
-											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
+											<div
+												style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
 												<button type="button" class="btn btn-danger btn-sm"
 													onclick="removerComAnimacao(this)">
 													<i class="flaticon flaticon-trash icon-lg"></i>
@@ -812,7 +816,7 @@
 
 
 					</div>
-					
+
 					<!-- DIV CADASTRAR IRRF -->
 					<div id="cadastrarIrrf" class="invisible">
 						<div id="divCadastrarIrrf">
@@ -827,37 +831,53 @@
 									<tr class="card-imposto">
 										<td style="width: 95%">
 
-											<div class="form-group">
-												<label for="cadastroInssZoom">Código INSS / Descrição </label>
-												<input style="z-index: 99999px;" type="zoom" class="form-control"
-													id="cadastroInssZoom" name="cadastroInssZoom" data-zoom="{
-                           'datasetId':'G12-INSS-ZOOM',
-                           'displayKey':'DESCRICAO_INSS',
-                           'maximumSelectionLength':'1',
-                           'placeholder':'SELECIONE UM IMPOSTO',
-                           'fields':[
-                               {
-                                   'field':'CODIGO_INSS',
-                                   'label':'CODIGO DO INSS',
-                                   'standard':'true'
-                               },
-                               {
-                                   'field':'DESCRICAO_INSS',
-                                   'label':'DESCRICAO DO INSS',
-                                   'standard':'true'
-                               }
-                           ]
-                       }">
+											<div class="row">
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="codigoIrrfCadastro">Código IRRF </label>
+														<input type="text" class="form-control" id="codigoIrrfCadastro"
+															name="codigoIrrfCadastro">
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="descricaoIrrfCadastro">Descrição IRRF </label>
+														<input type="text" class="form-control"
+															id="descricaoIrrfCadastro" name="descricaoIrrfCadastro">
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="aliquotaIrrfCadastro">Alíquota </label>
+														<input type="text" class="form-control"
+															id="aliquotaIrrfCadastro" name="aliquotaIrrfCadastro">
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="codOficialIrrfCadastro">Código Oficial </label>
+														<input type="text" class="form-control"
+															id="codOficialIrrfCadastro" name="codOficialIrrfCadastro">
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="aplicavelA">Aplicável À</label>
+														<select name="aplicavelA" id="aplicavelA" class="form-control">
+															<option value="F">Pessoa Física</option>
+															<option value="J">Pessoa Jurídica</option>
+															<option value="A">Ambos</option>
+														</select>
+													</div>
+												</div>
+												<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;"
+													class="col-md-2">
+													<button type="button" class="btn btn-danger btn-sm"
+														onclick="removerComAnimacao(this)">
+														<i class="flaticon flaticon-trash icon-lg"></i>
+													</button>
+												</div>
 
-											</div>
-										</td>
-										<td>
-
-											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
-												<button type="button" class="btn btn-danger btn-sm"
-													onclick="removerComAnimacao(this)">
-													<i class="flaticon flaticon-trash icon-lg"></i>
-												</button>
 											</div>
 
 										</td>
@@ -872,7 +892,7 @@
 							</div>
 							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
-									onclick="esconderTabelaCadastrarIrrf()">
+									onclick="esconderTabelaCadastrarIrrf(), salvarIndex()">
 									Fechar e Salvar
 								</button>
 							</div>
@@ -880,11 +900,11 @@
 
 
 					</div>
-					
+
 					<!-- DIV CADASTRAR INSS -->
-					<div id="cadastrarIrrf" class="invisible">
-						<div id="divCadastrarIrrf">
-							<table id="tblcAdastrarIrrf" tablename="tblcAdastrarIrrf"
+					<div id="cadastrarInss" class="invisible">
+						<div id="divCadastrarInss">
+							<table id="tblCadastrarInss" tablename="tblCadastrarInss"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
 									<tr>
@@ -895,52 +915,58 @@
 									<tr class="card-imposto">
 										<td style="width: 95%">
 
-											<div class="form-group">
-												<label for="cadastroInssZoom">Código INSS / Descrição </label>
-												<input style="z-index: 99999px;" type="zoom" class="form-control"
-													id="cadastroInssZoom" name="cadastroInssZoom" data-zoom="{
-                           'datasetId':'G12-INSS-ZOOM',
-                           'displayKey':'DESCRICAO_INSS',
-                           'maximumSelectionLength':'1',
-                           'placeholder':'SELECIONE UM IMPOSTO',
-                           'fields':[
-                               {
-                                   'field':'CODIGO_INSS',
-                                   'label':'CODIGO DO INSS',
-                                   'standard':'true'
-                               },
-                               {
-                                   'field':'DESCRICAO_INSS',
-                                   'label':'DESCRICAO DO INSS',
-                                   'standard':'true'
-                               }
-                           ]
-                       }">
-
+											<div class="row">
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="codigoInssCadastro">Identificador</label>
+														<input type="text" class="form-control"
+															name="codigoInssCadastro" id="codigoInssCadastro">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label for="descricaoInssCadastro">Descrição da receita do
+															INSS</label>
+														<input type="text" class="form-control"
+															name="descricaoInssCadastro" id="descricaoInssCadastro">
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="aliquotaInssCadastro">Aliquota</label>
+														<input type="text" class="form-control"
+															name="aliquotaInssCadastro" id="aliquotaInssCadastro">
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-group">
+														<label for="reducaoInssCadastro">Percentual de Redução</label>
+														<input type="text" class="form-control"
+															name="reducaoInssCadastro" id="reducaoInssCadastro">
+													</div>
+												</div>
+												<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;"
+													class="col-md-2">
+													<button type="button" class="btn btn-danger btn-sm"
+														onclick="removerComAnimacao(this)">
+														<i class="flaticon flaticon-trash icon-lg"></i>
+													</button>
+												</div>
 											</div>
 										</td>
-										<td>
 
-											<div style="width: fit-content; display:flex; justify-content:flex-end; align-items: center;">
-												<button type="button" class="btn btn-danger btn-sm"
-													onclick="removerComAnimacao(this)">
-													<i class="flaticon flaticon-trash icon-lg"></i>
-												</button>
-											</div>
-
-										</td>
 									</tr>
 								</tbody>
 							</table>
 							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-success btn-sm"
-									onclick="wdkAddChild('tblcAdastrarIrrf')">
+									onclick="wdkAddChild('tblCadastrarInss')">
 									Adicionar Ajuste
 								</button>
 							</div>
 							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
-									onclick="esconderTabelaCadastrarIrrf()">
+									onclick="esconderTabelaCadastrarInss(), salvarIndexInss()">
 									Fechar e Salvar
 								</button>
 							</div>
@@ -969,16 +995,16 @@
 									Ajustar IRRF</button>
 								</button>
 
-								<button type="button" class="btn btn-info btn-sm"
-									onclick="exibirTabelaAtualizarINSS()"> Ajustar INSS</button>
+								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaAtualizarINSS()">
+									Ajustar INSS</button>
 								</button>
 
-								<button type="button" class="btn btn-info btn-sm"
-									onclick="exibirTabelaCadastrarIrrf()"> Cadastrar IRRF </button>
+								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaCadastrarIrrf()">
+									Cadastrar IRRF </button>
 								</button>
-								
-								<button type="button" class="btn btn-info btn-sm"
-									onclick="exibirTabelaAtualizarINSS()"> Cadastrar INSS </button>
+
+								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaCadastrarInss()">
+									Cadastrar INSS </button>
 								</button>
 
 							</div>

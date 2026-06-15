@@ -72,7 +72,7 @@ function createDataset(fields, constraints, sortFields) {
         var PARAMS = "CODCOLIGADA=" + CODCOLIGADA + ";IDMOV=" + IDMOV;
         log.info("[dsContratoRM] PARAMS enviados: " + PARAMS);
 
-        var result = authService.realizarConsultaSQL("G12Tributos", 0, "T", PARAMS);
+        var result = authService.realizarConsultaSQL("G12Tributos", 0, "F", PARAMS);
         log.info("[dsContratoRM] Retorno bruto do RM: " + result);
 
         var JSONObj = org.json.XML.toJSONObject(result);
