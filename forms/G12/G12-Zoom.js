@@ -1,7 +1,13 @@
 function setSelectedZoomItem(selectedItem) {
 
+
     var coligada = $("#CodColigada").val();
     var idmov = $("#idmov2").val();
+
+
+    console.log("PRINTANDO SELECTED ITEM DO ZOOM", selectedItem);
+
+    var parans = "CODCOLIGADA," + coligada + ",IDMOV," + idmov;
 
 
     if (selectedItem.inputName.indexOf("ajusteIrrfZoom") != -1) {
@@ -35,20 +41,6 @@ function setSelectedZoomItem(selectedItem) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-    console.log("PRINTANDO SELECTED ITEM DO ZOOM", selectedItem);
-
-    var parans = "CODCOLIGADA," + coligada + ",IDMOV," + idmov;
-
     if (coligada != undefined && coligada != "" && idmov != undefined && idmov != "") {
         setTimeout(function reloadZoom() {
             // Fluig converte type zoom em select via WDK, então nunca filtre esse reload por input ... nao funciona .
@@ -60,5 +52,16 @@ function setSelectedZoomItem(selectedItem) {
             }
         }, 1000);
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }

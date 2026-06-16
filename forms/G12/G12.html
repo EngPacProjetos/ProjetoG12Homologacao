@@ -526,8 +526,12 @@
 					</div>
 
 					<!-- DIV PARA EXIBICAO DOS IMPOSTOS QUE PODEM SER AJUSTADOS  -->
-					<div id="impostosajustaveis" class="invisible">
-						<div id="ajustesTabelaAjusteImpostos">
+					<div id="impostosajustaveis" class="invisible zoom-overlay">
+						<div id="ajustesTabelaAjusteImpostos" class="zoom-modal">
+							<div class="zoom-modal-header">
+								<h4><i class="fa fa-calculator"></i> Ajustar Tributos do Movimento</h4>
+							</div>
+							<div class="zoom-modal-body">
 							<table id="tblajustarimpostos" tablename="tblajustarimpostos"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
@@ -586,27 +590,27 @@
 									</tr>
 								</tbody>
 							</table>
-
-							<div style="display: flex; justify-content: flex-end;">
+							</div>
+							<div class="zoom-modal-footer">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblajustarimpostos'), setSelectedZoomItem();">
 									+ Imposto
 								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaAtualizarTributos()">
 									Fechar e Salvar
 								</button>
 							</div>
 						</div>
-
-
 					</div>
 
 					<!-- DIV DOCADASTRO DE TRIBUTOS MUNICIPAIS -->
-					<div id="cadastrotributosmunicipais" class="invisible">
-						<div id="divcadastrotributosmunicipais">
+					<div id="cadastrotributosmunicipais" class="invisible zoom-overlay">
+						<div id="divcadastrotributosmunicipais" class="zoom-modal">
+							<div class="zoom-modal-header">
+								<h4><i class="fa fa-building-o"></i> Cadastrar / Ajustar Tributo Municipal</h4>
+							</div>
+							<div class="zoom-modal-body">
 							<table id="tblcadastrotributosmuni" tablename="tblcadastrotributosmuni"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
@@ -624,7 +628,7 @@
 													id="impostos_selecao_municipal" name="impostos_selecao_municipal"
 													data-zoom="{
                            'datasetId':'G12-CADASTRAR-TRIBUTO-MUNICIPAL',
-                           'displayKey':'',
+                           'displayKey':'CODIGO',
                            'maximumSelectionLength':'1',
                            'placeholder':'SELECIONE UM IMPOSTO',
                            'fields':[
@@ -662,26 +666,27 @@
 									</tr>
 								</tbody>
 							</table>
-							<div style="display: flex; justify-content: flex-end;">
+							</div>
+							<div class="zoom-modal-footer">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblcadastrotributosmuni')">
 									+ Imposto
 								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaCdastrarMunicipais()">
 									Fechar e Salvar
 								</button>
 							</div>
 						</div>
-
-
 					</div>
 
 					<!-- DIV AJUSTES DO IRRF -->
-					<div id="ajusteIrrf" class="invisible">
-						<div id="divAjusteIrrf">
+					<div id="ajusteIrrf" class="invisible zoom-overlay">
+						<div id="divAjusteIrrf" class="zoom-modal">
+							<div class="zoom-modal-header">
+								<h4><i class="fa fa-percent"></i> Ajuste de IRRF</h4>
+							</div>
+							<div class="zoom-modal-body">
 							<table id="tblAjusteIrrf" tablename="tblAjusteIrrf"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
@@ -731,26 +736,27 @@
 									</tr>
 								</tbody>
 							</table>
-							<div style="display: flex; justify-content: flex-end;">
+							</div>
+							<div class="zoom-modal-footer">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblAjusteIrrf')">
 									Adicionar Ajuste
 								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaAtualizarIRRF()">
 									Fechar e Salvar
 								</button>
 							</div>
 						</div>
-
-
 					</div>
 
 					<!-- DIV AJUSTES DO INSS -->
-					<div id="ajusteInss" class="invisible">
-						<div id="divajusteInss">
+					<div id="ajusteInss" class="invisible zoom-overlay">
+						<div id="divajusteInss" class="zoom-modal">
+							<div class="zoom-modal-header">
+								<h4><i class="fa fa-percent"></i> Ajuste de INSS</h4>
+							</div>
+							<div class="zoom-modal-body">
 							<table id="tblajusteInss" tablename="tblajusteInss"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
@@ -800,26 +806,27 @@
 									</tr>
 								</tbody>
 							</table>
-							<div style="display: flex; justify-content: flex-end;">
+							</div>
+							<div class="zoom-modal-footer">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblajusteInss')">
 									Adicionar Ajuste
 								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaAtualizarINSS()">
 									Fechar e Salvar
 								</button>
 							</div>
 						</div>
-
-
 					</div>
 
 					<!-- DIV CADASTRAR IRRF -->
-					<div id="cadastrarIrrf" class="invisible">
-						<div id="divCadastrarIrrf">
+					<div id="cadastrarIrrf" class="invisible zoom-overlay">
+						<div id="divCadastrarIrrf" class="zoom-modal">
+							<div class="zoom-modal-header">
+								<h4><i class="fa fa-plus-circle"></i> Cadastrar IRRF</h4>
+							</div>
+							<div class="zoom-modal-body">
 							<table id="tblcAdastrarIrrf" tablename="tblcAdastrarIrrf"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
@@ -884,26 +891,27 @@
 									</tr>
 								</tbody>
 							</table>
-							<div style="display: flex; justify-content: flex-end;">
+							</div>
+							<div class="zoom-modal-footer">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblcAdastrarIrrf')">
 									Adicionar Ajuste
 								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaCadastrarIrrf(), salvarIndex()">
 									Fechar e Salvar
 								</button>
 							</div>
 						</div>
-
-
 					</div>
 
 					<!-- DIV CADASTRAR INSS -->
-					<div id="cadastrarInss" class="invisible">
-						<div id="divCadastrarInss">
+					<div id="cadastrarInss" class="invisible zoom-overlay">
+						<div id="divCadastrarInss" class="zoom-modal">
+							<div class="zoom-modal-header">
+								<h4><i class="fa fa-plus-circle"></i> Cadastrar INSS</h4>
+							</div>
+							<div class="zoom-modal-body">
 							<table id="tblCadastrarInss" tablename="tblCadastrarInss"
 								class="table table-condensed table-striped" noaddbutton="true">
 								<thead class="fs-display-none">
@@ -958,21 +966,18 @@
 									</tr>
 								</tbody>
 							</table>
-							<div style="display: flex; justify-content: flex-end;">
+							</div>
+							<div class="zoom-modal-footer">
 								<button type="button" class="btn btn-success btn-sm"
 									onclick="wdkAddChild('tblCadastrarInss')">
 									Adicionar Ajuste
 								</button>
-							</div>
-							<div style="display: flex; justify-content: flex-end;">
 								<button type="button" class="btn btn-danger btn-sm"
 									onclick="esconderTabelaCadastrarInss(), salvarIndexInss()">
 									Fechar e Salvar
 								</button>
 							</div>
 						</div>
-
-
 					</div>
 
 					<div class="panel panel-default">
