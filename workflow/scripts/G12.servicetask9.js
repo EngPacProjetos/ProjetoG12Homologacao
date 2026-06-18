@@ -23,6 +23,8 @@ function servicetask9(attempt, message) {
     } catch (e) {
         throw "Erro servicetask_g12: " + String(e) + " - Linha " + e.lineNumber;
     }
+
+    
 }
 
 function loadDsG12(codColigada, idMov) {
@@ -55,6 +57,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('complemento_projeto',     safe(dataset.getValue(0, "COMPLEMENTO_PROJETO")));
         hAPI.setCardValue('bairro_projeto',          safe(dataset.getValue(0, "BAIRRO_PROJETO")));
         hAPI.setCardValue('numero_endereco_projeto', safe(dataset.getValue(0, "NUMERO_ENDERECO_PROJETO")));
+        hAPI.setCardValue('revisaoProjeto', safe(dataset.getValue(0, "REVISAO_PROJETO")));
         
         hAPI.setCardValue('unidade_produto', safe(dataset.getValue(0, "UNIDADE_ITEM")));
         hAPI.setCardValue('quantidade_produto', safe(dataset.getValue(0, "QUANTIDADE_ITEM")));
@@ -76,6 +79,8 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('condicao_pagamento',     safe(dataset.getValue(0, "CONDICAO_PAGAMENTO")));
         hAPI.setCardValue('nome_produto',           safe(dataset.getValue(0, "NOME_PRODUTO")));
         hAPI.setCardValue('codigo_produto',         safe(dataset.getValue(0, "CODIGO_PRODUTO")));
+        hAPI.setCardValue('idContrato',         safe(dataset.getValue(0, "ID_CONTRATO")));
+        hAPI.setCardValue('periodosContrato',         safe(dataset.getValue(0, "PERIODOS_CONTRATO")));
 
         // CAMPOS DO PRESTADOR
         hAPI.setCardValue('nomePrestador',              safe(dataset.getValue(0, "NOME_PRESTADOR")));

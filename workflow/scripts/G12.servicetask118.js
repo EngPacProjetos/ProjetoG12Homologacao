@@ -26,7 +26,7 @@ function servicetask118(attempt, message) {
         log.warn("[G12-G12-AjustarIRRFeINSS] Nenhum IRRF encontrado. Abortando.");
         return;
     }
-    if (codigoIrrf != "" || codigoIrrf != null || codigoIrrf != "undefined") {
+    if (codigoIrrf != "" && codigoIrrf != null && codigoIrrf != "undefined") {
         try {
             var servico = ServiceManager.getService("wsDataServer");
             var instancia = servico.instantiate("com.totvs.WsDataServer");
@@ -66,7 +66,7 @@ function servicetask118(attempt, message) {
         }
 
     }
-    if (codigoInss != "" || codigoInss != null || codigoInss != "undefined") {
+    if (codigoInss != "" && codigoInss != null && codigoInss != "undefined") {
         try {
             var servico = ServiceManager.getService("wsDataServer");
             var instancia = servico.instantiate("com.totvs.WsDataServer");

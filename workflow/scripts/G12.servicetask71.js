@@ -14,6 +14,9 @@ function servicetask71(attempt, message) {
     var idmovMovimento02;
     var codFilial = hAPI.getCardValue("filial");
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+    var idprj = hAPI.getCardValue("idprj");
+    var idContrato = hAPI.getCardValue("idContrato");
+
 
     var usuario_rm = getConstante("rm_usuario");
     var senha_rm = getConstante("rm_senha");
@@ -163,6 +166,9 @@ function servicetask71(attempt, message) {
         log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
         throw e;
     }
+
+
+
 
 
 

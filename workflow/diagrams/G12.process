@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII" standalone="no"?><xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
-  <pi:Diagram diagramTypeId="BPMNdiagram" gridUnit="10" name="G12" pictogramLinks="/0/@children.3/@link /0/@children.3/@children.3/@link /0/@children.4/@link /0/@children.5/@link /0/@connections.0/@link /0/@connections.1/@link /0/@children.8/@link /0/@children.6/@link /0/@connections.2/@link /0/@connections.3/@link /0/@connections.4/@link /0/@children.7/@link /0/@children.3/@children.2/@link /0/@children.3/@children.1/@link /0/@children.3/@children.0/@link /0/@children.9/@link /0/@children.2/@link /0/@children.2/@children.0/@link /0/@children.10/@link /0/@children.18/@link /0/@children.11/@link /0/@connections.5/@link /0/@connections.6/@link /0/@children.12/@link /0/@connections.7/@link /0/@children.13/@link /0/@connections.8/@link /0/@children.14/@link /0/@connections.9/@link /0/@children.1/@link /0/@children.1/@children.0/@link /0/@children.15/@link /0/@children.16/@link /0/@connections.10/@link /0/@children.17/@link /0/@connections.11/@link /0/@children.19/@link /0/@children.20/@link /0/@children.21/@link /0/@connections.12/@link /0/@children.22/@link /0/@connections.13/@link /0/@children.23/@link /0/@children.29/@link /0/@children.24/@link /0/@connections.14/@link /0/@connections.15/@link /0/@connections.16/@link /0/@children.25/@link /0/@connections.17/@link /0/@children.30/@link /0/@children.26/@link /0/@connections.18/@link /0/@connections.19/@link /0/@connections.20/@link /0/@connections.21/@link /0/@connections.22/@link /0/@children.27/@link /0/@children.35/@link /0/@children.28/@link /0/@connections.23/@link /0/@connections.24/@link /0/@children.0/@link /0/@children.0/@children.3/@link /0/@children.31/@link /0/@connections.25/@link /0/@children.32/@link /0/@connections.26/@link /0/@children.33/@link /0/@connections.27/@link /0/@children.34/@link /0/@connections.28/@link /0/@children.0/@children.2/@link /0/@children.36/@link /0/@connections.29/@link /0/@children.37/@link /0/@children.38/@link /0/@children.40/@link /0/@children.39/@link /0/@connections.30/@link /0/@connections.31/@link /0/@connections.32/@link /0/@children.41/@link /0/@connections.33/@link /0/@children.0/@children.1/@link /0/@children.42/@link /0/@children.43/@link /0/@connections.34/@link /0/@children.44/@link /0/@connections.35/@link /0/@children.45/@link /0/@connections.36/@link /0/@children.46/@link /0/@connections.37/@link /0/@children.47/@link /0/@connections.38/@link /0/@children.0/@children.0/@link /0/@children.48/@link /0/@children.49/@link /0/@children.50/@link /0/@connections.39/@link /0/@connections.40/@link /0/@children.51/@link /0/@connections.41/@link /0/@children.52/@link /0/@connections.42/@link /0/@children.53/@link /0/@connections.43/@link" showGuides="true" snapToGrid="true" version="0.16.0" visible="true">
+  <pi:Diagram diagramTypeId="BPMNdiagram" gridUnit="10" name="G12" pictogramLinks="/0/@children.3/@link /0/@children.3/@children.3/@link /0/@children.4/@link /0/@children.5/@link /0/@connections.0/@link /0/@connections.1/@link /0/@children.8/@link /0/@children.6/@link /0/@connections.2/@link /0/@connections.3/@link /0/@connections.4/@link /0/@children.7/@link /0/@children.3/@children.2/@link /0/@children.3/@children.1/@link /0/@children.3/@children.0/@link /0/@children.9/@link /0/@children.2/@link /0/@children.2/@children.0/@link /0/@children.10/@link /0/@children.18/@link /0/@children.11/@link /0/@connections.5/@link /0/@connections.6/@link /0/@children.12/@link /0/@connections.7/@link /0/@children.13/@link /0/@connections.8/@link /0/@children.14/@link /0/@connections.9/@link /0/@children.1/@link /0/@children.1/@children.0/@link /0/@children.15/@link /0/@children.16/@link /0/@connections.10/@link /0/@children.17/@link /0/@connections.11/@link /0/@children.19/@link /0/@children.20/@link /0/@children.21/@link /0/@connections.12/@link /0/@children.22/@link /0/@connections.13/@link /0/@children.23/@link /0/@children.29/@link /0/@children.24/@link /0/@connections.14/@link /0/@connections.15/@link /0/@connections.16/@link /0/@children.25/@link /0/@connections.17/@link /0/@children.30/@link /0/@children.26/@link /0/@connections.18/@link /0/@connections.19/@link /0/@connections.20/@link /0/@connections.21/@link /0/@connections.22/@link /0/@children.27/@link /0/@children.35/@link /0/@children.28/@link /0/@connections.23/@link /0/@connections.24/@link /0/@children.0/@link /0/@children.0/@children.3/@link /0/@children.31/@link /0/@connections.25/@link /0/@children.32/@link /0/@connections.26/@link /0/@children.33/@link /0/@connections.27/@link /0/@children.34/@link /0/@connections.28/@link /0/@children.0/@children.2/@link /0/@children.36/@link /0/@connections.29/@link /0/@children.37/@link /0/@children.38/@link /0/@children.40/@link /0/@children.39/@link /0/@connections.30/@link /0/@connections.31/@link /0/@connections.32/@link /0/@children.41/@link /0/@connections.33/@link /0/@children.0/@children.1/@link /0/@children.42/@link /0/@children.43/@link /0/@connections.34/@link /0/@children.44/@link /0/@connections.35/@link /0/@children.45/@link /0/@connections.36/@link /0/@children.46/@link /0/@connections.37/@link /0/@children.47/@link /0/@connections.38/@link /0/@children.0/@children.0/@link /0/@children.48/@link /0/@children.49/@link /0/@children.50/@link /0/@connections.39/@link /0/@connections.40/@link /0/@children.51/@link /0/@connections.41/@link /0/@children.52/@link /0/@connections.42/@link /0/@children.53/@link /0/@connections.43/@link /0/@children.54/@link /0/@children.56/@link /0/@children.55/@link /0/@connections.44/@link /0/@connections.45/@link /0/@connections.46/@link" showGuides="true" snapToGrid="true" version="0.16.0" visible="true">
     <graphicsAlgorithm background="/0/@styles.7/@renderingStyle/@adaptedGradientColoredAreas/@adaptedGradientColoredAreas.0/@gradientColor.2/@end/@color" foreground="/0/@colors.0" height="1000" width="1000" xsi:type="al:Rectangle"/>
     <children active="true" visible="true" xsi:type="pi:ContainerShape">
       <graphicsAlgorithm background="/0/@styles.181/@renderingStyle/@adaptedGradientColoredAreas/@adaptedGradientColoredAreas.0/@gradientColor.2/@end/@color" foreground="/0/@colors.3" height="720" lineWidth="1" style="/0/@styles.177" transparency="0.0" width="558" x="1500" xsi:type="al:Rectangle" y="590"/>
@@ -213,7 +213,7 @@
     <children active="true" visible="true" xsi:type="pi:ContainerShape">
       <graphicsAlgorithm filled="false" height="70" lineVisible="false" lineWidth="1" transparency="0.0" width="106" x="460" xsi:type="al:Rectangle" y="300"/>
       <link businessObjects="task17"/>
-      <anchors incomingConnections="/0/@connections.1" outgoingConnections="/0/@connections.9 /0/@connections.11 /0/@connections.22" xsi:type="pi:ChopboxAnchor"/>
+      <anchors incomingConnections="/0/@connections.44" outgoingConnections="/0/@connections.9 /0/@connections.11 /0/@connections.22" xsi:type="pi:ChopboxAnchor"/>
       <anchors active="true" referencedGraphicsAlgorithm="/0/@children.7/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
         <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
       </anchors>
@@ -1057,6 +1057,57 @@
           <points x="15" y="30"/>
           <points x="15" y="23"/>
           <points y="23"/>
+        </graphicsAlgorithm>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="56" lineVisible="false" lineWidth="1" transparency="0.0" width="106" x="920" xsi:type="al:Rectangle" y="100"/>
+      <link businessObjects="servicetask140"/>
+      <anchors incomingConnections="/0/@connections.1 /0/@connections.46" outgoingConnections="/0/@connections.44" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.54/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm cornerHeight="5" cornerWidth="5" height="56" lineWidth="1" style="/0/@styles.240" transparency="0.0" width="106" xsi:type="al:RoundedRectangle"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="46" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.241" transparency="0.0" value="CARREGAR GED" width="96" x="5" xsi:type="al:MultiText" y="5"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm height="16" id="com.totvs.tds.ecm.designer.task.service" lineWidth="1" proportional="false" stretchH="false" stretchV="false" transparency="0.0" width="16" x="5" xsi:type="al:Image" y="5"/>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="70" lineVisible="false" lineWidth="1" transparency="0.0" width="106" x="1080" xsi:type="al:Rectangle" y="90"/>
+      <link businessObjects="task142"/>
+      <anchors incomingConnections="/0/@connections.45" outgoingConnections="/0/@connections.46" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.55/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm cornerHeight="5" cornerWidth="5" height="70" lineWidth="1" style="/0/@styles.243" transparency="0.0" width="106" xsi:type="al:RoundedRectangle"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="60" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.244" transparency="0.0" value="TRATAMENTO DE ERRO " width="96" x="5" xsi:type="al:MultiText" y="5"/>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="30" lineVisible="false" lineWidth="1" transparency="0.0" width="30" x="997" xsi:type="al:Ellipse" y="128">
+        <graphicsAlgorithmChildren height="30" lineWidth="1" style="/0/@styles.242" transparency="0.0" width="30" xsi:type="al:Ellipse"/>
+      </graphicsAlgorithm>
+      <link businessObjects="intermediateerror141"/>
+      <anchors outgoingConnections="/0/@connections.45" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.56/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" foreground="/0/@colors.16" height="20" lineVisible="true" lineWidth="2" transparency="0.0" width="20" xsi:type="al:Polygon">
+          <points x="6" y="25"/>
+          <points x="12" y="5"/>
+          <points x="18" y="15"/>
+          <points x="26" y="5"/>
+          <points x="18" y="25"/>
+          <points x="12" y="15"/>
         </graphicsAlgorithm>
       </children>
     </children>
@@ -7500,6 +7551,349 @@
       </renderingStyle>
     </styles>
     <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.1" id="TASK">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="blue-white-gloss" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="251" red="248"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="251" red="248"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="245" red="237"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="245" red="237"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="250" green="237" red="222"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="250" green="237" red="222"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="248" green="231" red="212"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="252" green="251" red="250"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="233" green="229" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="233" green="229" red="226"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="1">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="253" green="246" red="238"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="253" green="246" red="238"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="249" green="230" red="208"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="230" red="208"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="244" green="210" red="172"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="244" green="210" red="172"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="234" green="185" red="129"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="242" green="208" red="170"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="224" green="191" red="154"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="224" green="191" red="154"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="2">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="249" red="245"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="249" red="245"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="239" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="239" red="226"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="227" red="203"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="249" green="227" red="203"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="247" green="218" red="187"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="247" green="224" red="197"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="229" green="205" red="178"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="229" green="205" red="178"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="3">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="153"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="102" green="153" red="51"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="4">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color green="102" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.16" id="INTERMEDIATE-EVENT">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="INTERMEDIATE-EVENT" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="102" green="255" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="10">
+                <color blue="150" green="255" red="255"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="10">
+                <color blue="150" green="255" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="20">
+                <color blue="182" green="255" red="255"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="20">
+                <color blue="182" green="255" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="50">
+                <color blue="255" green="255" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.1" id="TASK">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="blue-white-gloss" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="251" red="248"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="251" red="248"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="245" red="237"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="245" red="237"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="250" green="237" red="222"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="250" green="237" red="222"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="248" green="231" red="212"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="252" green="251" red="250"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="233" green="229" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="233" green="229" red="226"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="1">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="253" green="246" red="238"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="253" green="246" red="238"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="249" green="230" red="208"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="230" red="208"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="244" green="210" red="172"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="244" green="210" red="172"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="234" green="185" red="129"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="242" green="208" red="170"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="224" green="191" red="154"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="224" green="191" red="154"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="2">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="249" red="245"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="249" red="245"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="239" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="239" red="226"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="227" red="203"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="249" green="227" red="203"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="247" green="218" red="187"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="247" green="224" red="197"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="229" green="205" red="178"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="229" green="205" red="178"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="3">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="153"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="102" green="153" red="51"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="4">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color green="102" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.2" id="BPMNCLASS-TEXT"/>
     <connections active="true" end="/0/@children.5/@anchors.0" start="/0/@children.4/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
       <graphicsAlgorithm filled="false" foreground="/0/@colors.17" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
       <link businessObjects="flow10"/>
@@ -7518,7 +7912,7 @@
         <graphicsAlgorithm height="16" id="com.totvs.tds.ecm.designer.automaticFlow" lineWidth="1" proportional="false" stretchH="false" stretchV="false" transparency="0.0" width="16" xsi:type="al:Image"/>
       </connectionDecorators>
     </connections>
-    <connections active="true" end="/0/@children.7/@anchors.0" start="/0/@children.5/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+    <connections active="true" end="/0/@children.54/@anchors.0" start="/0/@children.5/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
       <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
       <link businessObjects="flow11"/>
       <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
@@ -7532,6 +7926,8 @@
           <points after="3" before="3" x="-8"/>
         </graphicsAlgorithm>
       </connectionDecorators>
+      <bendpoints x="510" y="65"/>
+      <bendpoints x="974" y="65"/>
     </connections>
     <connections active="true" end="/0/@children.6/@anchors.0" start="/0/@children.8/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
       <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
@@ -8165,6 +8561,53 @@
         </graphicsAlgorithm>
       </connectionDecorators>
     </connections>
+    <connections active="true" end="/0/@children.7/@anchors.0" start="/0/@children.54/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow145"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.247" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.5" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+      <bendpoints x="972" y="242"/>
+      <bendpoints x="515" y="242"/>
+    </connections>
+    <connections active="true" end="/0/@children.55/@anchors.0" start="/0/@children.56/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow146"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.248" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.5" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
+    <connections active="true" end="/0/@children.54/@anchors.0" start="/0/@children.55/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow147"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.249" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.5" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
     <colors blue="249" green="238" red="227"/>
     <colors blue="112" green="25" red="25"/>
     <colors blue="153" green="51" red="51"/>
@@ -8203,19 +8646,19 @@
     <fonts name="Arial" size="8"/>
     <fonts bold="true" name="Arial" size="8"/>
   </pi:Diagram>
-  <bpmn2:BpmnProcess author="" cardIndex="68555" category="" complementsLevel="1" expedient="Default" extendedFields="&lt;list/&gt;" formSource="server" id="G12" instruction="" keyWord="" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerColleague&gt;&#10;  &lt;colleagueId&gt;4ef20412-7687-40a4-b1c8-095c0a92503e&lt;/colleagueId&gt;&#10;  &lt;mechanismName&gt;Usu&#225;rio&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerColleague&gt;" managerMechanism="Usu&#225;rio" name="G12" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="HOMOLOGACAO" version="169" volume="Default"/>
+  <bpmn2:BpmnProcess author="" cardIndex="68555" category="" complementsLevel="1" expedient="Default" extendedFields="&lt;list/&gt;" formSource="server" id="G12" instruction="" keyWord="" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerColleague&gt;&#10;  &lt;colleagueId&gt;4ef20412-7687-40a4-b1c8-095c0a92503e&lt;/colleagueId&gt;&#10;  &lt;mechanismName&gt;Usu&#225;rio&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerColleague&gt;" managerMechanism="Usu&#225;rio" name="G12" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="HOMOLOGACAO" version="179" volume="Default"/>
   <bpmn2:BpmnPool cores="FFFFFF" id="pool1" name="G12"/>
   <bpmn2:BpmnSwimLane cores="0080FF" id="swimlane2" name="CARREGAMENTO"/>
   <bpmn2:BpmnStartEvent esforcoCalculo="0" expediente="" id="startevent5" name="In&#237;cio" outgoing="flow10 flow16" prazoConclusao="1.0" selecionaColaboradores="1" signalId="0" type="10"/>
   <bpmn2:BpmnTask attachedEvents="intermediateerror12" authNotify="true" esforcoCalculo="0" executionAttempts="0" executionSucessfulMessage="Integra&#231;&#227;o executada com sucesso" executionType="1" expediente="" frequency="0" id="servicetask9" incoming="flow10 flow15 flow16" loopType="0" name="CARREGAMENTO DE DADOS" outgoing="flow11" scriptFileName="G12.servicetask9.js" selecionaColaboradores="1" serviceName="" type="82"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" fluxoAutomatico="true" id="flow10" name="" sourceRef="startevent5" targetRef="servicetask9"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow11" name="" sourceRef="servicetask9" targetRef="task17"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow11" name="" sourceRef="servicetask9" targetRef="servicetask140"/>
   <bpmn2:BpmnIntermediateEvent id="intermediateerror12" name="Intermedi&#225;rio" outgoing="flow14" parentTask="servicetask9" sequenceAttached="9" signalId="0" type="43"/>
   <bpmn2:BpmnTask authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task13" incoming="flow14" loopType="0" name="TRATAMENTO DE ERRO " outgoing="flow15" selecionaColaboradores="1" type="80"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow14" name="" sourceRef="intermediateerror12" targetRef="task13"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow15" name="" sourceRef="task13" targetRef="servicetask9"/>
   <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow16" name="" sourceRef="startevent5" targetRef="servicetask9"/>
-  <bpmn2:BpmnTask appsConfiguration="&lt;map&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;approval&lt;/string&gt;&#10;    &lt;list&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;title&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;description&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;highlight&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;approve&lt;/appField&gt;&#10;        &lt;description&gt;21&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;reject&lt;/appField&gt;&#10;        &lt;description&gt;39&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;    &lt;/list&gt;&#10;  &lt;/entry&gt;&#10;&lt;/map&gt;" authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task17" incoming="flow11" loopType="0" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerCustom&gt;&#10;  &lt;mechanismName&gt;G12-APROVACAO-ST&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerCustom&gt;" managerMechanism="G12-APROVACAO-ST" name="APROVA&#199;&#195;O SETOR T&#201;CNICO" outgoing="flow40 flow49 flow86" selecionaColaboradores="1" type="80"/>
+  <bpmn2:BpmnTask appsConfiguration="&lt;map&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;approval&lt;/string&gt;&#10;    &lt;list&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;title&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;description&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;highlight&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;approve&lt;/appField&gt;&#10;        &lt;description&gt;21&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;reject&lt;/appField&gt;&#10;        &lt;description&gt;39&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;    &lt;/list&gt;&#10;  &lt;/entry&gt;&#10;&lt;/map&gt;" authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task17" incoming="flow145" loopType="0" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerCustom&gt;&#10;  &lt;mechanismName&gt;G12-APROVACAO-ST&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerCustom&gt;" managerMechanism="G12-APROVACAO-ST" name="APROVA&#199;&#195;O SETOR T&#201;CNICO" outgoing="flow40 flow49 flow86" selecionaColaboradores="1" type="80"/>
   <bpmn2:BpmnSwimLane cores="80FF80" id="swimlane4" name="SETOR T&#201;CNICO"/>
   <bpmn2:BpmnSwimLane cores="FF8080" id="swimlane19" name="CONTRATOS"/>
   <bpmn2:BpmnSwimLane cores="FFFF80" id="swimlane20" name="FINANCEIRO"/>
@@ -8269,47 +8712,53 @@
   <bpmn2:BpmnPool cores="FFFFFF" id="bpmnpool94" name="AJUSTE E ADICAO IMPOSTOS "/>
   <bpmn2:BpmnSwimLane cores="FF8040" id="swimlane95" name=""/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive96" name="CHEGADA AJUSTAR IMPOSTOS " outgoing="flow97" sequenceAttached="0" signalId="0" type="42"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow97" name="" sourceRef="intermediatelinkreceive96" targetRef="servicetask87"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow97" name="" sourceRef="intermediatelinkreceive96" targetRef="servicetask87"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink98" incoming="flow99" linkId="intermediatelinkreceive96" name="SAIDA PARA AJUSTAR IMPOSTOS" sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow99" name="" sourceRef="task23" targetRef="intermediatelink98"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow99" name="" sourceRef="task23" targetRef="intermediatelink98"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive100" name="CHEGADA EM FATURAR NOTAS" outgoing="flow101" sequenceAttached="0" signalId="0" type="42"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow101" name="" sourceRef="intermediatelinkreceive100" targetRef="task23"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow101" name="" sourceRef="intermediatelinkreceive100" targetRef="task23"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink102" incoming="flow103" linkId="intermediatelinkreceive100" name="SAIDA PARA FATURAR NOTAS" sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow103" name="" sourceRef="servicetask87" targetRef="intermediatelink102"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow103" name="" sourceRef="servicetask87" targetRef="intermediatelink102"/>
   <bpmn2:BpmnSwimLane cores="FF8040" id="swimlane104" name=""/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink105" incoming="flow106" linkId="intermediatelinkreceive110" name="SAIDA PARA CADASTRO DE IMPOSTO MUNICIPAL" sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow106" name="" sourceRef="task23" targetRef="intermediatelink105"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow106" name="" sourceRef="task23" targetRef="intermediatelink105"/>
   <bpmn2:BpmnTask authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task107" incoming="flow112" loopType="0" name="TRATAMENTO DE ERRO " outgoing="flow113" selecionaColaboradores="1" type="80"/>
   <bpmn2:BpmnTask attachedEvents="intermediateerror109" authNotify="true" esforcoCalculo="0" executionAttempts="0" executionSucessfulMessage="Integra&#231;&#227;o executada com sucesso" executionType="1" expediente="" frequency="0" id="servicetask108" incoming="flow111 flow113" loopType="0" name="CADASTRAR / AJUSTAR  TRIBUTO MUNICIPAL" outgoing="flow115" scriptFileName="G12.servicetask108.js" selecionaColaboradores="1" serviceName="" type="82"/>
   <bpmn2:BpmnIntermediateEvent id="intermediateerror109" name="Intermedi&#225;rio" outgoing="flow112" parentTask="servicetask108" sequenceAttached="108" signalId="0" type="43"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive110" name="CHEGADA EM CADASTRO IMPOSTO MUNICIPAL" outgoing="flow111" sequenceAttached="0" signalId="0" type="42"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow111" name="" sourceRef="intermediatelinkreceive110" targetRef="servicetask108"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow112" name="" sourceRef="intermediateerror109" targetRef="task107"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow113" name="" sourceRef="task107" targetRef="servicetask108"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow111" name="" sourceRef="intermediatelinkreceive110" targetRef="servicetask108"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow112" name="" sourceRef="intermediateerror109" targetRef="task107"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow113" name="" sourceRef="task107" targetRef="servicetask108"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink114" incoming="flow115" linkId="intermediatelinkreceive100" name="SAIDA PARA FATURAR NOTAS " sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow115" name="" sourceRef="servicetask108" targetRef="intermediatelink114"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow115" name="" sourceRef="servicetask108" targetRef="intermediatelink114"/>
   <bpmn2:BpmnSwimLane cores="FF8040" id="swimlane116" name=""/>
   <bpmn2:BpmnTask authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task117" incoming="flow123" loopType="0" name="TRATAMENTO DE ERRO " outgoing="flow119" selecionaColaboradores="1" type="80"/>
   <bpmn2:BpmnTask attachedEvents="intermediateerror122" authNotify="true" esforcoCalculo="0" executionAttempts="0" executionSucessfulMessage="Integra&#231;&#227;o executada com sucesso" executionType="1" expediente="" frequency="0" id="servicetask118" incoming="flow119 flow125" loopType="0" name="AJUSTAR IRRF / INSS" outgoing="flow121" scriptFileName="G12.servicetask118.js" selecionaColaboradores="1" serviceName="" type="82"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow119" name="" sourceRef="task117" targetRef="servicetask118"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow119" name="" sourceRef="task117" targetRef="servicetask118"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink120" incoming="flow121" linkId="intermediatelinkreceive100" name="SAIDA PARA FATURAR NOTAS" sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow121" name="" sourceRef="servicetask118" targetRef="intermediatelink120"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow121" name="" sourceRef="servicetask118" targetRef="intermediatelink120"/>
   <bpmn2:BpmnIntermediateEvent id="intermediateerror122" name="Intermedi&#225;rio" outgoing="flow123" parentTask="servicetask118" sequenceAttached="118" signalId="0" type="43"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow123" name="" sourceRef="intermediateerror122" targetRef="task117"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow123" name="" sourceRef="intermediateerror122" targetRef="task117"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive124" name="CHEGADA AJUSTAR IRRF " outgoing="flow125" sequenceAttached="0" signalId="0" type="42"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow125" name="" sourceRef="intermediatelinkreceive124" targetRef="servicetask118"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow125" name="" sourceRef="intermediatelinkreceive124" targetRef="servicetask118"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink126" incoming="flow127" linkId="intermediatelinkreceive124" name="SAIDA PARA AJUSTAR IRRF " sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" id="flow127" name="" sourceRef="task23" targetRef="intermediatelink126"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow127" name="" sourceRef="task23" targetRef="intermediatelink126"/>
   <bpmn2:BpmnSwimLane cores="FF8040" id="swimlane128" name=""/>
   <bpmn2:BpmnTask authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task129" incoming="flow132" loopType="0" name="TRATAMENTO DE ERRO " outgoing="flow133" selecionaColaboradores="1" type="80"/>
   <bpmn2:BpmnTask attachedEvents="intermediateerror131" authNotify="true" esforcoCalculo="0" executionAttempts="0" executionSucessfulMessage="Integra&#231;&#227;o executada com sucesso" executionType="1" expediente="" frequency="0" id="servicetask130" incoming="flow133 flow137" loopType="0" name="CADASTRAR  IRRF / INSS" outgoing="flow135" scriptFileName="G12.servicetask130.js" selecionaColaboradores="1" serviceName="" type="82"/>
   <bpmn2:BpmnIntermediateEvent id="intermediateerror131" name="Intermedi&#225;rio" outgoing="flow132" parentTask="servicetask130" sequenceAttached="130" signalId="0" type="43"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow132" name="" sourceRef="intermediateerror131" targetRef="task129"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow133" name="" sourceRef="task129" targetRef="servicetask130"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow132" name="" sourceRef="intermediateerror131" targetRef="task129"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow133" name="" sourceRef="task129" targetRef="servicetask130"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink134" incoming="flow135" linkId="intermediatelinkreceive100" name="SAIDA FATURAR NOTA" sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow135" name="" sourceRef="servicetask130" targetRef="intermediatelink134"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow135" name="" sourceRef="servicetask130" targetRef="intermediatelink134"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelinkreceive136" name="CHEGADA CADASTRAR IRRF/INSS" outgoing="flow137" sequenceAttached="0" signalId="0" type="42"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow137" name="" sourceRef="intermediatelinkreceive136" targetRef="servicetask130"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow137" name="" sourceRef="intermediatelinkreceive136" targetRef="servicetask130"/>
   <bpmn2:BpmnIntermediateEvent id="intermediatelink138" incoming="flow139" linkId="intermediatelinkreceive136" name="SAIDA PARA CADASTRAR IRRF / INSS" sequenceAttached="0" signalId="0" type="36"/>
-  <bpmn2:SequenceFlow atividadeFluxo="" id="flow139" name="" sourceRef="task23" targetRef="intermediatelink138"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow139" name="" sourceRef="task23" targetRef="intermediatelink138"/>
+  <bpmn2:BpmnTask attachedEvents="intermediateerror141" authNotify="true" esforcoCalculo="0" executionAttempts="0" executionSucessfulMessage="Integra&#231;&#227;o executada com sucesso" executionType="1" expediente="" frequency="0" id="servicetask140" incoming="flow11 flow147" loopType="0" name="CARREGAR GED" outgoing="flow145" scriptFileName="G12.servicetask140.js" selecionaColaboradores="1" serviceName="" type="82"/>
+  <bpmn2:BpmnIntermediateEvent id="intermediateerror141" name="Intermedi&#225;rio" outgoing="flow146" parentTask="servicetask140" sequenceAttached="140" signalId="0" type="43"/>
+  <bpmn2:BpmnTask authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="" frequency="0" id="task142" incoming="flow146" loopType="0" name="TRATAMENTO DE ERRO " outgoing="flow147" selecionaColaboradores="1" type="80"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow145" name="" sourceRef="servicetask140" targetRef="task17"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" id="flow146" name="" sourceRef="intermediateerror141" targetRef="task142"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" id="flow147" name="" sourceRef="task142" targetRef="servicetask140"/>
 </xmi:XMI>

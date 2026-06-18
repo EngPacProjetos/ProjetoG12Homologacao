@@ -558,6 +558,150 @@
   gap: 5px !important;
 }
 
+.ged-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ged-card {
+  background: #fff;
+  border: 1px solid #c8d6e5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(15, 52, 96, 0.08);
+}
+
+.ged-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, rgb(15, 52, 96) 0%, rgb(26, 95, 168) 60%, rgb(33, 118, 199) 100%);
+  color: #fff;
+}
+
+.ged-card-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ged-card-badge {
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.2px;
+}
+
+.ged-card-body {
+  background: rgb(240, 244, 249);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ged-card-body-vazio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6c757d;
+  font-size: 12.5px;
+  padding: 16px;
+  font-style: italic;
+}
+
+.ged-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #d4dde8;
+  border-radius: 6px;
+  padding: 9px 12px;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.ged-item:hover {
+  background: #f4f8ff;
+  box-shadow: 0 1px 4px rgba(15, 52, 96, 0.12);
+}
+
+.ged-item-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgb(225, 236, 250);
+  color: rgb(26, 95, 168);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.ged-item-nome {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  color: #2c4a6a;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ged-item-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgb(26, 95, 168);
+  color: #fff !important;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.ged-item-btn:hover {
+  background: rgb(15, 52, 96);
+  box-shadow: 0 2px 8px rgba(15, 52, 96, 0.3);
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.ged-card-vazio .ged-card-header {
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .ged-item {
+    flex-wrap: wrap;
+  }
+
+  .ged-item-nome {
+    white-space: normal;
+    width: 100%;
+    order: 1;
+  }
+
+  .ged-item-btn {
+    order: 2;
+    margin-left: 42px;
+  }
+}
+
 @keyframes sairSuave {
   0% {
     opacity: 1;

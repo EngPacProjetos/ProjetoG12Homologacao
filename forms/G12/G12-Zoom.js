@@ -4,54 +4,62 @@ function setSelectedZoomItem(selectedItem) {
     var coligada = $("#CodColigada").val();
     var idmov = $("#idmov2").val();
 
+    var parans = "CODCOLIGADA," + coligada + ",IDMOV," + idmov;
 
     console.log("PRINTANDO SELECTED ITEM DO ZOOM", selectedItem);
 
-    var parans = "CODCOLIGADA," + coligada + ",IDMOV," + idmov;
 
 
-    if (selectedItem.inputName.indexOf("ajusteIrrfZoom") != -1) {
+    if (selectedItem && (selectedItem.inputName != "" || selectedItem.inputName != null && selectedItem.inputName != "undefined")) {
 
-        var codigo = selectedItem.CODIGO_IRRF;
+        if (selectedItem.inputName.indexOf("ajusteIrrfZoom") != -1) {
 
-        console.log("CODIGO IRRF SELECIONADO", codigo)
+            var codigo = selectedItem.CODIGO_IRRF;
 
-        var descricao = selectedItem.DESCRICAO_IRRF;
+            console.log("CODIGO IRRF SELECIONADO", codigo)
 
-        console.log("DESCRICAO DE IRRF SELECIONADA", descricao);
+            var descricao = selectedItem.DESCRICAO_IRRF;
 
-        $("#irrfCodigoAjuste").val(codigo);
-        $("#irrfDescricaoAjuste").val(descricao);
+            console.log("DESCRICAO DE IRRF SELECIONADA", descricao);
+
+            $("#irrfCodigoAjuste").val(codigo);
+            $("#irrfDescricaoAjuste").val(descricao);
+
+        }
+
+
+
+        if (selectedItem.inputName.indexOf("ajusteInssZoom") != -1) {
+
+            var codigo = selectedItem.CODIGO_INSS;
+            var descricao = selectedItem.DESCRICAO_INSS;
+
+            $("#inssCodigoAjuste").val(codigo)
+            $("#inssDescricaoAjuste").val(descricao)
+
+        }
+
+    } else {
+
+        if (coligada != undefined && coligada != "" && idmov != undefined && idmov != "") {
+            setTimeout(function reloadZoom() {
+                // Fluig converte type zoom em select via WDK, então nunca filtre esse reload por input ... nao funciona .
+                var campos = $("[name^='impostos_selecao___']");
+                var index = campos.length;
+                console.log("Campos zoom encontrados:", campos.length, "→ recarregando índice:", index);
+                if (index >= 0) {
+                    reloadZoomFilterValues("impostos_selecao___" + index, parans);
+                }
+            }, 1000);
+
+        }
 
     }
 
 
 
-    if (selectedItem.inputName.indexOf("ajusteInssZoom") != -1) {
-
-        var codigo = selectedItem.CODIGO_INSS;
-        var descricao = selectedItem.DESCRICAO_INSS;
-
-        $("#inssCodigoAjuste").val(codigo)
-        $("#inssDescricaoAjuste").val(descricao)
-
-    }
 
 
-
-
-
-    if (coligada != undefined && coligada != "" && idmov != undefined && idmov != "") {
-        setTimeout(function reloadZoom() {
-            // Fluig converte type zoom em select via WDK, então nunca filtre esse reload por input ... nao funciona .
-            var campos = $("[name^='impostos_selecao___']");
-            var index = campos.length;
-            console.log("Campos zoom encontrados:", campos.length, "→ recarregando índice:", index);
-            if (index >= 0) {
-                reloadZoomFilterValues("impostos_selecao___" + index, parans);
-            }
-        }, 1000);
-    }
 
 
 

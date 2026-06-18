@@ -84,7 +84,10 @@ function createDataset(fields, constraints, sortFields) {
         "IDPRD", 
         "NOME_FANTASIA", // DO PRESTADOR DE SERVICO 
         "VALOR_ITEM", // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
-        "COLIGADA_CLIENTE"
+        "COLIGADA_CLIENTE", 
+        "ID_CONTRATO", 
+        "PERIODOS_CONTRATO", 
+        "REVISAO_PROJETO"
     ];
 
     try {
@@ -205,7 +208,11 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("IDPRD") ? row.get("IDPRD") : "",
                 row.has("NOME_FANTASIA") ? row.get("NOME_FANTASIA") : "",
                 row.has("VALOR_ITEM") ? row.get("VALOR_ITEM") : "",
-                row.has("COLIGADA_CLIENTE") ? row.get("COLIGADA_CLIENTE") : ""
+                row.has("COLIGADA_CLIENTE") ? row.get("COLIGADA_CLIENTE") : "",
+                row.has("ID_CONTRATO") ? row.get("ID_CONTRATO") : "",
+                row.has("PERIODOS_CONTRATO") ? row.get("PERIODOS_CONTRATO") : "", 
+                row.has("REVISAO_PROJETO") ? row.get("REVISAO_PROJETO") : ""
+
             );
         }
 
