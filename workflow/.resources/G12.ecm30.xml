@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G12</processId>
-      <version>179</version>
+      <version>190</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>68555</formId>
@@ -3894,21 +3894,76 @@ function getConstante(param) {
 
     var codColigada = hAPI.getCardValue(&quot;CodColigada&quot;);
     var idprj = hAPI.getCardValue(&quot;idprj&quot;);
+    var idmov = hAPI.getCardValue(&quot;IdMov&quot;);
     var idContrato = hAPI.getCardValue(&quot;idContrato&quot;);
+    var revisao = hAPI.getCardValue(&quot;revisaoProjeto&quot;);
+    var periodoMedicaoFinal;
+
+    log.info(&quot;COLIGADA GED - &gt; &quot; + codColigada);
+    log.info(&quot;IDPRJ DO GED - &gt; &quot; + idprj);
+    log.info(&quot;IDMOV DO GED - &gt; &quot; + idmov);
+    log.info(&quot;ID DO CONTRATO DO GED - &gt; &quot; + idContrato);
+    log.info(&quot;REVISAO DO GED - &gt; &quot; + revisao);
+    log.info(&quot;PERIODO DO GED - &gt; &quot; + (periodoMedicaoFinal || &quot;0&quot;));
+
+
 
 
     try {
-        var c1 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint(&quot;IDPRJ&quot;, idprj, idprj, ConstraintType.MUST);
-        var c3 = DatasetFactory.createConstraint(&quot;IDCONTRATO&quot;, idContrato, idContrato, ConstraintType.MUST);
+        var c1 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idmov, idmov, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);
 
-        var valoresGuardados = new Array();
 
-        var dataset = DatasetFactory.getDataset(&quot;G12-GED&quot;, null, [c1, c2, c3], null);
+
+        var dataset = DatasetFactory.getDataset(&quot;G12-PERIODOS-MEDICAO&quot;, null, [c1, c2], null);
 
 
         if (dataset == null || dataset.rowsCount == 0) {
-            log.warn(&quot;[G12-GED] Nenhum tributo retornado. CodColigada=&quot; + codColigada + &quot;  Idprj=&quot; + idprj + &quot; idContrato=&quot; + idContrato);
+            log.warn(&quot;[G12-GED] Nenhum tributo retornado. CodColigada=&quot; + codColigada + &quot;  Idmov=&quot; + idmov + &quot; idContrato=&quot; + idContrato);
+            return;
+        }
+
+        for (var index = 0; index &lt; dataset.rowsCount; index++) {
+            periodoMedicaoFinal = safe(dataset.getValue(index, &quot;PERIODOMED&quot;));
+
+
+
+
+        }
+
+        hAPI.setCardValue(&quot;periodoMedicao&quot;, periodoMedicaoFinal);
+
+
+
+    } catch (error) {
+        log.error(&quot;G12-GED - &gt; ERRO AO BUSCAR O PERIODO DE MEDICAO DO CONTRATO PARA BUSCA NO GED&quot;)
+        throw error;
+    }
+
+    try {
+
+
+        var c1 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint(&quot;IDPRJ&quot;, idprj, idprj, ConstraintType.MUST);
+        var c3 = DatasetFactory.createConstraint(&quot;IDCONTRATO&quot;, idContrato, idContrato, ConstraintType.MUST);
+        var c4 = DatasetFactory.createConstraint(&quot;PERIODO&quot;, periodoMedicaoFinal, periodoMedicaoFinal, ConstraintType.MUST);
+        var c5 = DatasetFactory.createConstraint(&quot;REVISAO&quot;, revisao, revisao, ConstraintType.MUST);
+
+
+        log.info(&quot;COLIGADA GED 2 - &gt; &quot; + codColigada);
+        log.info(&quot;IDPRJ DO GED 2 - &gt; &quot; + idprj);
+        log.info(&quot;IDMOV DO GED 2 - &gt; &quot; + idmov);
+        log.info(&quot;ID DO CONTRATO DO GED 2 - &gt; &quot; + idContrato);
+        log.info(&quot;REVISAO DO GED 2 - &gt; &quot; + revisao);
+        log.info(&quot;PERIODO DO GED 2 - &gt; &quot; + (periodoMedicaoFinal || &quot;0&quot;));
+
+        var valoresGuardados = new Array();
+
+        var dataset = DatasetFactory.getDataset(&quot;G12-GED&quot;, null, [c1, c2, c3, c4, c5], null);
+
+
+        if (dataset == null || dataset.rowsCount == 0) {
+            log.warn(&quot;[G12-GED] Nenhum tributo retornado. CodColigada=&quot; + codColigada + &quot;  Idprj=&quot; + idprj + &quot; idContrato=&quot; + idContrato + &quot; periodo=&quot; + periodoMedicaoFinal);
             return;
         }
 
@@ -3928,7 +3983,7 @@ function getConstante(param) {
 
     } catch (error) {
         log.error(&quot;G12-GED - &gt; ERRO AO BUSCAR OS DADOS&quot;)
-        throw e;
+        throw error;
     }
 }</eventDescription>
     </WorkflowProcessEvent>
@@ -4688,7 +4743,7 @@ function loadDsG12(codColigada, idMov) {&#xd;
         hAPI.setCardValue(&apos;nome_produto&apos;,           safe(dataset.getValue(0, &quot;NOME_PRODUTO&quot;)));&#xd;
         hAPI.setCardValue(&apos;codigo_produto&apos;,         safe(dataset.getValue(0, &quot;CODIGO_PRODUTO&quot;)));&#xd;
         hAPI.setCardValue(&apos;idContrato&apos;,         safe(dataset.getValue(0, &quot;ID_CONTRATO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;periodosContrato&apos;,         safe(dataset.getValue(0, &quot;PERIODOS_CONTRATO&quot;)));&#xd;
+        &#xd;
 &#xd;
         // CAMPOS DO PRESTADOR&#xd;
         hAPI.setCardValue(&apos;nomePrestador&apos;,              safe(dataset.getValue(0, &quot;NOME_PRESTADOR&quot;)));&#xd;
@@ -5169,7 +5224,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>179</version>
+        <version>190</version>
         <linkSequence>11</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5180,7 +5235,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>179</version>
+        <version>190</version>
         <linkSequence>11</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5191,7 +5246,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>179</version>
+        <version>190</version>
         <linkSequence>84</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5202,7 +5257,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>179</version>
+        <version>190</version>
         <linkSequence>86</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5213,7 +5268,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>179</version>
+        <version>190</version>
         <linkSequence>145</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5224,7 +5279,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>179</version>
+        <version>190</version>
         <linkSequence>145</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5342,7 +5397,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5352,7 +5407,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5362,7 +5417,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5372,7 +5427,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5382,7 +5437,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5392,7 +5447,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5402,7 +5457,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5412,7 +5467,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5422,7 +5477,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5432,7 +5487,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5442,7 +5497,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5452,7 +5507,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5462,7 +5517,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5472,7 +5527,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5482,7 +5537,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>179</processVersion>
+      <processVersion>190</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

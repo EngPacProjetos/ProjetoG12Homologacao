@@ -80,7 +80,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('nome_produto',           safe(dataset.getValue(0, "NOME_PRODUTO")));
         hAPI.setCardValue('codigo_produto',         safe(dataset.getValue(0, "CODIGO_PRODUTO")));
         hAPI.setCardValue('idContrato',         safe(dataset.getValue(0, "ID_CONTRATO")));
-        hAPI.setCardValue('periodosContrato',         safe(dataset.getValue(0, "PERIODOS_CONTRATO")));
+        
 
         // CAMPOS DO PRESTADOR
         hAPI.setCardValue('nomePrestador',              safe(dataset.getValue(0, "NOME_PRESTADOR")));

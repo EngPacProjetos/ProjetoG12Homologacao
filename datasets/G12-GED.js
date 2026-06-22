@@ -15,10 +15,14 @@ function createDataset(fields, constraints, sortFields) {
     var CODCOLIGADA;
     var IDPRJ;
     var IDCONTRATO;
+    var PERIODO;
+    var REVISAO;
+
+
 
     var COLUNAS = [
         "NOMEPASTA",
-        "CODDOCUMENTO", 
+        "CODDOCUMENTO",
         "DESCRICAO"
     ];
 
@@ -41,27 +45,41 @@ function createDataset(fields, constraints, sortFields) {
                 if (constraints[i].fieldName == "CODCOLIGADA") CODCOLIGADA = constraints[i].initialValue;
                 if (constraints[i].fieldName == "IDPRJ") IDPRJ = constraints[i].initialValue;
                 if (constraints[i].fieldName == "IDCONTRATO") IDCONTRATO = constraints[i].initialValue;
+                if (constraints[i].fieldName == "PERIODO") PERIODO = constraints[i].initialValue;
+                if (constraints[i].fieldName == "REVISAO") REVISAO = constraints[i].initialValue;
             }
         }
 
         log.info("[G12-GED] CODCOLIGADA: " + CODCOLIGADA);
         log.info("[G2-GED] IDPRJ: " + IDPRJ);
         log.info("[G2-GED] IDCONTRATO: " + IDCONTRATO);
+        log.info("[G2-GED] PERIODO: " + PERIODO);
+        log.info("[G2-GED] REVISAO: " + REVISAO);
 
         // Validacoes dos parametros obrigatorios
         if (CODCOLIGADA == undefined || CODCOLIGADA == null || String(CODCOLIGADA).trim() == "") {
             log.error("[dsContratoRM] CODCOLIGADA nao foi informado. Abortando.");
-            return retornarErro("CODCOLIGADA nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO);
+            return retornarErro("CODCOLIGADA nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO, PERIODO, REVISAO);
         }
 
         if (IDPRJ == undefined || IDPRJ == null || String(IDPRJ).trim() == "") {
             log.error("[G12-GED] IDPRJ nao foi informado. Abortando.");
-            return retornarErro("IDPRJ nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO);
+            return retornarErro("IDPRJ nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO, PERIODO, REVISAO);
         }
 
         if (IDCONTRATO == undefined || IDCONTRATO == null || String(IDCONTRATO).trim() == "") {
-            log.error("[G12-GED] IDPRJ nao foi informado. Abortando.");
-            return retornarErro("IDPRJ nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO);
+            log.error("[G12-GED] IDCONTRATO nao foi informado. Abortando.");
+            return retornarErro("IDCONTRATO nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO, PERIODO, REVISAO);
+        }
+
+        if (REVISAO == undefined || REVISAO == null || String(REVISAO).trim() == "") {
+            log.error("[G12-GED] REVISAO nao foi informado. Abortando.");
+            return retornarErro("REVISAO nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO, PERIODO, REVISAO);
+        }
+
+        if (PERIODO == undefined || PERIODO == null || String(PERIODO).trim() == "") {
+            log.error("[G12-GED] PERIODO nao foi informado. Abortando.");
+            return retornarErro("PERIODO nao foi informado", null, CODCOLIGADA, IDPRJ, IDCONTRATO, PERIODO, REVISAO);
         }
 
         var servico = ServiceManager.getService(NOME_SERVICO);
@@ -71,7 +89,7 @@ function createDataset(fields, constraints, sortFields) {
         var authService = serviceHelper.getBasicAuthenticatedClient(ws, "com.totvs.IwsConsultaSQL", usuario, senha);
 
 
-        var PARAMS = "CODCOLIGADA=" + CODCOLIGADA + ";IDPRJ=" + IDPRJ + ";IDCONTRATO=" + IDCONTRATO;
+        var PARAMS = "CODCOLIGADA=" + CODCOLIGADA + ";IDPRJ=" + IDPRJ + ";IDCONTRATO=" + IDCONTRATO + ";PERIODO=" + PERIODO + ";REVISAO=" + REVISAO;
         log.info("[G12-GED] PARAMS enviados: " + PARAMS);
 
         var result = authService.realizarConsultaSQL("G12GED", 0, "F", PARAMS);
@@ -114,7 +132,7 @@ function createDataset(fields, constraints, sortFields) {
     return dataset;
 }
 
-function retornarErro(mensagem, linha, codColigada, idprj, idContrato) {
+function retornarErro(mensagem, linha, codColigada, idprj, idContrato, periodo, revisao) {
     var dsError = DatasetBuilder.newDataset();
     dsError.addColumn("ERROR");
     dsError.addColumn("LINE");
@@ -126,7 +144,9 @@ function retornarErro(mensagem, linha, codColigada, idprj, idContrato) {
         linha != null ? linha : "",
         codColigada != null ? codColigada : "",
         idprj != null ? idprj : "",
-        idContrato != null ? idContrato : ""
+        idContrato != null ? idContrato : "",
+        periodo != null ? periodo : "",
+        revisao != null ? revisao : ""
     ));
     return dsError;
 }
