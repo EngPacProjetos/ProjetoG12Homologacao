@@ -16,12 +16,42 @@ function servicetask71(attempt, message) {
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
     var idprj = hAPI.getCardValue("idprj");
     var idContrato = hAPI.getCardValue("idContrato");
+    var exercicioFiscal;
 
 
     var usuario_rm = getConstante("rm_usuario");
     var senha_rm = getConstante("rm_senha");
 
 
+
+    try {
+        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
+
+        var dataset = DatasetFactory.getDataset("G12-EXERCICIO-FISCAL", null, [c1], null);
+
+
+        if (dataset == null || dataset.rowsCount == 0) {
+            log.warn("[G12] Nenhum Exercicio fiscal retornado." + " CodColigada=" + codColigada);
+            return;
+        }
+
+
+        exercicioFiscal = safe(dataset.getValue(0, "ID_EXERCICIO"));
+
+
+
+
+
+    } catch (error) {
+        log.error("### Erro ao carregar o exercicio fiscal da coligada em questao - > : " + error);
+        throw error;
+
+    }
+
+
+    log.info("EXERCICIO FISCAL ENCONTRADO - > " + exercicioFiscal);
+    log.info("IDMOV ENCONTRADO - > " + idMov);
+    log.info("CODCOLIGADA ENTONTRADA PARA O XMl DE FATURAMENTO - > " + idMov);
 
     try {
 
@@ -62,7 +92,7 @@ function servicetask71(attempt, message) {
             '<CodTmvOrigem>2.1.01</CodTmvOrigem>' +
             '<CodUsuario>fluig</CodUsuario>' +
             '<GrupoFaturamento></GrupoFaturamento>' +
-            '<IdExercicioFiscal>3</IdExercicioFiscal>' +
+            '<IdExercicioFiscal>' + exercicioFiscal + '</IdExercicioFiscal>' +
             '<IdMov>' +
             '<int>' + idMov + '</int>' +
             '</IdMov>' +
@@ -79,9 +109,13 @@ function servicetask71(attempt, message) {
 
         var resp = authService.executeWithParams("MovFaturamentoProc", xmlParams);
 
+        log.info("RESULTADO DO FATURAMENTO - > " + resp)
+
 
     } catch (e) {
-        log.error("### Erro: " + e);
+        log.error("### Erro no faturamento: " + String(e));
+        log.error("### Stack: " + (e.javaException ? e.javaException.getMessage() : "sem stack"));
+        log.error("### Causa: " + (e.rhinoException ? e.rhinoException.details() : "sem detalhe"));
         throw e;
     }
 
@@ -89,12 +123,13 @@ function servicetask71(attempt, message) {
     // PARTE RESPONSAVEL POR ATUALIZAR OS DADOS DE TRIBUTACAO APOS SAI DA VALIDACAO DE CONTRATOS 
     try {
         var c2 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
+        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
 
-        var dataset = DatasetFactory.getDataset("G12-MOVIMENTOS-2102", null, [c2], null);
+        var dataset = DatasetFactory.getDataset("G12-MOVIMENTOS-2102", null, [c2, c1], null);
 
 
         if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum movimento retornado." + "IdMov=" + idMov);
+            log.warn("[G12] Nenhum movimento retornado." + "IdMov=" + idMov + " CodColigada=" + codColigada);
             return;
         }
 
