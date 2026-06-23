@@ -89,22 +89,25 @@ function parseTributosNacionais(raw) {
 }
 
 function parseTributosMunicipais(raw) {
-    var resultado = [];
-    if (!raw || !raw.trim()) return resultado;
-    var entradas = raw.split(" | ");
-    for (var i = 0; i < entradas.length; i++) {
-        var e = entradas[i].trim();
-        if (!e) continue;
-        var m = e.match(/CODIGO:\s*(.+?)\s+-\s+ALIQUOTA:\s*(.+?)\s+-\s+BASE REDUCAO ISS\(%\):\s*(.*)/i);
+    if (!raw) return [];
+    var parts = raw.split("|");
+    var result = [];
+    for (var i = 0; i < parts.length; i++) {
+        var part = parts[i].trim();
+        if (!part) continue;
+
+        var m = part.match(
+            /CODIGO:(.+?)\s*-\s*ALIQUOTA:([\d.]*)\s*-\s*BASE REDUCAO ISS\(%\):([\d.]*)/
+        );
         if (m) {
-            resultado.push({
+            result.push({
                 codigo: m[1].trim(),
-                aliquota: m[2].trim(),
-                fator: m[3].trim()
+                aliquota: m[2].trim() || "—",
+                fator: m[3].trim() || "—"
             });
         }
     }
-    return resultado;
+    return result;
 }
 
 
@@ -221,7 +224,7 @@ function carregarDadosContrato(codColigada, idMov) {
             mostrarErro(ds.getValue(0, "ERROR"));
             return;
         }
-        
+
         preencherFormulario(ds);
 
     } catch (e) {
@@ -246,11 +249,11 @@ function onLoadView() {
 function _renderizarVisuais(tentativas) {
     tentativas = tentativas || 0;
 
-    var rawNac   = $("#tributosNacionais").val()    || "";
-    var rawMun   = $("#tributosMunicipais").val()   || "";
+    var rawNac = $("#tributosNacionais").val() || "";
+    var rawMun = $("#tributosMunicipais").val() || "";
     var natureza = $("#naturezaOrcamentaria").val() || "";
-    var irrf     = $("#irrfDoItem").val()           || "—";
-    var inss     = $("#inssDoItem").val()           || "—";
+    var irrf = $("#irrfDoItem").val() || "—";
+    var inss = $("#inssDoItem").val() || "—";
 
     // Em modo de visualização, o Fluig restaura os campos de forma assíncrona.
     // Usa numero_contrato como sentinela: enquanto estiver vazio, os dados
@@ -268,5 +271,5 @@ function _renderizarVisuais(tentativas) {
     renderizarTabelasTributacao(rawNac, rawMun, natureza);
 
     console.log("[G12] Visuais renderizados (tentativa " + (tentativas + 1) + ") | tributosNacionais=" + rawNac.length +
-                " chars | tributosMunicipais=" + rawMun.length + " chars");
+        " chars | tributosMunicipais=" + rawMun.length + " chars");
 }

@@ -152,7 +152,7 @@ function servicetask87(attempt, message) {
         hAPI.setCardValue('naturezaOrcamentaria', safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
         hAPI.setCardValue('irrfDoItem', safe(dataset.getValue(0, "IRRF_DO_ITEM")));
         hAPI.setCardValue('inssDoItem', safe(dataset.getValue(0, "INSS_DO_ITEM")));
-        hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
+        // hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
 
 
     } catch (e) {

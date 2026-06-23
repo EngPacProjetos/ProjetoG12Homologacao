@@ -11,6 +11,10 @@ function CarregarTabelasDeTriutos() {
     var irrf = $("#irrfDoItem").val();
     var inss = $("#inssDoItem").val();
 
+
+    console.log("RAW NACIONAIS:", rawNac);
+    console.log("RAW MUNICIPAIS:", rawMun);
+
     var irrfDescricao = $("#irrfDescricao").val();
     var irrfAliquota = $("#irrfAliquota").val();
     var irrfTipoDePessoa = $("#irrfTipoDePessoa").val();
@@ -56,6 +60,8 @@ function CarregarTabelasDeTriutos() {
 
     var tributosMun = parseTributosMunicipais(rawMun);
     var $cMun = $("#tabelaTributosMunicipais");
+
+    console.log("cMun - > ", $cMun)
     if ($cMun.length) {
         if (!tributosMun.length) {
             $cMun.html("<p class='text-muted'>Nenhum tributo municipal registrado.</p>");
@@ -71,4 +77,9 @@ function CarregarTabelasDeTriutos() {
             $cMun.html(hm);
         }
     }
+
+
+
+    console.log("PARSED NACIONAIS:", parseTributosNacionais(rawNac));
+    console.log("PARSED MUNICIPAIS:", parseTributosMunicipais(rawMun));
 }
