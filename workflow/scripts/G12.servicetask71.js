@@ -37,6 +37,7 @@ function servicetask71(attempt, message) {
 
 
         exercicioFiscal = safe(dataset.getValue(0, "ID_EXERCICIO"));
+        hAPI.setCardValue("exercicioFiscal", exercicioFiscal);
 
 
 
@@ -51,7 +52,7 @@ function servicetask71(attempt, message) {
 
     log.info("EXERCICIO FISCAL ENCONTRADO - > " + exercicioFiscal);
     log.info("IDMOV ENCONTRADO - > " + idMov);
-    log.info("CODCOLIGADA ENTONTRADA PARA O XMl DE FATURAMENTO - > " + idMov);
+    log.info("CODCOLIGADA ENTONTRADA PARA O XMl DE FATURAMENTO - > " + codColigada);
 
     try {
 
@@ -110,6 +111,15 @@ function servicetask71(attempt, message) {
         var resp = authService.executeWithParams("MovFaturamentoProc", xmlParams);
 
         log.info("RESULTADO DO FATURAMENTO - > " + resp)
+
+
+        if (resp && String(resp).indexOf("Exception") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resp);
+        }
+
+        if (resp && String(resp).indexOf("Error") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resp);
+        }
 
 
     } catch (e) {
@@ -194,7 +204,7 @@ function servicetask71(attempt, message) {
             return;
         }
         hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
-        hAPI.setCardValue('codigoMunicipio', safe(dataset.getValue(0, "CODIGO_MUNICIPIO")));
+
 
 
     } catch (e) {

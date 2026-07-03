@@ -60,6 +60,15 @@ function servicetask118(attempt, message) {
             log.info("[G12-AjustarIrrfCliente] Resultado: " + resultado);
 
 
+            if (resultado && String(resultado).indexOf("Exception") !== -1) {
+                throw new Error("Erro retornado pelo RM: " + resultado);
+            }
+
+            if (resultado && String(resultado).indexOf("Error") !== -1) {
+                throw new Error("Erro retornado pelo RM: " + resultado);
+            }
+
+
         } catch (e) {
             log.error("[G12-G12-AjustarIRRFeINSS] Erro: " + String(e));
             throw e;

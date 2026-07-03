@@ -1,13 +1,13 @@
-function servicetask148(attempt, message) {
+function servicetask157(attempt, message) {
 
-    var codColigada = parseInt(hAPI.getCardValue("CodColigada"));
-    var idMov = parseInt(hAPI.getCardValue("idmov2"));
-    var codFilial = parseInt(hAPI.getCardValue("filial"));
+    var codColigada = hAPI.getCardValue("CodColigada");
+    var idMov = hAPI.getCardValue("idmov2");
+    var exercicioFiscal = hAPI.getCardValue("exercicioFiscal");
+    var cno = hAPI.getCardValue("cno") || "";
 
     var usuario_rm = getConstante("rm_usuario");
     var senha_rm = getConstante("rm_senha");
 
-    log.info("[NFSe] Iniciando. CODCOLIGADA=" + codColigada + " IDMOV=" + idMov);
 
     try {
         var servico = ServiceManager.getService("wsProcess");
@@ -24,13 +24,11 @@ function servicetask148(attempt, message) {
 
         var authService = servico.getCustomClient(ws, properties, []);
 
-        // var contexto = "CODCOLIGADA=" + codColigada + ";CODFILIAL=" + codFilial + ";CODSISTEMA=T;CODUSUARIO=fluig";
-
         var xmlParams =
-            '<?xml version="1.0" encoding="utf-16"?>' +
-            '<FisNFSeEnvioParamsProc z:Id="i1" xmlns="http://www.totvs.com.br/RM/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">' +
-            '  <ActionModule xmlns="http://www.totvs.com/">T</ActionModule>' +
-            '  <ActionName xmlns="http://www.totvs.com/">MovEnviaNFSeMovAction</ActionName>' +
+            '<?xml version="1.0" encoding="utf-16"?> ' +
+            '<FisNFSeRetornarParamsProc z:Id="i1" xmlns="http://www.totvs.com.br/RM/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/"> ' +
+            '  <ActionModule xmlns="http://www.totvs.com/">D</ActionModule>' +
+            '  <ActionName xmlns="http://www.totvs.com/">FisNFSeRetornarNotasAction</ActionName>' +
             '  <CanParallelize xmlns="http://www.totvs.com/">true</CanParallelize>' +
             '  <CanSendMail xmlns="http://www.totvs.com/">false</CanSendMail>' +
             '  <CanWaitSchedule xmlns="http://www.totvs.com/">false</CanWaitSchedule>' +
@@ -108,7 +106,7 @@ function servicetask148(attempt, message) {
             '  <Ip xmlns="http://www.totvs.com/">10.0.2.3</Ip>' +
             '  <IsolateProcess xmlns="http://www.totvs.com/">false</IsolateProcess>' +
             '  <JobServerHostName xmlns="http://www.totvs.com/">136710-core-instance-N-RM-D-CO2TNX-1-f8b95WIN-CE01</JobServerHostName>' +
-            '  <MasterActionName xmlns="http://www.totvs.com/">MovMovimentoMDIPedidoVendaAction</MasterActionName>' +
+            '  <MasterActionName xmlns="http://www.totvs.com/">FisNFEMunicipalAction</MasterActionName>' +
             '  <MaximumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1000</MaximumQuantityOfPrimaryKeysPerProcess>' +
             '  <MinimumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1</MinimumQuantityOfPrimaryKeysPerProcess>' +
             '  <NetworkUser xmlns="http://www.totvs.com/">ANA P2 - LOG NAT</NetworkUser>' +
@@ -126,52 +124,34 @@ function servicetask148(attempt, message) {
             '    <a:string>CODCOLIGADA</a:string>' +
             '    <a:string>IDMOV</a:string>' +
             '  </PrimaryKeyNames>' +
-            '  <PrimaryKeyTableName xmlns="http://www.totvs.com/">TMOV</PrimaryKeyTableName>' +
-            '  <ProcessName xmlns="http://www.totvs.com/">Enviar NFS-e</ProcessName>' +
+            '  <PrimaryKeyTableName xmlns="http://www.totvs.com/">TNFEMUNICIPAL</PrimaryKeyTableName>' +
+            '  <ProcessName xmlns="http://www.totvs.com/">Consultar Autorização/Cancelamento</ProcessName>' +
             '  <QuantityOfSplits xmlns="http://www.totvs.com/">0</QuantityOfSplits>' +
             '  <SaveLogInDatabase xmlns="http://www.totvs.com/">true</SaveLogInDatabase>' +
             '  <SaveParamsExecution xmlns="http://www.totvs.com/">false</SaveParamsExecution>' +
-            '  <ScheduleDateTime xmlns="http://www.totvs.com/">2026-06-25T13:11:07.1996384-03:00</ScheduleDateTime>' +
+            '  <ScheduleDateTime xmlns="http://www.totvs.com/">2026-06-25T14:42:25.5623927-03:00</ScheduleDateTime>' +
             '  <Scheduler xmlns="http://www.totvs.com/">JobMonitor</Scheduler>' +
             '  <SendMail xmlns="http://www.totvs.com/">false</SendMail>' +
-            '  <ServerName xmlns="http://www.totvs.com/">FisNFSeEnvioData</ServerName>' +
+            '  <ServerName xmlns="http://www.totvs.com/">FisNFSeRetornarNotasData</ServerName>' +
             '  <ServiceInterface i:nil="true" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.datacontract.org/2004/07/System" />' +
             '  <ShouldParallelize xmlns="http://www.totvs.com/">false</ShouldParallelize>' +
             '  <ShowReExecuteButton xmlns="http://www.totvs.com/">true</ShowReExecuteButton>' +
             '  <StatusMessage i:nil="true" xmlns="http://www.totvs.com/" />' +
             '  <SuccessMessage xmlns="http://www.totvs.com/">Processo executado com sucesso</SuccessMessage>' +
-            '  <SyncExecution xmlns="http://www.totvs.com/">false</SyncExecution>' +
+            '  <SyncExecution xmlns="http://www.totvs.com/">true</SyncExecution>' +
             '  <UseJobMonitor xmlns="http://www.totvs.com/">true</UseJobMonitor>' +
             '  <UserName xmlns="http://www.totvs.com/">fluig</UserName>' +
             '  <WaitSchedule xmlns="http://www.totvs.com/">false</WaitSchedule>' +
-            '  <EnableJobErrorProgressbar xmlns="http://www.totvs.com/">false</EnableJobErrorProgressbar>' +
-            '  <EnableTracing xmlns="http://www.totvs.com/">false</EnableTracing>' +
-            '  <LocalOnlyExecutor xmlns="http://www.totvs.com/">RMSJobData</LocalOnlyExecutor>' +
-            '  <RMSJobIds i:nil="true" xmlns="http://www.totvs.com/" />' +
-            '  <SlicesCount xmlns="http://www.totvs.com/">0</SlicesCount>' +
             '  <CodColigada>0</CodColigada>' +
-            '  <CodFilial>0</CodFilial>' +
-            '  <CodTipoMovimento i:nil="true" />' +
-            '  <DataEmissaoFinal>0001-01-01T00:00:00</DataEmissaoFinal>' +
-            '  <DataEmissaoInicial>0001-01-01T00:00:00</DataEmissaoInicial>' +
-            '  <HSMLabel i:nil="true" />' +
-            '  <HSMLabelKey i:nil="true" />' +
-            '  <HSMModule i:nil="true" />' +
-            '  <HSMSlot i:nil="true" />' +
-            '  <IdClassifMunicipio i:nil="true" />' +
-            '  <NumeroFinal i:nil="true" />' +
-            '  <NumeroInicial i:nil="true" />' +
-            '  <ParametrosFracionados>false</ParametrosFracionados>' +
-            '  <PrivateKeyNFSe i:nil="true" />' +
-            '  <QtdeNfseLote>0</QtdeNfseLote>' +
-            '  <TipoLayoutNacional i:nil="true" />' +
-            '</FisNFSeEnvioParamsProc>';
+            '  <GerarMovimentosPrefeitura>true</GerarMovimentosPrefeitura>' +
+            '  <IdExercicio>' + exercicioFiscal + '</IdExercicio>' +
+            '  <NomeArqImportacao i:nil="true" />' +
+            '</FisNFSeRetornarParamsProc>';
 
+        log.info("[NFSe Checagem] XML enviado: " + xmlParams);
 
-        log.info("[NFSe] XML montado:\n" + xmlParams);
+        var resp = authService.executeWithXmlParams("FisNFSeRetornarNotasData", xmlParams);
 
-        var resp = authService.executeWithXmlParams("FisNFSeEnvioData", xmlParams);
-        log.info("[NFSe] Resposta: [" + resp + "]");
 
         if (resp && String(resp).indexOf("Exception") !== -1) {
             throw new Error("Erro retornado pelo RM: " + resp);
@@ -181,10 +161,11 @@ function servicetask148(attempt, message) {
             throw new Error("Erro retornado pelo RM: " + resp);
         }
 
-        log.info("[NFSe] NFS-e enviada com sucesso para IDMOV=" + idMov);
+        log.info("[NFSe Checagem] Resposta: " + resp);
 
     } catch (e) {
-        log.error("[NFSe] Erro fatal: " + String(e));
+        log.error("[NFSe-Checagem] Erro: " + String(e));
         throw e;
     }
+
 }

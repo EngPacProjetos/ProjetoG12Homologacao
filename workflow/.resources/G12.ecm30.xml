@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G12</processId>
-      <version>200</version>
+      <version>242</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>68555</formId>
@@ -408,13 +408,15 @@
         <version>1</version>
         <sequence>43</sequence>
       </processStatePK>
-      <stateName>AJUSTE DE SOLICITAÇÃO</stateName>
-      <stateDescription>AJUSTE DE SOLICITAÇÃO</stateDescription>
+      <stateName>AJUSTE DE SOLICITAÇÃO [RETORNAR AO SOLICITANTE]</stateName>
+      <stateDescription>AJUSTE DE SOLICITAÇÃO [RETORNAR AO SOLICITANTE]</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -1283,8 +1285,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>700</positionX>
-      <positionY>650</positionY>
+      <positionX>300</positionX>
+      <positionY>998</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1333,8 +1335,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>700</positionX>
-      <positionY>750</positionY>
+      <positionX>290</positionX>
+      <positionY>1100</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1362,8 +1364,8 @@
         <version>1</version>
         <sequence>155</sequence>
       </processStatePK>
-      <stateName>PAUSA APOS ENVIO PARA CHECAGEM</stateName>
-      <stateDescription>PAUSA APOS ENVIO PARA CHECAGEM</stateDescription>
+      <stateName>PAUSA APOS ENVIO PARA CHECAGEM DO ENVIO</stateName>
+      <stateDescription>PAUSA APOS ENVIO PARA CHECAGEM DO ENVIO</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
       <deadlineFieldName></deadlineFieldName>
@@ -1385,8 +1387,160 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>940</positionX>
-      <positionY>651</positionY>
+      <positionX>490</positionX>
+      <positionY>990</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>157</sequence>
+      </processStatePK>
+      <stateName>VALIDACAO DE NOTA FISCAL</stateName>
+      <stateDescription>VALIDACAO DE NOTA FISCAL</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>700</positionX>
+      <positionY>997</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>158</sequence>
+      </processStatePK>
+      <stateName>TRATAMENTO DE ERRO </stateName>
+      <stateDescription>TRATAMENTO DE ERRO </stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>700</positionX>
+      <positionY>1100</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>169</sequence>
+      </processStatePK>
+      <stateName>PAUSA APOS ENVIO PARA CHECAGEM DA VALIDAÇÃO</stateName>
+      <stateDescription>PAUSA APOS ENVIO PARA CHECAGEM DA VALIDAÇÃO</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;4ef20412-7687-40a4-b1c8-095c0a92503e&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>920</positionX>
+      <positionY>990</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1906,8 +2060,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>570</positionX>
-      <positionY>770</positionY>
+      <positionX>540</positionX>
+      <positionY>790</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2658,8 +2812,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>720</positionX>
-      <positionY>710</positionY>
+      <positionX>320</positionX>
+      <positionY>1058</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -2675,6 +2829,147 @@
       <destinationStates/>
       <digitalSignature>false</digitalSignature>
       <parentSequence>148</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>159</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>710</positionX>
+      <positionY>1047</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>157</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>164</sequence>
+      </processStatePK>
+      <stateName>SAIDA PARA ENVIAR NOTA FISCAL </stateName>
+      <stateDescription>SAIDA PARA ENVIAR NOTA FISCAL </stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>570</positionX>
+      <positionY>750</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>166</sequence>
+      </processStatePK>
+      <stateName>CHEGADA EM ENVIAR NOTA FISCAL</stateName>
+      <stateDescription>CHEGADA EM ENVIAR NOTA FISCAL</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>210</positionX>
+      <positionY>1014</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
     </ProcessState>
     <ProcessState>
       <processStatePK>
@@ -3019,7 +3314,7 @@
       <initialStateSequence>17</initialStateSequence>
       <finalStateSequence>48</finalStateSequence>
       <returnLabel></returnLabel>
-      <name>AJUSTAR SOLICITACAO</name>
+      <name>AJUSTAR SOLICITACAO [RETORNAR PARA O SOLICITANTE]</name>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
       <type>0</type>
@@ -3641,23 +3936,6 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>153</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>23</initialStateSequence>
-      <finalStateSequence>148</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>G12</processId>
-        <version>1</version>
         <linkSequence>154</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -3680,6 +3958,142 @@
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>155</initialStateSequence>
+      <finalStateSequence>157</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>160</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>159</initialStateSequence>
+      <finalStateSequence>158</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>161</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>158</initialStateSequence>
+      <finalStateSequence>157</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>165</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>23</initialStateSequence>
+      <finalStateSequence>164</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>167</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>166</initialStateSequence>
+      <finalStateSequence>148</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>168</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>155</initialStateSequence>
+      <finalStateSequence>23</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>170</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>157</initialStateSequence>
+      <finalStateSequence>169</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>171</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>169</initialStateSequence>
+      <finalStateSequence>23</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>172</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>169</initialStateSequence>
       <finalStateSequence>78</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
@@ -3692,7 +4106,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>157</linkSequence>
+        <linkSequence>173</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3708,7 +4122,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>158</linkSequence>
+        <linkSequence>174</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3724,7 +4138,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>159</linkSequence>
+        <linkSequence>175</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3740,7 +4154,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>160</linkSequence>
+        <linkSequence>176</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3756,7 +4170,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>161</linkSequence>
+        <linkSequence>177</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3772,7 +4186,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>162</linkSequence>
+        <linkSequence>178</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3788,7 +4202,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>163</linkSequence>
+        <linkSequence>179</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3804,7 +4218,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>164</linkSequence>
+        <linkSequence>180</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3820,7 +4234,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>165</linkSequence>
+        <linkSequence>181</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -3836,12 +4250,28 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>166</linkSequence>
+        <linkSequence>182</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>138</initialStateSequence>
       <finalStateSequence>136</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>183</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>164</initialStateSequence>
+      <finalStateSequence>166</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
       <defaultLink>false</defaultLink>
@@ -4063,7 +4493,7 @@
 
 
     var codColigada = hAPI.getCardValue(&quot;CodColigada&quot;);
-    var idMov = hAPI.getCardValue(&quot;idmovContratos&quot;);
+    var idMov = hAPI.getCardValue(&quot;idmov2&quot;);
     var codFilial = hAPI.getCardValue(&quot;filial&quot;);
     var today = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(new java.util.Date());
 
@@ -4126,10 +4556,64 @@
 
         var resp = authService.executeWithParams(&quot;MovFaturamentoProc&quot;, xmlParams);
 
+        if (resp &amp;&amp; String(resp).indexOf(&quot;Exception&quot;) !== -1) {
+            throw new Error(&quot;Erro retornado pelo RM: &quot; + resp);
+        }
+
+        if (resp &amp;&amp; String(resp).indexOf(&quot;Error&quot;) !== -1) {
+            throw new Error(&quot;Erro retornado pelo RM: &quot; + resp);
+        }
+
 
     } catch (e) {
         log.error(&quot;### Erro: &quot; + e);
         throw e;
+    }
+
+
+
+    try {
+
+
+        var c1 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idMov, idMov, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);
+
+
+        var dataset = DatasetFactory.getDataset(&quot;G12-MOVIMENTOS-2102&quot;, null, [c2, c1], null);
+
+        if (dataset.rowsCount == 0) throw &quot;[G12-INFO-NFSE] - Nenhum registro encontrado no movimento 2.1.02: &quot; + idMov;
+
+        if (dataset != null &amp;&amp; dataset.rowsCount &gt; 0) {
+            hAPI.setCardValue(&quot;numeroIdmov2201&quot;, dataset.getValue(0, &quot;IDMOV_DESTINO&quot;));
+
+        }
+
+
+    } catch (error) {
+        throw &quot;[G12-MOVIMENTO-2201] - Error ao tentar buscar o movimento 2.2.01 gerado pelo faturamento do RPS: &quot; + error;
+    }
+
+
+    try {
+        var c1 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idMov, idMov, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint(&quot;CODCOLIGADA&quot;, codColigada, codColigada, ConstraintType.MUST);
+
+
+        var dataset = DatasetFactory.getDataset(&quot;G12-INFO-NFSE&quot;, null, [c2, c1], null);
+
+        if (dataset.rowsCount == 0) throw &quot;[G12-INFO-NFSE] - Nenhum registro de NFSE encontrado para o movimento 2.1.02: &quot; + idMov;
+
+        if (dataset != null &amp;&amp; dataset.rowsCount &gt; 0) {
+            hAPI.setCardValue(&quot;codigoVerificacao&quot;, dataset.getValue(0, &quot;CODIGO_VERIFICACAO&quot;));
+            hAPI.setCardValue(&quot;dataEmissao&quot;, dataset.getValue(0, &quot;DATA_EMISSAO&quot;));
+            hAPI.setCardValue(&quot;dataAutorizacao&quot;, dataset.getValue(0, &quot;DATA_AUTORIZACAO&quot;));
+            hAPI.setCardValue(&quot;numeroNFSE&quot;, dataset.getValue(0, &quot;NUMERO_NFSE&quot;));
+
+        }
+
+
+    } catch (error) {
+        throw &quot;[G12-INFO-NFSE] - Error ao tentar buscar as informações da NFSE do movimento 2.1.02: &quot; + error;
     }
 
 
@@ -4763,6 +5247,7 @@ function formatarParaRM(valor) {
 
 
         exercicioFiscal = safe(dataset.getValue(0, &quot;ID_EXERCICIO&quot;));
+        hAPI.setCardValue(&quot;exercicioFiscal&quot;, exercicioFiscal);
 
 
 
@@ -4920,7 +5405,7 @@ function formatarParaRM(valor) {
             return;
         }
         hAPI.setCardValue(&apos;tributosMunicipais&apos;, safe(dataset.getValue(0, &quot;TRIBUTOS_MUNICIPAIS&quot;)));
-        hAPI.setCardValue(&apos;codigoMunicipio&apos;, safe(dataset.getValue(0, &quot;CODIGO_MUNICIPIO&quot;)));
+       
 
 
     } catch (e) {
@@ -4989,7 +5474,7 @@ function safe(valor) {
         throw &quot;Erro servicetask_g12: &quot; + String(e) + &quot; - Linha &quot; + e.lineNumber;&#xd;
     }&#xd;
 &#xd;
-    &#xd;
+&#xd;
 }&#xd;
 &#xd;
 function loadDsG12(codColigada, idMov) {&#xd;
@@ -5006,24 +5491,27 @@ function loadDsG12(codColigada, idMov) {&#xd;
 &#xd;
         // INFORMACOES DO PROJETO&#xd;
         log.info(&quot;VALOR DO IDMOV -&gt; &quot; + dataset.getValue(0, &quot;IDMOV&quot;));&#xd;
-        hAPI.setCardValue(&apos;IDMOV_numero&apos;,            safe(dataset.getValue(0, &quot;IDMOV&quot;)));&#xd;
-        hAPI.setCardValue(&apos;NumeroMov&apos;,               safe(dataset.getValue(0, &quot;NUMERO_MOVIMENTO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;coligada&apos;,                safe(dataset.getValue(0, &quot;COLIGADA&quot;)));&#xd;
-        hAPI.setCardValue(&apos;filial&apos;,                  safe(dataset.getValue(0, &quot;FILIAL&quot;)));&#xd;
-        hAPI.setCardValue(&apos;idprj&apos;,                   safe(dataset.getValue(0, &quot;IDPRJ&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cnpj&apos;,                    safe(dataset.getValue(0, &quot;CNPJ_EMPRESA&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cnpjCliente&apos;,             safe(dataset.getValue(0, &quot;CNPJ_CLIENTE&quot;)));&#xd;
-        hAPI.setCardValue(&apos;centro_de_custo&apos;,         safe(dataset.getValue(0, &quot;CENTRO_DE_CUSTO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;codigo_do_projeto&apos;,       safe(dataset.getValue(0, &quot;CODIGO_DO_PROJETO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;descricao_projeto&apos;,       safe(dataset.getValue(0, &quot;DESCRICAO_PROJETO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;rua_projeto&apos;,             safe(dataset.getValue(0, &quot;RUA_PROJETO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;estado_projeto&apos;,          safe(dataset.getValue(0, &quot;ESTADO_PROJETO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cidade_projeto&apos;,          safe(dataset.getValue(0, &quot;CIDADE_PROJETO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;complemento_projeto&apos;,     safe(dataset.getValue(0, &quot;COMPLEMENTO_PROJETO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;bairro_projeto&apos;,          safe(dataset.getValue(0, &quot;BAIRRO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;IDMOV_numero&apos;, safe(dataset.getValue(0, &quot;IDMOV&quot;)));&#xd;
+        hAPI.setCardValue(&apos;NumeroMov&apos;, safe(dataset.getValue(0, &quot;NUMERO_MOVIMENTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;coligada&apos;, safe(dataset.getValue(0, &quot;COLIGADA&quot;)));&#xd;
+        hAPI.setCardValue(&apos;filial&apos;, safe(dataset.getValue(0, &quot;FILIAL&quot;)));&#xd;
+        hAPI.setCardValue(&apos;idprj&apos;, safe(dataset.getValue(0, &quot;IDPRJ&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cnpj&apos;, safe(dataset.getValue(0, &quot;CNPJ_EMPRESA&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cnpjCliente&apos;, safe(dataset.getValue(0, &quot;CNPJ_CLIENTE&quot;)));&#xd;
+        hAPI.setCardValue(&apos;centro_de_custo&apos;, safe(dataset.getValue(0, &quot;CENTRO_DE_CUSTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codigo_do_projeto&apos;, safe(dataset.getValue(0, &quot;CODIGO_DO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;descricao_projeto&apos;, safe(dataset.getValue(0, &quot;DESCRICAO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;rua_projeto&apos;, safe(dataset.getValue(0, &quot;RUA_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;estado_projeto&apos;, safe(dataset.getValue(0, &quot;ESTADO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cidade_projeto&apos;, safe(dataset.getValue(0, &quot;CIDADE_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;complemento_projeto&apos;, safe(dataset.getValue(0, &quot;COMPLEMENTO_PROJETO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;bairro_projeto&apos;, safe(dataset.getValue(0, &quot;BAIRRO_PROJETO&quot;)));&#xd;
         hAPI.setCardValue(&apos;numero_endereco_projeto&apos;, safe(dataset.getValue(0, &quot;NUMERO_ENDERECO_PROJETO&quot;)));&#xd;
         hAPI.setCardValue(&apos;revisaoProjeto&apos;, safe(dataset.getValue(0, &quot;REVISAO_PROJETO&quot;)));&#xd;
-        &#xd;
+        hAPI.setCardValue(&apos;codigoMunicipio&apos;, safe(dataset.getValue(0, &quot;CODIGO_MUNICIPIO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;valorBrutoOriginal&apos;, safe(dataset.getValue(0, &quot;VALOR_BRUTO_ORIGINAL&quot;)));&#xd;
+        hAPI.setCardValue(&apos;valorLiquidoOriginal&apos;, safe(dataset.getValue(0, &quot;VALOR_LIQUIDO_ORIGINAL&quot;)));&#xd;
+&#xd;
         hAPI.setCardValue(&apos;unidade_produto&apos;, safe(dataset.getValue(0, &quot;UNIDADE_ITEM&quot;)));&#xd;
         hAPI.setCardValue(&apos;quantidade_produto&apos;, safe(dataset.getValue(0, &quot;QUANTIDADE_ITEM&quot;)));&#xd;
 &#xd;
@@ -5033,34 +5521,34 @@ function loadDsG12(codColigada, idMov) {&#xd;
         hAPI.setCardValue(&apos;coligadaCliente&apos;, safe(dataset.getValue(0, &quot;COLIGADA_CLIENTE&quot;)));&#xd;
 &#xd;
         // CONTRATO&#xd;
-        hAPI.setCardValue(&apos;numero_contrato&apos;,        safe(dataset.getValue(0, &quot;NUMERO_CONTRATO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;tipo_contrato&apos;,          safe(dataset.getValue(0, &quot;TIPO_CONTRATO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;numero_licitacao&apos;,       safe(dataset.getValue(0, &quot;NUMERO_LICITACAO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;codigo_cliente&apos;,         safe(dataset.getValue(0, &quot;CODIGO_CLIENTE&quot;)));&#xd;
-        hAPI.setCardValue(&apos;data_contrato&apos;,          formatDate(safe(dataset.getValue(0, &quot;DATA_CONTRATO&quot;))));&#xd;
-        hAPI.setCardValue(&apos;data_inicio_contrato&apos;,   formatDate(safe(dataset.getValue(0, &quot;DATA_INICIO_CONTRATO&quot;))));&#xd;
-        hAPI.setCardValue(&apos;data_termino&apos;,           formatDate(safe(dataset.getValue(0, &quot;DATA_TERMINO&quot;))));&#xd;
-        hAPI.setCardValue(&apos;periodicidade_medicao&apos;,  safe(dataset.getValue(0, &quot;PERIODICIDADE_MEDICAO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;condicao_pagamento&apos;,     safe(dataset.getValue(0, &quot;CONDICAO_PAGAMENTO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;nome_produto&apos;,           safe(dataset.getValue(0, &quot;NOME_PRODUTO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;codigo_produto&apos;,         safe(dataset.getValue(0, &quot;CODIGO_PRODUTO&quot;)));&#xd;
-        hAPI.setCardValue(&apos;idContrato&apos;,         safe(dataset.getValue(0, &quot;ID_CONTRATO&quot;)));&#xd;
-        &#xd;
+        hAPI.setCardValue(&apos;numero_contrato&apos;, safe(dataset.getValue(0, &quot;NUMERO_CONTRATO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;tipo_contrato&apos;, safe(dataset.getValue(0, &quot;TIPO_CONTRATO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;numero_licitacao&apos;, safe(dataset.getValue(0, &quot;NUMERO_LICITACAO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codigo_cliente&apos;, safe(dataset.getValue(0, &quot;CODIGO_CLIENTE&quot;)));&#xd;
+        hAPI.setCardValue(&apos;data_contrato&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_CONTRATO&quot;))));&#xd;
+        hAPI.setCardValue(&apos;data_inicio_contrato&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_INICIO_CONTRATO&quot;))));&#xd;
+        hAPI.setCardValue(&apos;data_termino&apos;, formatDate(safe(dataset.getValue(0, &quot;DATA_TERMINO&quot;))));&#xd;
+        hAPI.setCardValue(&apos;periodicidade_medicao&apos;, safe(dataset.getValue(0, &quot;PERIODICIDADE_MEDICAO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;condicao_pagamento&apos;, safe(dataset.getValue(0, &quot;CONDICAO_PAGAMENTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nome_produto&apos;, safe(dataset.getValue(0, &quot;NOME_PRODUTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codigo_produto&apos;, safe(dataset.getValue(0, &quot;CODIGO_PRODUTO&quot;)));&#xd;
+        hAPI.setCardValue(&apos;idContrato&apos;, safe(dataset.getValue(0, &quot;ID_CONTRATO&quot;)));&#xd;
+&#xd;
 &#xd;
         // CAMPOS DO PRESTADOR&#xd;
-        hAPI.setCardValue(&apos;nomePrestador&apos;,              safe(dataset.getValue(0, &quot;NOME_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;nomeEmpresarialPrestador&apos;,   safe(dataset.getValue(0, &quot;NOME_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;incricaoPrestador&apos;,          safe(dataset.getValue(0, &quot;INCRICAO_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;inscricaoMunicipalPrestador&apos;,safe(dataset.getValue(0, &quot;INCRICAO_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;telefonePrestador&apos;,          safe(dataset.getValue(0, &quot;TELEFONE_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;emailPrestador&apos;,             safe(dataset.getValue(0, &quot;EMAIL_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;ruaPrestador&apos;,               safe(dataset.getValue(0, &quot;RUA_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;numeroPrestador&apos;,            safe(dataset.getValue(0, &quot;NUMERO_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;bairroPrestador&apos;,            safe(dataset.getValue(0, &quot;BAIRRO_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cidadePrestador&apos;,            safe(dataset.getValue(0, &quot;CIDADE_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;estadoPrestador&apos;,            safe(dataset.getValue(0, &quot;ESTADO_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cepPrestador&apos;,               safe(dataset.getValue(0, &quot;CEP_PRESTADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;nome_filial&apos;,               safe(dataset.getValue(0, &quot;NOME_FANTASIA&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nomePrestador&apos;, safe(dataset.getValue(0, &quot;NOME_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nomeEmpresarialPrestador&apos;, safe(dataset.getValue(0, &quot;NOME_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;incricaoPrestador&apos;, safe(dataset.getValue(0, &quot;INCRICAO_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;inscricaoMunicipalPrestador&apos;, safe(dataset.getValue(0, &quot;INCRICAO_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;telefonePrestador&apos;, safe(dataset.getValue(0, &quot;TELEFONE_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;emailPrestador&apos;, safe(dataset.getValue(0, &quot;EMAIL_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;ruaPrestador&apos;, safe(dataset.getValue(0, &quot;RUA_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;numeroPrestador&apos;, safe(dataset.getValue(0, &quot;NUMERO_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;bairroPrestador&apos;, safe(dataset.getValue(0, &quot;BAIRRO_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cidadePrestador&apos;, safe(dataset.getValue(0, &quot;CIDADE_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;estadoPrestador&apos;, safe(dataset.getValue(0, &quot;ESTADO_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cepPrestador&apos;, safe(dataset.getValue(0, &quot;CEP_PRESTADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nome_filial&apos;, safe(dataset.getValue(0, &quot;NOME_FANTASIA&quot;)));&#xd;
 &#xd;
         // CAMPOS DO PRESTADOR - ENDERECO&#xd;
         var endPrestador = joinNonEmpty([&#xd;
@@ -5068,20 +5556,20 @@ function loadDsG12(codColigada, idMov) {&#xd;
             safe(dataset.getValue(0, &quot;NUMERO_PRESTADOR&quot;)),&#xd;
             safe(dataset.getValue(0, &quot;BAIRRO_PRESTADOR&quot;))&#xd;
         ], &quot;, &quot;);&#xd;
-        hAPI.setCardValue(&apos;enderecoPrestador&apos;,  endPrestador);&#xd;
+        hAPI.setCardValue(&apos;enderecoPrestador&apos;, endPrestador);&#xd;
         hAPI.setCardValue(&apos;municipioPrestador&apos;, safe(dataset.getValue(0, &quot;CIDADE_PRESTADOR&quot;)));&#xd;
 &#xd;
         // CAMPOS DO TOMADOR&#xd;
-        hAPI.setCardValue(&apos;incricaoTomador&apos;,  safe(dataset.getValue(0, &quot;INSCRICAO_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;telefoneTomador&apos;,  safe(dataset.getValue(0, &quot;TELEFONE_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;nomeEmpresarial&apos;,  safe(dataset.getValue(0, &quot;NOME_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;nome_cliente&apos;,  safe(dataset.getValue(0, &quot;NOME_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;emailTomador&apos;,     safe(dataset.getValue(0, &quot;EMAIL_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;ruaTomador&apos;,       safe(dataset.getValue(0, &quot;RUA_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;numeroTomador&apos;,    safe(dataset.getValue(0, &quot;NUMERO_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;bairroTomador&apos;,    safe(dataset.getValue(0, &quot;BAIRRO_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cidadeTomador&apos;,    safe(dataset.getValue(0, &quot;CIDADE_TOMADOR&quot;)));&#xd;
-        hAPI.setCardValue(&apos;cepTomador&apos;,       safe(dataset.getValue(0, &quot;CEP_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;incricaoTomador&apos;, safe(dataset.getValue(0, &quot;INSCRICAO_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;telefoneTomador&apos;, safe(dataset.getValue(0, &quot;TELEFONE_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nomeEmpresarial&apos;, safe(dataset.getValue(0, &quot;NOME_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;nome_cliente&apos;, safe(dataset.getValue(0, &quot;NOME_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;emailTomador&apos;, safe(dataset.getValue(0, &quot;EMAIL_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;ruaTomador&apos;, safe(dataset.getValue(0, &quot;RUA_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;numeroTomador&apos;, safe(dataset.getValue(0, &quot;NUMERO_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;bairroTomador&apos;, safe(dataset.getValue(0, &quot;BAIRRO_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cidadeTomador&apos;, safe(dataset.getValue(0, &quot;CIDADE_TOMADOR&quot;)));&#xd;
+        hAPI.setCardValue(&apos;cepTomador&apos;, safe(dataset.getValue(0, &quot;CEP_TOMADOR&quot;)));&#xd;
 &#xd;
         // CAMPOS DO TOMADOR PARA NF&#xd;
         var endTomador = joinNonEmpty([&#xd;
@@ -5089,15 +5577,15 @@ function loadDsG12(codColigada, idMov) {&#xd;
             safe(dataset.getValue(0, &quot;NUMERO_TOMADOR&quot;)),&#xd;
             safe(dataset.getValue(0, &quot;BAIRRO_TOMADOR&quot;))&#xd;
         ], &quot;, &quot;);&#xd;
-        hAPI.setCardValue(&apos;enderecoTomador&apos;,  endTomador);&#xd;
+        hAPI.setCardValue(&apos;enderecoTomador&apos;, endTomador);&#xd;
         hAPI.setCardValue(&apos;municipioTomador&apos;, safe(dataset.getValue(0, &quot;CIDADE_TOMADOR&quot;)));&#xd;
 &#xd;
         // LOCAL DE ATUACAO &#xd;
         hAPI.setCardValue(&apos;codMuniIbs&apos;, safe(dataset.getValue(0, &quot;COD_MUNI_IBS&quot;)));&#xd;
-        hAPI.setCardValue(&apos;codUfIbs&apos;,   safe(dataset.getValue(0, &quot;COD_UF_IBS&quot;)));&#xd;
+        hAPI.setCardValue(&apos;codUfIbs&apos;, safe(dataset.getValue(0, &quot;COD_UF_IBS&quot;)));&#xd;
 &#xd;
         // ITEM&#xd;
-        hAPI.setCardValue(&apos;unidadeItem&apos;,    safe(dataset.getValue(0, &quot;UNIDADE_ITEM&quot;)));&#xd;
+        hAPI.setCardValue(&apos;unidadeItem&apos;, safe(dataset.getValue(0, &quot;UNIDADE_ITEM&quot;)));&#xd;
         hAPI.setCardValue(&apos;quantidadeItem&apos;, safe(dataset.getValue(0, &quot;QUANTIDADE_ITEM&quot;)));&#xd;
         hAPI.setCardValue(&apos;valor_item&apos;, safe(dataset.getValue(0, &quot;VALOR_ITEM&quot;)));&#xd;
 &#xd;
@@ -5294,20 +5782,20 @@ function formatDate(rawDate) {&#xd;
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>servicetask148</eventId>
+        <eventId>servicetask157</eventId>
         <processId>G12</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask148(attempt, message) {
-
+      <eventDescription>function servicetask157(attempt, message) {
 
     var codColigada = hAPI.getCardValue(&quot;CodColigada&quot;);
-    var idMov = hAPI.getCardValue(&quot;idmov2&quot;); // o IDMOV do movimento 2.1.02 gerado
-    var filial = hAPI.getCardValue(&quot;filial&quot;);
-
+    var idMov = hAPI.getCardValue(&quot;idmov2&quot;);
+    var exercicioFiscal = hAPI.getCardValue(&quot;exercicioFiscal&quot;);
+    var cno = hAPI.getCardValue(&quot;cno&quot;) || &quot;&quot;;
 
     var usuario_rm = getConstante(&quot;rm_usuario&quot;);
     var senha_rm = getConstante(&quot;rm_senha&quot;);
+
 
     try {
         var servico = ServiceManager.getService(&quot;wsProcess&quot;);
@@ -5324,31 +5812,348 @@ function formatDate(rawDate) {&#xd;
 
         var authService = servico.getCustomClient(ws, properties, []);
 
-        log.info(&quot;[NFSe] Iniciando envio NFS-e. CODCOLIGADA=&quot; + codColigada + &quot; IDMOV=&quot; + idMov);
-
         var xmlParams =
-            &apos;&lt;FisNFSeEnvioParamsProc&gt;&apos; +
-            &apos;&lt;CodColigada&gt;&apos; + codColigada + &apos;&lt;/CodColigada&gt;&apos; +
-            &apos;&lt;CodFilial&gt;&apos; + filial + &apos;&lt;/CodFilial&gt;&apos; +
-            &apos;&lt;QtdeNfseLote&gt;0&lt;/QtdeNfseLote&gt;&apos; +
-            &apos;&lt;ParametrosFracionados&gt;false&lt;/ParametrosFracionados&gt;&apos; +
-            &apos;&lt;PrimaryKeyList&gt;&apos; +
-            &apos;&lt;ArrayOfanyType&gt;&apos; +
-            &apos;&lt;anyType&gt;&apos; + codColigada + &apos;&lt;/anyType&gt;&apos; +
-            &apos;&lt;anyType&gt;&apos; + idMov + &apos;&lt;/anyType&gt;&apos; +
-            &apos;&lt;/ArrayOfanyType&gt;&apos; +
-            &apos;&lt;/PrimaryKeyList&gt;&apos; +
-            &apos;&lt;/FisNFSeEnvioParamsProc&gt;&apos;;
+            &apos;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &apos; +
+            &apos;&lt;FisNFSeRetornarParamsProc z:Id=&quot;i1&quot; xmlns=&quot;http://www.totvs.com.br/RM/&quot; xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:z=&quot;http://schemas.microsoft.com/2003/10/Serialization/&quot;&gt; &apos; +
+            &apos;  &lt;ActionModule xmlns=&quot;http://www.totvs.com/&quot;&gt;D&lt;/ActionModule&gt;&apos; +
+            &apos;  &lt;ActionName xmlns=&quot;http://www.totvs.com/&quot;&gt;FisNFSeRetornarNotasAction&lt;/ActionName&gt;&apos; +
+            &apos;  &lt;CanParallelize xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/CanParallelize&gt;&apos; +
+            &apos;  &lt;CanSendMail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/CanSendMail&gt;&apos; +
+            &apos;  &lt;CanWaitSchedule xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/CanWaitSchedule&gt;&apos; +
+            &apos;  &lt;CodUsuario xmlns=&quot;http://www.totvs.com/&quot;&gt;fluig&lt;/CodUsuario&gt;&apos; +
+            &apos;  &lt;ConnectionId i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;ConnectionString i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;Context z:Id=&quot;i2&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://www.totvs.com.br/RM/&quot;&gt;&apos; +
+            &apos;    &lt;a:_params xmlns:b=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$EXERCICIOFISCAL&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;7&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODLOCPRT&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODTIPOCURSO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$EDUTIPOUSR&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUNIDADEBIB&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODCOLIGADA&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;3&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$RHTIPOUSR&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODIGOEXTERNO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODSISTEMA&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;T&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUSUARIOSERVICO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot; /&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUSUARIO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;fluig&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$IDPRJ&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CHAPAFUNCIONARIO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODFILIAL&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;    &lt;/a:_params&gt;&apos; +
+            &apos;    &lt;a:Environment&gt;DotNet&lt;/a:Environment&gt;&apos; +
+            &apos;  &lt;/Context&gt;&apos; +
+            &apos;  &lt;CustomData i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;DisableIsolateProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/DisableIsolateProcess&gt;&apos; +
+            &apos;  &lt;DriverType i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;FriendlyLogs i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;HideProgressDialog xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/HideProgressDialog&gt;&apos; +
+            &apos;  &lt;HostName xmlns=&quot;http://www.totvs.com/&quot;&gt;DESKTOP-HBHNI5F&lt;/HostName&gt;&apos; +
+            &apos;  &lt;Initialized xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/Initialized&gt;&apos; +
+            &apos;  &lt;Ip xmlns=&quot;http://www.totvs.com/&quot;&gt;10.0.2.3&lt;/Ip&gt;&apos; +
+            &apos;  &lt;IsolateProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/IsolateProcess&gt;&apos; +
+            &apos;  &lt;JobServerHostName xmlns=&quot;http://www.totvs.com/&quot;&gt;136710-core-instance-N-RM-D-CO2TNX-1-f8b95WIN-CE01&lt;/JobServerHostName&gt;&apos; +
+            &apos;  &lt;MasterActionName xmlns=&quot;http://www.totvs.com/&quot;&gt;FisNFEMunicipalAction&lt;/MasterActionName&gt;&apos; +
+            &apos;  &lt;MaximumQuantityOfPrimaryKeysPerProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;1000&lt;/MaximumQuantityOfPrimaryKeysPerProcess&gt;&apos; +
+            &apos;  &lt;MinimumQuantityOfPrimaryKeysPerProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;1&lt;/MinimumQuantityOfPrimaryKeysPerProcess&gt;&apos; +
+            &apos;  &lt;NetworkUser xmlns=&quot;http://www.totvs.com/&quot;&gt;ANA P2 - LOG NAT&lt;/NetworkUser&gt;&apos; +
+            &apos;  &lt;NotifyEmail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/NotifyEmail&gt;&apos; +
+            &apos;  &lt;NotifyEmailList i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot; /&gt;&apos; +
+            &apos;  &lt;NotifyFluig xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/NotifyFluig&gt;&apos; +
+            &apos;  &lt;OnlineMode xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/OnlineMode&gt;&apos; +
+            &apos;  &lt;PrimaryKeyList xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+            &apos;    &lt;a:ArrayOfanyType&gt;&apos; +
+            &apos;      &lt;a:anyType i:type=&quot;b:short&quot; xmlns:b=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + codColigada + &apos;&lt;/a:anyType&gt;&apos; +
+            &apos;      &lt;a:anyType i:type=&quot;b:int&quot; xmlns:b=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + idMov + &apos;&lt;/a:anyType&gt;&apos; +
+            &apos;    &lt;/a:ArrayOfanyType&gt;&apos; +
+            &apos;  &lt;/PrimaryKeyList&gt;&apos; +
+            &apos;  &lt;PrimaryKeyNames xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+            &apos;    &lt;a:string&gt;CODCOLIGADA&lt;/a:string&gt;&apos; +
+            &apos;    &lt;a:string&gt;IDMOV&lt;/a:string&gt;&apos; +
+            &apos;  &lt;/PrimaryKeyNames&gt;&apos; +
+            &apos;  &lt;PrimaryKeyTableName xmlns=&quot;http://www.totvs.com/&quot;&gt;TNFEMUNICIPAL&lt;/PrimaryKeyTableName&gt;&apos; +
+            &apos;  &lt;ProcessName xmlns=&quot;http://www.totvs.com/&quot;&gt;Consultar Autorização/Cancelamento&lt;/ProcessName&gt;&apos; +
+            &apos;  &lt;QuantityOfSplits xmlns=&quot;http://www.totvs.com/&quot;&gt;0&lt;/QuantityOfSplits&gt;&apos; +
+            &apos;  &lt;SaveLogInDatabase xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/SaveLogInDatabase&gt;&apos; +
+            &apos;  &lt;SaveParamsExecution xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SaveParamsExecution&gt;&apos; +
+            &apos;  &lt;ScheduleDateTime xmlns=&quot;http://www.totvs.com/&quot;&gt;2026-06-25T14:42:25.5623927-03:00&lt;/ScheduleDateTime&gt;&apos; +
+            &apos;  &lt;Scheduler xmlns=&quot;http://www.totvs.com/&quot;&gt;JobMonitor&lt;/Scheduler&gt;&apos; +
+            &apos;  &lt;SendMail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SendMail&gt;&apos; +
+            &apos;  &lt;ServerName xmlns=&quot;http://www.totvs.com/&quot;&gt;FisNFSeRetornarNotasData&lt;/ServerName&gt;&apos; +
+            &apos;  &lt;ServiceInterface i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.datacontract.org/2004/07/System&quot; /&gt;&apos; +
+            &apos;  &lt;ShouldParallelize xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/ShouldParallelize&gt;&apos; +
+            &apos;  &lt;ShowReExecuteButton xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/ShowReExecuteButton&gt;&apos; +
+            &apos;  &lt;StatusMessage i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;SuccessMessage xmlns=&quot;http://www.totvs.com/&quot;&gt;Processo executado com sucesso&lt;/SuccessMessage&gt;&apos; +
+            &apos;  &lt;SyncExecution xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/SyncExecution&gt;&apos; +
+            &apos;  &lt;UseJobMonitor xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/UseJobMonitor&gt;&apos; +
+            &apos;  &lt;UserName xmlns=&quot;http://www.totvs.com/&quot;&gt;fluig&lt;/UserName&gt;&apos; +
+            &apos;  &lt;WaitSchedule xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/WaitSchedule&gt;&apos; +
+            &apos;  &lt;CodColigada&gt;0&lt;/CodColigada&gt;&apos; +
+            &apos;  &lt;GerarMovimentosPrefeitura&gt;true&lt;/GerarMovimentosPrefeitura&gt;&apos; +
+            &apos;  &lt;IdExercicio&gt;&apos; + exercicioFiscal + &apos;&lt;/IdExercicio&gt;&apos; +
+            &apos;  &lt;NomeArqImportacao i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;&lt;/FisNFSeRetornarParamsProc&gt;&apos;;
 
-        var resp = authService.executeWithParams(&quot;MovEnviaNFSeMovAction&quot;, xmlParams);
+        log.info(&quot;[NFSe Checagem] XML enviado: &quot; + xmlParams);
 
-        log.info(&quot;[NFSe] Resposta: &quot; + resp);
+        var resp = authService.executeWithXmlParams(&quot;FisNFSeRetornarNotasData&quot;, xmlParams);
+
+
+        if (resp &amp;&amp; String(resp).indexOf(&quot;Exception&quot;) !== -1) {
+            throw new Error(&quot;Erro retornado pelo RM: &quot; + resp);
+        }
+
+        if (resp &amp;&amp; String(resp).indexOf(&quot;Error&quot;) !== -1) {
+            throw new Error(&quot;Erro retornado pelo RM: &quot; + resp);
+        }
+
+        log.info(&quot;[NFSe Checagem] Resposta: &quot; + resp);
 
     } catch (e) {
-        log.error(&quot;[NFSe] Erro ao enviar NFS-e: &quot; + String(e));
+        log.error(&quot;[NFSe-Checagem] Erro: &quot; + String(e));
         throw e;
     }
 
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask148</eventId>
+        <processId>G12</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask148(attempt, message) {
+
+    var codColigada = parseInt(hAPI.getCardValue(&quot;CodColigada&quot;));
+    var idMov = parseInt(hAPI.getCardValue(&quot;idmov2&quot;));
+    var codFilial = parseInt(hAPI.getCardValue(&quot;filial&quot;));
+
+    var usuario_rm = getConstante(&quot;rm_usuario&quot;);
+    var senha_rm = getConstante(&quot;rm_senha&quot;);
+
+    log.info(&quot;[NFSe] Iniciando. CODCOLIGADA=&quot; + codColigada + &quot; IDMOV=&quot; + idMov);
+
+    try {
+        var servico = ServiceManager.getService(&quot;wsProcess&quot;);
+        var instancia = servico.instantiate(&quot;com.totvs.WsProcess&quot;);
+        var ws = instancia.getRMIwsProcess();
+
+        var properties = {};
+        properties[&apos;basic.authorization&apos;] = &apos;true&apos;;
+        properties[&apos;basic.authorization.username&apos;] = usuario_rm;
+        properties[&apos;basic.authorization.password&apos;] = senha_rm;
+        properties[&apos;disable.chunking&apos;] = &apos;true&apos;;
+        properties[&apos;log.soap.messages&apos;] = &apos;true&apos;;
+        properties[&apos;receive.timeout&apos;] = &apos;180000&apos;;
+
+        var authService = servico.getCustomClient(ws, properties, []);
+
+        // var contexto = &quot;CODCOLIGADA=&quot; + codColigada + &quot;;CODFILIAL=&quot; + codFilial + &quot;;CODSISTEMA=T;CODUSUARIO=fluig&quot;;
+
+        var xmlParams =
+            &apos;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&apos; +
+            &apos;&lt;FisNFSeEnvioParamsProc z:Id=&quot;i1&quot; xmlns=&quot;http://www.totvs.com.br/RM/&quot; xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:z=&quot;http://schemas.microsoft.com/2003/10/Serialization/&quot;&gt;&apos; +
+            &apos;  &lt;ActionModule xmlns=&quot;http://www.totvs.com/&quot;&gt;T&lt;/ActionModule&gt;&apos; +
+            &apos;  &lt;ActionName xmlns=&quot;http://www.totvs.com/&quot;&gt;MovEnviaNFSeMovAction&lt;/ActionName&gt;&apos; +
+            &apos;  &lt;CanParallelize xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/CanParallelize&gt;&apos; +
+            &apos;  &lt;CanSendMail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/CanSendMail&gt;&apos; +
+            &apos;  &lt;CanWaitSchedule xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/CanWaitSchedule&gt;&apos; +
+            &apos;  &lt;CodUsuario xmlns=&quot;http://www.totvs.com/&quot;&gt;fluig&lt;/CodUsuario&gt;&apos; +
+            &apos;  &lt;ConnectionId i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;ConnectionString i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;Context z:Id=&quot;i2&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://www.totvs.com.br/RM/&quot;&gt;&apos; +
+            &apos;    &lt;a:_params xmlns:b=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$EXERCICIOFISCAL&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;7&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODLOCPRT&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODTIPOCURSO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$EDUTIPOUSR&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUNIDADEBIB&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODCOLIGADA&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;3&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$RHTIPOUSR&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODIGOEXTERNO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODSISTEMA&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;T&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUSUARIOSERVICO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot; /&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODUSUARIO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;fluig&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$IDPRJ&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CHAPAFUNCIONARIO&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;-1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;      &lt;b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;        &lt;b:Key i:type=&quot;c:string&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;$CODFILIAL&lt;/b:Key&gt;&apos; +
+            &apos;        &lt;b:Value i:type=&quot;c:int&quot; xmlns:c=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;1&lt;/b:Value&gt;&apos; +
+            &apos;      &lt;/b:KeyValueOfanyTypeanyType&gt;&apos; +
+            &apos;    &lt;/a:_params&gt;&apos; +
+            &apos;    &lt;a:Environment&gt;DotNet&lt;/a:Environment&gt;&apos; +
+            &apos;  &lt;/Context&gt;&apos; +
+            &apos;  &lt;CustomData i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;DisableIsolateProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/DisableIsolateProcess&gt;&apos; +
+            &apos;  &lt;DriverType i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;FriendlyLogs i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;HideProgressDialog xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/HideProgressDialog&gt;&apos; +
+            &apos;  &lt;HostName xmlns=&quot;http://www.totvs.com/&quot;&gt;DESKTOP-HBHNI5F&lt;/HostName&gt;&apos; +
+            &apos;  &lt;Initialized xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/Initialized&gt;&apos; +
+            &apos;  &lt;Ip xmlns=&quot;http://www.totvs.com/&quot;&gt;10.0.2.3&lt;/Ip&gt;&apos; +
+            &apos;  &lt;IsolateProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/IsolateProcess&gt;&apos; +
+            &apos;  &lt;JobServerHostName xmlns=&quot;http://www.totvs.com/&quot;&gt;136710-core-instance-N-RM-D-CO2TNX-1-f8b95WIN-CE01&lt;/JobServerHostName&gt;&apos; +
+            &apos;  &lt;MasterActionName xmlns=&quot;http://www.totvs.com/&quot;&gt;MovMovimentoMDIPedidoVendaAction&lt;/MasterActionName&gt;&apos; +
+            &apos;  &lt;MaximumQuantityOfPrimaryKeysPerProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;1000&lt;/MaximumQuantityOfPrimaryKeysPerProcess&gt;&apos; +
+            &apos;  &lt;MinimumQuantityOfPrimaryKeysPerProcess xmlns=&quot;http://www.totvs.com/&quot;&gt;1&lt;/MinimumQuantityOfPrimaryKeysPerProcess&gt;&apos; +
+            &apos;  &lt;NetworkUser xmlns=&quot;http://www.totvs.com/&quot;&gt;ANA P2 - LOG NAT&lt;/NetworkUser&gt;&apos; +
+            &apos;  &lt;NotifyEmail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/NotifyEmail&gt;&apos; +
+            &apos;  &lt;NotifyEmailList i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot; /&gt;&apos; +
+            &apos;  &lt;NotifyFluig xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/NotifyFluig&gt;&apos; +
+            &apos;  &lt;OnlineMode xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/OnlineMode&gt;&apos; +
+            &apos;  &lt;PrimaryKeyList xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+            &apos;    &lt;a:ArrayOfanyType&gt;&apos; +
+            &apos;      &lt;a:anyType i:type=&quot;b:short&quot; xmlns:b=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + codColigada + &apos;&lt;/a:anyType&gt;&apos; +
+            &apos;      &lt;a:anyType i:type=&quot;b:int&quot; xmlns:b=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&apos; + idMov + &apos;&lt;/a:anyType&gt;&apos; +
+            &apos;    &lt;/a:ArrayOfanyType&gt;&apos; +
+            &apos;  &lt;/PrimaryKeyList&gt;&apos; +
+            &apos;  &lt;PrimaryKeyNames xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;&apos; +
+            &apos;    &lt;a:string&gt;CODCOLIGADA&lt;/a:string&gt;&apos; +
+            &apos;    &lt;a:string&gt;IDMOV&lt;/a:string&gt;&apos; +
+            &apos;  &lt;/PrimaryKeyNames&gt;&apos; +
+            &apos;  &lt;PrimaryKeyTableName xmlns=&quot;http://www.totvs.com/&quot;&gt;TMOV&lt;/PrimaryKeyTableName&gt;&apos; +
+            &apos;  &lt;ProcessName xmlns=&quot;http://www.totvs.com/&quot;&gt;Enviar NFS-e&lt;/ProcessName&gt;&apos; +
+            &apos;  &lt;QuantityOfSplits xmlns=&quot;http://www.totvs.com/&quot;&gt;0&lt;/QuantityOfSplits&gt;&apos; +
+            &apos;  &lt;SaveLogInDatabase xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/SaveLogInDatabase&gt;&apos; +
+            &apos;  &lt;SaveParamsExecution xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SaveParamsExecution&gt;&apos; +
+            &apos;  &lt;ScheduleDateTime xmlns=&quot;http://www.totvs.com/&quot;&gt;2026-06-25T13:11:07.1996384-03:00&lt;/ScheduleDateTime&gt;&apos; +
+            &apos;  &lt;Scheduler xmlns=&quot;http://www.totvs.com/&quot;&gt;JobMonitor&lt;/Scheduler&gt;&apos; +
+            &apos;  &lt;SendMail xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SendMail&gt;&apos; +
+            &apos;  &lt;ServerName xmlns=&quot;http://www.totvs.com/&quot;&gt;FisNFSeEnvioData&lt;/ServerName&gt;&apos; +
+            &apos;  &lt;ServiceInterface i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; xmlns:a=&quot;http://schemas.datacontract.org/2004/07/System&quot; /&gt;&apos; +
+            &apos;  &lt;ShouldParallelize xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/ShouldParallelize&gt;&apos; +
+            &apos;  &lt;ShowReExecuteButton xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/ShowReExecuteButton&gt;&apos; +
+            &apos;  &lt;StatusMessage i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;SuccessMessage xmlns=&quot;http://www.totvs.com/&quot;&gt;Processo executado com sucesso&lt;/SuccessMessage&gt;&apos; +
+            &apos;  &lt;SyncExecution xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/SyncExecution&gt;&apos; +
+            &apos;  &lt;UseJobMonitor xmlns=&quot;http://www.totvs.com/&quot;&gt;true&lt;/UseJobMonitor&gt;&apos; +
+            &apos;  &lt;UserName xmlns=&quot;http://www.totvs.com/&quot;&gt;fluig&lt;/UserName&gt;&apos; +
+            &apos;  &lt;WaitSchedule xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/WaitSchedule&gt;&apos; +
+            &apos;  &lt;EnableJobErrorProgressbar xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/EnableJobErrorProgressbar&gt;&apos; +
+            &apos;  &lt;EnableTracing xmlns=&quot;http://www.totvs.com/&quot;&gt;false&lt;/EnableTracing&gt;&apos; +
+            &apos;  &lt;LocalOnlyExecutor xmlns=&quot;http://www.totvs.com/&quot;&gt;RMSJobData&lt;/LocalOnlyExecutor&gt;&apos; +
+            &apos;  &lt;RMSJobIds i:nil=&quot;true&quot; xmlns=&quot;http://www.totvs.com/&quot; /&gt;&apos; +
+            &apos;  &lt;SlicesCount xmlns=&quot;http://www.totvs.com/&quot;&gt;0&lt;/SlicesCount&gt;&apos; +
+            &apos;  &lt;CodColigada&gt;0&lt;/CodColigada&gt;&apos; +
+            &apos;  &lt;CodFilial&gt;0&lt;/CodFilial&gt;&apos; +
+            &apos;  &lt;CodTipoMovimento i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;DataEmissaoFinal&gt;0001-01-01T00:00:00&lt;/DataEmissaoFinal&gt;&apos; +
+            &apos;  &lt;DataEmissaoInicial&gt;0001-01-01T00:00:00&lt;/DataEmissaoInicial&gt;&apos; +
+            &apos;  &lt;HSMLabel i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;HSMLabelKey i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;HSMModule i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;HSMSlot i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;IdClassifMunicipio i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;NumeroFinal i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;NumeroInicial i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;ParametrosFracionados&gt;false&lt;/ParametrosFracionados&gt;&apos; +
+            &apos;  &lt;PrivateKeyNFSe i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;  &lt;QtdeNfseLote&gt;0&lt;/QtdeNfseLote&gt;&apos; +
+            &apos;  &lt;TipoLayoutNacional i:nil=&quot;true&quot; /&gt;&apos; +
+            &apos;&lt;/FisNFSeEnvioParamsProc&gt;&apos;;
+
+
+        log.info(&quot;[NFSe] XML montado:\n&quot; + xmlParams);
+
+        var resp = authService.executeWithXmlParams(&quot;FisNFSeEnvioData&quot;, xmlParams);
+        log.info(&quot;[NFSe] Resposta: [&quot; + resp + &quot;]&quot;);
+
+        if (resp &amp;&amp; String(resp).indexOf(&quot;Exception&quot;) !== -1) {
+            throw new Error(&quot;Erro retornado pelo RM: &quot; + resp);
+        }
+
+        if (resp &amp;&amp; String(resp).indexOf(&quot;Error&quot;) !== -1) {
+            throw new Error(&quot;Erro retornado pelo RM: &quot; + resp);
+        }
+
+        log.info(&quot;[NFSe] NFS-e enviada com sucesso para IDMOV=&quot; + idMov);
+
+    } catch (e) {
+        log.error(&quot;[NFSe] Erro fatal: &quot; + String(e));
+        throw e;
+    }
 }</eventDescription>
     </WorkflowProcessEvent>
   </list>
@@ -5371,7 +6176,7 @@ function formatDate(rawDate) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>0080FF</color>
+      <color>8080FF</color>
       <height>195</height>
       <width>1251</width>
       <positionX>160</positionX>
@@ -5387,7 +6192,7 @@ function formatDate(rawDate) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>80FF80</color>
+      <color>0080C0</color>
       <height>195</height>
       <width>1251</width>
       <positionX>160</positionX>
@@ -5403,7 +6208,7 @@ function formatDate(rawDate) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>FF8080</color>
+      <color>0000FF</color>
       <height>195</height>
       <width>1251</width>
       <positionX>160</positionX>
@@ -5419,7 +6224,7 @@ function formatDate(rawDate) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>FFFF80</color>
+      <color>000080</color>
       <height>195</height>
       <width>1251</width>
       <positionX>160</positionX>
@@ -5578,6 +6383,38 @@ function formatDate(rawDate) {&#xd;
         <sequence>14</sequence>
       </swimLanePK>
     </SwimLane>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>290</height>
+      <width>1300</width>
+      <positionX>130</positionX>
+      <positionY>920</positionY>
+      <stateName>NFS-e</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>15</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>00FFFF</color>
+      <height>290</height>
+      <width>1270</width>
+      <positionX>160</positionX>
+      <positionY>920</positionY>
+      <stateName></stateName>
+      <type>2</type>
+      <parentSequence>15</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>16</sequence>
+      </swimLanePK>
+    </SwimLane>
   </list>
   <list/>
   <list/>
@@ -5586,7 +6423,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>200</version>
+        <version>242</version>
         <linkSequence>11</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5597,7 +6434,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>200</version>
+        <version>242</version>
         <linkSequence>11</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -5608,7 +6445,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>200</version>
+        <version>242</version>
         <linkSequence>86</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5619,7 +6456,7 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>200</version>
+        <version>242</version>
         <linkSequence>145</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -5630,12 +6467,56 @@ function formatDate(rawDate) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>200</version>
+        <version>242</version>
         <linkSequence>145</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
       <positionX>515</positionX>
       <positionY>242</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>242</version>
+        <linkSequence>168</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>540</positionX>
+      <positionY>914</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>242</version>
+        <linkSequence>168</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>382</positionX>
+      <positionY>864</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>242</version>
+        <linkSequence>171</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>969</positionX>
+      <positionY>744</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>242</version>
+        <linkSequence>172</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1213</positionX>
+      <positionY>1038</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
@@ -5752,6 +6633,17 @@ function formatDate(rawDate) {&#xd;
       <frequency>1</frequency>
       <frequencyType>0</frequencyType>
     </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>G12</processId>
+      <version>1</version>
+      <sequence>157</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
   </list>
   <list/>
   <list>
@@ -5759,7 +6651,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5769,7 +6661,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5779,7 +6671,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5789,7 +6681,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5799,7 +6691,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5809,7 +6701,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5819,7 +6711,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5829,7 +6721,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5839,7 +6731,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5849,7 +6741,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -5859,7 +6751,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -5869,7 +6761,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -5879,7 +6771,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -5889,7 +6781,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -5899,7 +6791,7 @@ function formatDate(rawDate) {&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>200</processVersion>
+      <processVersion>242</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

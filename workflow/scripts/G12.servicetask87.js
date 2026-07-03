@@ -128,6 +128,15 @@ function servicetask87(attempt, message) {
         var resultado = authService.saveRecord("MovMovimentoTBCData", xmlFinal, contexto);
         log.info("[G12-AjustarTributos] Resultado SaveRecord: " + resultado);
 
+
+         if (resultado && String(resultado).indexOf("Exception") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resultado);
+        }
+
+        if (resultado && String(resultado).indexOf("Error") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resultado);
+        }
+
     } catch (e) {
         log.error("[G12-AjustarTributos] Erro: " + String(e));
         throw e;

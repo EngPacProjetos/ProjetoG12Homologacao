@@ -20,7 +20,7 @@ function servicetask130(attempt, message) {
 
     log.info("[G12-CadastrarIRRFeINSS] Iniciando - CODCOLIGADA=" + codColigada);
 
-    
+
     function criarClienteRM() {
         var servico = ServiceManager.getService("wsDataServer");
         var instancia = servico.instantiate("com.totvs.WsDataServer");
@@ -37,7 +37,7 @@ function servicetask130(attempt, message) {
         return servico.getCustomClient(ws, properties, []);
     }
 
-    
+
     if (indexIrrfCadastro != "" && indexIrrfCadastro != null && indexIrrfCadastro != "undefined") {
         log.warn("[G12-CADASTRO-DE-NOVO-IRRF] Iniciada integracao de cadastro de IRRF");
 
@@ -48,12 +48,12 @@ function servicetask130(attempt, message) {
             var codigoOficial = hAPI.getCardValue("codOficialIrrfCadastro___" + index);
             var aplicavelA = hAPI.getCardValue("aplicavelA___" + index);
 
-          
+
             if (!codigoIrrf) {
                 continue;
             }
 
-            codigoIrrfCliente = codigoIrrf; 
+            codigoIrrfCliente = codigoIrrf;
 
             log.info("CODIGO IRRF PARA CADASTRO -> " + codigoIrrf);
             log.info("DESCRICAO IRRF PARA CADASTRO -> " + descricaoIrrf);
@@ -64,7 +64,7 @@ function servicetask130(attempt, message) {
             try {
                 var authService = criarClienteRM();
 
-                
+
                 var xmlIrrf =
                     "<FinIRRF>" +
                     "<FIRRF>" +
@@ -79,6 +79,14 @@ function servicetask130(attempt, message) {
                 var resultado = authService.saveRecord("FinIRRFData", xmlIrrf, contexto);
                 log.info("[G12-CADASTRO-DE-NOVO-IRRF] Resultado: " + resultado);
 
+                if (resultado && String(resultado).indexOf("Exception") !== -1) {
+                    throw new Error("Erro retornado pelo RM: " + resultado);
+                }
+
+                if (resultado && String(resultado).indexOf("Error") !== -1) {
+                    throw new Error("Erro retornado pelo RM: " + resultado);
+                }
+
             } catch (e) {
                 log.error("[G12-CADASTRO-DE-NOVO-IRRF] Erro: " + String(e));
                 throw e;
@@ -86,7 +94,7 @@ function servicetask130(attempt, message) {
         }
     }
 
-   
+
     if (indexInssCadastro != "" && indexInssCadastro != null && indexInssCadastro != "undefined") {
         log.warn("[G12-CADASTRO-DE-NOVO-INSS] Iniciada integracao de cadastro de INSS");
 
@@ -100,7 +108,7 @@ function servicetask130(attempt, message) {
                 continue;
             }
 
-            codigoInssCliente = codigoInss; 
+            codigoInssCliente = codigoInss;
 
             log.info("CODIGO INSS PARA CADASTRO -> " + codigoInss);
             log.info("DESCRICAO INSS PARA CADASTRO -> " + descricaoInss);
@@ -110,7 +118,7 @@ function servicetask130(attempt, message) {
             try {
                 var authService = criarClienteRM();
 
-                
+
                 var xmlInss =
                     "<MovINSS>" +
                     "<TINSS>" +
@@ -125,6 +133,14 @@ function servicetask130(attempt, message) {
                 var resultado = authService.saveRecord("MovINSSData", xmlInss, contexto);
                 log.info("[G12-CADASTRO-DE-NOVO-INSS] Resultado: " + resultado);
 
+                if (resultado && String(resultado).indexOf("Exception") !== -1) {
+                    throw new Error("Erro retornado pelo RM: " + resultado);
+                }
+
+                if (resultado && String(resultado).indexOf("Error") !== -1) {
+                    throw new Error("Erro retornado pelo RM: " + resultado);
+                }
+
             } catch (e) {
                 log.error("[G12-CADASTRO-DE-NOVO-INSS] Erro: " + String(e));
                 throw e;
@@ -132,7 +148,7 @@ function servicetask130(attempt, message) {
         }
     }
 
-    
+
     if (!codigoIrrfCliente && !codigoInssCliente) {
         log.warn("[G12-CADASTRAR-IRRFeINSS] Nenhum IRRF/INSS novo encontrado. Abortando sincronizacao.");
         return;
@@ -156,6 +172,14 @@ function servicetask130(attempt, message) {
 
         var resultado = authService.saveRecord("EstPrdCfoDataBR", xmlPrdCfo, contexto);
         log.info("[G12-SINCRONIZACAO IRRF/INSS NO PRODUTOxFORNECEDOR] Resultado: " + resultado);
+
+        if (resultado && String(resultado).indexOf("Exception") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resultado);
+        }
+
+        if (resultado && String(resultado).indexOf("Error") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resultado);
+        }
 
     } catch (e) {
         log.error("[G12-ERRO SINCRONIZACAO IRRF/INSS NO PRODUTOxFORNECEDOR] Erro: " + String(e));

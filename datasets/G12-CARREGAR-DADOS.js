@@ -86,7 +86,10 @@ function createDataset(fields, constraints, sortFields) {
         "VALOR_ITEM", // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
         "COLIGADA_CLIENTE", 
         "ID_CONTRATO", 
-        "REVISAO_PROJETO"
+        "REVISAO_PROJETO", 
+        "CODIGO_MUNICIPIO", 
+        "VALOR_BRUTO_ORIGINAL",
+        "VALOR_LIQUIDO_ORIGINAL"
     ];
 
     try {
@@ -209,7 +212,10 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("VALOR_ITEM") ? row.get("VALOR_ITEM") : "",
                 row.has("COLIGADA_CLIENTE") ? row.get("COLIGADA_CLIENTE") : "",
                 row.has("ID_CONTRATO") ? row.get("ID_CONTRATO") : "",
-                row.has("REVISAO_PROJETO") ? row.get("REVISAO_PROJETO") : ""
+                row.has("REVISAO_PROJETO") ? row.get("REVISAO_PROJETO") : "",
+                row.has("CODIGO_MUNICIPIO") ? row.get("CODIGO_MUNICIPIO") : "",
+                row.has("VALOR_BRUTO_ORIGINAL") ? row.get("VALOR_BRUTO_ORIGINAL") : "",
+                row.has("VALOR_LIQUIDO_ORIGINAL") ? row.get("VALOR_LIQUIDO_ORIGINAL") : ""
 
             );
         }

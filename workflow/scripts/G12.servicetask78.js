@@ -8,7 +8,7 @@ function servicetask78(attempt, message) {
 
 
     var codColigada = hAPI.getCardValue("CodColigada");
-    var idMov = hAPI.getCardValue("idmovContratos");
+    var idMov = hAPI.getCardValue("idmov2");
     var codFilial = hAPI.getCardValue("filial");
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 
@@ -71,10 +71,64 @@ function servicetask78(attempt, message) {
 
         var resp = authService.executeWithParams("MovFaturamentoProc", xmlParams);
 
+        if (resp && String(resp).indexOf("Exception") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resp);
+        }
+
+        if (resp && String(resp).indexOf("Error") !== -1) {
+            throw new Error("Erro retornado pelo RM: " + resp);
+        }
+
 
     } catch (e) {
         log.error("### Erro: " + e);
         throw e;
+    }
+
+
+
+    try {
+
+
+        var c1 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
+
+
+        var dataset = DatasetFactory.getDataset("G12-MOVIMENTOS-2102", null, [c2, c1], null);
+
+        if (dataset.rowsCount == 0) throw "[G12-INFO-NFSE] - Nenhum registro encontrado no movimento 2.1.02: " + idMov;
+
+        if (dataset != null && dataset.rowsCount > 0) {
+            hAPI.setCardValue("numeroIdmov2201", dataset.getValue(0, "IDMOV_DESTINO"));
+
+        }
+
+
+    } catch (error) {
+        throw "[G12-MOVIMENTO-2201] - Error ao tentar buscar o movimento 2.2.01 gerado pelo faturamento do RPS: " + error;
+    }
+
+
+    try {
+        var c1 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
+        var c2 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
+
+
+        var dataset = DatasetFactory.getDataset("G12-INFO-NFSE", null, [c2, c1], null);
+
+        if (dataset.rowsCount == 0) throw "[G12-INFO-NFSE] - Nenhum registro de NFSE encontrado para o movimento 2.1.02: " + idMov;
+
+        if (dataset != null && dataset.rowsCount > 0) {
+            hAPI.setCardValue("codigoVerificacao", dataset.getValue(0, "CODIGO_VERIFICACAO"));
+            hAPI.setCardValue("dataEmissao", dataset.getValue(0, "DATA_EMISSAO"));
+            hAPI.setCardValue("dataAutorizacao", dataset.getValue(0, "DATA_AUTORIZACAO"));
+            hAPI.setCardValue("numeroNFSE", dataset.getValue(0, "NUMERO_NFSE"));
+
+        }
+
+
+    } catch (error) {
+        throw "[G12-INFO-NFSE] - Error ao tentar buscar as informações da NFSE do movimento 2.1.02: " + error;
     }
 
 
