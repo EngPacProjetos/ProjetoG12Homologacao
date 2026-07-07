@@ -442,13 +442,13 @@
 							<div class="row" style="margin-top: 10px !important;">
 								<div class="col-md-4">
 									<label for="valorBrutoOriginal">Valor bruto original</label>
-									<input type="text" name="valorBrutoOriginal" id="valorBrutoOriginal" class="form-control"
-										readonly>
+									<input type="text" name="valorBrutoOriginal" id="valorBrutoOriginal"
+										class="form-control" readonly>
 								</div>
 								<div class="col-md-4">
 									<label for="valorLiquidoOriginal">Valor líquido original</label>
-									<input type="text" name="valorLiquidoOriginal" id="valorLiquidoOriginal" class="form-control"
-										readonly>
+									<input type="text" name="valorLiquidoOriginal" id="valorLiquidoOriginal"
+										class="form-control" readonly>
 								</div>
 							</div>
 
@@ -1066,7 +1066,32 @@
 						</div>
 					</div>
 
-					<!-- VALIDACAO DE COTRATOS  -->
+
+					<!-- VALIDACAO CONTRATOS  -->
+
+					<div class="panel panel-default" style="margin-bottom: 16px;">
+						<div class="panel-heading">
+							<lord-icon src="https://cdn.lordicon.com/imeqmosk.json" trigger="loop" delay="1000"
+								style="width:60px;height:60px">
+							</lord-icon>
+							<h2 class="panel-title">Validação de contratos</h2>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12"><label for="ajusteContratosValidacao">Informações para
+										ajuste</label>
+									<textarea name="ajusteContratosValidacao" id="ajusteContratosValidacao"
+										class="form-control"></textarea>
+								</div>
+								<div class="col-md-4">
+									<label for="CNOPB">CNO PB</label>
+									<input type="text" name="CNOPB" id="CNOPB" class="form-control">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- FATURAR NOTAS  -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 
@@ -1101,6 +1126,59 @@
 									</svg>
 									Visualizar NFS-e
 								</button>
+							</div>
+						</div>
+					</div>
+
+					<div id="erroEnvioDeNotas">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="1000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Erro ao Enviar Nota</h2>
+							</div>
+							<div class="panel-body">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="errorAoEnviarNotas">Descrição do Erro</label>
+										<textarea class="form-control" name="errorAoEnviarNotas" id="errorAoEnviarNotas"
+											rows="5"></textarea>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="statusEnvio">Status do Envio</label>
+										<input type="text" class="form-control" name="statusEnvio" id="statusEnvio">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="erroAutorizarNotas">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="1000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Erro ao Autorizar Nota</h2>
+							</div>
+							<div class="panel-body">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="errorAoAutorizarNotas">Descrição do Erro</label>
+										<textarea class="form-control" name="errorAoAutorizarNotas"
+											id="errorAoAutorizarNotas" rows="5"></textarea>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="statusAutorizacao">Status da Autorização</label>
+										<input type="text" class="form-control" name="statusAutorizacao"
+											id="statusAutorizacao">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1387,10 +1465,11 @@
 					<div id="enviarNota">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h2 class="panel-title">Informações de envio da nota </h2>
 								<lord-icon src="https://cdn.lordicon.com/dpggoewm.json" trigger="loop" delay="1000"
-									style="width:50px;height:50px">
+									style="width:60px;height:60px">
 								</lord-icon>
+								<h2 class="panel-title">Informações de envio da nota </h2>
+
 							</div>
 							<div class="panel-body">
 								<div class="row">
@@ -1403,7 +1482,8 @@
 									<div class="col-md-3">
 										<div class="form-group">
 											<label for="codigoVerificacao">Código de verificação</label>
-											<input type="text" class="form-control" name="codigoVerificacao" id="codigoVerificacao">
+											<input type="text" class="form-control" name="codigoVerificacao"
+												id="codigoVerificacao">
 										</div>
 									</div>
 									<div class="col-md-2">
@@ -1415,13 +1495,15 @@
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="dataAutorizacao">Data de autorização</label>
-											<input type="text" class="form-control" name="dataAutorizacao" id="dataAutorizacao">
+											<input type="text" class="form-control" name="dataAutorizacao"
+												id="dataAutorizacao">
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="numeroIdmov2201">Idmov 2.2.01</label>
-											<input type="text" class="form-control" name="numeroIdmov2201" id="numeroIdmov2201">
+											<input type="text" class="form-control" name="numeroIdmov2201"
+												id="numeroIdmov2201">
 										</div>
 									</div>
 								</div>

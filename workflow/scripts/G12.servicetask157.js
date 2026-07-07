@@ -153,6 +153,7 @@ function servicetask157(attempt, message) {
         var resp = authService.executeWithXmlParams("FisNFSeRetornarNotasData", xmlParams);
 
 
+
         if (resp && String(resp).indexOf("Exception") !== -1) {
             throw new Error("Erro retornado pelo RM: " + resp);
         }
@@ -167,5 +168,4 @@ function servicetask157(attempt, message) {
         log.error("[NFSe-Checagem] Erro: " + String(e));
         throw e;
     }
-
 }

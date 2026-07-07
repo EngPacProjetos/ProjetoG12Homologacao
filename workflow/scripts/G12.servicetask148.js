@@ -173,6 +173,7 @@ function servicetask148(attempt, message) {
         var resp = authService.executeWithXmlParams("FisNFSeEnvioData", xmlParams);
         log.info("[NFSe] Resposta: [" + resp + "]");
 
+
         if (resp && String(resp).indexOf("Exception") !== -1) {
             throw new Error("Erro retornado pelo RM: " + resp);
         }
