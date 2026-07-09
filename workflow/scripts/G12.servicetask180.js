@@ -43,7 +43,7 @@ function servicetask180(attempt, message) {
 
 
         // XML PARA ATUALIZAR O CNO NO LUGAR DO CNPJ - PARAMETRIZACAO ERRADA NO MOMENTO 
-         var xmlParams =
+        var xmlParams =
             "<PrjPrj>" +
             "<MPrj>" +
             "<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>" +

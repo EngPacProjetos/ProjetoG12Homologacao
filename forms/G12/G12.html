@@ -17,6 +17,9 @@
 	<script type="text/javascript" src="G12-TributosMunicipaisFuncoesAuxiliares.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-IRRF-INSS.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-GED.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Cno.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Toogle.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-CheckBot.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -150,6 +153,12 @@
 					<input type="hidden" name="periodoMedicao" id="periodoMedicao" readonly>
 
 
+					<!-- CONTROLE DE FLUXO DO PROCESSO  -->
+					<input type="hidden" name="atividade" id="atividade" readonly>
+					<input type="hidden" name="exibirCheck" id="exibirCheck" readonly>
+
+
+
 					<!-- Indicador de carregamento -->
 					<div id="loadingDados" style="display:none; margin-bottom: 16px;">
 						<div class="alert alert-info">
@@ -166,389 +175,451 @@
 					</div>
 
 					<!-- IDENTIFICAÇÃO DO PROJETO -->
-					<div class="panel panel-default" style="margin-bottom: 24px;">
-						<div class="panel-heading">
-							<lord-icon src="https://cdn.lordicon.com/ilgzgiqi.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h3 class="panel-title">
-								<i class="fa fa-building" style="margin-right: 6px;"></i>
-								Identificação do Projeto
-							</h3>
-						</div>
-						<div class="panel-body">
+					<div id="identificacaoProjetoDiv">
+						<div class="panel panel-default" style="margin-bottom: 24px;">
+							<div class="panel-heading">
+								<lord-icon src="https://cdn.lordicon.com/ilgzgiqi.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h3 class="panel-title">
+									<i class="fa fa-building" style="margin-right: 6px;"></i>
+									Identificação do Projeto
+								</h3>
+							</div>
+							<div class="panel-body">
 
-							<div class="row">
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Coligada</label>
-										<input type="text" class="form-control" name="coligada" id="coligada" readonly>
+								<div class="row">
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="coligada">Coligada</label>
+											<input type="text" class="form-control" name="coligada" id="coligada"
+												readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="filial">Filial</label>
+											<input type="text" class="form-control" name="filial" id="filial" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="IDMOV_numero">IDMOV</label>
+											<input type="text" class="form-control" name="IDMOV_numero"
+												id="IDMOV_numero" readonly>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="idprj">ID Projeto</label>
+											<input type="text" class="form-control" name="idprj" id="idprj" readonly>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="cnpj">CNPJ</label>
+											<input type="text" class="form-control" name="cnpj" id="cnpj" readonly>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="nome_filial">Nome da filial</label>
+											<input type="text" class="form-control" name="nome_filial" id="nome_filial"
+												readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="centro_de_custo">Centro de Custo</label>
+											<input type="text" class="form-control" name="centro_de_custo"
+												id="centro_de_custo" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="codigo_do_projeto">Código do Projeto</label>
+											<input type="text" class="form-control" name="codigo_do_projeto"
+												id="codigo_do_projeto" readonly>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="descricao_projeto">Descrição do Projeto</label>
+											<input type="text" class="form-control" name="descricao_projeto"
+												id="descricao_projeto" readonly>
+										</div>
 									</div>
 								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Filial</label>
-										<input type="text" class="form-control" name="filial" id="filial" readonly>
+
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<label for="rua_projeto">Rua</label>
+											<input type="text" class="form-control" name="rua_projeto" id="rua_projeto"
+												readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="numero_endereco_projeto">Número</label>
+											<input type="text" class="form-control" name="numero_endereco_projeto"
+												id="numero_endereco_projeto" readonly>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="bairro_projeto">Bairro</label>
+											<input type="text" class="form-control" name="bairro_projeto"
+												id="bairro_projeto" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="complemento_projeto">Complemento</label>
+											<input type="text" class="form-control" name="complemento_projeto"
+												id="complemento_projeto" readonly>
+										</div>
 									</div>
 								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>IDMOV</label>
-										<input type="text" class="form-control" name="IDMOV_numero" id="IDMOV_numero"
-											readonly>
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="cidade_projeto">Cidade</label>
+											<input type="text" class="form-control" name="cidade_projeto"
+												id="cidade_projeto" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="estado_projeto">Estado</label>
+											<input type="text" class="form-control" name="estado_projeto"
+												id="estado_projeto" readonly>
+										</div>
 									</div>
 								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>ID Projeto</label>
-										<input type="text" class="form-control" name="idprj" id="idprj" readonly>
+								<hr>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="art">ART</label>
+										<input type="text" name="art" id="art" class="form-control" readonly>
 									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>CNPJ</label>
-										<input type="text" class="form-control" name="cnpj" id="cnpj" readonly>
+									<div class="col-md-6">
+										<label for="cno">CNO</label>
+										<input type="text" name="cno" id="cno" class="form-control" readonly>
 									</div>
 								</div>
 
 							</div>
-
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Nome da filial</label>
-										<input type="text" class="form-control" name="nome_filial" id="nome_filial"
-											readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Centro de Custo</label>
-										<input type="text" class="form-control" name="centro_de_custo"
-											id="centro_de_custo" readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Código do Projeto</label>
-										<input type="text" class="form-control" name="codigo_do_projeto"
-											id="codigo_do_projeto" readonly>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Descrição do Projeto</label>
-										<input type="text" class="form-control" name="descricao_projeto"
-											id="descricao_projeto" readonly>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-5">
-									<div class="form-group">
-										<label>Rua</label>
-										<input type="text" class="form-control" name="rua_projeto" id="rua_projeto"
-											readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Número</label>
-										<input type="text" class="form-control" name="numero_endereco_projeto"
-											id="numero_endereco_projeto" readonly>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Bairro</label>
-										<input type="text" class="form-control" name="bairro_projeto"
-											id="bairro_projeto" readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Complemento</label>
-										<input type="text" class="form-control" name="complemento_projeto"
-											id="complemento_projeto" readonly>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Cidade</label>
-										<input type="text" class="form-control" name="cidade_projeto"
-											id="cidade_projeto" readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Estado</label>
-										<input type="text" class="form-control" name="estado_projeto"
-											id="estado_projeto" readonly>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-md-6">
-									<label for="art">ART</label>
-									<input type="text" name="art" id="art" class="form-control" readonly>
-								</div>
-								<div class="col-md-6">
-									<label for="cno">CNO</label>
-									<input type="text" name="cno" id="cno" class="form-control" readonly>
-								</div>
-							</div>
-
 						</div>
 					</div>
 
 					<!-- DETALHES DO CONTRATO -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
+					<div id="detalhesContrato">
+						<div class="panel panel-default">
+							<div class="panel-heading">
 
-							<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h3 class="panel-title">
-								<i class="fa fa-file-text" style="margin-right: 6px;"></i>
-								Detalhes do Contrato
-							</h3>
-						</div>
-						<div class="panel-body">
-
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Número do Contrato</label>
-										<input type="text" class="form-control" name="numero_contrato"
-											id="numero_contrato" readonly>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Tipo de Contrato</label>
-										<input type="text" class="form-control" name="tipo_contrato" id="tipo_contrato"
-											readonly>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Número da Licitação</label>
-										<input type="text" class="form-control" name="numero_licitacao"
-											id="numero_licitacao" readonly>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Código do Cliente</label>
-										<input type="text" class="form-control" name="codigo_cliente"
-											id="codigo_cliente" readonly>
-									</div>
-								</div>
+								<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h3 class="panel-title">
+									<i class="fa fa-file-text" style="margin-right: 6px;"></i>
+									Detalhes do Contrato
+								</h3>
 							</div>
+							<div class="panel-body">
 
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Data do Contrato</label>
-										<input type="text" class="form-control" name="data_contrato" id="data_contrato"
-											readonly>
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="numero_contrato">Número do Contrato</label>
+											<input type="text" class="form-control" name="numero_contrato"
+												id="numero_contrato" readonly>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Data de Início</label>
-										<input type="text" class="form-control" name="data_inicio_contrato"
-											id="data_inicio_contrato" readonly>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="tipo_contrato">Tipo de Contrato</label>
+											<input type="text" class="form-control" name="tipo_contrato"
+												id="tipo_contrato" readonly>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Data de Término</label>
-										<input type="text" class="form-control" name="data_termino" id="data_termino"
-											readonly>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="numero_licitacao">Número da Licitação</label>
+											<input type="text" class="form-control" name="numero_licitacao"
+												id="numero_licitacao" readonly>
+										</div>
 									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Periodicidade de Medição</label>
-										<input type="text" class="form-control" name="periodicidade_medicao"
-											id="periodicidade_medicao" readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Condição de Pagamento</label>
-										<input type="text" class="form-control" name="condicao_pagamento"
-											id="condicao_pagamento" readonly>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label>Nome do cliente</label>
-										<input type="text" class="form-control" name="nome_cliente" id="nome_cliente"
-											readonly>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>CNPJ do Cliente</label>
-										<input type="text" class="form-control" name="cnpjCliente" id="cnpjCliente"
-											readonly>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Nome do Produto</label>
-										<input type="text" class="form-control" name="nome_produto" id="nome_produto"
-											readonly>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Código do Produto</label>
-										<input type="text" class="form-control" name="codigo_produto"
-											id="codigo_produto" readonly>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="codigo_cliente">Código do Cliente</label>
+											<input type="text" class="form-control" name="codigo_cliente"
+												id="codigo_cliente" readonly>
+										</div>
 									</div>
 								</div>
 
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<label for="unidade_produto">Unidade do produto</label>
-									<input type="text" name="unidade_produto" id="unidade_produto" class="form-control"
-										readonly>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="data_contrato">Data do Contrato</label>
+											<input type="text" class="form-control" name="data_contrato"
+												id="data_contrato" readonly>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="data_inicio_contrato">Data de Início</label>
+											<input type="text" class="form-control" name="data_inicio_contrato"
+												id="data_inicio_contrato" readonly>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="data_termino">Data de Término</label>
+											<input type="text" class="form-control" name="data_termino"
+												id="data_termino" readonly>
+										</div>
+									</div>
 								</div>
-								<div class="col-md-4">
-									<label for="quantidade_produto">Quantidade do produto</label>
-									<input type="text" name="quantidade_produto" id="quantidade_produto"
-										class="form-control" readonly>
-								</div>
-								<div class="col-md-4">
-									<label for="unidade_produto">Valor do item</label>
-									<input type="text" name="valor_item" id="valor_item" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="row" style="margin-top: 10px !important;">
-								<div class="col-md-4">
-									<label for="valorBrutoOriginal">Valor bruto original</label>
-									<input type="text" name="valorBrutoOriginal" id="valorBrutoOriginal"
-										class="form-control" readonly>
-								</div>
-								<div class="col-md-4">
-									<label for="valorLiquidoOriginal">Valor líquido original</label>
-									<input type="text" name="valorLiquidoOriginal" id="valorLiquidoOriginal"
-										class="form-control" readonly>
-								</div>
-							</div>
 
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="periodicidade_medicao">Periodicidade de Medição</label>
+											<input type="text" class="form-control" name="periodicidade_medicao"
+												id="periodicidade_medicao" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="condicao_pagamento">Condição de Pagamento</label>
+											<input type="text" class="form-control" name="condicao_pagamento"
+												id="condicao_pagamento" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="nome_cliente">Nome do cliente</label>
+											<input type="text" class="form-control" name="nome_cliente"
+												id="nome_cliente" readonly>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="cnpjCliente">CNPJ do Cliente</label>
+											<input type="text" class="form-control" name="cnpjCliente" id="cnpjCliente"
+												readonly>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="nome_produto">Nome do Produto</label>
+											<input type="text" class="form-control" name="nome_produto"
+												id="nome_produto" readonly>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="codigo_produto">Código do Produto</label>
+											<input type="text" class="form-control" name="codigo_produto"
+												id="codigo_produto" readonly>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="unidade_produto">Unidade do produto</label>
+										<input type="text" name="unidade_produto" id="unidade_produto"
+											class="form-control" readonly>
+									</div>
+									<div class="col-md-4">
+										<label for="quantidade_produto">Quantidade do produto</label>
+										<input type="text" name="quantidade_produto" id="quantidade_produto"
+											class="form-control" readonly>
+									</div>
+									<div class="col-md-4">
+										<label for="unidade_produto">Valor do item</label>
+										<input type="text" name="valor_item" id="valor_item" class="form-control"
+											readonly>
+									</div>
+								</div>
+								<div class="row" style="margin-top: 10px !important;">
+									<div class="col-md-4">
+										<label for="valorBrutoOriginal">Valor bruto original</label>
+										<input type="text" name="valorBrutoOriginal" id="valorBrutoOriginal"
+											class="form-control" readonly>
+									</div>
+									<div class="col-md-4">
+										<label for="valorLiquidoOriginal">Valor líquido original</label>
+										<input type="text" name="valorLiquidoOriginal" id="valorLiquidoOriginal"
+											class="form-control" readonly>
+									</div>
+								</div>
+
+							</div>
 						</div>
 					</div>
+
 					<!-- SECAO DE HISTORICO DO MOVIMENTO  - SEPARADA DOS DEMAIS PONTOS DO FORMULARIO  -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
+					<div id="historicoMovimento">
+						<div class="panel panel-default">
+							<div class="panel-heading">
 
-							<lord-icon src="https://cdn.lordicon.com/yxsbonud.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h2 class="panel-title">Histórico do movimento</h2>
-						</div>
-						<div class="panel-body">
-							<div id="historicomovimento">
-								<div class="row">
-									<div class="vol-md-12">
-										<label for="historicoMovimento">Histórico do movimento</label>
-										<textarea name="historicoMovimento" id="historicoMovimento" class="form-control"
-											rows="5" readonly>
+								<lord-icon src="https://cdn.lordicon.com/yxsbonud.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Histórico do movimento</h2>
+							</div>
+							<div class="panel-body">
+								<div id="historicomovimento">
+									<div class="row">
+										<div class="vol-md-12">
+											<label for="historicoMovimento">Histórico do movimento</label>
+											<textarea name="historicoMovimento" id="historicoMovimento"
+												class="form-control" rows="5" readonly>
 
-								</textarea>
+									</textarea>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
+
 					</div>
 
 					<!-- SECAO DE ANEXOS DO GED RM  -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
+					<div id="anexosRm">
+						<div class="panel panel-default">
+							<div class="panel-heading">
 
-							<lord-icon src="https://cdn.lordicon.com/yrtftktn.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h2 class="panel-title">Anexos</h2>
-						</div>
-						<div class="panel-body">
-							<div id="gedAnexos">
+								<lord-icon src="https://cdn.lordicon.com/yrtftktn.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Anexos</h2>
+							</div>
+							<div class="panel-body">
+								<div id="gedAnexos">
+
+								</div>
 
 							</div>
+						</div>
+					</div>
 
+					<!-- APROVACAO DO SETOR TECNICO  -->
+					<div id="aprovacaoSetorTecnico">
+						<div class="panel panel-default" style="margin-bottom: 16px;">
+							<div class="panel-heading">
+
+								<lord-icon src="https://cdn.lordicon.com/ietuubpb.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Aprovação do setor técnico</h2>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12"><label for="ajusteSetorTecnico">Informações para
+											ajuste</label>
+										<textarea name="ajusteSetorTecnico" id="ajusteSetorTecnico" class="form-control"
+											placeholder="Nenhum ajuste informado"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- VALIDACAO CONTRATOS  -->
+					<div id="validacaoContratos">
+						<div class="panel panel-default" style="margin-bottom: 16px;">
+							<div class="panel-heading">
+								<lord-icon src="https://cdn.lordicon.com/imeqmosk.json" trigger="loop" delay="1000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Validação de contratos</h2>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12"><label for="ajusteContratosValidacao">Informações para
+											ajuste</label>
+										<textarea name="ajusteContratosValidacao" id="ajusteContratosValidacao"
+											class="form-control" placeholder="Nenhum ajuste informado"></textarea>
+									</div>
+									<div class="col-md-4">
+										<label for="CNOPB">CNO PARA AJUSTE</label>
+										<input type="text" name="CNOPB" id="CNOPB" class="form-control">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
 					<!-- TRIBUTAÇÃO -->
-					<div class="panel panel-default" style="margin-bottom: 24px;">
-						<div class="panel-heading">
+					<div id="tributacao">
+						<div class="panel panel-default" style="margin-bottom: 24px;">
+							<div class="panel-heading">
 
-							<lord-icon src="https://cdn.lordicon.com/rhmhivzj.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h3 class="panel-title">
-								<i class="fa fa-calculator" style="margin-right: 6px;"></i>
-								Tributação
-							</h3>
-						</div>
-						<div class="panel-body">
+								<lord-icon src="https://cdn.lordicon.com/rhmhivzj.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h3 class="panel-title">
+									<i class="fa fa-calculator" style="margin-right: 6px;"></i>
+									Tributação
+								</h3>
+							</div>
+							<div class="panel-body">
 
-							<div class="row" style="margin-bottom: 12px;">
-								<div class="col-md-6">
-									<div class="form-group" style="margin-bottom: 0;">
-										<label>Natureza Orçamentária</label>
-										<p id="naturezaOrcamentariaDisplay" class="form-control-static">—</p>
+								<div class="row" style="margin-bottom: 12px;">
+									<div class="col-md-6">
+										<div class="form-group" style="margin-bottom: 0;">
+											<label for="naturezaOrcamentariaDisplay">Natureza Orçamentária</label>
+											<p id="naturezaOrcamentariaDisplay" class="form-control-static">—</p>
+										</div>
 									</div>
 								</div>
+
+								<h4 style="margin-top: 16px; margin-bottom: 8px;">
+									<i class="fa fa-globe" style="margin-right: 4px;"></i>Tributos Do Movimento
+								</h4>
+								<div id="tabelaTributosNacionais">
+									<p class="text-muted">Aguardando carregamento...</p>
+								</div>
+
+								<h4 style="margin-top: 20px; margin-bottom: 8px;">
+									<i class="fa fa-building-o" style="margin-right: 4px;"></i>Tributos Municipais
+								</h4>
+								<div id="tabelaTributosMunicipais">
+									<p class="text-muted">Aguardando carregamento...</p>
+								</div>
+
+								<div id="botoesTributos">
+
+									<button type="button" class="btn btn-info btn-sm"
+										onclick="exibirTabelaAtualizarTributos()"> Ajustar Tributo do movimento</button>
+									</button>
+
+									<button type="button" class="btn btn-info btn-sm"
+										onclick="exibirTabelaCdastrarMunicipais()"> Cadastrar / Ajustar Tributo
+										Municipal</button>
+									</button>
+
+								</div>
+
+
+
+
+
 							</div>
-
-							<h4 style="margin-top: 16px; margin-bottom: 8px;">
-								<i class="fa fa-globe" style="margin-right: 4px;"></i>Tributos Do Movimento
-							</h4>
-							<div id="tabelaTributosNacionais">
-								<p class="text-muted">Aguardando carregamento...</p>
-							</div>
-
-							<h4 style="margin-top: 20px; margin-bottom: 8px;">
-								<i class="fa fa-building-o" style="margin-right: 4px;"></i>Tributos Municipais
-							</h4>
-							<div id="tabelaTributosMunicipais">
-								<p class="text-muted">Aguardando carregamento...</p>
-							</div>
-
-							<div id="botoesTributos">
-
-								<button type="button" class="btn btn-info btn-sm"
-									onclick="exibirTabelaAtualizarTributos()"> Ajustar Tributo do movimento</button>
-								</button>
-
-								<button type="button" class="btn btn-info btn-sm"
-									onclick="exibirTabelaCdastrarMunicipais()"> Cadastrar / Ajustar Tributo
-									Municipal</button>
-								</button>
-
-							</div>
-
-
-
-
-
 						</div>
 					</div>
 
@@ -1011,151 +1082,122 @@
 						</div>
 					</div>
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-
-							<lord-icon src="https://cdn.lordicon.com/zdwrqfmb.json" trigger="loop" delay="1500"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h2 class="panel-title">Cliente/Fornecedor</h2>
-						</div>
-						<div class="panel-body">
-							<div id="irrfInss">
-
-
-							</div>
-
-							<div id="botoesTributos">
-
-								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaAtualizarIRRF()">
-									Ajustar IRRF</button>
-								</button>
-
-								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaAtualizarINSS()">
-									Ajustar INSS</button>
-								</button>
-
-								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaCadastrarIrrf()">
-									Cadastrar IRRF </button>
-								</button>
-
-								<button type="button" class="btn btn-info btn-sm" onclick="exibirTabelaCadastrarInss()">
-									Cadastrar INSS </button>
-								</button>
-
-							</div>
-						</div>
-					</div>
-
-					<!-- APROVACAO DO SETOR TECNICO  -->
-					<div class="panel panel-default" style="margin-bottom: 16px;">
-						<div class="panel-heading">
-
-							<lord-icon src="https://cdn.lordicon.com/ietuubpb.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h2 class="panel-title">Aprovação do setor técnico</h2>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-12"><label for="ajusteSetorTecnico">Informações para ajuste</label>
-									<textarea name="ajusteSetorTecnico" id="ajusteSetorTecnico"
-										class="form-control"></textarea>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-					<!-- VALIDACAO CONTRATOS  -->
-
-					<div class="panel panel-default" style="margin-bottom: 16px;">
-						<div class="panel-heading">
-							<lord-icon src="https://cdn.lordicon.com/imeqmosk.json" trigger="loop" delay="1000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h2 class="panel-title">Validação de contratos</h2>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-12"><label for="ajusteContratosValidacao">Informações para
-										ajuste</label>
-									<textarea name="ajusteContratosValidacao" id="ajusteContratosValidacao"
-										class="form-control"></textarea>
-								</div>
-								<div class="col-md-4">
-									<label for="CNOPB">CNO PB</label>
-									<input type="text" name="CNOPB" id="CNOPB" class="form-control">
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- FATURAR NOTAS  -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-
-							<lord-icon src="https://cdn.lordicon.com/tobsqthh.json" trigger="loop" delay="2000"
-								style="width:60px;height:60px">
-							</lord-icon>
-							<h2 class="panel-title">Faturar notas</h2>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-4">
-									<label for="idmov2">IDMOV movimento 2.1.02</label>
-									<input type="text" name="idmov2" id="idmov2" class="form-control" readonly>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12"><label for="ajusteContratos">Informações para ajuste</label>
-									<textarea name="ajusteContratos" id="ajusteContratos"
-										class="form-control"></textarea>
-								</div>
-							</div>
-							<div class="nfe-trigger-wrap">
-								<button type="button" id="btnVisualizarNFe" class="btn-nfe-visualizar"
-									onclick="NFeModal.abrir()">
-									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-										stroke-width="2">
-										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-										<polyline points="14 2 14 8 20 8" />
-										<line x1="16" y1="13" x2="8" y2="13" />
-										<line x1="16" y1="17" x2="8" y2="17" />
-										<polyline points="10 9 9 9 8 9" />
-									</svg>
-									Visualizar NFS-e
-								</button>
-							</div>
-						</div>
-					</div>
-
-					<div id="erroEnvioDeNotas">
+					<!-- CLIENTE / FORNECEDOR  -->
+					<div id="clienteFornecedor">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="1000"
+
+								<lord-icon src="https://cdn.lordicon.com/zdwrqfmb.json" trigger="loop" delay="1500"
 									style="width:60px;height:60px">
 								</lord-icon>
-								<h2 class="panel-title">Erro ao Enviar Nota</h2>
+								<h2 class="panel-title">Cliente/Fornecedor</h2>
 							</div>
 							<div class="panel-body">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="errorAoEnviarNotas">Descrição do Erro</label>
-										<textarea class="form-control" name="errorAoEnviarNotas" id="errorAoEnviarNotas"
-											rows="5"></textarea>
+								<div id="irrfInss">
+
+
+								</div>
+
+								<div id="botoesTributos">
+
+									<button type="button" class="btn btn-info btn-sm"
+										onclick="exibirTabelaAtualizarIRRF()">
+										Ajustar IRRF</button>
+									</button>
+
+									<button type="button" class="btn btn-info btn-sm"
+										onclick="exibirTabelaAtualizarINSS()">
+										Ajustar INSS</button>
+									</button>
+
+									<button type="button" class="btn btn-info btn-sm"
+										onclick="exibirTabelaCadastrarIrrf()">
+										Cadastrar IRRF </button>
+									</button>
+
+									<button type="button" class="btn btn-info btn-sm"
+										onclick="exibirTabelaCadastrarInss()">
+										Cadastrar INSS </button>
+									</button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- FATURAR NOTAS  -->
+					<div id="faturarNotas">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+
+								<lord-icon src="https://cdn.lordicon.com/tobsqthh.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Faturar notas</h2>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="idmov2">IDMOV movimento 2.1.02</label>
+										<input type="text" name="idmov2" id="idmov2" class="form-control" readonly>
 									</div>
 								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="statusEnvio">Status do Envio</label>
-										<input type="text" class="form-control" name="statusEnvio" id="statusEnvio">
+								<div class="row">
+									<div class="col-md-12"><label for="ajusteContratos">Informações para ajuste</label>
+										<textarea name="ajusteContratos" id="ajusteContratos" class="form-control"
+											placeholder="Nenhum ajuste informado"></textarea>
+									</div>
+								</div>
+								<div class="nfe-trigger-wrap">
+									<button type="button" id="btnVisualizarNFe" class="btn-nfe-visualizar"
+										onclick="NFeModal.abrir()">
+										<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+											stroke="currentColor" stroke-width="2">
+											<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+											<polyline points="14 2 14 8 20 8" />
+											<line x1="16" y1="13" x2="8" y2="13" />
+											<line x1="16" y1="17" x2="8" y2="17" />
+											<polyline points="10 9 9 9 8 9" />
+										</svg>
+										Visualizar NFS-e
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ERROR AO ENVIAR AS NOTAS  -->
+					<div id="erroEnvioDeNotasDiv">
+						<div id="erroEnvioDeNotas">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<lord-icon src="https://cdn.lordicon.com/hnqamtrw.json" trigger="loop" delay="1000"
+										style="width:60px;height:60px">
+									</lord-icon>
+									<h2 class="panel-title">Erro ao Enviar Nota</h2>
+								</div>
+								<div class="panel-body">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="errorAoEnviarNotas">Descrição do Erro</label>
+											<textarea class="form-control" name="errorAoEnviarNotas"
+												id="errorAoEnviarNotas" rows="5" readonly></textarea>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="statusEnvio">Status do Envio</label>
+											<input type="text" class="form-control" name="statusEnvio" id="statusEnvio"
+												readonly>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
+					<!-- ERROR AO AUTORIZAR AS NOTAS  -->
 					<div id="erroAutorizarNotas">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -1169,14 +1211,14 @@
 									<div class="form-group">
 										<label for="errorAoAutorizarNotas">Descrição do Erro</label>
 										<textarea class="form-control" name="errorAoAutorizarNotas"
-											id="errorAoAutorizarNotas" rows="5"></textarea>
+											id="errorAoAutorizarNotas" rows="5" readonly></textarea>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="statusAutorizacao">Status da Autorização</label>
 										<input type="text" class="form-control" name="statusAutorizacao"
-											id="statusAutorizacao">
+											id="statusAutorizacao" readonly>
 									</div>
 								</div>
 							</div>
@@ -1476,38 +1518,57 @@
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="numeroNotas">Número da nota</label>
-											<input type="text" class="form-control" name="numeroNotas" id="numeroNotas">
+											<input type="text" class="form-control" name="numeroNotas" id="numeroNotas"
+												readonly>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="form-group">
 											<label for="codigoVerificacao">Código de verificação</label>
 											<input type="text" class="form-control" name="codigoVerificacao"
-												id="codigoVerificacao">
+												id="codigoVerificacao" readonly>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="dataEmissao">Data de emissão</label>
-											<input type="text" class="form-control" name="dataEmissao" id="dataEmissao">
+											<input type="text" class="form-control" name="dataEmissao" id="dataEmissao"
+												readonly>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="dataAutorizacao">Data de autorização</label>
 											<input type="text" class="form-control" name="dataAutorizacao"
-												id="dataAutorizacao">
+												id="dataAutorizacao" readonly>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="numeroIdmov2201">Idmov 2.2.01</label>
 											<input type="text" class="form-control" name="numeroIdmov2201"
-												id="numeroIdmov2201">
+												id="numeroIdmov2201" readonly>
 										</div>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-12" style="display: flex; justify-content: flex-end;">
+										<button type="button" class="btn btn-info btn-sm"
+											onclick="exibirEdicaoManual()">Preencher
+											Manualmente</button>
+									</div>
+								</div>
 							</div>
+						</div>
+					</div>
+
+					<div id="botChecagemInfo">
+						<img id="iconeChecagem" src="https://i.imgur.com/kFNXFlP.png">
+						<div id="cabecalhoBot">
+							<h3>Pendências do processo</h3>
+							<span id="fecharChecagem" onclick="exibitInfo()">O</span>
+						</div>
+						<div id="inforChecagem">
 						</div>
 					</div>
 

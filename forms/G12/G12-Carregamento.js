@@ -155,9 +155,7 @@ function renderizarTabelasTributacao(rawNac, rawMun, natureza) {
     }
 }
 
-// =============================================================
-// PREENCHIMENTO DO FORMULÁRIO
-// =============================================================
+
 
 function preencherFormulario(ds) {
 

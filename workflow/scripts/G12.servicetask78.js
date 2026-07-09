@@ -10,6 +10,7 @@ function servicetask78(attempt, message) {
     var codColigada = hAPI.getCardValue("CodColigada");
     var idMov = hAPI.getCardValue("idmov2");
     var codFilial = hAPI.getCardValue("filial");
+    var codigoExercicioFiscal = hAPI.getCardValue("exercicioFiscal");
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 
     var usuario_rm = getConstante("rm_usuario");
@@ -54,7 +55,7 @@ function servicetask78(attempt, message) {
             '<CodTmvOrigem>2.1.02</CodTmvOrigem>' +
             '<CodUsuario>fluig</CodUsuario>' +
             '<GrupoFaturamento></GrupoFaturamento>' +
-            '<IdExercicioFiscal>3</IdExercicioFiscal>' +
+            '<IdExercicioFiscal>' + codigoExercicioFiscal + '</IdExercicioFiscal>' +
             '<IdMov>' +
             '<int>' + idMov + '</int>' +
             '</IdMov>' +
@@ -71,13 +72,6 @@ function servicetask78(attempt, message) {
 
         var resp = authService.executeWithParams("MovFaturamentoProc", xmlParams);
 
-        if (resp && String(resp).indexOf("Exception") !== -1) {
-            throw new Error("Erro retornado pelo RM: " + resp);
-        }
-
-        if (resp && String(resp).indexOf("Error") !== -1) {
-            throw new Error("Erro retornado pelo RM: " + resp);
-        }
 
 
     } catch (e) {
@@ -96,10 +90,10 @@ function servicetask78(attempt, message) {
 
         var dataset = DatasetFactory.getDataset("G12-MOVIMENTOS-2102", null, [c2, c1], null);
 
-        if (dataset.rowsCount == 0) throw "[G12-INFO-NFSE] - Nenhum registro encontrado no movimento 2.1.02: " + idMov;
+        if (dataset.rowsCount == 0) throw "[G12-MOVIMENTO 2.1.02 FATURAMENTO] - Nenhum registro encontrado no movimento 2.1.02: " + idMov;
 
         if (dataset != null && dataset.rowsCount > 0) {
-            hAPI.setCardValue("numeroIdmov2201", dataset.getValue(0, "IDMOV_DESTINO"));
+            hAPI.setCardValue("numeroIdmov2201", dataset.getValue(0, "IDMOV"));
 
         }
 
@@ -122,7 +116,7 @@ function servicetask78(attempt, message) {
             hAPI.setCardValue("codigoVerificacao", dataset.getValue(0, "CODIGO_VERIFICACAO"));
             hAPI.setCardValue("dataEmissao", dataset.getValue(0, "DATA_EMISSAO"));
             hAPI.setCardValue("dataAutorizacao", dataset.getValue(0, "DATA_AUTORIZACAO"));
-            hAPI.setCardValue("numeroNFSE", dataset.getValue(0, "NUMERO_NFSE"));
+            hAPI.setCardValue("numeroNotas", dataset.getValue(0, "NUMERO_NFSE"));
 
         }
 

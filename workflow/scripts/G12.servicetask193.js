@@ -2,7 +2,7 @@ function servicetask193(attempt, message) {
 
 
     var codColigada = hAPI.getCardValue("CodColigada");
-    var idPrj = hAPI.getCardValue("idprj");
+    var idMov = hAPI.getCardValue("idmov2");
 
     try {
 

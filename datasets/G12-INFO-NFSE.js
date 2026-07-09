@@ -62,7 +62,7 @@ function createDataset(fields, constraints, sortFields) {
         var serviceHelper = servico.getBean();
         var authService = serviceHelper.getBasicAuthenticatedClient(ws, "com.totvs.IwsConsultaSQL", usuario, senha);
 
-        var PARAMS = "IDMOV=" + IDMOV + ";CODCOLIGADA=" + CODCOLIGADA;
+        var PARAMS = "CODCOLIGADA=" + CODCOLIGADA + ";IDMOV=" + IDMOV;
         log.info("[G12-INFO-NFSE] PARAMS enviados: " + PARAMS);
 
         var result = authService.realizarConsultaSQL("G12INFONFSE", 0, "F", PARAMS);
