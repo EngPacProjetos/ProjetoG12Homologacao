@@ -8,7 +8,7 @@ function checkAllInfo() {
     var cnoPB = $("#CNOPB").val();
     var cno = $("#cno").val();
     var centroDeCusto = $("#centro_de_custo").val();
-    var mensagens = "<h5>🟥 Campos não preenchidos:</h5>";
+    var mensagens = "";
 
     var centrosParaiba = [
         "02.01.01.01.001"
@@ -46,7 +46,15 @@ function checkAllInfo() {
         if (campo.val() === "") {
             var idCampo = campo.attr('id');
             var label = $("label[for='" + idCampo + "']");
-            var valorLabel = label.length ? label.text() : idCampo;
+            var valorLabel = label.length ? label.text() : "";
+
+            if (valorLabel == "" || valorLabel == null || valorLabel == "undefined") {
+                if (mensagens.indexOf("Campos não preenchidos") !== -1) {
+
+                } else {
+                    mensagens += "<h5>🟥 Campos não preenchidos:</h5>";
+                }
+            }
 
             console.log(valorLabel)
 
@@ -113,6 +121,9 @@ function checkAllInfo() {
                 mensagens += "<h5>❌  " + codigo + "</h5>";
             }
         });
+
+
+
 
         divCheck.html(mensagens);
     }, 1000);

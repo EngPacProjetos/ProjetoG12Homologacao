@@ -121,6 +121,8 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('cidadeTomador', safe(dataset.getValue(0, "CIDADE_TOMADOR")));
         hAPI.setCardValue('cepTomador', safe(dataset.getValue(0, "CEP_TOMADOR")));
 
+        hAPI.setCardValue("dataDeCompetencia", safe(dataset.getValue(0, "DATA_DE_COMPETENCIA")));
+
         // CAMPOS DO TOMADOR PARA NF
         var endTomador = joinNonEmpty([
             safe(dataset.getValue(0, "RUA_TOMADOR")),

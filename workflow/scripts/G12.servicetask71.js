@@ -31,7 +31,7 @@ function servicetask71(attempt, message) {
 
 
         if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum Exercicio fiscal retornado." + " CodColigada=" + codColigada);
+            log.warn("[G12-service-task71] Nenhum Exercicio fiscal retornado." + " CodColigada=" + codColigada);
             return;
         }
 
@@ -53,6 +53,10 @@ function servicetask71(attempt, message) {
     log.info("EXERCICIO FISCAL ENCONTRADO - > " + exercicioFiscal);
     log.info("IDMOV ENCONTRADO - > " + idMov);
     log.info("CODCOLIGADA ENTONTRADA PARA O XMl DE FATURAMENTO - > " + codColigada);
+
+
+
+
 
     try {
 
@@ -122,6 +126,8 @@ function servicetask71(attempt, message) {
     }
 
 
+
+
     // PARTE RESPONSAVEL POR ATUALIZAR OS DADOS DE TRIBUTACAO APOS SAI DA VALIDACAO DE CONTRATOS 
     try {
         var c2 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
@@ -131,7 +137,7 @@ function servicetask71(attempt, message) {
 
 
         if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum movimento retornado." + "IdMov=" + idMov + " CodColigada=" + codColigada);
+            log.warn("[G12-service-task71] Nenhum movimento retornado." + "IdMov=" + idMov + " CodColigada=" + codColigada);
             return;
         }
 
@@ -148,6 +154,37 @@ function servicetask71(attempt, message) {
 
     }
 
+
+
+    //CHECAGEM DA DATA DE COMPETENCIA PARA EXIBIR AO FINANCEIRO ANTES DE ENVIAR A NOTA, PODENDO SERVER DE CONSULTA PARA AJUSTE DA DATA OU NAO 
+    try {
+        var c2 = DatasetFactory.createConstraint("IDMOV", idmovMovimento02, idmovMovimento02, ConstraintType.MUST);
+        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
+
+        var dataset = DatasetFactory.getDataset("G12-CARREGAR-DADOS", null, [c2, c1], null);
+
+
+        if (dataset == null || dataset.rowsCount == 0) {
+            log.warn("[G12-service-task71] Nenhum dado de movimento retornado." + "IdMov=" + idmovMovimento02 + " CodColigada=" + codColigada);
+            return;
+        }
+
+        hAPI.setCardValue('dataDeCompetencia', safe(dataset.getValue(0, "DATA_DE_COMPETENCIA")));
+
+
+
+
+
+    } catch (error) {
+        log.error("### Erro ao carregar movimento 2.1.02 no dataset - > : " + error);
+        throw error;
+
+    }
+
+
+
+
+
     // BUSCA OS IMPOSTOS DO MOVIMENTO 2.1.02 APOS A ATUALIZACAO DO FATURAMENTO DO 2.1.01 E SEU FATUTRAMENTO, COM A GERACAO DO 2.1.02 
     //APENAS OS IMPOSTOS DO MOVIMENTO ,NAO VAO INCLUI OS MUNICIPAIS DO MUNICIPIO
 
@@ -160,7 +197,7 @@ function servicetask71(attempt, message) {
 
 
         if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmovMovimento02);
+            log.warn("[G12-service-task71] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmovMovimento02);
             return;
         }
 
@@ -181,6 +218,10 @@ function servicetask71(attempt, message) {
         log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
         throw e;
     }
+
+
+
+
 
 
     try {

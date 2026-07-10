@@ -157,7 +157,8 @@
 					<input type="hidden" name="atividade" id="atividade" readonly>
 					<input type="hidden" name="exibirCheck" id="exibirCheck" readonly>
 
-
+					<!-- CONTROLE FLUXO DE COMPETENCIA  -->
+					<input type="hidden" name="CompetenciaAlterada" id="CompetenciaAlterada" readonly>
 
 					<!-- Indicador de carregamento -->
 					<div id="loadingDados" style="display:none; margin-bottom: 16px;">
@@ -602,6 +603,23 @@
 									<p class="text-muted">Aguardando carregamento...</p>
 								</div>
 
+								<div id="dataDeCompetenciaDiv">
+									<div class="row">
+										<h4 style="margin-left: 18px">Data de competência fiscal</h4>
+										<div class="col-md-4">
+											<div class="form-group alteracao-competencia" style="display: flex; flex-direction: column;">
+												<div class="input-group">
+													<input class="form-control" type="text" id="dataDeCompetencia"
+														name="dataDeCompetencia" data-mask="00/00/0000"
+														onfocus="pickerDate(this)" readonly>
+													<div class="input-group-addon"><span
+															class="fluigicon fluigicon-calendar"></span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
 								<div id="botoesTributos">
 
 									<button type="button" class="btn btn-info btn-sm"
@@ -612,12 +630,11 @@
 										onclick="exibirTabelaCdastrarMunicipais()"> Cadastrar / Ajustar Tributo
 										Municipal</button>
 									</button>
+									<button type="button" class="btn btn-info btn-sm" onclick="ajusteCompetencia()">
+										Ajustar Competência</button>
+									</button>
 
 								</div>
-
-
-
-
 
 							</div>
 						</div>

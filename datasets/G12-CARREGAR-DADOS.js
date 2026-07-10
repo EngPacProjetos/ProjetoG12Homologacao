@@ -79,17 +79,18 @@ function createDataset(fields, constraints, sortFields) {
         // "TRIBUTOS_MUNICIPAIS",
         // Histórico
         "INFORMACOES_COMPLEMENTARES_NOTA",
-        "ART", 
-        "CNO", 
-        "IDPRD", 
+        "ART",
+        "CNO",
+        "IDPRD",
         "NOME_FANTASIA", // DO PRESTADOR DE SERVICO 
         "VALOR_ITEM", // VALRO TOTAL DA PRESTACAO DE SERVICO MOSTRADA DENTRO DO MOVIMENTO NO RN
-        "COLIGADA_CLIENTE", 
-        "ID_CONTRATO", 
-        "REVISAO_PROJETO", 
-        "CODIGO_MUNICIPIO", 
+        "COLIGADA_CLIENTE",
+        "ID_CONTRATO",
+        "REVISAO_PROJETO",
+        "CODIGO_MUNICIPIO",
         "VALOR_BRUTO_ORIGINAL",
-        "VALOR_LIQUIDO_ORIGINAL"
+        "VALOR_LIQUIDO_ORIGINAL",
+        "DATA_DE_COMPETENCIA"
     ];
 
     try {
@@ -110,7 +111,7 @@ function createDataset(fields, constraints, sortFields) {
             for (var i = 0; i < constraints.length; i++) {
                 if (constraints[i].fieldName == "CODCOLIGADA") CODCOLIGADA = constraints[i].initialValue;
                 if (constraints[i].fieldName == "IDMOV") IDMOV = constraints[i].initialValue;
-                
+
             }
         }
 
@@ -215,7 +216,9 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("REVISAO_PROJETO") ? row.get("REVISAO_PROJETO") : "",
                 row.has("CODIGO_MUNICIPIO") ? row.get("CODIGO_MUNICIPIO") : "",
                 row.has("VALOR_BRUTO_ORIGINAL") ? row.get("VALOR_BRUTO_ORIGINAL") : "",
-                row.has("VALOR_LIQUIDO_ORIGINAL") ? row.get("VALOR_LIQUIDO_ORIGINAL") : ""
+                row.has("VALOR_LIQUIDO_ORIGINAL") ? row.get("VALOR_LIQUIDO_ORIGINAL") : "", 
+                row.has("DATA_DE_COMPETENCIA") ? row.get("DATA_DE_COMPETENCIA") : ""
+
 
             );
         }
