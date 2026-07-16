@@ -20,6 +20,8 @@
 	<script type="text/javascript" src="G12-Cno.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Toogle.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-CheckBot.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Anexos.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-ChecagemTransmissao.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -159,6 +161,11 @@
 
 					<!-- CONTROLE FLUXO DE COMPETENCIA  -->
 					<input type="hidden" name="CompetenciaAlterada" id="CompetenciaAlterada" readonly>
+
+					<!-- INPUTS CHECAGEM DE TRANSMISSAO  -->
+					<input type="hidden" name="infoTransmissaoCorreta" id="infoTransmissaoCorreta" readonly>
+					<input type="hidden" name="infoSetorAjuste" id="infoSetorAjuste" readonly>
+
 
 					<!-- Indicador de carregamento -->
 					<div id="loadingDados" style="display:none; margin-bottom: 16px;">
@@ -487,7 +494,7 @@
 										<div class="vol-md-12">
 											<label for="historicoMovimento">Histórico do movimento</label>
 											<textarea name="historicoMovimento" id="historicoMovimento"
-												class="form-control" rows="5" readonly>
+												class="form-control" rows="5">
 
 									</textarea>
 										</div>
@@ -607,7 +614,8 @@
 									<div class="row">
 										<h4 style="margin-left: 18px">Data de competência fiscal</h4>
 										<div class="col-md-4">
-											<div class="form-group alteracao-competencia" style="display: flex; flex-direction: column;">
+											<div class="form-group alteracao-competencia"
+												style="display: flex; flex-direction: column;">
 												<div class="input-group">
 													<input class="form-control" type="text" id="dataDeCompetencia"
 														name="dataDeCompetencia" data-mask="00/00/0000"
@@ -1560,11 +1568,50 @@
 												id="dataAutorizacao" readonly>
 										</div>
 									</div>
-									<div class="col-md-2">
+									<div class="col-md-3">
 										<div class="form-group">
 											<label for="numeroIdmov2201">Idmov 2.2.01</label>
 											<input type="text" class="form-control" name="numeroIdmov2201"
 												id="numeroIdmov2201" readonly>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8 col-md-offset-2">
+										<div class="form-group">
+
+											<label>NFSE</label>
+
+											<div class="input-group componentAnexo">
+
+												<input type="hidden" name="notaFiscal" class="descAnexo"
+													value="notaFiscal" />
+
+												<input type="text" id="fnnotaFiscal" name="fnnotaFiscal"
+													class="form-control inputAnexo"
+													placeholder="Selecione a nota fiscal" readonly />
+
+												<span class="input-group-btn">
+													<button type="button" class="btnUpFile btn btn-success"
+														data-acao="upload" onclick="anexo(event)">
+														<i class="flaticon flaticon-paperclip"></i>
+														Anexar
+													</button>
+
+													<button type="button" class="btnViewerFile btn btn-info"
+														data-acao="viewer" style="display:none;">
+														Visualizar
+													</button>
+
+													<button type="button" class="btnDownloadFile btn btn-info"
+														data-acao="download" style="display:none;">
+														Download
+													</button>
+
+												</span>
+
+											</div>
+
 										</div>
 									</div>
 								</div>
@@ -1575,6 +1622,54 @@
 											Manualmente</button>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="checagemDeTransmissao">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<lord-icon src="https://cdn.lordicon.com/ietuubpb.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Checagem de transmissão</h2>
+							</div>
+							<div class="panel-body" style="display: flex; gap: 30px;">
+
+								<div class="form-group checagemInfoCSS">
+									<span>As informações da transmissão estão corretas?</span>
+
+									<div class="centralizarBotoes">
+										<div id="infoNfseCorretas" onclick="selecionarBotaoTransmissao(this)"
+											class="botaoTransmissao"><span>Sim</span></div>
+
+										<div id="infoNfseErradas" onclick="selecionarBotaoTransmissao(this)"
+											class="botaoTransmissao"><span>Não</span></div>
+									</div>
+
+								</div>
+								<div class="form-group checagemInfoCSS">
+									<span>Informe o setor que fará os ajustes</span>
+
+									<div class="centralizarBotoes">
+										<div id="financeiroReponsavel" onclick="selecionarBotaoTransmissaoSetor(this)"
+											class="botaoTransmissao"><span>Financeiro</span>
+										</div>
+
+										<div id="tecnicoReponsavel" onclick="selecionarBotaoTransmissaoSetor(this)"
+											class="botaoTransmissao"><span>Técnico</span>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="form-group">
+									<span for="ajusteTransmissao">Descrição dos Ajustes</span>
+									<textarea class="form-control" name="ajusteTransmissao" id="ajusteTransmissao"
+										rows="8" cols="90"></textarea>
+								</div>
+
+
 							</div>
 						</div>
 					</div>

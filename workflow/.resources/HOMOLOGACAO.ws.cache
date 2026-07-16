@@ -11,362 +11,407 @@
   </void>
   <void method="put">
    <string>camposFormulario, documentoId = 68555</string>
-   <array class="java.lang.String" length="119">
+   <array class="java.lang.String" length="134">
     <void index="0">
      <string>ajusteContratos</string>
     </void>
     <void index="1">
-     <string>ajusteInssZoom</string>
+     <string>ajusteContratosValidacao</string>
     </void>
     <void index="2">
-     <string>ajusteIrrfZoom</string>
+     <string>ajusteInssZoom</string>
     </void>
     <void index="3">
-     <string>ajusteSetorTecnico</string>
+     <string>ajusteIrrfZoom</string>
     </void>
     <void index="4">
-     <string>aliquota</string>
+     <string>ajusteSetorTecnico</string>
     </void>
     <void index="5">
-     <string>aliquotaInssCadastro</string>
+     <string>ajusteTransmissao</string>
     </void>
     <void index="6">
-     <string>aliquotaIrrfCadastro</string>
+     <string>aliquota</string>
     </void>
     <void index="7">
-     <string>aliquotaMunicipal</string>
+     <string>aliquotaInssCadastro</string>
     </void>
     <void index="8">
-     <string>aplicavelA</string>
+     <string>aliquotaIrrfCadastro</string>
     </void>
     <void index="9">
-     <string>art</string>
+     <string>aliquotaMunicipal</string>
     </void>
     <void index="10">
-     <string>bairroPrestador</string>
+     <string>aplicavelA</string>
     </void>
     <void index="11">
-     <string>bairroTomador</string>
+     <string>art</string>
     </void>
     <void index="12">
-     <string>bairro_projeto</string>
+     <string>atividade</string>
     </void>
     <void index="13">
-     <string>baseCalculo</string>
+     <string>bairroPrestador</string>
     </void>
     <void index="14">
-     <string>baseReucaoMunicipal</string>
+     <string>bairroTomador</string>
     </void>
     <void index="15">
-     <string>centro_de_custo</string>
+     <string>bairro_projeto</string>
     </void>
     <void index="16">
-     <string>cepPrestador</string>
+     <string>baseCalculo</string>
     </void>
     <void index="17">
-     <string>cepTomador</string>
+     <string>baseReucaoMunicipal</string>
     </void>
     <void index="18">
-     <string>cidadePrestador</string>
+     <string>centro_de_custo</string>
     </void>
     <void index="19">
-     <string>cidadeTomador</string>
+     <string>cepPrestador</string>
     </void>
     <void index="20">
-     <string>cidade_projeto</string>
+     <string>cepTomador</string>
     </void>
     <void index="21">
-     <string>cno</string>
+     <string>cidadePrestador</string>
     </void>
     <void index="22">
-     <string>cnpj</string>
+     <string>cidadeTomador</string>
     </void>
     <void index="23">
-     <string>cnpjCliente</string>
+     <string>cidade_projeto</string>
     </void>
     <void index="24">
-     <string>CodColigada</string>
+     <string>cno</string>
     </void>
     <void index="25">
-     <string>codigoInssCadastro</string>
+     <string>CNOPB</string>
     </void>
     <void index="26">
-     <string>codigoIrrfCadastro</string>
+     <string>cnpj</string>
     </void>
     <void index="27">
-     <string>codigoMunicipio</string>
+     <string>cnpjCliente</string>
     </void>
     <void index="28">
-     <string>codigoVerificacao</string>
+     <string>CodColigada</string>
     </void>
     <void index="29">
-     <string>codigo_cliente</string>
+     <string>codigoInssCadastro</string>
     </void>
     <void index="30">
-     <string>codigo_do_projeto</string>
+     <string>codigoIrrfCadastro</string>
     </void>
     <void index="31">
-     <string>codigo_produto</string>
+     <string>codigoMunicipio</string>
     </void>
     <void index="32">
-     <string>codMuniIbs</string>
+     <string>codigoVerificacao</string>
     </void>
     <void index="33">
-     <string>codOficialIrrfCadastro</string>
+     <string>codigo_cliente</string>
     </void>
     <void index="34">
-     <string>codUfIbs</string>
+     <string>codigo_do_projeto</string>
     </void>
     <void index="35">
-     <string>coligada</string>
+     <string>codigo_produto</string>
     </void>
     <void index="36">
-     <string>coligadaCliente</string>
+     <string>codMuniIbs</string>
     </void>
     <void index="37">
-     <string>complemento_projeto</string>
+     <string>codOficialIrrfCadastro</string>
     </void>
     <void index="38">
-     <string>condicao_pagamento</string>
+     <string>codUfIbs</string>
     </void>
     <void index="39">
-     <string>dataAutorizacao</string>
+     <string>coligada</string>
     </void>
     <void index="40">
-     <string>dataEmissao</string>
+     <string>coligadaCliente</string>
     </void>
     <void index="41">
-     <string>data_contrato</string>
+     <string>CompetenciaAlterada</string>
     </void>
     <void index="42">
-     <string>data_inicio_contrato</string>
+     <string>complemento_projeto</string>
     </void>
     <void index="43">
-     <string>data_termino</string>
+     <string>condicao_pagamento</string>
     </void>
     <void index="44">
-     <string>descricaoInssCadastro</string>
+     <string>dataAutorizacao</string>
     </void>
     <void index="45">
-     <string>descricaoIrrfCadastro</string>
+     <string>dataDeCompetencia</string>
     </void>
     <void index="46">
-     <string>descricao_projeto</string>
+     <string>dataEmissao</string>
     </void>
     <void index="47">
-     <string>emailPrestador</string>
+     <string>data_contrato</string>
     </void>
     <void index="48">
-     <string>emailTomador</string>
+     <string>data_inicio_contrato</string>
     </void>
     <void index="49">
-     <string>enderecoPrestador</string>
+     <string>data_termino</string>
     </void>
     <void index="50">
-     <string>enderecoTomador</string>
+     <string>descricaoInssCadastro</string>
     </void>
     <void index="51">
-     <string>estadoPrestador</string>
+     <string>descricaoIrrfCadastro</string>
     </void>
     <void index="52">
-     <string>estado_projeto</string>
+     <string>descricao_projeto</string>
     </void>
     <void index="53">
-     <string>exercicioFiscal</string>
+     <string>emailPrestador</string>
     </void>
     <void index="54">
-     <string>filial</string>
+     <string>emailTomador</string>
     </void>
     <void index="55">
-     <string>gedInfo</string>
+     <string>enderecoPrestador</string>
     </void>
     <void index="56">
-     <string>historicoMovimento</string>
+     <string>enderecoTomador</string>
     </void>
     <void index="57">
-     <string>idContrato</string>
+     <string>errorAoAutorizarNotas</string>
     </void>
     <void index="58">
-     <string>IdMov</string>
+     <string>errorAoEnviarNotas</string>
     </void>
     <void index="59">
-     <string>idmov2</string>
+     <string>estadoPrestador</string>
     </void>
     <void index="60">
-     <string>IDMOV_numero</string>
+     <string>estado_projeto</string>
     </void>
     <void index="61">
-     <string>IDPRD</string>
+     <string>exercicioFiscal</string>
     </void>
     <void index="62">
-     <string>idprj</string>
+     <string>exibirCheck</string>
     </void>
     <void index="63">
-     <string>impostos_selecao</string>
+     <string>filial</string>
     </void>
     <void index="64">
-     <string>impostos_selecao_municipal</string>
+     <string>fnnotaFiscal</string>
     </void>
     <void index="65">
-     <string>incricaoPrestador</string>
+     <string>gedInfo</string>
     </void>
     <void index="66">
-     <string>incricaoTomador</string>
+     <string>historicoMovimento</string>
     </void>
     <void index="67">
-     <string>indexInssCadastro</string>
+     <string>idContrato</string>
     </void>
     <void index="68">
-     <string>indexIrrCadastro</string>
+     <string>IdMov</string>
     </void>
     <void index="69">
-     <string>informacoesComplementaresNota</string>
+     <string>idmov2</string>
     </void>
     <void index="70">
-     <string>inscricaoMunicipalPrestador</string>
+     <string>IDMOV_numero</string>
     </void>
     <void index="71">
-     <string>inssAliquota</string>
+     <string>IDPRD</string>
     </void>
     <void index="72">
-     <string>inssCodigoAjuste</string>
+     <string>idprj</string>
     </void>
     <void index="73">
-     <string>inssDescricao</string>
+     <string>impostos_selecao</string>
     </void>
     <void index="74">
-     <string>inssDescricaoAjuste</string>
+     <string>impostos_selecao_municipal</string>
     </void>
     <void index="75">
-     <string>inssDoItem</string>
+     <string>incricaoPrestador</string>
     </void>
     <void index="76">
-     <string>irrfAliquota</string>
+     <string>incricaoTomador</string>
     </void>
     <void index="77">
-     <string>irrfCodigoAjuste</string>
+     <string>indexInssCadastro</string>
     </void>
     <void index="78">
-     <string>irrfDescricao</string>
+     <string>indexIrrCadastro</string>
     </void>
     <void index="79">
-     <string>irrfDescricaoAjuste</string>
+     <string>informacoesComplementaresNota</string>
     </void>
     <void index="80">
-     <string>irrfDoItem</string>
+     <string>infoSetorAjuste</string>
     </void>
     <void index="81">
-     <string>irrfTipoDePessoa</string>
+     <string>infoTransmissaoCorreta</string>
     </void>
     <void index="82">
-     <string>municipioPrestador</string>
+     <string>inscricaoMunicipalPrestador</string>
     </void>
     <void index="83">
-     <string>municipioTomador</string>
+     <string>inssAliquota</string>
     </void>
     <void index="84">
-     <string>naturezaOrcamentaria</string>
+     <string>inssCodigoAjuste</string>
     </void>
     <void index="85">
-     <string>nomeEmpresarial</string>
+     <string>inssDescricao</string>
     </void>
     <void index="86">
-     <string>nomeEmpresarialPrestador</string>
+     <string>inssDescricaoAjuste</string>
     </void>
     <void index="87">
-     <string>nomePrestador</string>
+     <string>inssDoItem</string>
     </void>
     <void index="88">
-     <string>nome_cliente</string>
+     <string>irrfAliquota</string>
     </void>
     <void index="89">
-     <string>nome_filial</string>
+     <string>irrfCodigoAjuste</string>
     </void>
     <void index="90">
-     <string>nome_produto</string>
+     <string>irrfDescricao</string>
     </void>
     <void index="91">
-     <string>numeroIdmov2201</string>
+     <string>irrfDescricaoAjuste</string>
     </void>
     <void index="92">
-     <string>NumeroMov</string>
+     <string>irrfDoItem</string>
     </void>
     <void index="93">
-     <string>numeroNotas</string>
+     <string>irrfTipoDePessoa</string>
     </void>
     <void index="94">
-     <string>numeroPrestador</string>
+     <string>municipioPrestador</string>
     </void>
     <void index="95">
-     <string>numeroTomador</string>
+     <string>municipioTomador</string>
     </void>
     <void index="96">
-     <string>numero_contrato</string>
+     <string>naturezaOrcamentaria</string>
     </void>
     <void index="97">
-     <string>numero_endereco_projeto</string>
+     <string>nomeEmpresarial</string>
     </void>
     <void index="98">
-     <string>numero_licitacao</string>
+     <string>nomeEmpresarialPrestador</string>
     </void>
     <void index="99">
-     <string>periodicidade_medicao</string>
+     <string>nomePrestador</string>
     </void>
     <void index="100">
-     <string>periodoMedicao</string>
+     <string>nome_cliente</string>
     </void>
     <void index="101">
-     <string>quantidadeItem</string>
+     <string>nome_filial</string>
     </void>
     <void index="102">
-     <string>quantidade_produto</string>
+     <string>nome_produto</string>
     </void>
     <void index="103">
-     <string>reducaoInssCadastro</string>
+     <string>notaFiscal</string>
     </void>
     <void index="104">
-     <string>revisaoProjeto</string>
+     <string>numeroIdmov2201</string>
     </void>
     <void index="105">
-     <string>ruaPrestador</string>
+     <string>NumeroMov</string>
     </void>
     <void index="106">
-     <string>ruaTomador</string>
+     <string>numeroNotas</string>
     </void>
     <void index="107">
-     <string>rua_projeto</string>
+     <string>numeroPrestador</string>
     </void>
     <void index="108">
-     <string>telefonePrestador</string>
+     <string>numeroTomador</string>
     </void>
     <void index="109">
-     <string>telefoneTomador</string>
+     <string>numero_contrato</string>
     </void>
     <void index="110">
-     <string>tipo_contrato</string>
+     <string>numero_endereco_projeto</string>
     </void>
     <void index="111">
-     <string>tributosMunicipais</string>
+     <string>numero_licitacao</string>
     </void>
     <void index="112">
-     <string>tributosNacionais</string>
+     <string>periodicidade_medicao</string>
     </void>
     <void index="113">
-     <string>unidadeItem</string>
+     <string>periodoMedicao</string>
     </void>
     <void index="114">
-     <string>unidade_produto</string>
+     <string>quantidadeItem</string>
     </void>
     <void index="115">
-     <string>valorBrutoOriginal</string>
+     <string>quantidade_produto</string>
     </void>
     <void index="116">
-     <string>valorImposto</string>
+     <string>reducaoInssCadastro</string>
     </void>
     <void index="117">
-     <string>valorLiquidoOriginal</string>
+     <string>revisaoProjeto</string>
     </void>
     <void index="118">
+     <string>ruaPrestador</string>
+    </void>
+    <void index="119">
+     <string>ruaTomador</string>
+    </void>
+    <void index="120">
+     <string>rua_projeto</string>
+    </void>
+    <void index="121">
+     <string>statusAutorizacao</string>
+    </void>
+    <void index="122">
+     <string>statusEnvio</string>
+    </void>
+    <void index="123">
+     <string>telefonePrestador</string>
+    </void>
+    <void index="124">
+     <string>telefoneTomador</string>
+    </void>
+    <void index="125">
+     <string>tipo_contrato</string>
+    </void>
+    <void index="126">
+     <string>tributosMunicipais</string>
+    </void>
+    <void index="127">
+     <string>tributosNacionais</string>
+    </void>
+    <void index="128">
+     <string>unidadeItem</string>
+    </void>
+    <void index="129">
+     <string>unidade_produto</string>
+    </void>
+    <void index="130">
+     <string>valorBrutoOriginal</string>
+    </void>
+    <void index="131">
+     <string>valorImposto</string>
+    </void>
+    <void index="132">
+     <string>valorLiquidoOriginal</string>
+    </void>
+    <void index="133">
      <string>valor_item</string>
     </void>
    </array>
@@ -381,7 +426,7 @@
   </void>
   <void method="put">
    <string>mecanismo</string>
-   <array class="[Ljava.lang.Object;" length="49">
+   <array class="[Ljava.lang.Object;" length="50">
     <void index="0">
      <array class="java.lang.Object" length="2">
       <void index="0">
@@ -565,6 +610,16 @@
     <void index="18">
      <array class="java.lang.Object" length="2">
       <void index="0">
+       <string>G3-VALIDACAO-OC</string>
+      </void>
+      <void index="1">
+       <string>G3-VALIDACAO-OC</string>
+      </void>
+     </array>
+    </void>
+    <void index="19">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
        <string>G4-RETIRADALOGISTICA</string>
       </void>
       <void index="1">
@@ -572,7 +627,7 @@
       </void>
      </array>
     </void>
-    <void index="19">
+    <void index="20">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G5_SolicitacaoEmAnalise</string>
@@ -582,7 +637,7 @@
       </void>
      </array>
     </void>
-    <void index="20">
+    <void index="21">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G6 - Almoxarifado - Homologação</string>
@@ -592,7 +647,7 @@
       </void>
      </array>
     </void>
-    <void index="21">
+    <void index="22">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G6 - LogisticaMont.DeRota</string>
@@ -602,29 +657,29 @@
       </void>
      </array>
     </void>
-    <void index="22">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G6-Estoque</string>
-      </void>
-      <void index="1">
-       <string>G6-Estoque</string>
-      </void>
-     </array>
-    </void>
     <void index="23">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>G6-LogisticaEmRota</string>
+       <string>G6-Estoque</string>
       </void>
       <void index="1">
-       <string>G6-LogisticaEmRota</string>
+       <string>G6-Estoque</string>
       </void>
      </array>
     </void>
     <void index="24">
      <array class="java.lang.Object" length="2">
       <void index="0">
+       <string>G6-LogisticaEmRota</string>
+      </void>
+      <void index="1">
+       <string>G6-LogisticaEmRota</string>
+      </void>
+     </array>
+    </void>
+    <void index="25">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
        <string>G6-LogisticaEnt.Parcial</string>
       </void>
       <void index="1">
@@ -632,7 +687,7 @@
       </void>
      </array>
     </void>
-    <void index="25">
+    <void index="26">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string></string>
@@ -642,27 +697,27 @@
       </void>
      </array>
     </void>
-    <void index="26">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G6-LogisticaMat.Pend.</string>
-      </void>
-      <void index="1">
-       <string>G6-LogisticaMat.Pend.</string>
-      </void>
-     </array>
-    </void>
     <void index="27">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>G6-ProdutosSeparados</string>
+       <string>G6-LogisticaMat.Pend.</string>
       </void>
       <void index="1">
-       <string>G6-ProdutosSeparados</string>
+       <string>G6-LogisticaMat.Pend.</string>
       </void>
      </array>
     </void>
     <void index="28">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>G6-ProdutosSeparados</string>
+      </void>
+      <void index="1">
+       <string>G6-ProdutosSeparados</string>
+      </void>
+     </array>
+    </void>
+    <void index="29">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G8-MecanismoContabilidadeNF</string>
@@ -672,29 +727,29 @@
       </void>
      </array>
     </void>
-    <void index="29">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>G8-MecanismoFinanceiroNF</string>
-      </void>
-      <void index="1">
-       <string>G8-MecanismoFinanceiroNF</string>
-      </void>
-     </array>
-    </void>
     <void index="30">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>G8-MecanismoNFemissao</string>
+       <string>G8-MecanismoFinanceiroNF</string>
       </void>
       <void index="1">
-       <string>G8-MecanismoNFemissao</string>
+       <string>G8-MecanismoFinanceiroNF</string>
       </void>
      </array>
     </void>
     <void index="31">
      <array class="java.lang.Object" length="2">
       <void index="0">
+       <string>G8-MecanismoNFemissao</string>
+      </void>
+      <void index="1">
+       <string>G8-MecanismoNFemissao</string>
+      </void>
+     </array>
+    </void>
+    <void index="32">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
        <string>G8-MecanismoNFemitida</string>
       </void>
       <void index="1">
@@ -702,7 +757,7 @@
       </void>
      </array>
     </void>
-    <void index="32">
+    <void index="33">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G8-NovasSolicitacoesFIN</string>
@@ -712,7 +767,7 @@
       </void>
      </array>
     </void>
-    <void index="33">
+    <void index="34">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Grupo</string>
@@ -722,7 +777,7 @@
       </void>
      </array>
     </void>
-    <void index="34">
+    <void index="35">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Grupos do Colaborador</string>
@@ -732,7 +787,7 @@
       </void>
      </array>
     </void>
-    <void index="35">
+    <void index="36">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G4 - Grupo Compras</string>
@@ -742,7 +797,7 @@
       </void>
      </array>
     </void>
-    <void index="36">
+    <void index="37">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G4 - Grupo Estoque</string>
@@ -752,7 +807,7 @@
       </void>
      </array>
     </void>
-    <void index="37">
+    <void index="38">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>G4 - Grupo Financeiro</string>
@@ -762,7 +817,7 @@
       </void>
      </array>
     </void>
-    <void index="38">
+    <void index="39">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>MecanismoContratosNF</string>
@@ -772,7 +827,7 @@
       </void>
      </array>
     </void>
-    <void index="39">
+    <void index="40">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>MecanismoEngNF - G8</string>
@@ -782,29 +837,29 @@
       </void>
      </array>
     </void>
-    <void index="40">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>mecanismoPersonalizado</string>
-      </void>
-      <void index="1">
-       <string>mecanismoPersonalizado</string>
-      </void>
-     </array>
-    </void>
     <void index="41">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>MecRetiradaFornecedorG10</string>
+       <string>mecanismoPersonalizado</string>
       </void>
       <void index="1">
-       <string>MecRetiradaFornecedorG10</string>
+       <string>mecanismoPersonalizado</string>
       </void>
      </array>
     </void>
     <void index="42">
      <array class="java.lang.Object" length="2">
       <void index="0">
+       <string>MecRetiradaFornecedorG10</string>
+      </void>
+      <void index="1">
+       <string>MecRetiradaFornecedorG10</string>
+      </void>
+     </array>
+    </void>
+    <void index="43">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
        <string>mec_notificacao</string>
       </void>
       <void index="1">
@@ -812,7 +867,7 @@
       </void>
      </array>
     </void>
-    <void index="43">
+    <void index="44">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Papel</string>
@@ -822,7 +877,7 @@
       </void>
      </array>
     </void>
-    <void index="44">
+    <void index="45">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição para um Grupo</string>
@@ -832,7 +887,7 @@
       </void>
      </array>
     </void>
-    <void index="45">
+    <void index="46">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição para um Papel</string>
@@ -842,27 +897,27 @@
       </void>
      </array>
     </void>
-    <void index="46">
-     <array class="java.lang.Object" length="2">
-      <void index="0">
-       <string>Recotação_G3</string>
-      </void>
-      <void index="1">
-       <string>Recotação_G3</string>
-      </void>
-     </array>
-    </void>
     <void index="47">
      <array class="java.lang.Object" length="2">
       <void index="0">
-       <string>SetorTecnico_G4</string>
+       <string>Recotação_G3</string>
       </void>
       <void index="1">
-       <string>SetorTecnico_G4</string>
+       <string>Recotação_G3</string>
       </void>
      </array>
     </void>
     <void index="48">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>SetorTecnico_G4</string>
+      </void>
+      <void index="1">
+       <string>SetorTecnico_G4</string>
+      </void>
+     </array>
+    </void>
+    <void index="49">
      <array class="java.lang.Object" length="2">
       <void index="0">
        <string>Atribuição por Usuário</string>
