@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G12</processId>
-      <version>289</version>
+      <version>292</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>68555</formId>
@@ -4043,8 +4043,8 @@
         <version>1</version>
         <sequence>248</sequence>
       </processStatePK>
-      <stateName>SAIDA PARA AJUSTAR SOLICITACAO</stateName>
-      <stateDescription>SAIDA PARA AJUSTAR SOLICITACAO</stateDescription>
+      <stateName>SAIDA PARA AJUSTAR SOLICITACAO EQUIPE TECNICA</stateName>
+      <stateDescription>SAIDA PARA AJUSTAR SOLICITACAO EQUIPE TECNICA</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -4065,7 +4065,7 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1030</positionX>
+      <positionX>980</positionX>
       <positionY>540</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -4090,8 +4090,8 @@
         <version>1</version>
         <sequence>251</sequence>
       </processStatePK>
-      <stateName>CHEGADA AJUSTE DE SOLICITACAO CONTRATOS</stateName>
-      <stateDescription>CHEGADA AJUSTE DE SOLICITACAO CONTRATOS</stateDescription>
+      <stateName>CHEGADA AJUSTE DE SOLICITACAO FINANCEIRO</stateName>
+      <stateDescription>CHEGADA AJUSTE DE SOLICITACAO FINANCEIRO</stateDescription>
       <instruction>Evento intermediário do processo</instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -4123,6 +4123,53 @@
       <periodId></periodId>
       <stateType>0</stateType>
       <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <sequence>258</sequence>
+      </processStatePK>
+      <stateName>CHEGADA EM AJUSTE DE SOLICITACAO FINANCEIRO</stateName>
+      <stateDescription>CHEGADA EM AJUSTE DE SOLICITACAO FINANCEIRO</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1090</positionX>
+      <positionY>540</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
       <signalId>0</signalId>
       <counterSign>false</counterSign>
       <openInstances>0</openInstances>
@@ -4375,7 +4422,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>1</expressionOrder>
-        <version>289</version>
+        <version>292</version>
         <sequence>177</sequence>
       </conditionProcessStatePK>
       <condition>gerAtualizacaoCNOPB() == true</condition>
@@ -4387,7 +4434,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>2</expressionOrder>
-        <version>289</version>
+        <version>292</version>
         <sequence>177</sequence>
       </conditionProcessStatePK>
       <condition>gerAtualizacaoCNOPB() == false </condition>
@@ -4399,7 +4446,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>1</expressionOrder>
-        <version>289</version>
+        <version>292</version>
         <sequence>246</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -4411,7 +4458,19 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>2</expressionOrder>
-        <version>289</version>
+        <version>292</version>
+        <sequence>246</sequence>
+      </conditionProcessStatePK>
+      <condition></condition>
+      <destinationSequenceId>258</destinationSequenceId>
+      <conditionType>1</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>292</version>
         <sequence>246</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -5822,7 +5881,24 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>257</linkSequence>
+        <linkSequence>259</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>246</initialStateSequence>
+      <finalStateSequence>258</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>260</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5838,7 +5914,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>258</linkSequence>
+        <linkSequence>261</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5854,7 +5930,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>259</linkSequence>
+        <linkSequence>262</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5870,7 +5946,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>260</linkSequence>
+        <linkSequence>263</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5886,7 +5962,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>261</linkSequence>
+        <linkSequence>264</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5902,7 +5978,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>262</linkSequence>
+        <linkSequence>265</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5918,7 +5994,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>263</linkSequence>
+        <linkSequence>266</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5934,7 +6010,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>264</linkSequence>
+        <linkSequence>267</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5953,7 +6029,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>265</linkSequence>
+        <linkSequence>268</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5969,7 +6045,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>266</linkSequence>
+        <linkSequence>269</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -5985,7 +6061,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>267</linkSequence>
+        <linkSequence>270</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6001,7 +6077,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>268</linkSequence>
+        <linkSequence>271</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6017,7 +6093,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>269</linkSequence>
+        <linkSequence>272</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6033,7 +6109,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>270</linkSequence>
+        <linkSequence>273</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6049,7 +6125,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>271</linkSequence>
+        <linkSequence>274</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6065,7 +6141,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>272</linkSequence>
+        <linkSequence>275</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6081,7 +6157,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>273</linkSequence>
+        <linkSequence>276</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6097,7 +6173,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>274</linkSequence>
+        <linkSequence>277</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6113,7 +6189,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>275</linkSequence>
+        <linkSequence>278</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -6129,11 +6205,27 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <version>1</version>
-        <linkSequence>276</linkSequence>
+        <linkSequence>279</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>248</initialStateSequence>
+      <finalStateSequence>44</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>G12</processId>
+        <version>1</version>
+        <linkSequence>280</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>258</initialStateSequence>
       <finalStateSequence>251</finalStateSequence>
       <returnLabel></returnLabel>
       <automaticLink>false</automaticLink>
@@ -6669,35 +6761,48 @@ function getDatasetError(exception) {&#xd;
         log.info(&quot;### Servico OK, executando atualização de nota fiscal&quot;);
 
 
-        // XML PARA ATUALIZAR O CNO NO LUGAR CORRETO DO PROJETO NO RM
-        // var xmlParams =
-        //     &quot;&lt;PrjPrj&gt;&quot; +
-        //     &quot;&lt;MPrj&gt;&quot; +
-        //     &quot;&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot; +
-        //     &quot;&lt;IDPRJ&gt;&quot; + idPrj + &quot;&lt;/IDPRJ&gt;&quot; +
-        //     &quot;&lt;CNOPRJ&gt;&quot; + cnopb + &quot;&lt;/CNOPRJ&gt;&quot; +
-        //     &quot;&lt;/MPrj&gt;&quot; +
-        //     &quot;&lt;/PrjPrj&gt;&quot;;
+        if (codColigada == 2) {
+            // XML PARA ATUALIZAR O CNO NO LUGAR DO CNPJ - PARAMETRIZACAO ERRADA NO MOMENTO 
+            var xmlParams =
+                &quot;&lt;PrjPrj&gt;&quot; +
+                &quot;&lt;MPrj&gt;&quot; +
+                &quot;&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot; +
+                &quot;&lt;IDPRJ&gt;&quot; + idPrj + &quot;&lt;/IDPRJ&gt;&quot; +
+                &quot;&lt;CGC&gt;&quot; + cnopb + &quot;&lt;/CGC&gt;&quot; +
+                &quot;&lt;/MPrj&gt;&quot; +
+                &quot;&lt;/PrjPrj&gt;&quot;;
 
+            log.info(&quot;G12 XML ENVIADO PARA ATUALIZAR CNO PB- &gt; &quot; + xmlParams);
 
-        // XML PARA ATUALIZAR O CNO NO LUGAR DO CNPJ - PARAMETRIZACAO ERRADA NO MOMENTO 
-        var xmlParams =
-            &quot;&lt;PrjPrj&gt;&quot; +
-            &quot;&lt;MPrj&gt;&quot; +
-            &quot;&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot; +
-            &quot;&lt;IDPRJ&gt;&quot; + idPrj + &quot;&lt;/IDPRJ&gt;&quot; +
-            &quot;&lt;CGC&gt;&quot; + cnopb + &quot;&lt;/CGC&gt;&quot; +
-            &quot;&lt;/MPrj&gt;&quot; +
-            &quot;&lt;/PrjPrj&gt;&quot;;
+            var resp = authService.saveRecord(&quot;PrjPrjData&quot;, xmlParams, contexto);
 
-        log.info(&quot;G12 XML ENVIADO PARA ATUALIZAR CNO PB- &gt; &quot; + xmlParams);
+            log.info(&quot;G12 ATUALIZAR CNO PB - INFORMACAO RETORNADA DO RM &quot; + resp);
 
-        var resp = authService.saveRecord(&quot;PrjPrjData&quot;, xmlParams, contexto);
+            if (resp &amp;&amp; String(resp).indexOf(&quot;Exception&quot;) !== -1) { throw new Error(&quot;Erro retornado pelo RM: &quot; + resp); }
+            if (resp &amp;&amp; String(resp).indexOf(&quot;Error&quot;) !== -1) { throw new Error(&quot;Erro retornado pelo RM: &quot; + resp); }
 
-        log.info(&quot;G12 ATUALIZAR CNO PB - INFORMACAO RETORNADA DO RM &quot; + resp);
+        } else {
 
-        if (resp &amp;&amp; String(resp).indexOf(&quot;Exception&quot;) !== -1) { throw new Error(&quot;Erro retornado pelo RM: &quot; + resp); }
-        if (resp &amp;&amp; String(resp).indexOf(&quot;Error&quot;) !== -1) { throw new Error(&quot;Erro retornado pelo RM: &quot; + resp); }
+            //  XML PARA ATUALIZAR O CNO NO LUGAR CORRETO DO PROJETO NO RM
+            var xmlParams =
+                &quot;&lt;PrjPrj&gt;&quot; +
+                &quot;&lt;MPrj&gt;&quot; +
+                &quot;&lt;CODCOLIGADA&gt;&quot; + codColigada + &quot;&lt;/CODCOLIGADA&gt;&quot; +
+                &quot;&lt;IDPRJ&gt;&quot; + idPrj + &quot;&lt;/IDPRJ&gt;&quot; +
+                &quot;&lt;CNOPRJ&gt;&quot; + cnopb + &quot;&lt;/CNOPRJ&gt;&quot; +
+                &quot;&lt;/MPrj&gt;&quot; +
+                &quot;&lt;/PrjPrj&gt;&quot;;
+
+            log.info(&quot;G12 XML ENVIADO PARA ATUALIZAR CNO PB- &gt; &quot; + xmlParams);
+
+            var resp = authService.saveRecord(&quot;PrjPrjData&quot;, xmlParams, contexto);
+
+            log.info(&quot;G12 ATUALIZAR CNO PB - INFORMACAO RETORNADA DO RM &quot; + resp);
+
+            if (resp &amp;&amp; String(resp).indexOf(&quot;Exception&quot;) !== -1) { throw new Error(&quot;Erro retornado pelo RM: &quot; + resp); }
+            if (resp &amp;&amp; String(resp).indexOf(&quot;Error&quot;) !== -1) { throw new Error(&quot;Erro retornado pelo RM: &quot; + resp); }
+        }
+
 
     }
     catch (e) { log.error(&quot;### Erro: &quot; + e); throw e; }
@@ -8855,7 +8960,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>179</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -8866,7 +8971,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>179</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -8877,7 +8982,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>191</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -8888,7 +8993,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>191</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -8899,7 +9004,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>191</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -8910,7 +9015,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>213</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -8921,7 +9026,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>213</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -8932,7 +9037,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>232</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -8943,7 +9048,7 @@ function formatarParaRM(valor) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>289</version>
+        <version>292</version>
         <linkSequence>232</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -9127,7 +9232,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -9137,7 +9242,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -9147,7 +9252,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -9157,7 +9262,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -9167,7 +9272,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -9177,7 +9282,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -9187,7 +9292,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -9197,7 +9302,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -9207,7 +9312,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -9217,7 +9322,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -9227,7 +9332,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -9237,7 +9342,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -9247,7 +9352,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -9257,7 +9362,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -9267,7 +9372,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -9277,7 +9382,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -9287,7 +9392,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -9297,7 +9402,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -9307,7 +9412,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -9317,7 +9422,7 @@ function formatarParaRM(valor) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>289</processVersion>
+      <processVersion>292</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -9339,8 +9444,17 @@ function formatarParaRM(valor) {
       <sequence>246</sequence>
       <expressionOrder>2</expressionOrder>
       <ruleOrder>1</ruleOrder>
-      <field>infoTransmissaoCorreta</field>
-      <value>nao</value>
+      <field>infoSetorAjuste</field>
+      <value>financeiro</value>
+      <operator>1</operator>
+      <valueType>1</valueType>
+    </ConditionProcessAutomaticRules>
+    <ConditionProcessAutomaticRules>
+      <sequence>246</sequence>
+      <expressionOrder>3</expressionOrder>
+      <ruleOrder>1</ruleOrder>
+      <field>infoSetorAjuste</field>
+      <value>tecnico</value>
       <operator>1</operator>
       <valueType>1</valueType>
     </ConditionProcessAutomaticRules>

@@ -12,11 +12,11 @@ function enableFields(form) {
 
     }
     if (atividade != 61) {
-        // form.setEnabled("numeroNotas", false);
-        // form.setEnabled("codigoVerificacao", false);
-        // form.setEnabled("dataEmissao", false);
-        // form.setEnabled("dataAutorizacao", false);
-        // form.setEnabled("numeroIdmov2201", false);
+        form.setEnabled("numeroNotas", false);
+        form.setEnabled("codigoVerificacao", false);
+        form.setEnabled("dataEmissao", false);
+        form.setEnabled("dataAutorizacao", false);
+        form.setEnabled("numeroIdmov2201", false);
     }
 
     if (atividade != 23) {

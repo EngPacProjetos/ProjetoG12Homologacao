@@ -739,6 +739,7 @@
   left: 83%;
   z-index: 9999;
   background: linear-gradient(135deg, rgb(15, 52, 96) 0%, rgb(26, 95, 168) 60%, rgb(33, 118, 199) 100%);
+  background-size: 200% 200%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -747,7 +748,22 @@
   color: #ffffff;
   font-family: Arial, sans-serif;
   font-size: 14px;
+  animation: pulseColor 2s ease-in-out infinite;
 
+}
+
+@keyframes pulseColor {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #cabecalhoBot h3 {

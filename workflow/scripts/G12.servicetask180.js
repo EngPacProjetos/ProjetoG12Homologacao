@@ -31,35 +31,48 @@ function servicetask180(attempt, message) {
         log.info("### Servico OK, executando atualização de nota fiscal");
 
 
-        // XML PARA ATUALIZAR O CNO NO LUGAR CORRETO DO PROJETO NO RM
-        // var xmlParams =
-        //     "<PrjPrj>" +
-        //     "<MPrj>" +
-        //     "<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>" +
-        //     "<IDPRJ>" + idPrj + "</IDPRJ>" +
-        //     "<CNOPRJ>" + cnopb + "</CNOPRJ>" +
-        //     "</MPrj>" +
-        //     "</PrjPrj>";
+        if (codColigada == 2) {
+            // XML PARA ATUALIZAR O CNO NO LUGAR DO CNPJ - PARAMETRIZACAO ERRADA NO MOMENTO 
+            var xmlParams =
+                "<PrjPrj>" +
+                "<MPrj>" +
+                "<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>" +
+                "<IDPRJ>" + idPrj + "</IDPRJ>" +
+                "<CGC>" + cnopb + "</CGC>" +
+                "</MPrj>" +
+                "</PrjPrj>";
 
+            log.info("G12 XML ENVIADO PARA ATUALIZAR CNO PB- > " + xmlParams);
 
-        // XML PARA ATUALIZAR O CNO NO LUGAR DO CNPJ - PARAMETRIZACAO ERRADA NO MOMENTO 
-        var xmlParams =
-            "<PrjPrj>" +
-            "<MPrj>" +
-            "<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>" +
-            "<IDPRJ>" + idPrj + "</IDPRJ>" +
-            "<CGC>" + cnopb + "</CGC>" +
-            "</MPrj>" +
-            "</PrjPrj>";
+            var resp = authService.saveRecord("PrjPrjData", xmlParams, contexto);
 
-        log.info("G12 XML ENVIADO PARA ATUALIZAR CNO PB- > " + xmlParams);
+            log.info("G12 ATUALIZAR CNO PB - INFORMACAO RETORNADA DO RM " + resp);
 
-        var resp = authService.saveRecord("PrjPrjData", xmlParams, contexto);
+            if (resp && String(resp).indexOf("Exception") !== -1) { throw new Error("Erro retornado pelo RM: " + resp); }
+            if (resp && String(resp).indexOf("Error") !== -1) { throw new Error("Erro retornado pelo RM: " + resp); }
 
-        log.info("G12 ATUALIZAR CNO PB - INFORMACAO RETORNADA DO RM " + resp);
+        } else {
 
-        if (resp && String(resp).indexOf("Exception") !== -1) { throw new Error("Erro retornado pelo RM: " + resp); }
-        if (resp && String(resp).indexOf("Error") !== -1) { throw new Error("Erro retornado pelo RM: " + resp); }
+            //  XML PARA ATUALIZAR O CNO NO LUGAR CORRETO DO PROJETO NO RM
+            var xmlParams =
+                "<PrjPrj>" +
+                "<MPrj>" +
+                "<CODCOLIGADA>" + codColigada + "</CODCOLIGADA>" +
+                "<IDPRJ>" + idPrj + "</IDPRJ>" +
+                "<CNOPRJ>" + cnopb + "</CNOPRJ>" +
+                "</MPrj>" +
+                "</PrjPrj>";
+
+            log.info("G12 XML ENVIADO PARA ATUALIZAR CNO PB- > " + xmlParams);
+
+            var resp = authService.saveRecord("PrjPrjData", xmlParams, contexto);
+
+            log.info("G12 ATUALIZAR CNO PB - INFORMACAO RETORNADA DO RM " + resp);
+
+            if (resp && String(resp).indexOf("Exception") !== -1) { throw new Error("Erro retornado pelo RM: " + resp); }
+            if (resp && String(resp).indexOf("Error") !== -1) { throw new Error("Erro retornado pelo RM: " + resp); }
+        }
+
 
     }
     catch (e) { log.error("### Erro: " + e); throw e; }

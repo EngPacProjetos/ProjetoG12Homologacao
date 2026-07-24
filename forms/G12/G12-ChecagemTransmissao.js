@@ -1,5 +1,7 @@
 function selecionarBotaoTransmissao(botao) {
 
+    $("#infoSetorAjuste").val("");
+
     var id = botao.id;
 
     if (id == "infoNfseCorretas") {
@@ -58,6 +60,7 @@ function selecionarBotaoTransmissaoSetor(botao) {
         $(siblings).css("color", "black");
 
         var infoSetorAjuste = $("#infoSetorAjuste").val("financeiro");
+        console.log(infoSetorAjuste)
     }
     if (id == "tecnicoReponsavel") {
         $(botao).css("background", "#1eaad9");
@@ -69,6 +72,7 @@ function selecionarBotaoTransmissaoSetor(botao) {
         $(siblings).css("color", "black");
 
         var infoSetorAjuste = $("#infoSetorAjuste").val("tecnico");
+        console.log(infoSetorAjuste)
     }
 
 }
