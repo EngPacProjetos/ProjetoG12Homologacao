@@ -24,6 +24,7 @@ function createDataset(fields, constraints, sortFields) {
         "IDPRJ",
         "CNPJ_CLIENTE",
         "CENTRO_DE_CUSTO",
+        "NOME_CENTRO_DE_CUSTO",
         "CODIGO_DO_PROJETO",
         "DESCRICAO_PROJETO",
         "RUA_PROJETO",
@@ -157,6 +158,7 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("IDPRJ") ? row.get("IDPRJ") : "",
                 row.has("CNPJ_CLIENTE") ? row.get("CNPJ_CLIENTE") : "",
                 row.has("CENTRO_DE_CUSTO") ? row.get("CENTRO_DE_CUSTO") : "",
+                row.has("NOME_CENTRO_DE_CUSTO") ? row.get("NOME_CENTRO_DE_CUSTO") : "",
                 row.has("CODIGO_DO_PROJETO") ? row.get("CODIGO_DO_PROJETO") : "",
                 row.has("DESCRICAO_PROJETO") ? row.get("DESCRICAO_PROJETO") : "",
                 row.has("RUA_PROJETO") ? row.get("RUA_PROJETO") : "",
@@ -216,7 +218,7 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("REVISAO_PROJETO") ? row.get("REVISAO_PROJETO") : "",
                 row.has("CODIGO_MUNICIPIO") ? row.get("CODIGO_MUNICIPIO") : "",
                 row.has("VALOR_BRUTO_ORIGINAL") ? row.get("VALOR_BRUTO_ORIGINAL") : "",
-                row.has("VALOR_LIQUIDO_ORIGINAL") ? row.get("VALOR_LIQUIDO_ORIGINAL") : "", 
+                row.has("VALOR_LIQUIDO_ORIGINAL") ? row.get("VALOR_LIQUIDO_ORIGINAL") : "",
                 row.has("DATA_DE_COMPETENCIA") ? row.get("DATA_DE_COMPETENCIA") : ""
 
 

@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="G12-Toogle.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-CheckBot.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Anexos.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-Loading.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-ChecagemTransmissao.js" charset="utf-8"></script>
 
 
@@ -32,7 +33,7 @@
 		<form name="form" role="form">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2 class="panel-title">G12 — Dados do Contrato</h2>
+					<h2 class="panel-title">G12 - Transmissão de notas </h2>
 				</div>
 				<div class="panel-body">
 
@@ -233,7 +234,7 @@
 								</div>
 
 								<div class="row">
-									<div class="col-md-4">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="nome_filial">Nome da filial</label>
 											<input type="text" class="form-control" name="nome_filial" id="nome_filial"
@@ -242,9 +243,16 @@
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
-											<label for="centro_de_custo">Centro de Custo</label>
+											<label for="centro_de_custo">Código do Centro de Custo</label>
 											<input type="text" class="form-control" name="centro_de_custo"
 												id="centro_de_custo" readonly>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="nome_centro_de_custo">Nome do Centro de Custo</label>
+											<input type="text" class="form-control" name="nome_centro_de_custo"
+												id="nome_centro_de_custo" readonly>
 										</div>
 									</div>
 									<div class="col-md-2">
@@ -1688,8 +1696,6 @@
 			</div>
 		</form>
 	</div>
-
-
 
 </body>
 

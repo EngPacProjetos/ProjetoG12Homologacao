@@ -5,11 +5,16 @@ $(document).ready(function () {
     checkAllInfo(); // Check as informacoes do formulario para o bot exibir ao usuario 
     competenciaMudou(); // Marca de em algum momento a competência foi alterada ou nao 
     desabilitarParaAjuste(); //Desabilita campos quando entra na fase de ajuste de solicitacao 
+
 })
 
 $(document).on('change', 'input, select, textarea', function () {
     checkAllInfo();
 });
+
+
+
+
 
 
 
