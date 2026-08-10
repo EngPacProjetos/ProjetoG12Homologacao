@@ -1670,11 +1670,119 @@
 									</div>
 
 								</div>
+								<div>
+									<label for="motivoReemissao">Motivo da reemissão</label>
+									<select id="motivoReemissao" name="motivoReemissao">
+										<option value="">Selecione o motivo</option>
+										<option value="ALTERACAO_VALOR">Alteração de valor</option>
+										<option value="DESCRICAO_ERRADA">Descrição errada</option>
+										<option value="DESCRICAO_INCOMPLETA_PERIODO">Descrição da NF incompleta (faltou
+											período)</option>
+										<option value="DESCRICAO_NATUREZA_SERVICO">Descrição da NF incompleta (faltou
+											natureza dos serviços)</option>
+										<option value="DESCRICAO_NF_INCORRETA">Descrição da NF incorreta</option>
+										<option value="CIDADE_ERRADA">Cidade errada</option>
+										<option value="DATA_ERRADA">Data errada</option>
+										<option value="VALOR_ERRADO">Valor errado</option>
+										<option value="ALIQUOTA_ISS_ERRADO">Alíquota de ISS errada</option>
+										<option value="BASE_ISS_ERRADO">Base do ISS errada (sem dedução)</option>
+										<option value="DADOS_BANCARIOS_ERRADOS">Dados bancários errados</option>
+										<option value="EMPENHO_INVALIDO">Empenho inválido</option>
+										<option value="FALTA_NOTA_EMPENHO">Falta de nota de empenho</option>
+										<option value="INSS_BASE_ERRADA">INSS calculado com base errada (M.O./material
+											não informado)</option>
+										<option value="RVO_REEMITIDO">RVO precisou ser reemitido pela fiscalização
+										</option>
+										<option value="SOLICITACAO_FISCAL">Solicitação da fiscal (sem erros)</option>
+									</select>
+								</div>
 
 								<div class="form-group">
 									<span for="ajusteTransmissao">Descrição dos Ajustes</span>
 									<textarea class="form-control" name="ajusteTransmissao" id="ajusteTransmissao"
 										rows="8" cols="90"></textarea>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+					<div id="aguardandoRecebimento">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<lord-icon src="https://cdn.lordicon.com/ietuubpb.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">Aguardando Recebimento</h2>
+							</div>
+							<div class="panel-body" style="display: flex; gap: 30px;">
+
+								<div class="form-group checagemInfoCSS">
+									<span>As informações da transmissão estão corretas?</span>
+
+									<div class="centralizarBotoes">
+										<div id="infoNfseCorretasRecebimento"
+											onclick="selecionarBotaoTransmissaoRecebimento(this)"
+											class="botaoTransmissao"><span>Sim</span></div>
+
+										<div id="infoNfseErradasRecebimento"
+											onclick="selecionarBotaoTransmissaoRecebimento(this)"
+											class="botaoTransmissao"><span>Não</span></div>
+									</div>
+
+								</div>
+								<div class="form-group checagemInfoCSS">
+									<span>Informe o setor que fará os ajustes</span>
+
+									<div class="centralizarBotoes">
+										<div id="financeiroReponsavelRecebimento"
+											onclick="selecionarBotaoTransmissaoSetorRecebimento(this)"
+											class="botaoTransmissao">
+											<span>Financeiro</span>
+										</div>
+
+										<div id="tecnicoReponsavelRecebimento"
+											onclick="selecionarBotaoTransmissaoSetorRecebimento(this)"
+											class="botaoTransmissao">
+											<span>Técnico</span>
+										</div>
+									</div>
+
+								</div>
+								<div>
+									<label for="motivoReemissaoRecebimento">Motivo da reemissão</label>
+									<select id="motivoReemissaoRecebimento" name="motivoReemissaoRecebimento">
+										<option value="">Selecione o motivo</option>
+										<option value="ALTERACAO_VALOR">Alteração de valor</option>
+										<option value="DESCRICAO_ERRADA">Descrição errada</option>
+										<option value="DESCRICAO_INCOMPLETA_PERIODO">Descrição da NF incompleta (faltou
+											período)</option>
+										<option value="DESCRICAO_NATUREZA_SERVICO">Descrição da NF incompleta (faltou
+											natureza dos serviços)</option>
+										<option value="DESCRICAO_NF_INCORRETA">Descrição da NF incorreta</option>
+										<option value="CIDADE_ERRADA">Cidade errada</option>
+										<option value="DATA_ERRADA">Data errada</option>
+										<option value="VALOR_ERRADO">Valor errado</option>
+										<option value="ALIQUOTA_ISS_ERRADO">Alíquota de ISS errada</option>
+										<option value="BASE_ISS_ERRADO">Base do ISS errada (sem dedução)</option>
+										<option value="DADOS_BANCARIOS_ERRADOS">Dados bancários errados</option>
+										<option value="EMPENHO_INVALIDO">Empenho inválido</option>
+										<option value="FALTA_NOTA_EMPENHO">Falta de nota de empenho</option>
+										<option value="INSS_BASE_ERRADA">INSS calculado com base errada (M.O./material
+											não informado)</option>
+										<option value="RVO_REEMITIDO">RVO precisou ser reemitido pela fiscalização
+										</option>
+										<option value="SOLICITACAO_FISCAL">Solicitação da fiscal (sem erros)</option>
+									</select>
+								</div>
+
+
+								<div class="form-group">
+									<span for="ajusteTransmissaoRecebimento">Descrição dos Ajustes</span>
+									<textarea class="form-control" name="ajusteTransmissaoRecebimento"
+										id="ajusteTransmissaoRecebimento" rows="8" cols="90"></textarea>
 								</div>
 
 
