@@ -11,7 +11,7 @@
   </void>
   <void method="put">
    <string>camposFormulario, documentoId = 68555</string>
-   <array class="java.lang.String" length="134">
+   <array class="java.lang.String" length="140">
     <void index="0">
      <string>ajusteContratos</string>
     </void>
@@ -31,387 +31,405 @@
      <string>ajusteTransmissao</string>
     </void>
     <void index="6">
-     <string>aliquota</string>
+     <string>ajusteTransmissaoRecebimento</string>
     </void>
     <void index="7">
-     <string>aliquotaInssCadastro</string>
+     <string>aliquota</string>
     </void>
     <void index="8">
-     <string>aliquotaIrrfCadastro</string>
+     <string>aliquotaInssCadastro</string>
     </void>
     <void index="9">
-     <string>aliquotaMunicipal</string>
+     <string>aliquotaIrrfCadastro</string>
     </void>
     <void index="10">
-     <string>aplicavelA</string>
+     <string>aliquotaMunicipal</string>
     </void>
     <void index="11">
-     <string>art</string>
+     <string>aplicavelA</string>
     </void>
     <void index="12">
-     <string>atividade</string>
+     <string>art</string>
     </void>
     <void index="13">
-     <string>bairroPrestador</string>
+     <string>atividade</string>
     </void>
     <void index="14">
-     <string>bairroTomador</string>
+     <string>bairroPrestador</string>
     </void>
     <void index="15">
-     <string>bairro_projeto</string>
+     <string>bairroTomador</string>
     </void>
     <void index="16">
-     <string>baseCalculo</string>
+     <string>bairro_projeto</string>
     </void>
     <void index="17">
-     <string>baseReucaoMunicipal</string>
+     <string>baseCalculo</string>
     </void>
     <void index="18">
-     <string>centro_de_custo</string>
+     <string>baseReucaoMunicipal</string>
     </void>
     <void index="19">
-     <string>cepPrestador</string>
+     <string>centro_de_custo</string>
     </void>
     <void index="20">
-     <string>cepTomador</string>
+     <string>cepPrestador</string>
     </void>
     <void index="21">
-     <string>cidadePrestador</string>
+     <string>cepTomador</string>
     </void>
     <void index="22">
-     <string>cidadeTomador</string>
+     <string>cidadePrestador</string>
     </void>
     <void index="23">
-     <string>cidade_projeto</string>
+     <string>cidadeTomador</string>
     </void>
     <void index="24">
-     <string>cno</string>
+     <string>cidade_projeto</string>
     </void>
     <void index="25">
-     <string>CNOPB</string>
+     <string>cno</string>
     </void>
     <void index="26">
-     <string>cnpj</string>
+     <string>CNOPB</string>
     </void>
     <void index="27">
-     <string>cnpjCliente</string>
+     <string>cnpj</string>
     </void>
     <void index="28">
-     <string>CodColigada</string>
+     <string>cnpjCliente</string>
     </void>
     <void index="29">
-     <string>codigoInssCadastro</string>
+     <string>CodColigada</string>
     </void>
     <void index="30">
-     <string>codigoIrrfCadastro</string>
+     <string>codigoInssCadastro</string>
     </void>
     <void index="31">
-     <string>codigoMunicipio</string>
+     <string>codigoIrrfCadastro</string>
     </void>
     <void index="32">
-     <string>codigoVerificacao</string>
+     <string>codigoMunicipio</string>
     </void>
     <void index="33">
-     <string>codigo_cliente</string>
+     <string>codigoVerificacao</string>
     </void>
     <void index="34">
-     <string>codigo_do_projeto</string>
+     <string>codigo_cliente</string>
     </void>
     <void index="35">
-     <string>codigo_produto</string>
+     <string>codigo_do_projeto</string>
     </void>
     <void index="36">
-     <string>codMuniIbs</string>
+     <string>codigo_produto</string>
     </void>
     <void index="37">
-     <string>codOficialIrrfCadastro</string>
+     <string>codMuniIbs</string>
     </void>
     <void index="38">
-     <string>codUfIbs</string>
+     <string>codOficialIrrfCadastro</string>
     </void>
     <void index="39">
-     <string>coligada</string>
+     <string>codUfIbs</string>
     </void>
     <void index="40">
-     <string>coligadaCliente</string>
+     <string>coligada</string>
     </void>
     <void index="41">
-     <string>CompetenciaAlterada</string>
+     <string>coligadaCliente</string>
     </void>
     <void index="42">
-     <string>complemento_projeto</string>
+     <string>CompetenciaAlterada</string>
     </void>
     <void index="43">
-     <string>condicao_pagamento</string>
+     <string>complemento_projeto</string>
     </void>
     <void index="44">
-     <string>dataAutorizacao</string>
+     <string>condicao_pagamento</string>
     </void>
     <void index="45">
-     <string>dataDeCompetencia</string>
+     <string>dataAutorizacao</string>
     </void>
     <void index="46">
-     <string>dataEmissao</string>
+     <string>dataDeCompetencia</string>
     </void>
     <void index="47">
-     <string>data_contrato</string>
+     <string>dataEmissao</string>
     </void>
     <void index="48">
-     <string>data_inicio_contrato</string>
+     <string>data_contrato</string>
     </void>
     <void index="49">
-     <string>data_termino</string>
+     <string>data_inicio_contrato</string>
     </void>
     <void index="50">
-     <string>descricaoInssCadastro</string>
+     <string>data_termino</string>
     </void>
     <void index="51">
-     <string>descricaoIrrfCadastro</string>
+     <string>descricaoInssCadastro</string>
     </void>
     <void index="52">
-     <string>descricao_projeto</string>
+     <string>descricaoIrrfCadastro</string>
     </void>
     <void index="53">
-     <string>emailPrestador</string>
+     <string>descricao_projeto</string>
     </void>
     <void index="54">
-     <string>emailTomador</string>
+     <string>emailPrestador</string>
     </void>
     <void index="55">
-     <string>enderecoPrestador</string>
+     <string>emailTomador</string>
     </void>
     <void index="56">
-     <string>enderecoTomador</string>
+     <string>enderecoPrestador</string>
     </void>
     <void index="57">
-     <string>errorAoAutorizarNotas</string>
+     <string>enderecoTomador</string>
     </void>
     <void index="58">
-     <string>errorAoEnviarNotas</string>
+     <string>errorAoAutorizarNotas</string>
     </void>
     <void index="59">
-     <string>estadoPrestador</string>
+     <string>errorAoEnviarNotas</string>
     </void>
     <void index="60">
-     <string>estado_projeto</string>
+     <string>estadoPrestador</string>
     </void>
     <void index="61">
-     <string>exercicioFiscal</string>
+     <string>estado_projeto</string>
     </void>
     <void index="62">
-     <string>exibirCheck</string>
+     <string>exercicioFiscal</string>
     </void>
     <void index="63">
-     <string>filial</string>
+     <string>exibirCheck</string>
     </void>
     <void index="64">
-     <string>fnnotaFiscal</string>
+     <string>filial</string>
     </void>
     <void index="65">
-     <string>gedInfo</string>
+     <string>fnnotaFiscal</string>
     </void>
     <void index="66">
-     <string>historicoMovimento</string>
+     <string>gedInfo</string>
     </void>
     <void index="67">
-     <string>idContrato</string>
+     <string>historicoMovimento</string>
     </void>
     <void index="68">
-     <string>IdMov</string>
+     <string>idContrato</string>
     </void>
     <void index="69">
-     <string>idmov2</string>
+     <string>IdMov</string>
     </void>
     <void index="70">
-     <string>IDMOV_numero</string>
+     <string>idmov2</string>
     </void>
     <void index="71">
-     <string>IDPRD</string>
+     <string>IDMOV_numero</string>
     </void>
     <void index="72">
-     <string>idprj</string>
+     <string>IDPRD</string>
     </void>
     <void index="73">
-     <string>impostos_selecao</string>
+     <string>idprj</string>
     </void>
     <void index="74">
-     <string>impostos_selecao_municipal</string>
+     <string>impostos_selecao</string>
     </void>
     <void index="75">
-     <string>incricaoPrestador</string>
+     <string>impostos_selecao_municipal</string>
     </void>
     <void index="76">
-     <string>incricaoTomador</string>
+     <string>incricaoPrestador</string>
     </void>
     <void index="77">
-     <string>indexInssCadastro</string>
+     <string>incricaoTomador</string>
     </void>
     <void index="78">
-     <string>indexIrrCadastro</string>
+     <string>indexInssCadastro</string>
     </void>
     <void index="79">
-     <string>informacoesComplementaresNota</string>
+     <string>indexIrrCadastro</string>
     </void>
     <void index="80">
-     <string>infoSetorAjuste</string>
+     <string>informacoesComplementaresNota</string>
     </void>
     <void index="81">
-     <string>infoTransmissaoCorreta</string>
+     <string>infoSetorAjuste</string>
     </void>
     <void index="82">
-     <string>inscricaoMunicipalPrestador</string>
+     <string>infoSetorAjusteRecebimento</string>
     </void>
     <void index="83">
-     <string>inssAliquota</string>
+     <string>infoTransmOK</string>
     </void>
     <void index="84">
-     <string>inssCodigoAjuste</string>
+     <string>infoTransmOKRecebimento</string>
     </void>
     <void index="85">
-     <string>inssDescricao</string>
+     <string>inscricaoMunicipalPrestador</string>
     </void>
     <void index="86">
-     <string>inssDescricaoAjuste</string>
+     <string>inssAliquota</string>
     </void>
     <void index="87">
-     <string>inssDoItem</string>
+     <string>inssCodigoAjuste</string>
     </void>
     <void index="88">
-     <string>irrfAliquota</string>
+     <string>inssDescricao</string>
     </void>
     <void index="89">
-     <string>irrfCodigoAjuste</string>
+     <string>inssDescricaoAjuste</string>
     </void>
     <void index="90">
-     <string>irrfDescricao</string>
+     <string>inssDoItem</string>
     </void>
     <void index="91">
-     <string>irrfDescricaoAjuste</string>
+     <string>irrfAliquota</string>
     </void>
     <void index="92">
-     <string>irrfDoItem</string>
+     <string>irrfCodigoAjuste</string>
     </void>
     <void index="93">
-     <string>irrfTipoDePessoa</string>
+     <string>irrfDescricao</string>
     </void>
     <void index="94">
-     <string>municipioPrestador</string>
+     <string>irrfDescricaoAjuste</string>
     </void>
     <void index="95">
-     <string>municipioTomador</string>
+     <string>irrfDoItem</string>
     </void>
     <void index="96">
-     <string>naturezaOrcamentaria</string>
+     <string>irrfTipoDePessoa</string>
     </void>
     <void index="97">
-     <string>nomeEmpresarial</string>
+     <string>motivoReemissao</string>
     </void>
     <void index="98">
-     <string>nomeEmpresarialPrestador</string>
+     <string>motivoReemissaoRecebimento</string>
     </void>
     <void index="99">
-     <string>nomePrestador</string>
+     <string>municipioPrestador</string>
     </void>
     <void index="100">
-     <string>nome_cliente</string>
+     <string>municipioTomador</string>
     </void>
     <void index="101">
-     <string>nome_filial</string>
+     <string>naturezaOrcamentaria</string>
     </void>
     <void index="102">
-     <string>nome_produto</string>
+     <string>nomeEmpresarial</string>
     </void>
     <void index="103">
-     <string>notaFiscal</string>
+     <string>nomeEmpresarialPrestador</string>
     </void>
     <void index="104">
-     <string>numeroIdmov2201</string>
+     <string>nomePrestador</string>
     </void>
     <void index="105">
-     <string>NumeroMov</string>
+     <string>nome_centro_de_custo</string>
     </void>
     <void index="106">
-     <string>numeroNotas</string>
+     <string>nome_cliente</string>
     </void>
     <void index="107">
-     <string>numeroPrestador</string>
+     <string>nome_filial</string>
     </void>
     <void index="108">
-     <string>numeroTomador</string>
+     <string>nome_produto</string>
     </void>
     <void index="109">
-     <string>numero_contrato</string>
+     <string>notaFiscal</string>
     </void>
     <void index="110">
-     <string>numero_endereco_projeto</string>
+     <string>numeroIdmov2201</string>
     </void>
     <void index="111">
-     <string>numero_licitacao</string>
+     <string>NumeroMov</string>
     </void>
     <void index="112">
-     <string>periodicidade_medicao</string>
+     <string>numeroNotas</string>
     </void>
     <void index="113">
-     <string>periodoMedicao</string>
+     <string>numeroPrestador</string>
     </void>
     <void index="114">
-     <string>quantidadeItem</string>
+     <string>numeroTomador</string>
     </void>
     <void index="115">
-     <string>quantidade_produto</string>
+     <string>numero_contrato</string>
     </void>
     <void index="116">
-     <string>reducaoInssCadastro</string>
+     <string>numero_endereco_projeto</string>
     </void>
     <void index="117">
-     <string>revisaoProjeto</string>
+     <string>numero_licitacao</string>
     </void>
     <void index="118">
-     <string>ruaPrestador</string>
+     <string>periodicidade_medicao</string>
     </void>
     <void index="119">
-     <string>ruaTomador</string>
+     <string>periodoMedicao</string>
     </void>
     <void index="120">
-     <string>rua_projeto</string>
+     <string>quantidadeItem</string>
     </void>
     <void index="121">
-     <string>statusAutorizacao</string>
+     <string>quantidade_produto</string>
     </void>
     <void index="122">
-     <string>statusEnvio</string>
+     <string>reducaoInssCadastro</string>
     </void>
     <void index="123">
-     <string>telefonePrestador</string>
+     <string>revisaoProjeto</string>
     </void>
     <void index="124">
-     <string>telefoneTomador</string>
+     <string>ruaPrestador</string>
     </void>
     <void index="125">
-     <string>tipo_contrato</string>
+     <string>ruaTomador</string>
     </void>
     <void index="126">
-     <string>tributosMunicipais</string>
+     <string>rua_projeto</string>
     </void>
     <void index="127">
-     <string>tributosNacionais</string>
+     <string>statusAutorizacao</string>
     </void>
     <void index="128">
-     <string>unidadeItem</string>
+     <string>statusEnvio</string>
     </void>
     <void index="129">
-     <string>unidade_produto</string>
+     <string>telefonePrestador</string>
     </void>
     <void index="130">
-     <string>valorBrutoOriginal</string>
+     <string>telefoneTomador</string>
     </void>
     <void index="131">
-     <string>valorImposto</string>
+     <string>tipo_contrato</string>
     </void>
     <void index="132">
-     <string>valorLiquidoOriginal</string>
+     <string>tributosMunicipais</string>
     </void>
     <void index="133">
+     <string>tributosNacionais</string>
+    </void>
+    <void index="134">
+     <string>unidadeItem</string>
+    </void>
+    <void index="135">
+     <string>unidade_produto</string>
+    </void>
+    <void index="136">
+     <string>valorBrutoOriginal</string>
+    </void>
+    <void index="137">
+     <string>valorImposto</string>
+    </void>
+    <void index="138">
+     <string>valorLiquidoOriginal</string>
+    </void>
+    <void index="139">
      <string>valor_item</string>
     </void>
    </array>

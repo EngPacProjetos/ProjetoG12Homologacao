@@ -1,158 +1,68 @@
-function selecionarBotaoTransmissao(botao) {
+function selecionarBotaoTransmissao(botao, sufixo) {
+    sufixo = sufixo || "";
 
-    $("#infoSetorAjuste").val("");
+    var idInfoCorreta = "#infoTransmOK" + sufixo;
+    $(idInfoCorreta).val("");
 
-    var id = botao.id;
+    $(botao).addClass('selecionado');
+    $(botao).siblings().removeClass('selecionado');
 
-    if (id == "infoNfseCorretas") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
+    var $financeiro = $("#financeiroReponsavel" + sufixo);
+    var $tecnico = $("#tecnicoReponsavel" + sufixo);
+    var $motivo = $("#motivoReemissao" + sufixo);
+    var $ajuste = $("#ajusteTransmissao" + sufixo);
 
-        var siblings = $(botao).siblings();
+    var idCorretas = "infoNfseCorretas" + sufixo;
+    var idErradas = "infoNfseErradas" + sufixo;
 
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
+    if (botao.id === idCorretas) {
+        $(idInfoCorreta).val("sim");
 
-        var infoTransmissaoCorreta = $("#infoTransmissaoCorreta").val("sim");
+        $financeiro.removeClass('campo-habilitado').addClass('campo-desabilitado');
+        $tecnico.removeClass('campo-habilitado').addClass('campo-desabilitado');
+        $motivo.removeClass('campo-habilitado').addClass('campo-desabilitado');
+        $ajuste.removeClass('textarea-habilitado').addClass('textarea-desabilitado');
 
-        $("#financeiroReponsavel").css("pointer-events", "none")
-        $("#tecnicoReponsavel").css("pointer-events", "none")
-        $("#financeiroReponsavel").css("background", "#e9ecef")
-        $("#tecnicoReponsavel").css("background", "#e9ecef")
-        $("#financeiroReponsavel").css("color", "#6c757d")
-        $("#tecnicoReponsavel").css("color", "#6c757d")
-        $("#ajusteTransmissao").css("pointer-events", "none");
-        $("#ajusteTransmissao").css("background", "#e9ecef");
+    } else if (botao.id === idErradas) {
+        $(idInfoCorreta).val("nao");
+
+        $financeiro.removeClass('campo-desabilitado').addClass('campo-habilitado');
+        $tecnico.removeClass('campo-desabilitado').addClass('campo-habilitado');
+        $motivo.removeClass('campo-desabilitado').addClass('campo-habilitado');
+      
     }
-    if (id == "infoNfseErradas") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
-
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoTransmissaoCorreta = $("#infoTransmissaoCorreta").val("nao");
-
-        $("#financeiroReponsavel").css("pointer-events", "auto")
-        $("#tecnicoReponsavel").css("pointer-events", "auto")
-        $("#financeiroReponsavel").css("background", "none")
-        $("#tecnicoReponsavel").css("background", "none")
-        $("#financeiroReponsavel").css("color", "#000000")
-        $("#tecnicoReponsavel").css("color", "#000000")
-        $("#ajusteTransmissao").css("pointer-events", "auto");
-        $("#ajusteTransmissao").css("background", "none");
-    }
-
-}
-function selecionarBotaoTransmissaoSetor(botao) {
-
-    var id = botao.id;
-
-    if (id == "financeiroReponsavel") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
-
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoSetorAjuste = $("#infoSetorAjuste").val("financeiro");
-        console.log(infoSetorAjuste)
-    }
-    if (id == "tecnicoReponsavel") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
-
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoSetorAjuste = $("#infoSetorAjuste").val("tecnico");
-        console.log(infoSetorAjuste)
-    }
-
 }
 
+function selecionarBotaoTransmissaoSetor(botao, sufixo) {
+    sufixo = sufixo || "";
 
-function selecionarBotaoTransmissaoRecebimento(botao) {
+    $(botao).addClass('selecionado');
+    $(botao).siblings().removeClass('selecionado');
 
-    $("#infoSetorAjuste").val("");
+    var idInfoSetor = "#infoSetorAjuste" + sufixo;
+    var idFinanceiro = "financeiroReponsavel" + sufixo;
+    var idTecnico = "tecnicoReponsavel" + sufixo;
 
-    var id = botao.id;
-
-    if (id == "infoNfseCorretasRecebimento") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
-
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoTransmissaoCorreta = $("#infoTransmissaoCorreta").val("sim");
-
-        $("#financeiroReponsavelRecebimento").css("pointer-events", "none")
-        $("#tecnicoReponsavelRecebimento").css("pointer-events", "none")
-        $("#financeiroReponsavelRecebimento").css("background", "#e9ecef")
-        $("#tecnicoReponsavelRecebimento").css("background", "#e9ecef")
-        $("#financeiroReponsavelRecebimento").css("color", "#6c757d")
-        $("#tecnicoReponsavelRecebimento").css("color", "#6c757d")
-        $("#ajusteTransmissaoRecebimento").css("pointer-events", "none");
-        $("#ajusteTransmissaoRecebimento").css("background", "#e9ecef");
+    if (botao.id === idFinanceiro) {
+        $(idInfoSetor).val("financeiro");
+    } else if (botao.id === idTecnico) {
+        $(idInfoSetor).val("tecnico");
     }
-    if (id == "infoNfseErradasRecebimento") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
-
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoTransmissaoCorreta = $("#infoTransmissaoCorreta").val("nao");
-
-        $("#financeiroReponsavelRecebimento").css("pointer-events", "auto")
-        $("#tecnicoReponsavelRecebimento").css("pointer-events", "auto")
-        $("#financeiroReponsavelRecebimento").css("background", "none")
-        $("#tecnicoReponsavelRecebimento").css("background", "none")
-        $("#financeiroReponsavelRecebimento").css("color", "#000000")
-        $("#tecnicoReponsavelRecebimento").css("color", "#000000")
-        $("#ajusteTransmissaoRecebimento").css("pointer-events", "auto");
-        $("#ajusteTransmissaoRecebimento").css("background", "none");
-    }
-
 }
-function selecionarBotaoTransmissaoSetorRecebimento(botao) {
 
-    var id = botao.id;
+function chagenSelect(select) {
+    var $select = $(select);
+    var valueSelect = String(select.value).trim();
+    var sufixo = select.id.indexOf("Recebimento") !== -1 ? "Recebimento" : "";
 
-    if (id == "financeiroReponsavelRecebimento") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
+    var $textarea = $select
+        .closest('div')
+        .siblings('.form-group')
+        .find("#ajusteTransmissao" + sufixo);
 
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoSetorAjuste = $("#infoSetorAjuste").val("financeiro");
-        console.log(infoSetorAjuste)
+    if (valueSelect === "outros") {
+        $textarea.removeClass('textarea-desabilitado').addClass('textarea-habilitado');
+    } else {
+        $textarea.removeClass('textarea-habilitado').addClass('textarea-desabilitado');
     }
-    if (id == "tecnicoReponsavelRecebimento") {
-        $(botao).css("background", "#1eaad9");
-        $(botao).css("color", "white");
-
-        var siblings = $(botao).siblings();
-
-        $(siblings).css("background", "none");
-        $(siblings).css("color", "black");
-
-        var infoSetorAjuste = $("#infoSetorAjuste").val("tecnico");
-        console.log(infoSetorAjuste)
-    }
-
 }

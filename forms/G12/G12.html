@@ -163,9 +163,13 @@
 					<!-- CONTROLE FLUXO DE COMPETENCIA  -->
 					<input type="hidden" name="CompetenciaAlterada" id="CompetenciaAlterada" readonly>
 
-					<!-- INPUTS CHECAGEM DE TRANSMISSAO  -->
-					<input type="hidden" name="infoTransmissaoCorreta" id="infoTransmissaoCorreta" readonly>
-					<input type="hidden" name="infoSetorAjuste" id="infoSetorAjuste" readonly>
+					<!-- TRANSMISSAO -->
+					<input type="hidden" id="infoTransmOK" name="infoTransmOK">
+					<input type="hidden" id="infoSetorAjuste" name="infoSetorAjuste">
+
+					<!-- RECEBIMENTO -->
+					<input type="hidden" id="infoTransmOKRecebimento" name="infoTransmOKRecebimento">
+					<input type="hidden" id="infoSetorAjusteRecebimento" name="infoSetorAjusteRecebimento">
 
 
 					<!-- Indicador de carregamento -->
@@ -1648,11 +1652,10 @@
 									<span>As informações da transmissão estão corretas?</span>
 
 									<div class="centralizarBotoes">
-										<div id="infoNfseCorretas" onclick="selecionarBotaoTransmissao(this)"
-											class="botaoTransmissao"><span>Sim</span></div>
-
-										<div id="infoNfseErradas" onclick="selecionarBotaoTransmissao(this)"
-											class="botaoTransmissao"><span>Não</span></div>
+										<button type="button" class="botaoTransmissao" id="infoNfseCorretas"
+											onclick="selecionarBotaoTransmissao(this, '')">NFS-e corretas</button>
+										<button type="button" class="botaoTransmissao" id="infoNfseErradas"
+											onclick="selecionarBotaoTransmissao(this, '')">NFS-e erradas</button>
 									</div>
 
 								</div>
@@ -1660,19 +1663,17 @@
 									<span>Informe o setor que fará os ajustes</span>
 
 									<div class="centralizarBotoes">
-										<div id="financeiroReponsavel" onclick="selecionarBotaoTransmissaoSetor(this)"
-											class="botaoTransmissao"><span>Financeiro</span>
-										</div>
-
-										<div id="tecnicoReponsavel" onclick="selecionarBotaoTransmissaoSetor(this)"
-											class="botaoTransmissao"><span>Técnico</span>
-										</div>
+										<button type="button" class="botaoTransmissao" id="financeiroReponsavel"
+											onclick="selecionarBotaoTransmissaoSetor(this, '')">Financeiro</button>
+										<button type="button" class="botaoTransmissao" id="tecnicoReponsavel"
+											onclick="selecionarBotaoTransmissaoSetor(this, '')">Técnico</button>
 									</div>
 
 								</div>
-								<div>
+								<div id="reemissaoDiv">
 									<label for="motivoReemissao">Motivo da reemissão</label>
-									<select id="motivoReemissao" name="motivoReemissao">
+									<select id="motivoReemissao" name="motivoReemissao" onchange="chagenSelect(this)"
+										class="form-control" onchange="chagenSelect(this)">
 										<option value="">Selecione o motivo</option>
 										<option value="ALTERACAO_VALOR">Alteração de valor</option>
 										<option value="DESCRICAO_ERRADA">Descrição errada</option>
@@ -1694,11 +1695,12 @@
 										<option value="RVO_REEMITIDO">RVO precisou ser reemitido pela fiscalização
 										</option>
 										<option value="SOLICITACAO_FISCAL">Solicitação da fiscal (sem erros)</option>
+										<option value="outros">Outros</option>
 									</select>
 								</div>
 
 								<div class="form-group">
-									<span for="ajusteTransmissao">Descrição dos Ajustes</span>
+									<label for="ajusteTransmissao">Descrição dos Ajustes</label>
 									<textarea class="form-control" name="ajusteTransmissao" id="ajusteTransmissao"
 										rows="8" cols="90"></textarea>
 								</div>
@@ -1723,13 +1725,12 @@
 									<span>As informações da transmissão estão corretas?</span>
 
 									<div class="centralizarBotoes">
-										<div id="infoNfseCorretasRecebimento"
-											onclick="selecionarBotaoTransmissaoRecebimento(this)"
-											class="botaoTransmissao"><span>Sim</span></div>
-
-										<div id="infoNfseErradasRecebimento"
-											onclick="selecionarBotaoTransmissaoRecebimento(this)"
-											class="botaoTransmissao"><span>Não</span></div>
+										<button type="button" class="botaoTransmissao" id="infoNfseCorretasRecebimento"
+											onclick="selecionarBotaoTransmissao(this, 'Recebimento')">NFS-e
+											corretas</button>
+										<button type="button" class="botaoTransmissao" id="infoNfseErradasRecebimento"
+											onclick="selecionarBotaoTransmissao(this, 'Recebimento')">NFS-e
+											erradas</button>
 									</div>
 
 								</div>
@@ -1737,23 +1738,19 @@
 									<span>Informe o setor que fará os ajustes</span>
 
 									<div class="centralizarBotoes">
-										<div id="financeiroReponsavelRecebimento"
-											onclick="selecionarBotaoTransmissaoSetorRecebimento(this)"
-											class="botaoTransmissao">
-											<span>Financeiro</span>
-										</div>
+										<button type="button" class="botaoTransmissao"
+											id="financeiroReponsavelRecebimento"
+											onclick="selecionarBotaoTransmissaoSetor(this, 'Recebimento')">Financeiro</button>
+										<button type="button" class="botaoTransmissao" id="tecnicoReponsavelRecebimento"
+											onclick="selecionarBotaoTransmissaoSetor(this, 'Recebimento')">Técnico</button>
 
-										<div id="tecnicoReponsavelRecebimento"
-											onclick="selecionarBotaoTransmissaoSetorRecebimento(this)"
-											class="botaoTransmissao">
-											<span>Técnico</span>
-										</div>
 									</div>
-
 								</div>
 								<div>
 									<label for="motivoReemissaoRecebimento">Motivo da reemissão</label>
-									<select id="motivoReemissaoRecebimento" name="motivoReemissaoRecebimento">
+									<select id="motivoReemissaoRecebimento" onchange="chagenSelect(this)"
+										name="motivoReemissaoRecebimento" class="form-control"
+										onchange="chagenSelect(this)">
 										<option value="">Selecione o motivo</option>
 										<option value="ALTERACAO_VALOR">Alteração de valor</option>
 										<option value="DESCRICAO_ERRADA">Descrição errada</option>
@@ -1775,34 +1772,339 @@
 										<option value="RVO_REEMITIDO">RVO precisou ser reemitido pela fiscalização
 										</option>
 										<option value="SOLICITACAO_FISCAL">Solicitação da fiscal (sem erros)</option>
+										<option value="outros">Outros</option>
 									</select>
 								</div>
 
 
 								<div class="form-group">
-									<span for="ajusteTransmissaoRecebimento">Descrição dos Ajustes</span>
+									<label for="ajusteTransmissaoRecebimento">Descrição dos Ajustes</label>
 									<textarea class="form-control" name="ajusteTransmissaoRecebimento"
 										id="ajusteTransmissaoRecebimento" rows="8" cols="90"></textarea>
 								</div>
 
 
 							</div>
+
+
 						</div>
 					</div>
 
-					<div id="botChecagemInfo">
-						<img id="iconeChecagem" src="https://i.imgur.com/kFNXFlP.png">
-						<div id="cabecalhoBot">
-							<h3>Pendências do processo</h3>
-							<span id="fecharChecagem" onclick="exibitInfo()">O</span>
-						</div>
-						<div id="inforChecagem">
+					<div id="ajusteFinanceiro">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2 class="panel-title">Ajuste Financeiro</h2>
+							</div>
+							<div class="panel-body">
+
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-calculator"></i>
+										<span class="afin-secao-titulo">Ajuste de Tributos do Movimento</span>
+									</div>
+									<div class="afin-secao-body">
+										<table id="tblajustarimpostosSubs" tablename="tblajustarimpostosSubs"
+											class="table table-condensed table-striped" noaddbutton="true">
+											<thead class="fs-display-none">
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="card-imposto">
+													<td>
+
+														<div class="form-group">
+															<label for="impostos_selecao_subs">Imposto</label>
+															<input style="z-index: 99999px;" type="zoom"
+																class="form-control" id="impostos_selecao_subs"
+																name="impostos_selecao_subs" data-zoom="{
+                           'datasetId':'G12-AJUSTAR-TRIBUTOS',
+                           'displayKey':'',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO',
+                                   'label':'IMPOSTO',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'TIPO',
+                                   'label':'TIPO',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+														</div>
+													</td>
+													<td><label for="valorImpostoSub">Valor</label><input type="text"
+															class="form-control" id="valorImpostoSub"
+															name="valorImpostoSub"></td>
+													<td><label for="aliquotaSub">Alíquota</label><input type="text"
+															class="form-control" id="aliquotaSub"
+															name="aliquotaSub">
+													</td>
+													<td><label for="baseCalculoSub">Base de Cálculo</label><input
+															type="text" class="form-control" id="baseCalculoSub"
+															name="baseCalculoSub"
+															onblur="ajustarValorTributo(this)">
+													</td>
+													<td>
+														<div class="row">
+															<div class="col-md-12">
+																<div
+																	style="display:flex; justify-content:flex-end; align-items: center;">
+																	<button type="button"
+																		class="btn btn-danger btn-sm"
+																		onclick="removerComAnimacao(this)">
+																		<i
+																			class="flaticon flaticon-trash icon-lg"></i>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="afin-secao-footer">
+										<button type="button" class="btn btn-success btn-sm"
+											onclick="wdkAddChild('tblajustarimpostosSubs'), setSelectedZoomItem();">
+											+ Imposto
+										</button>
+									</div>
+								</div>
+
+								<!-- SECAO: AJUSTE DE TRIBUTOS MUNICIPAIS (REAPROVEITA A ESTRUTURA DE tblcadastrotributosmuni) -->
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-building-o"></i>
+										<span class="afin-secao-titulo">Ajuste de Tributos Municipais</span>
+									</div>
+									<div class="afin-secao-body">
+										<table id="tblcadastrotributosmuniSub" tablename="tblcadastrotributosmuniSub"
+											class="table table-condensed table-striped" noaddbutton="true">
+											<thead class="fs-display-none">
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="card-imposto">
+													<td>
+
+														<div class="form-group">
+															<label for="impostos_selecao_municipal_sub">Imposto</label>
+															<input style="z-index: 99999px;" type="zoom"
+																class="form-control"
+																id="impostos_selecao_municipal_sub"
+																name="impostos_selecao_municipal_sub" data-zoom="{
+                           'datasetId':'G12-CADASTRAR-TRIBUTO-MUNICIPAL',
+                           'displayKey':'CODIGO',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IMPOSTO',
+                           'fields':[
+                               {
+                                   'field':'CODIGO',
+                                   'label':'IMPOSTO',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+
+														</div>
+													</td>
+													<td><label for="aliquotaMunicipalSub">Alíquota</label><input
+															type="text" class="form-control"
+															id="aliquotaMunicipalSub" name="aliquotaMunicipalSub">
+													</td>
+													<td><label for="baseReucaoMunicipalSub">Base Redução
+															ISS(%)</label><input type="text" class="form-control"
+															id="baseReucaoMunicipalSub"
+															name="baseReucaoMunicipalSub"></td>
+													<td>
+														<div class="row">
+															<div class="col-md-12">
+																<div
+																	style="display:flex; justify-content:flex-end; align-items: center;">
+																	<button type="button"
+																		class="btn btn-danger btn-sm"
+																		onclick="removerComAnimacao(this)">
+																		<i
+																			class="flaticon flaticon-trash icon-lg"></i>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="afin-secao-footer">
+										<button type="button" class="btn btn-success btn-sm"
+											onclick="wdkAddChild('tblcadastrotributosmuniSub')">
+											+ Imposto
+										</button>
+									</div>
+								</div>
+
+								<!-- SECAO: INFORMACOES DAS NOVAS NOTAS FISCAIS (TABELA PAI E FILHO) -->
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-file-text-o"></i>
+										<span class="afin-secao-titulo">Informações das Novas Notas Fiscais</span>
+									</div>
+									<div class="afin-secao-body">
+										<table id="tblnotascanceladasousub" tablename="tblnotascanceladasousub"
+											class="table table-condensed table-striped" noaddbutton="true">
+											<thead class="fs-display-none">
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="card-imposto">
+													<td>
+														<div class="row">
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="numeroNotasSub">Número da
+																		nota</label>
+																	<input type="text" class="form-control"
+																		name="numeroNotasSub" id="numeroNotasSub">
+																</div>
+															</div>
+															<div class="col-md-3">
+																<div class="form-group">
+																	<label for="codigoVerificacaoSub">Código de
+																		verificação</label>
+																	<input type="text" class="form-control"
+																		name="codigoVerificacaoSub"
+																		id="codigoVerificacaoSub">
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="dataEmissaoSub">Data de
+																		emissão</label>
+																	<input type="text" class="form-control"
+																		name="dataEmissaoSub" id="dataEmissaoSub">
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="dataAutorizacaoSub">Data de
+																		autorização</label>
+																	<input type="text" class="form-control"
+																		name="dataAutorizacaoSub"
+																		id="dataAutorizacaoSub">
+																</div>
+															</div>
+															<div class="col-md-3">
+																<div class="form-group">
+																	<label for="numeroIdmov2201Sub">Idmov
+																		2.2.01</label>
+																	<input type="text" class="form-control"
+																		name="numeroIdmov2201Sub"
+																		id="numeroIdmov2201Sub" readonly>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-8 col-md-offset-2">
+																<div class="form-group">
+
+																	<label>NFSE</label>
+
+																	<div class="input-group componentAnexo">
+
+																		<input type="hidden" name="notaFiscalSub"
+																			class="descAnexo"
+																			value="notaFiscalSub" />
+
+																		<input type="text" id="fnnotaFiscalSub"
+																			name="fnnotaFiscalSub"
+																			class="form-control inputAnexo"
+																			placeholder="Anexe a nota fiscal"
+																			readonly />
+
+																		<span class="input-group-btn">
+																			<button type="button"
+																				class="btnUpFile btn btn-success"
+																				data-acao="upload"
+																				onclick="anexo(event)">
+																				<i
+																					class="flaticon flaticon-paperclip"></i>
+																				Anexar
+																			</button>
+
+																			<button type="button"
+																				class="btnViewerFile btn btn-info"
+																				data-acao="viewer"
+																				style="display:none;">
+																				Visualizar
+																			</button>
+
+																			<button type="button"
+																				class="btnDownloadFile btn btn-info"
+																				data-acao="download"
+																				style="display:none;">
+																				Download
+																			</button>
+
+																		</span>
+
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12"
+																style="display:flex; justify-content:flex-end;">
+																<button type="button" class="btn btn-danger btn-sm"
+																	onclick="removerComAnimacao(this)">
+																	<i class="flaticon flaticon-trash icon-lg"></i>
+																</button>
+															</div>
+														</div>
+
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="afin-secao-footer">
+										<button type="button" class="btn btn-success btn-sm"
+											onclick="wdkAddChild('tblnotascanceladasousub')">
+											+ NFSE
+										</button>
+									</div>
+								</div>
+
+							</div>
 						</div>
 					</div>
-
 				</div>
+
+				<div id="botChecagemInfo">
+					<img id="iconeChecagem" src="https://i.imgur.com/kFNXFlP.png">
+					<div id="cabecalhoBot">
+						<h3>Pendências do processo</h3>
+						<span id="fecharChecagem" onclick="exibitInfo()">O</span>
+					</div>
+					<div id="inforChecagem">
+					</div>
+				</div>
+
+
 			</div>
-		</form>
+	</div>
+	</form>
 	</div>
 
 </body>
