@@ -16,7 +16,7 @@ function resolve(process, colleague) {
         var group = getGroup(CentroDeCusto, CodColigada);
         log.info("grupo encontrado: " + group);
 
-        if (user.isEmpty()) {
+        if (group.isEmpty()) {
             throw new Error("Nenhum grupo encontrado para Centro de custo: " + CentroDeCusto + " e CodColigada: " + CodColigada);
         }
 

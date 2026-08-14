@@ -23,6 +23,7 @@
 	<script type="text/javascript" src="G12-Anexos.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-Loading.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-ChecagemTransmissao.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-HistoricoMovimentos.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -170,6 +171,12 @@
 					<!-- RECEBIMENTO -->
 					<input type="hidden" id="infoTransmOKRecebimento" name="infoTransmOKRecebimento">
 					<input type="hidden" id="infoSetorAjusteRecebimento" name="infoSetorAjusteRecebimento">
+
+					<!-- MOVIMENTOS 2.1.02 e 2.2.01-->
+					<input type="text" id="historico2102" name="historico2102">
+					<input type="text" id="historico2201" name="historico2201">
+					<input type="text" id="historicoNumMov2201" name="historicoNumMov2201">
+					<input type="text" id="historicoNumMov2102" name="historicoNumMov2102">
 
 
 					<!-- Indicador de carregamento -->
@@ -683,7 +690,7 @@
 													<input style="z-index: 99999px;" type="zoom" class="form-control"
 														id="impostos_selecao" name="impostos_selecao" data-zoom="{
                            'datasetId':'G12-AJUSTAR-TRIBUTOS',
-                           'displayKey':'',
+                           'displayKey':'CODIGO',
                            'maximumSelectionLength':'1',
                            'placeholder':'SELECIONE UM IMPOSTO',
                            'fields':[
@@ -1820,7 +1827,7 @@
 																class="form-control" id="impostos_selecao_subs"
 																name="impostos_selecao_subs" data-zoom="{
                            'datasetId':'G12-AJUSTAR-TRIBUTOS',
-                           'displayKey':'',
+                           'displayKey':'CODIGO',
                            'maximumSelectionLength':'1',
                            'placeholder':'SELECIONE UM IMPOSTO',
                            'fields':[
@@ -1843,24 +1850,20 @@
 															class="form-control" id="valorImpostoSub"
 															name="valorImpostoSub"></td>
 													<td><label for="aliquotaSub">Alíquota</label><input type="text"
-															class="form-control" id="aliquotaSub"
-															name="aliquotaSub">
+															class="form-control" id="aliquotaSub" name="aliquotaSub">
 													</td>
 													<td><label for="baseCalculoSub">Base de Cálculo</label><input
 															type="text" class="form-control" id="baseCalculoSub"
-															name="baseCalculoSub"
-															onblur="ajustarValorTributo(this)">
+															name="baseCalculoSub" onblur="ajustarValorTributo(this)">
 													</td>
 													<td>
 														<div class="row">
 															<div class="col-md-12">
 																<div
 																	style="display:flex; justify-content:flex-end; align-items: center;">
-																	<button type="button"
-																		class="btn btn-danger btn-sm"
+																	<button type="button" class="btn btn-danger btn-sm"
 																		onclick="removerComAnimacao(this)">
-																		<i
-																			class="flaticon flaticon-trash icon-lg"></i>
+																		<i class="flaticon flaticon-trash icon-lg"></i>
 																	</button>
 																</div>
 															</div>
@@ -1872,7 +1875,7 @@
 									</div>
 									<div class="afin-secao-footer">
 										<button type="button" class="btn btn-success btn-sm"
-											onclick="wdkAddChild('tblajustarimpostosSubs'), setSelectedZoomItem();">
+											onclick="wdkAddChild('tblajustarimpostosSubs'), setSelectedZoomItem(undefined, 'impostos_selecao_subs');">
 											+ Imposto
 										</button>
 									</div>
@@ -1899,8 +1902,7 @@
 														<div class="form-group">
 															<label for="impostos_selecao_municipal_sub">Imposto</label>
 															<input style="z-index: 99999px;" type="zoom"
-																class="form-control"
-																id="impostos_selecao_municipal_sub"
+																class="form-control" id="impostos_selecao_municipal_sub"
 																name="impostos_selecao_municipal_sub" data-zoom="{
                            'datasetId':'G12-CADASTRAR-TRIBUTO-MUNICIPAL',
                            'displayKey':'CODIGO',
@@ -1918,13 +1920,82 @@
 														</div>
 													</td>
 													<td><label for="aliquotaMunicipalSub">Alíquota</label><input
-															type="text" class="form-control"
-															id="aliquotaMunicipalSub" name="aliquotaMunicipalSub">
+															type="text" class="form-control" id="aliquotaMunicipalSub"
+															name="aliquotaMunicipalSub">
 													</td>
 													<td><label for="baseReucaoMunicipalSub">Base Redução
 															ISS(%)</label><input type="text" class="form-control"
-															id="baseReucaoMunicipalSub"
-															name="baseReucaoMunicipalSub"></td>
+															id="baseReucaoMunicipalSub" name="baseReucaoMunicipalSub">
+													</td>
+													<td>
+														<div class="row">
+															<div class="col-md-12">
+																<div
+																	style="display:flex; justify-content:flex-end; align-items: center;">
+																	<button type="button" class="btn btn-danger btn-sm"
+																		onclick="removerComAnimacao(this)">
+																		<i class="flaticon flaticon-trash icon-lg"></i>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="afin-secao-footer">
+										<button type="button" class="btn btn-success btn-sm"
+											onclick="wdkAddChild('tblcadastrotributosmuniSub'), setSelectedZoomItem(undefined, 'impostos_selecao_municipal_sub');">
+											+ Imposto
+										</button>
+									</div>
+								</div>
+
+								<!-- SECAO: AJUSTE DE IRRF (TABELA PAI E FILHO) -->
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-percent"></i>
+										<span class="afin-secao-titulo">IRRF</span>
+									</div>
+									<div class="afin-secao-body">
+										<table id="tblAjusteIrrfSub" tablename="tblAjusteIrrfSub"
+											class="table table-condensed table-striped" noaddbutton="true">
+											<thead class="fs-display-none">
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="card-imposto">
+													<td>
+
+														<div class="form-group">
+															<label for="irrfCodigoAjusteSub">Código IRRF / Descrição</label>
+															<input style="z-index: 99999px;" type="zoom"
+																class="form-control" id="irrfCodigoAjusteSub"
+																name="irrfCodigoAjusteSub" data-zoom="{
+                           'datasetId':'G12-IRRF-ZOOM',
+                           'displayKey':'DESCRICAO_IRRF',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM IRRF',
+                           'fields':[
+                               {
+                                   'field':'CODIGO_IRRF',
+                                   'label':'CODIGO DO IRRF',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'DESCRICAO_IRRF',
+                                   'label':'DESCRICAO DO IRRF',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+															<input type="hidden" id="irrfCodSub" name="irrfCodSub" value="">
+
+														</div>
+													</td>
 													<td>
 														<div class="row">
 															<div class="col-md-12">
@@ -1946,8 +2017,112 @@
 									</div>
 									<div class="afin-secao-footer">
 										<button type="button" class="btn btn-success btn-sm"
-											onclick="wdkAddChild('tblcadastrotributosmuniSub')">
-											+ Imposto
+											onclick="wdkAddChild('tblAjusteIrrfSub'), setSelectedZoomItem(undefined, 'irrfCodigoAjusteSub');">
+											+ IRRF
+										</button>
+									</div>
+								</div>
+
+								<!-- SECAO: AJUSTE DE INSS (TABELA PAI E FILHO) -->
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-percent"></i>
+										<span class="afin-secao-titulo">INSS</span>
+									</div>
+									<div class="afin-secao-body">
+										<table id="tblAjusteInssSub" tablename="tblAjusteInssSub"
+											class="table table-condensed table-striped" noaddbutton="true">
+											<thead class="fs-display-none">
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="card-imposto">
+													<td>
+
+														<div class="form-group">
+															<label for="inssCodigoAjusteSub">Código INSS / Descrição</label>
+															<input style="z-index: 99999px;" type="zoom"
+																class="form-control" id="inssCodigoAjusteSub"
+																name="inssCodigoAjusteSub" data-zoom="{
+                           'datasetId':'G12-INSS-ZOOM',
+                           'displayKey':'DESCRICAO_INSS',
+                           'maximumSelectionLength':'1',
+                           'placeholder':'SELECIONE UM INSS',
+                           'fields':[
+                               {
+                                   'field':'CODIGO_INSS',
+                                   'label':'CODIGO DO INSS',
+                                   'standard':'true'
+                               },
+                               {
+                                   'field':'DESCRICAO_INSS',
+                                   'label':'DESCRICAO DO INSS',
+                                   'standard':'true'
+                               }
+                           ]
+                       }">
+															<input type="hidden" id="inssCodSub" name="inssCodSub" value="">
+
+														</div>
+													</td>
+													<td>
+														<div class="row">
+															<div class="col-md-12">
+																<div
+																	style="display:flex; justify-content:flex-end; align-items: center;">
+																	<button type="button"
+																		class="btn btn-danger btn-sm"
+																		onclick="removerComAnimacao(this)">
+																		<i
+																			class="flaticon flaticon-trash icon-lg"></i>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="afin-secao-footer">
+										<button type="button" class="btn btn-success btn-sm"
+											onclick="wdkAddChild('tblAjusteInssSub'), setSelectedZoomItem(undefined, 'inssCodigoAjusteSub');">
+											+ INSS
+										</button>
+									</div>
+								</div>
+
+								<!-- SECAO: DATA DE COMPETENCIA FISCAL -->
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-calendar"></i>
+										<span class="afin-secao-titulo">Data de Competência Fiscal</span>
+									</div>
+									<div class="afin-secao-body">
+										<div id="dataDeCompetenciaSubDiv">
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group alteracao-competencia"
+														style="display: flex; flex-direction: column;">
+														<div class="input-group">
+															<input class="form-control" type="text"
+																id="dataDeCompetenciaSub" name="dataDeCompetenciaSub"
+																data-mask="00/00/0000" onfocus="pickerDate(this)"
+																readonly>
+															<div class="input-group-addon"><span
+																	class="fluigicon fluigicon-calendar"></span></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="afin-secao-footer">
+										<button type="button" class="btn btn-info btn-sm"
+											onclick="ajusteCompetenciaSub()">
+											Ajustar Competência
 										</button>
 									</div>
 								</div>
@@ -2023,8 +2198,7 @@
 																	<div class="input-group componentAnexo">
 
 																		<input type="hidden" name="notaFiscalSub"
-																			class="descAnexo"
-																			value="notaFiscalSub" />
+																			class="descAnexo" value="notaFiscalSub" />
 
 																		<input type="text" id="fnnotaFiscalSub"
 																			name="fnnotaFiscalSub"
@@ -2083,6 +2257,58 @@
 											onclick="wdkAddChild('tblnotascanceladasousub')">
 											+ NFSE
 										</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div id="historicoMovimentosPanel">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2 class="panel-title">Histórico dos Movimentos</h2>
+							</div>
+							<div class="panel-body">
+
+								<div class="afin-secao">
+									<div class="afin-secao-header">
+										<i class="fa fa-history"></i>
+										<span class="afin-secao-titulo">Situação dos Movimentos (2.1.01 / 2.1.02 /
+											2.2.01)</span>
+									</div>
+									<div class="afin-secao-body">
+
+										<div class="historico-legenda">
+											<span class="historico-legenda-item">
+												<span
+													class="historico-legenda-cor historico-legenda-a-faturar"></span>
+												A faturar
+											</span>
+											<span class="historico-legenda-item">
+												<span class="historico-legenda-cor historico-legenda-faturado"></span>
+												Faturado
+											</span>
+											<span class="historico-legenda-item">
+												<span
+													class="historico-legenda-cor historico-legenda-cancelado"></span>
+												Cancelado
+											</span>
+										</div>
+
+										<table id="tblHistoricoMovimentos"
+											class="table table-condensed table-striped">
+											<thead>
+												<tr>
+													<th>Tipo do Movimento</th>
+													<th>Número</th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody id="tblHistoricoMovimentosBody">
+											</tbody>
+										</table>
+
 									</div>
 								</div>
 

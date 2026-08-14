@@ -1,8 +1,8 @@
-function servicetask267(attempt, message) {
+function servicetask375(attempt, message) {
     try {
         Cancelamento();
     } catch (e) {
-        throw "servicetask30 " + e;
+        throw "servicetask375 " + e;
     }
 }
 
@@ -16,8 +16,8 @@ function Cancelamento() {
         log.info("SENHA LOGADA PARA CANCELAMENTO - > " + senha)
 
         var codColigada = hAPI.getCardValue("CodColigada");
-        var idMov = hAPI.getCardValue("historico2201").split(",").pop().trim();
-        var numeroMov = hAPI.getCardValue("numeroMov");
+        var idMov = hAPI.getCardValue("historico2102").split(",").pop().trim();
+        // var numeroMov = hAPI.getCardValue("numeroMov");
 
         log.info("========== G12 servicetask30 - INICIO ==========");
         log.info(">> codColigada : [" + codColigada + "]");
@@ -76,6 +76,7 @@ function Cancelamento() {
         //     throw "Erro RM: " + response;
         // }
 
+
         log.info(">> Cancelamento executado com sucesso");
         log.info("========== G12 servicetask30 - FIM ==========");
 
@@ -85,7 +86,8 @@ function Cancelamento() {
         // return dataset;
 
     } catch (e) {
-        throw "ERRO:" + e.toString();
+        log.error(">> EXCECAO: [" + e.toString() + "]");
+        return getDatasetError("ERRO:" + e.toString());
     }
 }
 
@@ -118,4 +120,3 @@ function getDatasetError(exception) {
     dtsError.addRow([exception.toString()]);
     return dtsError;
 }
-

@@ -16,13 +16,14 @@ function exibirEdicaoManual() {
 function ajusteCompetencia() {
     $("#dataDeCompetencia").prop('readonly', false);
 }
+function ajusteCompetenciaSub() {
+    $("#dataDeCompetenciaSub").prop('readonly', false);
+}
 
 
 function pickerDate(campo) {
 
-    var prop = $("input[name^='dataDeCompetencia']")[0].readOnly;
-
-    if (prop) return;
+    if (campo.readOnly) return;
 
     var campo_nome = campo.name.split("___")[0];
 

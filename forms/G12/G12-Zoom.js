@@ -1,5 +1,6 @@
-function setSelectedZoomItem(selectedItem) {
+function setSelectedZoomItem(selectedItem, campoZoomImposto) {
 
+    campoZoomImposto = campoZoomImposto || "impostos_selecao";
 
     var coligada = $("#CodColigada").val();
     var idmov = $("#idmov2").val();
@@ -39,16 +40,43 @@ function setSelectedZoomItem(selectedItem) {
 
         }
 
+        // irrfCodigoAjusteSub / inssCodigoAjusteSub (tblAjusteIrrfSub / tblAjusteInssSub) usam
+        // 'displayKey':'DESCRICAO_IRRF'/'DESCRICAO_INSS', então o próprio campo zoom fica com a
+        // descrição (ex: "IRRF-PJ Alíquota 1,20%"), não o código. O RM rejeita isso em CODIGOIRRF/
+        // CODIGOINSS por estourar o MaxLength. Por isso espelhamos o código real num campo oculto
+        // paralelo (irrfCodSub___N / inssCodSub___N), lido pelo servicetask334.
+        if (selectedItem.inputName.indexOf("irrfCodigoAjusteSub") != -1) {
+
+            var codigoSub = selectedItem.CODIGO_IRRF;
+            var sufixoSub = selectedItem.inputName.replace("irrfCodigoAjusteSub", "");
+
+            console.log("CODIGO IRRF (SUB) SELECIONADO", codigoSub, "SUFIXO", sufixoSub);
+
+            $("[name='irrfCodSub" + sufixoSub + "']").val(codigoSub);
+
+        }
+
+        if (selectedItem.inputName.indexOf("inssCodigoAjusteSub") != -1) {
+
+            var codigoSub = selectedItem.CODIGO_INSS;
+            var sufixoSub = selectedItem.inputName.replace("inssCodigoAjusteSub", "");
+
+            console.log("CODIGO INSS (SUB) SELECIONADO", codigoSub, "SUFIXO", sufixoSub);
+
+            $("[name='inssCodSub" + sufixoSub + "']").val(codigoSub);
+
+        }
+
     } else {
 
         if (coligada != undefined && coligada != "" && idmov != undefined && idmov != "") {
             setTimeout(function reloadZoom() {
                 // Fluig converte type zoom em select via WDK, então nunca filtre esse reload por input ... nao funciona .
-                var campos = $("[name^='impostos_selecao___']");
+                var campos = $("[name^='" + campoZoomImposto + "___']");
                 var index = campos.length;
                 console.log("Campos zoom encontrados:", campos.length, "→ recarregando índice:", index);
                 if (index >= 0) {
-                    reloadZoomFilterValues("impostos_selecao___" + index, parans);
+                    reloadZoomFilterValues(campoZoomImposto + "___" + index, parans);
                 }
             }, 1000);
 

@@ -1,10 +1,11 @@
-function servicetask71(attempt, message) {
+function servicetask394(attempt, message) {
+
     /**
-     * AUTHOR: ENOS DESENVOLVEDOR FLUIG/FULL STACK 
-     * CRIADO EM: 29/05/2026
-     * PROPOSITO: FATURAR OS MOVIMENTOS DE VENDAS DO TIPO 2.1.01 , CRIAR MOVIMENTO 2.1.02 E GERAR O RELACIONAMENTO ENTRE ELES DENTRO DO RM 
-     * PUXAR OS DADOS DE TRIBUTACAO DO MOVIMENTO 2.1.02 PARA ATUALIZAR DENTRO DA TAELA DE IMPOSTOS DO FORMULARIO
-    */
+   * AUTHOR: ENOS DESENVOLVEDOR FLUIG/FULL STACK 
+   * CRIADO EM: 12/08/2026
+   * PROPOSITO: FATURAR OS MOVIMENTOS DE VENDAS DO TIPO 2.1.01 , CRIAR MOVIMENTO 2.1.02 E GERAR O RELACIONAMENTO ENTRE ELES DENTRO DO RM 
+   * PUXAR OS DADOS DE TRIBUTACAO DO MOVIMENTO 2.1.02 PARA ATUALIZAR DENTRO DA TAELA DE IMPOSTOS DO FORMULARIO
+  */
 
 
 
@@ -29,26 +30,18 @@ function servicetask71(attempt, message) {
 
         var dataset = DatasetFactory.getDataset("G12-EXERCICIO-FISCAL", null, [c1], null);
 
-
         if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12-service-task71] Nenhum Exercicio fiscal retornado." + " CodColigada=" + codColigada);
+            log.warn("[G12-service-task394] Nenhum Exercicio fiscal retornado." + " CodColigada=" + codColigada);
             return;
         }
-
 
         exercicioFiscal = safe(dataset.getValue(0, "ID_EXERCICIO"));
         hAPI.setCardValue("exercicioFiscal", exercicioFiscal);
 
-
-
-
-
     } catch (error) {
         log.error("### Erro ao carregar o exercicio fiscal da coligada em questao - > : " + error);
         throw error;
-
     }
-
 
     log.info("EXERCICIO FISCAL ENCONTRADO - > " + exercicioFiscal);
     log.info("IDMOV ENCONTRADO - > " + idMov);
@@ -56,12 +49,10 @@ function servicetask71(attempt, message) {
 
 
 
-
-
     try {
 
-        /* 
-        AQUI VAI ACONTECER A MÁGICA DA INTEGRACAO 
+        /*
+        AQUI VAI ACONTECER A MÁGICA DA INTEGRACAO
         1 - ServiceManager.getService("wsProcess")- > PRIMEIRO É NECESSÁRIO PEGAR O SERVICO QUE SERA RESPONSAVEL PELA INTEGRACAO DENTRO DO SEU FLUIG , EM PAIENL DE CONTROLE - SERVICOS 
         2 - instantiate() - > O SERVICO RESPOSAVEL POR INTEGRACOES MAIS COMPLEXAS DENTRO DO FLUIG É O WSPROCESS, TAMBÉM EXISTE O WSDATASERVER POREM ELE SERVE PARA CRUD MAIS SIMPLES, ALTERAR, EXCLUIR MOVIMENTOS, REALIZAR UPDATES ETCC
             COMO NESSE CASO É UMA OPERAÇÃO COMPLEXA QUE ENVOLVE RELACIONAMENTOS, FATURAMENTO, GERAÇÃO , TRANSFERENCIA DE DADOS ENTRE OS MOVIMENTOS ETC.. O WSPROCESS EXECUTA ISSO PERFEITAMENTE. 
@@ -141,39 +132,12 @@ function servicetask71(attempt, message) {
             return;
         }
 
-        hAPI.setCardValue('historico2102', safe(dataset.getValue(0, "IDMOV")));
-        hAPI.setCardValue('idmov2', safe(dataset.getValue(0, "IDMOV")));
-        var idmovMovimento02 = safe(dataset.getValue(0, "IDMOV"));
+        var $idmov2102 = hAPI.getCardValue("historico2102");
+        var $novoIdmov2102 = safe(dataset.getValue(0, "IDMOV"));
 
+        var $atualizado = String($idmov2102).trim() + "," + $novoIdmov2102;
 
-
-
-
-    } catch (error) {
-        log.error("### Erro ao carregar movimento 2.1.02 no dataset - > : " + error);
-        throw error;
-
-    }
-
-
-
-    //CHECAGEM DA DATA DE COMPETENCIA PARA EXIBIR AO FINANCEIRO ANTES DE ENVIAR A NOTA, PODENDO SERVER DE CONSULTA PARA AJUSTE DA DATA OU NAO 
-    try {
-        var c2 = DatasetFactory.createConstraint("IDMOV", idmovMovimento02, idmovMovimento02, ConstraintType.MUST);
-        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset("G12-CARREGAR-DADOS", null, [c2, c1], null);
-
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12-service-task71] Nenhum dado de movimento retornado." + "IdMov=" + idmovMovimento02 + " CodColigada=" + codColigada);
-            return;
-        }
-
-        hAPI.setCardValue('dataDeCompetencia', safe(dataset.getValue(0, "DATA_DE_COMPETENCIA")));
-
-
-
+        hAPI.setCardValue('historico2102', $atualizado);
 
 
     } catch (error) {
@@ -181,75 +145,6 @@ function servicetask71(attempt, message) {
         throw error;
 
     }
-
-
-
-
-
-    // BUSCA OS IMPOSTOS DO MOVIMENTO 2.1.02 APOS A ATUALIZACAO DO FATURAMENTO DO 2.1.01 E SEU FATUTRAMENTO, COM A GERACAO DO 2.1.02 
-    //APENAS OS IMPOSTOS DO MOVIMENTO ,NAO VAO INCLUI OS MUNICIPAIS DO MUNICIPIO
-
-
-    try {
-        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint("IDMOV", idmovMovimento02, idmovMovimento02, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset("G12-CARREGAR-TRIBUTOS", null, [c1, c2], null);
-
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12-service-task71] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmovMovimento02);
-            return;
-        }
-
-
-        hAPI.setCardValue('tributosNacionais', safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
-        hAPI.setCardValue('naturezaOrcamentaria', safe(dataset.getValue(0, "NATUREZA_ORCAMENTARIA")));
-        hAPI.setCardValue('irrfDoItem', safe(dataset.getValue(0, "IRRF_DO_ITEM")));
-        hAPI.setCardValue('inssDoItem', safe(dataset.getValue(0, "INSS_DO_ITEM")));
-        hAPI.setCardValue('irrfDescricao', safe(dataset.getValue(0, "IRRF_DESCRICAO")));
-        hAPI.setCardValue('irrfAliquota', safe(dataset.getValue(0, "IRRF_ALIQUOTA")));
-        hAPI.setCardValue('irrfTipoDePessoa', safe(dataset.getValue(0, "TIPO_DE_PESSOA")));
-        hAPI.setCardValue('inssDescricao', safe(dataset.getValue(0, "INSS_DESCRICAO")));
-        hAPI.setCardValue('inssAliquota', safe(dataset.getValue(0, "INSS_ALIQUOTA")));
-
-
-
-    } catch (e) {
-        log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
-        throw e;
-    }
-
-
-
-
-
-
-    try {
-        var c1 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint("IDMOV", idmovMovimento02, idmovMovimento02, ConstraintType.MUST);
-        var c3 = DatasetFactory.createConstraint("NOMEMUNICIPIO", municipio, municipio, ConstraintType.MUST);
-
-        var dataset = DatasetFactory.getDataset("G12-TRIBUTOS-MUNICIPAIS", null, [c1, c2, c3], null);
-
-
-        if (dataset == null || dataset.rowsCount == 0) {
-            log.warn("[G12] Nenhum tributo retornado. CodColigada=" + codColigada + " IdMov2=" + idmovMovimento02 + " Municipio=" + municipio);
-            return;
-        }
-        hAPI.setCardValue('tributosMunicipais', safe(dataset.getValue(0, "TRIBUTOS_MUNICIPAIS")));
-
-
-
-    } catch (e) {
-        log.error("### Erro ao carregar impostos nacionais e municipias do dataset ->  " + e);
-        throw e;
-    }
-
-
-
-
-
 
 
 }

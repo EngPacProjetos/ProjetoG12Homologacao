@@ -1,7 +1,7 @@
 function servicetask308(attempt, message) {
-	
-	
-	/**
+
+
+    /**
      * AUTHOR: ENOS DESENVOLVEDOR FLUIG/FULL STACK 
      * CRIADO EM: 29/05/2026
      * PROPOSITO: FATURAR OS MOVIMENTOS DE VENDAS DO TIPO 2.1.02 , CRIAR MOVIMENTO 2.2.01 E GERAR O RELACIONAMENTO ENTRE ELES DENTRO DO RM 
@@ -10,7 +10,7 @@ function servicetask308(attempt, message) {
 
 
     var codColigada = hAPI.getCardValue("CodColigada");
-    var idMov = hAPI.getCardValue("idmov2");
+    var idMov = hAPI.getCardValue("historico2102").split(",").pop().trim();
     var codFilial = hAPI.getCardValue("filial");
     var codigoExercicioFiscal = hAPI.getCardValue("exercicioFiscal");
     var today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
@@ -95,8 +95,12 @@ function servicetask308(attempt, message) {
         if (dataset.rowsCount == 0) throw "[G12-MOVIMENTO 2.1.02 FATURAMENTO] - Nenhum registro encontrado no movimento 2.1.02: " + idMov;
 
         if (dataset != null && dataset.rowsCount > 0) {
-            hAPI.setCardValue("numeroIdmov2201", dataset.getValue(0, "IDMOV"));
 
+            var $historicoIdmov2201 = hAPI.getCardValue("historico2201");
+            var $novoIdMov2201 = dataset.getValue(0, "IDMOV");
+
+            var $atualizado = $historicoIdmov2201.trim() + "," + $novoIdMov2201;
+            hAPI.setCardValue("historico2201", $atualizado);
         }
 
 
@@ -105,29 +109,9 @@ function servicetask308(attempt, message) {
     }
 
 
-    try {
-        var c1 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
-        var c2 = DatasetFactory.createConstraint("CODCOLIGADA", codColigada, codColigada, ConstraintType.MUST);
 
-
-        var dataset = DatasetFactory.getDataset("G12-INFO-NFSE", null, [c2, c1], null);
-
-        if (dataset.rowsCount == 0) throw "[G12-INFO-NFSE] - Nenhum registro de NFSE encontrado para o movimento 2.1.02: " + idMov;
-
-        if (dataset != null && dataset.rowsCount > 0) {
-            hAPI.setCardValue("codigoVerificacao", dataset.getValue(0, "CODIGO_VERIFICACAO"));
-            hAPI.setCardValue("dataEmissao", dataset.getValue(0, "DATA_EMISSAO"));
-            hAPI.setCardValue("dataAutorizacao", dataset.getValue(0, "DATA_AUTORIZACAO"));
-            hAPI.setCardValue("numeroNotas", dataset.getValue(0, "NUMERO_NFSE"));
-
-        }
-
-
-    } catch (error) {
-        throw "[G12-INFO-NFSE] - Error ao tentar buscar as informações da NFSE do movimento 2.1.02: " + error;
-    }
-
-
+    hAPI.setCardValue("infoSetorAjusteRecebimento", "");
+    hAPI.setCardValue("infoSetorAjuste", "");
 
 }
 

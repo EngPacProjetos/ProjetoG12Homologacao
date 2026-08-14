@@ -93,7 +93,9 @@ function servicetask78(attempt, message) {
         if (dataset.rowsCount == 0) throw "[G12-MOVIMENTO 2.1.02 FATURAMENTO] - Nenhum registro encontrado no movimento 2.1.02: " + idMov;
 
         if (dataset != null && dataset.rowsCount > 0) {
+            hAPI.setCardValue("historico2201", dataset.getValue(0, "IDMOV"));
             hAPI.setCardValue("numeroIdmov2201", dataset.getValue(0, "IDMOV"));
+            hAPI.setCardValue("numeroMov", dataset.getValue(0, "NUMERO_MOVIMENTO"));
 
         }
 

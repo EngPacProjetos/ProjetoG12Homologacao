@@ -75,7 +75,9 @@ function createDataset(fields, constraints, sortFields) {
         // Funcao auxiliar para montar uma linha com fallback seguro
         function buildRow(row) {
             return new Array(
-                row.has("IDMOV_DESTINO") ? row.get("IDMOV_DESTINO") : ""
+                row.has("IDMOV_DESTINO") ? row.get("IDMOV_DESTINO") : "",
+                row.has("NUMERO_MOVIMENTO") ? row.get("NUMERO_MOVIMENTO") : ""
+
             );
         }
 
