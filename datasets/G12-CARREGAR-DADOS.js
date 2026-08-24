@@ -91,7 +91,8 @@ function createDataset(fields, constraints, sortFields) {
         "CODIGO_MUNICIPIO",
         "VALOR_BRUTO_ORIGINAL",
         "VALOR_LIQUIDO_ORIGINAL",
-        "DATA_DE_COMPETENCIA"
+        "DATA_DE_COMPETENCIA", 
+        "FISCAL_MEDICAO"
     ];
 
     try {
@@ -219,7 +220,9 @@ function createDataset(fields, constraints, sortFields) {
                 row.has("CODIGO_MUNICIPIO") ? row.get("CODIGO_MUNICIPIO") : "",
                 row.has("VALOR_BRUTO_ORIGINAL") ? row.get("VALOR_BRUTO_ORIGINAL") : "",
                 row.has("VALOR_LIQUIDO_ORIGINAL") ? row.get("VALOR_LIQUIDO_ORIGINAL") : "",
-                row.has("DATA_DE_COMPETENCIA") ? row.get("DATA_DE_COMPETENCIA") : ""
+                row.has("DATA_DE_COMPETENCIA") ? row.get("DATA_DE_COMPETENCIA") : "",
+                row.has("FISCAL_MEDICAO") ? row.get("FISCAL_MEDICAO") : ""                
+
 
 
             );

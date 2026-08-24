@@ -72,7 +72,7 @@ function competenciaMudou() {
 function desabilitarParaAjuste() {
     var atividade = $("#atividade").val();
     console.log("ATIVIDADE DA VEZ -->", atividade)
-    if (atividade == 250 || atividade == 43) {
+    if (atividade == 43) {
         var valores = document.querySelectorAll("input, textarea, button, select");
         var valoresTransmissao = document.querySelectorAll(".botaoTransmissao");
 

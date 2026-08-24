@@ -15,6 +15,7 @@ function selecionarBotaoTransmissao(botao, sufixo) {
     var idCorretas = "infoNfseCorretas" + sufixo;
     var idErradas = "infoNfseErradas" + sufixo;
 
+
     if (botao.id === idCorretas) {
         $(idInfoCorreta).val("sim");
 
@@ -48,6 +49,40 @@ function selecionarBotaoTransmissaoSetor(botao, sufixo) {
     } else if (botao.id === idTecnico) {
         $(idInfoSetor).val("tecnico");
     }
+}
+
+function restaurarSelecaoTransmissao(sufixo) {
+    sufixo = sufixo || "";
+
+    var infoTransm = $("#infoTransmOK" + sufixo).val();
+    var idBotaoTransm = null;
+    if (infoTransm === "sim") idBotaoTransm = "infoNfseCorretas" + sufixo;
+    else if (infoTransm === "nao") idBotaoTransm = "infoNfseErradas" + sufixo;
+
+    if (idBotaoTransm) {
+        var botaoTransm = document.getElementById(idBotaoTransm);
+        if (botaoTransm) selecionarBotaoTransmissao(botaoTransm, sufixo);
+    }
+
+    var infoSetor = $("#infoSetorAjuste" + sufixo).val();
+    var idBotaoSetor = null;
+    if (infoSetor === "financeiro") idBotaoSetor = "financeiroReponsavel" + sufixo;
+    else if (infoSetor === "tecnico") idBotaoSetor = "tecnicoReponsavel" + sufixo;
+
+    if (idBotaoSetor) {
+        var botaoSetor = document.getElementById(idBotaoSetor);
+        if (botaoSetor) selecionarBotaoTransmissaoSetor(botaoSetor, sufixo);
+    }
+}
+
+// Restaura o estado visual "selecionado" dos botoes de Checagem de transmissao e
+// Aguardando Recebimento ao reabrir o formulario, pois a classe so era aplicada no
+// clique e se perdia a cada novo carregamento da pagina. Se infoTransmOK/infoSetorAjuste
+// estiverem vazios (ex.: apos serem limpos na fase de ajuste financeiro do 2.2.01),
+// nenhum botao fica marcado, preservando esse comportamento de limpeza.
+function restaurarBotoesTransmissao() {
+    restaurarSelecaoTransmissao("");
+    restaurarSelecaoTransmissao("Recebimento");
 }
 
 function chagenSelect(select) {

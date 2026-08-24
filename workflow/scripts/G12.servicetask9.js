@@ -62,6 +62,7 @@ function loadDsG12(codColigada, idMov) {
         hAPI.setCardValue('codigoMunicipio', safe(dataset.getValue(0, "CODIGO_MUNICIPIO")));
         hAPI.setCardValue('valorBrutoOriginal', safe(dataset.getValue(0, "VALOR_BRUTO_ORIGINAL")));
         hAPI.setCardValue('valorLiquidoOriginal', safe(dataset.getValue(0, "VALOR_LIQUIDO_ORIGINAL")));
+        hAPI.setCardValue('fiscalMedicao', safe(dataset.getValue(0, "FISCAL_MEDICAO")));
 
         hAPI.setCardValue('unidade_produto', safe(dataset.getValue(0, "UNIDADE_ITEM")));
         hAPI.setCardValue('quantidade_produto', safe(dataset.getValue(0, "QUANTIDADE_ITEM")));

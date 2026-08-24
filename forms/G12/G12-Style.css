@@ -809,6 +809,45 @@
   resize: none;
 }
 
+.portaisNfseWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.btn-portal-nfse {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  background-color: #1eaad9 !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15, 52, 96, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-portal-nfse:hover,
+.btn-portal-nfse:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(15, 52, 96, 0.35);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-portal-nfse:active {
+  transform: translateY(-1px);
+}
+
 .botaoTransmissao {
   display: flex;
   justify-content: center;

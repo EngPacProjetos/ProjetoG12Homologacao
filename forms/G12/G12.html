@@ -159,10 +159,14 @@
 
 					<!-- CONTROLE DE FLUXO DO PROCESSO  -->
 					<input type="hidden" name="atividade" id="atividade" readonly>
+					<input type="hidden" name="qtdeCancelamentos" id="qtdeCancelamentos" readonly>
 					<input type="hidden" name="exibirCheck" id="exibirCheck" readonly>
 
 					<!-- CONTROLE FLUXO DE COMPETENCIA  -->
 					<input type="hidden" name="CompetenciaAlterada" id="CompetenciaAlterada" readonly>
+
+					<!-- CONTROLE DE FLUXO DE RECEBIMENTO  -->
+					<input type="hidden" name="controleDeFluxo" id="controleDeFluxo" readonly>
 
 					<!-- TRANSMISSAO -->
 					<input type="hidden" id="infoTransmOK" name="infoTransmOK">
@@ -173,10 +177,10 @@
 					<input type="hidden" id="infoSetorAjusteRecebimento" name="infoSetorAjusteRecebimento">
 
 					<!-- MOVIMENTOS 2.1.02 e 2.2.01-->
-					<input type="text" id="historico2102" name="historico2102">
-					<input type="text" id="historico2201" name="historico2201">
-					<input type="text" id="historicoNumMov2201" name="historicoNumMov2201">
-					<input type="text" id="historicoNumMov2102" name="historicoNumMov2102">
+					<input type="hidden" id="historico2102" name="historico2102">
+					<input type="hidden" id="historico2201" name="historico2201">
+					<input type="hidden" id="historicoNumMov2201" name="historicoNumMov2201">
+					<input type="hidden" id="historicoNumMov2102" name="historicoNumMov2102">
 
 
 					<!-- Indicador de carregamento -->
@@ -326,6 +330,13 @@
 											<label for="estado_projeto">Estado</label>
 											<input type="text" class="form-control" name="estado_projeto"
 												id="estado_projeto" readonly>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="fiscalMedicao">Fiscal de Medição</label>
+											<input type="text" name="fiscalMedicao" id="fiscalMedicao"
+												class="form-control" readonly>
 										</div>
 									</div>
 								</div>
@@ -1591,7 +1602,7 @@
 										<div class="form-group">
 											<label for="numeroIdmov2201">Idmov 2.2.01</label>
 											<input type="text" class="form-control" name="numeroIdmov2201"
-												id="numeroIdmov2201" readonly>
+												id="numeroIdmov2201" readonly onblur="atualizaMovimnentoManualmente(this)">
 										</div>
 									</div>
 								</div>
@@ -1629,6 +1640,19 @@
 
 												</span>
 
+											</div>
+
+											<div class="portaisNfseWrap">
+												<a class="btn-portal-nfse"
+													href="https://www.nfse.gov.br/EmissorNacional/" target="_blank"
+													rel="noopener noreferrer">Emissor Nacional</a>
+												<a class="btn-portal-nfse"
+													href="https://receita.joaopessoa.pb.gov.br/notafiscal/paginas/portal/index.html"
+													target="_blank" rel="noopener noreferrer">Prefeitura de João
+													Pessoa</a>
+												<a class="btn-portal-nfse"
+													href="https://iss.fazenda.df.gov.br/online/Login/Login.aspx"
+													target="_blank" rel="noopener noreferrer">Prefeitura de Brasília</a>
 											</div>
 
 										</div>
@@ -1971,7 +1995,8 @@
 													<td>
 
 														<div class="form-group">
-															<label for="irrfCodigoAjusteSub">Código IRRF / Descrição</label>
+															<label for="irrfCodigoAjusteSub">Código IRRF /
+																Descrição</label>
 															<input style="z-index: 99999px;" type="zoom"
 																class="form-control" id="irrfCodigoAjusteSub"
 																name="irrfCodigoAjusteSub" data-zoom="{
@@ -1992,7 +2017,8 @@
                                }
                            ]
                        }">
-															<input type="hidden" id="irrfCodSub" name="irrfCodSub" value="">
+															<input type="hidden" id="irrfCodSub" name="irrfCodSub"
+																value="">
 
 														</div>
 													</td>
@@ -2001,11 +2027,9 @@
 															<div class="col-md-12">
 																<div
 																	style="display:flex; justify-content:flex-end; align-items: center;">
-																	<button type="button"
-																		class="btn btn-danger btn-sm"
+																	<button type="button" class="btn btn-danger btn-sm"
 																		onclick="removerComAnimacao(this)">
-																		<i
-																			class="flaticon flaticon-trash icon-lg"></i>
+																		<i class="flaticon flaticon-trash icon-lg"></i>
 																	</button>
 																</div>
 															</div>
@@ -2042,7 +2066,8 @@
 													<td>
 
 														<div class="form-group">
-															<label for="inssCodigoAjusteSub">Código INSS / Descrição</label>
+															<label for="inssCodigoAjusteSub">Código INSS /
+																Descrição</label>
 															<input style="z-index: 99999px;" type="zoom"
 																class="form-control" id="inssCodigoAjusteSub"
 																name="inssCodigoAjusteSub" data-zoom="{
@@ -2063,7 +2088,8 @@
                                }
                            ]
                        }">
-															<input type="hidden" id="inssCodSub" name="inssCodSub" value="">
+															<input type="hidden" id="inssCodSub" name="inssCodSub"
+																value="">
 
 														</div>
 													</td>
@@ -2072,11 +2098,9 @@
 															<div class="col-md-12">
 																<div
 																	style="display:flex; justify-content:flex-end; align-items: center;">
-																	<button type="button"
-																		class="btn btn-danger btn-sm"
+																	<button type="button" class="btn btn-danger btn-sm"
 																		onclick="removerComAnimacao(this)">
-																		<i
-																			class="flaticon flaticon-trash icon-lg"></i>
+																		<i class="flaticon flaticon-trash icon-lg"></i>
 																	</button>
 																</div>
 															</div>
@@ -2281,8 +2305,7 @@
 
 										<div class="historico-legenda">
 											<span class="historico-legenda-item">
-												<span
-													class="historico-legenda-cor historico-legenda-a-faturar"></span>
+												<span class="historico-legenda-cor historico-legenda-a-faturar"></span>
 												A faturar
 											</span>
 											<span class="historico-legenda-item">
@@ -2290,14 +2313,12 @@
 												Faturado
 											</span>
 											<span class="historico-legenda-item">
-												<span
-													class="historico-legenda-cor historico-legenda-cancelado"></span>
+												<span class="historico-legenda-cor historico-legenda-cancelado"></span>
 												Cancelado
 											</span>
 										</div>
 
-										<table id="tblHistoricoMovimentos"
-											class="table table-condensed table-striped">
+										<table id="tblHistoricoMovimentos" class="table table-condensed table-striped">
 											<thead>
 												<tr>
 													<th>Tipo do Movimento</th>

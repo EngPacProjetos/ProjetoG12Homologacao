@@ -24,36 +24,75 @@ function montarLinhasHistoricoMovimentos() {
     var lista2102 = parseListaHistorico($("#historico2102").val());
     var lista2201 = parseListaHistorico($("#historico2201").val());
 
+    var $qtdeCancelamento = Number($("#qtdeCancelamentos").val()) || 0;
+
     var linhas = [];
+    var $qtdeRps = lista2102.length;
+    var $qtdeFinanceiro = lista2201.length;
 
-    // 2.1.01: faturado assim que existir qualquer 2.1.02 gerado a partir dele.
+
     if (idmov101 != null && String(idmov101).trim() !== "") {
-        var status101 = lista2102.length > 0 ? "faturado" : "a-faturar";
-        linhas.push({ tipo: "2.1.01", numero: String(idmov101).trim(), status: status101 });
-    }
 
-    // 2.1.02: todos menos o ultimo sao sempre cancelados (foram substituidos).
-    // O ultimo fica "a faturar" se surgiu um 2.1.02 novo sem 2.2.01 correspondente ainda
-    // (mais numeros em historico2102 do que em historico2201); caso contrario, faturado.
-    if (lista2102.length > 0) {
-        var statusUltimo2102 = lista2102.length > lista2201.length ? "a-faturar" : "faturado";
-        for (var i = 0; i < lista2102.length; i++) {
-            var ultimo2102 = i === lista2102.length - 1;
-            linhas.push({ tipo: "2.1.02", numero: lista2102[i], status: ultimo2102 ? statusUltimo2102 : "cancelado" });
+        if ($qtdeCancelamento > 0 && ($qtdeCancelamento == $qtdeRps)) {
+            linhas.push({ tipo: "2.1.01", numero: String(idmov101).trim(), status: "a-faturar" });
+        }
+        else if ($qtdeCancelamento > 0 && ($qtdeCancelamento < $qtdeRps)) {
+            linhas.push({ tipo: "2.1.01", numero: String(idmov101).trim(), status: "faturado" });
+        }
+        else if ($qtdeRps > 0) {
+            linhas.push({ tipo: "2.1.01", numero: String(idmov101).trim(), status: "faturado" });
+        }
+        else {
+            linhas.push({ tipo: "2.1.01", numero: String(idmov101).trim(), status: "a-faturar" });
         }
     }
 
-    // 2.2.01: mesma regra de "so o ultimo importa". O ultimo e cancelado quando um novo
-    // 2.1.02 apareceu depois dele (2.1.02 a mais que 2.2.01), pois um novo 2.2.01 sera gerado.
+
+    // 2.1.02: todos os RPS entram na tabela. Todos menos o ultimo sao sempre
+    // cancelados (foram substituidos por reemissao); o ultimo usa qtdeCancelamento
+    // para saber se a reemissao mais recente tambem ja foi cancelada ("a NFS-e errada"
+    // acabou de ser marcada, sem novo RPS ainda) ou se ja seguiu para faturamento.
+    if (lista2102.length > 0) {
+        var status2102Ultimo;
+        if ($qtdeCancelamento > 0 && $qtdeCancelamento >= $qtdeRps) {
+            status2102Ultimo = "cancelado";
+        } else {
+            // ultimo 2.1.02 ativo: so e "faturado" se ja existe o 2.2.01 correspondente
+            status2102Ultimo = $qtdeFinanceiro >= $qtdeRps ? "faturado" : "a-faturar";
+        }
+
+        for (var i = 0; i < lista2102.length; i++) {
+            var ultimo2102 = i === lista2102.length - 1;
+            linhas.push({ tipo: "2.1.02", numero: lista2102[i], status: ultimo2102 ? status2102Ultimo : "cancelado" });
+        }
+    }
+
+    // 2.2.01: mesma regra - todos menos o ultimo titulo financeiro sao cancelados
+    // quando uma nova reemissao os substitui.
     if (lista2201.length > 0) {
-        var statusUltimo2201 = lista2102.length > lista2201.length ? "cancelado" : "faturado";
+        var status2201Ultimo = ($qtdeCancelamento > 0 && $qtdeCancelamento >= $qtdeFinanceiro) ? "cancelado" : "faturado";
+
         for (var j = 0; j < lista2201.length; j++) {
             var ultimo2201 = j === lista2201.length - 1;
-            linhas.push({ tipo: "2.2.01", numero: lista2201[j], status: ultimo2201 ? statusUltimo2201 : "cancelado" });
+            linhas.push({ tipo: "2.2.01", numero: lista2201[j], status: ultimo2201 ? status2201Ultimo : "cancelado" });
         }
     }
 
     return linhas;
+}
+
+function countTipoAtividade() {
+    var $atividade = String($("#atividade").val()).trim();
+
+    var $qtdeCancelamentosElement = $("#qtdeCancelamentos");
+
+    var $qtdeCancelamentos = Number(String($qtdeCancelamentosElement.val()).trim()) || 0;
+
+    if ($atividade == 375) {
+        $qtdeCancelamentos += 1;
+
+        $($qtdeCancelamentosElement).val($qtdeCancelamentos);
+    }
 }
 
 function renderizarHistoricoMovimentos() {
@@ -82,4 +121,25 @@ function renderizarHistoricoMovimentos() {
         );
         corpo.append(tr);
     });
+}
+
+function atualizaMovimnentoManualmente(campo) {
+
+    console.log("ENTROU NA FUNCAO")
+
+    var moviment2201Manual = $(campo).val();
+
+    var $historicoAtualMovimento = $("#historicoNumMov2201");
+
+    console.log("atualizou o campo de historico")
+
+    $historicoAtualMovimento.val(moviment2201Manual);
+
+    var $historicoAtualMovimentoChecagemn = $("#historicoNumMov2201").val();
+
+    console.log("checando o campo de historico -> ", $historicoAtualMovimentoChecagemn);
+
+    renderizarHistoricoMovimentos();
+
+    console.log("Historico atualizado")
 }

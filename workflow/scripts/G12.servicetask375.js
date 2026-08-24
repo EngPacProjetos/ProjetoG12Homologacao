@@ -22,7 +22,7 @@ function Cancelamento() {
         log.info("========== G12 servicetask30 - INICIO ==========");
         log.info(">> codColigada : [" + codColigada + "]");
         log.info(">> idMov       : [" + idMov + "]");
-        log.info(">> numeroMov   : [" + numeroMov + "]");
+        // log.info(">> numeroMov   : [" + numeroMov + "]");
         log.info(">> usuario     : [" + usuario + "]");
 
         var hoje = new java.text.SimpleDateFormat("dd/MM/yyyy")

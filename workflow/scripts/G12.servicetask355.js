@@ -11,13 +11,11 @@ function servicetask355(attempt, message) {
     log.info("[G12-AjustarTributos] Iniciando - CODCOLIGADA=" + codColigada + " IDMOV=" + idmov);
 
     var tributosFormulario = {};
-    var i = 1;
 
-    while (true) {
-        var sufixo = "___" + i;
+    function coletarTributoFormulario(sufixo) {
         var codtrbN = hAPI.getCardValue("impostos_selecao_subs" + sufixo);
 
-        if (codtrbN == null || codtrbN == "" || codtrbN == "null" || codtrbN == undefined) break;
+        if (codtrbN == null || codtrbN == "" || codtrbN == "null" || codtrbN == undefined) return false;
 
         var valorN = hAPI.getCardValue("valorImpostoSub" + sufixo);
         var aliqN = hAPI.getCardValue("aliquotaSub" + sufixo);
@@ -31,6 +29,15 @@ function servicetask355(attempt, message) {
 
         log.info("[G12-AjustarTributos] Tributo do formulario: " + String(codtrbN).trim() + " = " + JSON.stringify(tributosFormulario[String(codtrbN).trim()]));
 
+        return true;
+    }
+
+    // Linha pai da tabela (sem sufixo)
+    coletarTributoFormulario("");
+
+    // Linhas filhas adicionadas via "+ Imposto" (___1, ___2, ...)
+    var i = 1;
+    while (coletarTributoFormulario("___" + i)) {
         i++;
         if (i > 50) break;
     }
@@ -128,14 +135,6 @@ function servicetask355(attempt, message) {
         var resultado = authService.saveRecord("MovMovimentoTBCData", xmlFinal, contexto);
         log.info("[G12-AjustarTributos] Resultado SaveRecord: " + resultado);
 
-
-        if (resultado && String(resultado).indexOf("Exception") !== -1) {
-            throw new Error("Erro retornado pelo RM: " + resultado);
-        }
-
-        if (resultado && String(resultado).indexOf("Error") !== -1) {
-            throw new Error("Erro retornado pelo RM: " + resultado);
-        }
 
     } catch (e) {
         log.error("[G12-AjustarTributos] Erro: " + String(e));

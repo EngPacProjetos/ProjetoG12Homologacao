@@ -8,10 +8,22 @@ function ajustarValorTributo(campo) {
         return;
     }
 
-    var valorRaw    = campo.value.replace(/\./g, "").replace(",", ".");
-    var aliquotaRaw = $("#aliquota___" + index).val().replace(/\./g, "").replace(",", ".");
+    var valorRaw = campo.value.replace(/\./g, "").replace(",", ".");
+    console.log("Valor bruto do campo:", valorRaw);
 
-    var valor    = parseFloat(valorRaw);
+    var $tr = $(campo).closest("tr");
+    var $aliquota = $tr.find("input[name^='aliquota']");
+    var $valorImposto = $tr.find("input[name^='valorImposto']");
+
+    if ($aliquota.length === 0 || $valorImposto.length === 0) {
+        console.warn("PAROU: não achou aliquota ou valorImposto nessa linha");
+        return;
+    }
+
+    var aliquotaRaw = $aliquota.val().replace(/\./g, "").replace(",", ".");
+    console.log("Alíquota bruta do campo:", aliquotaRaw);
+
+    var valor = parseFloat(valorRaw);
     var aliquota = parseFloat(aliquotaRaw) / 100;
 
     console.log("Valor da base de cálculo:", valor);
@@ -23,24 +35,24 @@ function ajustarValorTributo(campo) {
     }
 
     var resultado = valor * aliquota;
-
     console.log("RESULTADO FINAL DO CALCULO", resultado);
 
     var resultadoStr = resultado.toString();
-    var partes       = resultadoStr.split(".");
-    var inteiro      = partes[0];
-    var decimal      = partes[1] ? partes[1].substring(0, 4).padEnd(4, "0") : "0000";
-
+    var partes = resultadoStr.split(".");
+    var inteiro = partes[0];
+    var decimal = partes[1] ? partes[1].substring(0, 4).padEnd(4, "0") : "0000";
     var formatado = inteiro + "," + decimal;
 
     console.log("VALOR FORMATADO:", formatado);
 
-    $("#valorImposto___" + index).val(formatado);
+    $valorImposto.val(formatado);
 
-    var inteiroBase  = valorRaw.split(".")[0];
-    var decimalBase  = valorRaw.split(".")[1] ? valorRaw.split(".")[1].substring(0, 4).padEnd(4, "0") : "0000";
+    var inteiroBase = valorRaw.split(".")[0];
+    var decimalBase = valorRaw.split(".")[1] ? valorRaw.split(".")[1].substring(0, 4).padEnd(4, "0") : "0000";
     $(campo).val(inteiroBase + "," + decimalBase);
 
     var aliquotaFormatada = aliquotaRaw.split(".")[0] + "," + (aliquotaRaw.split(".")[1] ? aliquotaRaw.split(".")[1].substring(0, 4).padEnd(4, "0") : "0000");
-    $("#aliquota___" + index).val(aliquotaFormatada);
+    console.log("ALÍQUOTA FORMATADA", aliquotaFormatada);
+
+    $aliquota.val(aliquotaFormatada);
 }
