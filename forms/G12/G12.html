@@ -24,6 +24,8 @@
 	<script type="text/javascript" src="G12-Loading.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-ChecagemTransmissao.js" charset="utf-8"></script>
 	<script type="text/javascript" src="G12-HistoricoMovimentos.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-ControleDeEtiquetas.js" charset="utf-8"></script>
+	<script type="text/javascript" src="G12-AnexosEmail.js" charset="utf-8"></script>
 
 
 	<link rel="stylesheet" href="G12-Style.css">
@@ -181,6 +183,9 @@
 					<input type="hidden" id="historico2201" name="historico2201">
 					<input type="hidden" id="historicoNumMov2201" name="historicoNumMov2201">
 					<input type="hidden" id="historicoNumMov2102" name="historicoNumMov2102">
+
+					<!-- NOTA FISCAL QUE SERA ENVIADA NO CORPO DO EMAIL -->
+					<!-- CAMPOS PARA GUARDAR INFORMACAO DAS NOTAS BACKLOG FUTURO  -->
 
 
 					<!-- Indicador de carregamento -->
@@ -1602,7 +1607,8 @@
 										<div class="form-group">
 											<label for="numeroIdmov2201">Idmov 2.2.01</label>
 											<input type="text" class="form-control" name="numeroIdmov2201"
-												id="numeroIdmov2201" readonly onblur="atualizaMovimnentoManualmente(this)">
+												id="numeroIdmov2201" readonly
+												onblur="atualizaMovimnentoManualmente(this)">
 										</div>
 									</div>
 								</div>
@@ -1821,9 +1827,32 @@
 						</div>
 					</div>
 
+					<div id="ajusteSetorTecnicoPosNotaEmitida">
+						<div class="panel panel-default" style="margin-bottom: 16px;">
+							<div class="panel-heading">
+
+								<lord-icon src="https://cdn.lordicon.com/ietuubpb.json" trigger="loop" delay="2000"
+									style="width:60px;height:60px">
+								</lord-icon>
+								<h2 class="panel-title">ajuste do setor técnico após nota emitida</h2>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12"><label for="ajusteSetorTecnicoPosNota">Informações
+											Ajustadas</label>
+										<textarea name="ajusteSetorTecnicoPosNota" id="ajusteSetorTecnicoPosNota"
+											class="form-control" placeholder="Nenhum ajuste informado"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 					<div id="ajusteFinanceiro">
 						<div class="panel panel-default">
 							<div class="panel-heading">
+								<img src="Images/wired-flat-453-piggy-bank-hover-pinch.gif"
+									style="width:60px;height:60px" alt="piggy bank" />
 								<h2 class="panel-title">Ajuste Financeiro</h2>
 							</div>
 							<div class="panel-body">
@@ -2144,7 +2173,7 @@
 										</div>
 									</div>
 									<div class="afin-secao-footer">
-										<button type="button" class="btn btn-info btn-sm"
+										<button type="button" class="btn btn-success btn-sm"
 											onclick="ajusteCompetenciaSub()">
 											Ajustar Competência
 										</button>
@@ -2291,6 +2320,8 @@
 					<div id="historicoMovimentosPanel">
 						<div class="panel panel-default">
 							<div class="panel-heading">
+								<img src="Images/wired-flat-400-bookmark-hover-flutter.gif"
+									style="width:60px;height:60px" alt="historico movimento" />
 								<h2 class="panel-title">Histórico dos Movimentos</h2>
 							</div>
 							<div class="panel-body">

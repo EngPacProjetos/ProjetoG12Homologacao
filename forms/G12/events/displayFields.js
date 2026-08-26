@@ -36,6 +36,8 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
+
 
         } else if (atividade == 173) {
             innerHtml += "$('#identificacaoProjetoDiv').show();"
@@ -54,6 +56,7 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
         } else if (atividade == 23) {
             innerHtml += "$('#identificacaoProjetoDiv').show();"
             innerHtml += "$('#detalhesContrato').show();"
@@ -71,6 +74,7 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
 
         } else if (atividade == 150) {
             innerHtml += "$('#identificacaoProjetoDiv').show();"
@@ -89,6 +93,7 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
 
         } else if (atividade == 158) {
             innerHtml += "$('#identificacaoProjetoDiv').show();"
@@ -107,6 +112,9 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
+
+
         } else if (atividade == 61) {
             innerHtml += "$('#identificacaoProjetoDiv').show();"
             innerHtml += "$('#detalhesContrato').show();"
@@ -124,6 +132,7 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
         } else if (atividade == 242) {
             innerHtml += "$('#identificacaoProjetoDiv').show();"
             innerHtml += "$('#detalhesContrato').show();"
@@ -141,6 +150,7 @@ function displayFields(form, customHTML) {
 
             innerHtml += "$('#ajusteFinanceiro').hide();"
             innerHtml += "$('#aguardandoRecebimento').hide();"
+            innerHtml += "$('#ajusteSetorTecnicoPosNotaEmitida').hide();"
 
 
             form.setValue("controleDeFluxo", "1");
@@ -166,6 +176,7 @@ function displayFields(form, customHTML) {
 
                 innerHtml += "$('#ajusteFinanceiro').show();"
                 innerHtml += "$('#aguardandoRecebimento').show();"
+
             } else if (recebimentoFluxo == "1") {
                 innerHtml += "$('#identificacaoProjetoDiv').show();"
                 innerHtml += "$('#detalhesContrato').show();"
@@ -234,6 +245,56 @@ function displayFields(form, customHTML) {
 
 
             form.setValue("controleDeFluxo", "2");
+        } else if (atividade == 268) {
+            innerHtml += "$('#erroEnvioDeNotasDiv').hide();"
+            innerHtml += "$('#erroAutorizarNotas').hide();"
+            innerHtml += "$('#ajusteFinanceiro').hide();"
+
+            if (recebimentoFluxo == "1") {
+                innerHtml += "$('#aguardandoRecebimento').hide();"
+
+            }
+
+            if (recebimentoFluxo == "2") {
+                innerHtml += "$('#ajusteFinanceiro').show();"
+            }
+
+        } else if (atividade == 278) {
+            innerHtml += "$('#erroEnvioDeNotasDiv').hide();"
+            innerHtml += "$('#erroAutorizarNotas').hide();"
+            innerHtml += "$('#ajusteFinanceiro').hide();"
+
+            if (recebimentoFluxo == "1") {
+                innerHtml += "$('#aguardandoRecebimento').hide();"
+            }
+
+            if (recebimentoFluxo == "2") {
+                innerHtml += "$('#ajusteFinanceiro').show();"
+            }
+        }
+
+        if (atividade != 23) {
+            innerHtml += "$('#botoesTributos button').css('pointer-events', 'none');";
+            innerHtml += "$('#botoesTributos button').css('background-color', '#6c757d');";
+            innerHtml += "$('#botoesTributos button').css('color', '#fff');";
+        }
+
+        if (atividade != 61) {
+            innerHtml += "$('button[onclick=\"exibirEdicaoManual()\"]').css('pointer-events', 'none');";
+            innerHtml += "$('button[onclick=\"exibirEdicaoManual()\"]').css('background-color', '#6c757d');";
+            innerHtml += "$('button[onclick=\"exibirEdicaoManual()\"]').css('color', '#fff');";
+            innerHtml += "$('.portaisNfseWrap a').css('pointer-events', 'none');";
+            innerHtml += "$('.portaisNfseWrap a').each(function(){ this.style.setProperty('background-color', '#6c757d', 'important'); this.style.setProperty('color', '#fff', 'important'); });";
+        }
+
+        if (atividade != 250) {
+            innerHtml += "$('#ajusteFinanceiro button').css('pointer-events', 'none');";
+            innerHtml += "$('#ajusteFinanceiro button').css('background-color', '#6c757d');";
+            innerHtml += "$('#ajusteFinanceiro button').css('color', '#fff');";
+            innerHtml += "$('#ajusteFinanceiro').find('input').css('pointer-events','none');";
+            innerHtml += "$('#ajusteFinanceiro').find('input').css('background-color','#f2f2f2');";
+            innerHtml += "$('#ajusteFinanceiro').find('input').css('color','#a7a9ac');";
+
         }
 
 

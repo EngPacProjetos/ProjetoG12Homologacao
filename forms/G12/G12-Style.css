@@ -422,7 +422,15 @@
 #tblcAdastrarIrrf tbody tr td:first-child,
 #tblcAdastrarIrrf thead tr th:first-child,
 #tblCadastrarInss tbody tr td:first-child,
-#tblCadastrarInss thead tr th:first-child {
+#tblCadastrarInss thead tr th:first-child,
+#tblcadastrotributosmuniSub thead tr th:first-child {
+  display: none !important;
+}
+
+#tblcadastrotributosmuniSub tbody tr td:first-child,
+#tblajustarimpostosSubs tbody tr td:first-child,
+#tblAjusteIrrfSub tbody tr td:first-child,
+#tblAjusteInssSub tbody tr td:first-child {
   display: none !important;
 }
 
@@ -869,27 +877,35 @@
 }
 
 .textarea-desabilitado {
-  pointer-events: none;
-  background: #e9ecef !important;
-  color: #6c757d !important;
+  pointer-events: none !important;
+  background: #f2f2f2 !important;
+  color: #a7a9ac !important;
 }
 
 .textarea-habilitado {
-  pointer-events: auto;
+  pointer-events: auto !important;
   background: #fff !important;
   color: #000000 !important;
 }
 
 
 .campo-desabilitado {
-  pointer-events: none;
-  background: #e9ecef !important;
-  color: #6c757d !important;
+  pointer-events: none !important;
+  background: #f2f2f2 !important;
+  color: #a7a9ac !important;
+}
+
+/* "campo-desabilitado" tambem e aplicada aos botoes financeiro/tecnico
+   (#financeiroReponsavel/#tecnicoReponsavel) - nesses casos usa a paleta de
+   botao desativado (fundo #6c757d, texto branco) em vez da paleta de input. */
+.botaoTransmissao.campo-desabilitado {
+  background: #6c757d !important;
+  color: #fff !important;
 }
 
 .campo-habilitado {
-  pointer-events: auto;
-  background: none !important;
+  pointer-events: auto !important;
+  background: #fff !important;
   color: #000000 !important;
 }
 
@@ -1032,6 +1048,13 @@
 .historico-status-cancelado {
   background: #f8d7da;
   color: #721c24;
+}
+
+.selo-nota-cancelada {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
 }
 
 @media (max-width: 640px) {

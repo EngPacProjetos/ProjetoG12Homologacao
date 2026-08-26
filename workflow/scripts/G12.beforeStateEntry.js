@@ -136,7 +136,7 @@ function beforeStateEntry(sequenceId) {
                 "<div style='margin-bottom:30px;'>" +
 
                 "<div style='font-size:15px;line-height:1.8;color:#555555;'>" +
-                "A solicitação abaixo teve sua atividade concluída no Fluig." +
+                "A solicitação abaixo tem uma atividade atribuida ao setor de contratos." +
                 "</div>" +
 
                 "</div>";
@@ -317,7 +317,7 @@ function beforeStateEntry(sequenceId) {
 
             notifier.notify(
                 "admin",
-                "G11.TemplateEmail",
+                "G12.TemplateEmail",
                 params,
                 destinatarios,
                 "text/html"

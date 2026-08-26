@@ -25,5 +25,9 @@ function enableFields(form) {
 
     }
 
+    if (atividade != 268) {
+        form.setEnabled("ajusteSetorTecnicoPosNota", false);
+    }
+
 
 }

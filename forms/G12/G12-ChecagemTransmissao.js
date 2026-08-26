@@ -30,7 +30,17 @@ function selecionarBotaoTransmissao(botao, sufixo) {
         $financeiro.removeClass('campo-desabilitado').addClass('campo-habilitado');
         $tecnico.removeClass('campo-desabilitado').addClass('campo-habilitado');
         $motivo.removeClass('campo-desabilitado').addClass('campo-habilitado');
-      
+
+        // Ao entrar em "erradas" o textarea precisa refletir o motivo ja selecionado
+        // (ou a ausencia dele): so fica editavel quando o motivo for "outros". Sem
+        // isso o textarea ficava sem nenhuma classe e, portanto, sempre editavel.
+        var valorMotivoAtual = String($motivo.val() || "").trim();
+        if (valorMotivoAtual === "outros") {
+            $ajuste.removeClass('textarea-desabilitado').addClass('textarea-habilitado');
+        } else {
+            $ajuste.removeClass('textarea-habilitado').addClass('textarea-desabilitado');
+        }
+
     }
 }
 

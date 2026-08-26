@@ -80,17 +80,95 @@ function desabilitarParaAjuste() {
             console.log("DESABILITOU")
             $(input).prop("readOnly", true);
             $(input).css("pointer-events", "none");
-            $(input).css("background", "#dddddd");
+            if (input.tagName === "BUTTON") {
+                $(input).css("background-color", "#6c757d");
+                $(input).css("color", "#fff");
+            } else {
+                $(input).css("background-color", "#f2f2f2");
+                $(input).css("color", "#a7a9ac");
+            }
 
         })
         valoresTransmissao.forEach(input => {
             console.log("DESABILITOU")
             $(input).css("pointer-events", "none");
-            $(input).css("background", "#dddddd");
+            $(input).css("background-color", "#6c757d");
+            $(input).css("color", "#fff");
 
         })
 
 
+    }
+}
+
+
+function desabilitarCampos() {
+
+    var atividade = Number($("#atividade").val());
+
+    console.log(typeof atividade);
+
+    console.log("ATIVIDADE DA VEZ CHECAGEM -->", atividade)
+    
+    $camposDaDiv = $("#checagemDeTransmissao").find("input, textarea, button, select");
+    
+    $camposDaDivRecebimento = $("#aguardandoRecebimento").find("input, textarea, button, select");
+
+    if (atividade != 242) {
+
+        // Bloqueio da etapa inteira: precisa vencer ate os campos que ficaram com a
+        // classe "campo-habilitado"/"textarea-habilitado" de uma selecao anterior
+        // (ex.: "erradas" foi marcado antes). Por isso usa setProperty(..., "important"),
+        // que tem prioridade maior que qualquer regra de classe no CSS.
+        $camposDaDiv.each(function () {
+            $(this).prop("readOnly", true);
+            this.style.setProperty("pointer-events", "none", "important");
+            // Botao ja marcado como "selecionado" mantem a cor de selecao (nao fica
+            // cinza) - so perde a possibilidade de clicar, via pointer-events acima.
+            if (!$(this).hasClass("selecionado")) {
+                if (this.tagName === "BUTTON") {
+                    this.style.setProperty("background-color", "#6c757d", "important");
+                    this.style.setProperty("color", "#fff", "important");
+                } else {
+                    this.style.setProperty("background-color", "#f2f2f2", "important");
+                    this.style.setProperty("color", "#a7a9ac", "important");
+                }
+            }
+        });
+    }else{
+         $camposDaDiv.each(function () {
+            $(this).prop("readOnly", false);
+            // Nao forcar pointer-events/background aqui: dentro da etapa ativa, quem
+            // decide se cada campo fica clicavel/editavel sao as classes
+            // campo-habilitado/campo-desabilitado (ex.: motivo != "outros" continua bloqueado).
+            this.style.removeProperty("pointer-events");
+            this.style.removeProperty("background-color");
+            this.style.removeProperty("color");
+        });
+    }
+
+    if (atividade != 62) {
+
+        $camposDaDivRecebimento.each(function () {
+            $(this).prop("readOnly", true);
+            this.style.setProperty("pointer-events", "none", "important");
+            if (!$(this).hasClass("selecionado")) {
+                if (this.tagName === "BUTTON") {
+                    this.style.setProperty("background-color", "#6c757d", "important");
+                    this.style.setProperty("color", "#fff", "important");
+                } else {
+                    this.style.setProperty("background-color", "#f2f2f2", "important");
+                    this.style.setProperty("color", "#a7a9ac", "important");
+                }
+            }
+        });
+    } else {
+        $camposDaDivRecebimento.each(function () {
+            $(this).prop("readOnly", false);
+            this.style.removeProperty("pointer-events");
+            this.style.removeProperty("background-color");
+            this.style.removeProperty("color");
+        });
     }
 }
 

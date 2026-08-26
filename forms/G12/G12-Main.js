@@ -8,6 +8,9 @@ $(document).ready(function () {
     desabilitarParaAjuste(); //Desabilita campos quando entra na fase de ajuste de solicitacao
     countTipoAtividade(); // Conta a quantidade de vezess que a atividade passou por cancelar movimento
     renderizarHistoricoMovimentos(); // Monta a tabela do painel Historico dos Movimentos
+    desabilitarCampos(); //verifica se deve ou nao desabilitar os campos das div de checagem de transmissao e recebimento baseado no id da atividade 
+    checarNotaCancelada(); //verifica quantas notas fiscais foram canceladas para mudar a cor do fundo e colocar uma etiqueta de cancelado
+    preencherMovimentoEmNotasCanceladas() // preenchimento dos movimentos 2.2.01 nos inputs corretos das notas correspondentes. 
 
 })
 

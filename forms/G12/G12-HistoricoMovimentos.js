@@ -127,13 +127,24 @@ function atualizaMovimnentoManualmente(campo) {
 
     console.log("ENTROU NA FUNCAO")
 
-    var moviment2201Manual = $(campo).val();
+    var moviment2201Manual = String($(campo).val() || "").trim();
 
     var $historicoAtualMovimento = $("#historicoNumMov2201");
 
     console.log("atualizou o campo de historico")
 
     $historicoAtualMovimento.val(moviment2201Manual);
+
+
+    if (moviment2201Manual !== "") {
+        var $historico2201 = $("#historico2201");
+        var listaAtual = parseListaHistorico($historico2201.val());
+
+        if (listaAtual.indexOf(moviment2201Manual) === -1) {
+            listaAtual.push(moviment2201Manual);
+            $historico2201.val(listaAtual.join(","));
+        }
+    }
 
     var $historicoAtualMovimentoChecagemn = $("#historicoNumMov2201").val();
 
