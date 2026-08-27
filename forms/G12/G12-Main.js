@@ -10,7 +10,8 @@ $(document).ready(function () {
     renderizarHistoricoMovimentos(); // Monta a tabela do painel Historico dos Movimentos
     desabilitarCampos(); //verifica se deve ou nao desabilitar os campos das div de checagem de transmissao e recebimento baseado no id da atividade 
     checarNotaCancelada(); //verifica quantas notas fiscais foram canceladas para mudar a cor do fundo e colocar uma etiqueta de cancelado
-    preencherMovimentoEmNotasCanceladas() // preenchimento dos movimentos 2.2.01 nos inputs corretos das notas correspondentes. 
+    preencherMovimentoEmNotasCanceladas() // preenchimento dos movimentos 2.2.01 nos inputs corretos das notas correspondentes.
+    restaurarAvisoVariacaoValor(); // Reexibe o aviso de variacao >= 1% no valor alterado ao reabrir o formulario
 
 })
 

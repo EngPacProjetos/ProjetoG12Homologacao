@@ -197,10 +197,7 @@ function displayFields(form, customHTML) {
             }
             form.setValue("controleDeFluxo", "3");
 
-        }
-
-
-        else if (atividade == 62) {
+        } else if (atividade == 62) {
 
             if (recebimentoFluxo == "3") {
                 innerHtml += "$('#identificacaoProjetoDiv').show();"

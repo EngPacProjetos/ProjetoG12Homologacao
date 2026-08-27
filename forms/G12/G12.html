@@ -1838,12 +1838,25 @@
 							</div>
 							<div class="panel-body">
 								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="valorAlterado">Valor a ser alterado</label>
+											<input type="text" class="form-control" name="valorAlterado"
+												id="valorAlterado" onblur="ajustarValorDoSetorTecnico(this)">
+										</div>
+									</div>
+									<div class="col-md-4 offset-4" id="avisoVariacaoValorDiv">
+
+									</div>
+								</div>
+								<div class="row">
 									<div class="col-md-12"><label for="ajusteSetorTecnicoPosNota">Informações
 											Ajustadas</label>
 										<textarea name="ajusteSetorTecnicoPosNota" id="ajusteSetorTecnicoPosNota"
 											class="form-control" placeholder="Nenhum ajuste informado"></textarea>
 									</div>
 								</div>
+								<input type="hidden" name="valorAcimaDe1" id="valorAcimaDe1">
 							</div>
 						</div>
 					</div>

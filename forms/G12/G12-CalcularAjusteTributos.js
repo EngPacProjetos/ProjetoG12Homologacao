@@ -56,3 +56,87 @@ function ajustarValorTributo(campo) {
 
     $aliquota.val(aliquotaFormatada);
 }
+
+function ajustarValorDoSetorTecnico(campo) {
+
+    if (campo.value == "" || campo.value == null || campo.value == undefined) {
+        return;
+    }
+
+
+    var valorLimpo = String(campo.value).replace(/[^0-9.,]/g, "");
+    var valorRaw = valorLimpo.replace(/\./g, "").replace(",", ".");
+
+    var resultado = parseFloat(valorRaw);
+
+    if (isNaN(resultado)) {
+        console.warn("Valor inválido digitado em valorAlterado — abortando formatação");
+        $(campo).val("");
+        return;
+    }
+
+    var resultadoStr = resultado.toString();
+    var partes = resultadoStr.split(".");
+    var inteiro = partes[0];
+    var decimal = partes[1] ? partes[1].substring(0, 4).padEnd(4, "0") : "0000";
+    var formatado = inteiro + "," + decimal;
+
+    console.log("VALOR FORMATADO:", formatado);
+
+    $(campo).val(formatado)
+
+    verificarVariacaoValorAlterado(resultado);
+}
+
+
+function verificarVariacaoValorAlterado(valorAlteradoNumerico) {
+
+    var valorOriginalRaw = String($("#valorBrutoOriginal").val() || "")
+        .replace(/[^0-9.,]/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".");
+
+    var valorOriginal = parseFloat(valorOriginalRaw);
+
+    var $aviso = $("#avisoVariacaoValorDiv");
+    var $flagAcimaDe1 = $("[name='valorAcimaDe1']");
+
+    $aviso.empty();
+
+    if (isNaN(valorOriginal) || valorOriginal === 0 || isNaN(valorAlteradoNumerico)) {
+        $flagAcimaDe1.val("");
+        return;
+    }
+
+    var variacaoPercentual = Math.abs((valorAlteradoNumerico - valorOriginal) / valorOriginal) * 100;
+
+    console.log("VARIACAO PERCENTUAL DO VALOR ALTERADO:", variacaoPercentual);
+
+    if (variacaoPercentual >= 1) {
+        $flagAcimaDe1.val("SIM");
+
+        $aviso.append(
+            $("<div></div>")
+                .addClass("aviso-variacao-valor")
+                .text("Variação no valor da nota igual ou maior que 1%, notificar ao diretor técnico")
+        );
+    } else {
+        $flagAcimaDe1.val("");
+    }
+}
+
+// Reaplica o aviso de variacao de valor ao reabrir o formulario, pois o aviso e
+// montado so via jQuery (nao fica salvo no card) - sem isso ele sumia ao sair e
+// voltar, mesmo com o hidden valorAcimaDe1 ainda marcado como "SIM".
+function restaurarAvisoVariacaoValor() {
+    var valorAlteradoRaw = String($("#valorAlterado").val() || "")
+        .replace(/[^0-9.,]/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".");
+
+    var valorAlteradoNumerico = parseFloat(valorAlteradoRaw);
+
+    if (isNaN(valorAlteradoNumerico)) return;
+
+    verificarVariacaoValorAlterado(valorAlteradoNumerico);
+}
