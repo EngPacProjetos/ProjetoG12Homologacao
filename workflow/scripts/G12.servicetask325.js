@@ -79,14 +79,6 @@ function servicetask325(attempt, message) {
             var resultado = authService.saveRecord("FisTrbMunicipioPrdData", xmlFinal, contexto);
             log.info("[G12-AjustarTributosMunicipais] Resultado " + tributos[t].codtrb + ": " + resultado);
 
-
-            if (resultado && String(resultado).indexOf("Exception") !== -1) {
-                throw new Error("Erro retornado pelo RM: " + resultado);
-            }
-
-            if (resultado && String(resultado).indexOf("Error") !== -1) {
-                throw new Error("Erro retornado pelo RM: " + resultado);
-            }
         }
 
     } catch (e) {

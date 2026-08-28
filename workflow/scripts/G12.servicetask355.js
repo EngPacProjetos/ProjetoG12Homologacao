@@ -32,10 +32,9 @@ function servicetask355(attempt, message) {
         return true;
     }
 
-    // Linha pai da tabela (sem sufixo)
+    
     coletarTributoFormulario("");
 
-    // Linhas filhas adicionadas via "+ Imposto" (___1, ___2, ...)
     var i = 1;
     while (coletarTributoFormulario("___" + i)) {
         i++;
@@ -157,6 +156,8 @@ function servicetask355(attempt, message) {
 
 
         hAPI.setCardValue('tributosNacionais', safe(dataset.getValue(0, "TRIBUTOS_NACIONAIS")));
+
+        log.info("TRIBUTOS DO MOVIMENTO INFORMADO APOS ATUALIZACAO DOS TRIBUTOS E DO RPS -> " + (dataset.getValue(0, "TRIBUTOS_NACIONAIS")))
 
 
     } catch (e) {
