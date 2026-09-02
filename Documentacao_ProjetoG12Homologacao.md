@@ -5,6 +5,7 @@
 **Formulário:** `G12.html` (Form ID 68555, dataset de origem `DSG12`)
 **Autor identificado no código:** Enos Rocha — Programador Full Stack (Fluig)
 **Data deste levantamento:** 29/07/2026
+**Adendos:** 28/08/2026 (A.1–A.9) · 02/09/2026 (A2.1–A2.5 — código importado do servidor de HOMOLOGAÇÃO)
 **Método:** engenharia reversa por leitura integral do código-fonte do repositório `ProjetoG12Homologacao` (nenhum arquivo foi alterado)
 
 > **Aviso de fidelidade:** este documento descreve exclusivamente o que foi observado no código-fonte. Onde o comportamento não pôde ser confirmado (por exemplo, arquivos binários, cache de webservice, ou configurações que só existem no ambiente Fluig e não no repositório), isso é declarado explicitamente na seção correspondente e no capítulo **16. Limitações da Análise**.
@@ -125,6 +126,70 @@ As diversas rotinas que bloqueiam campos por atividade (`desabilitarParaAjuste`,
 - **`displayFields.js`**: passou a cobrir também as atividades 250 e 62 com lógica condicional por `controleDeFluxo` (mostrar `#ajusteFinanceiro`/`#aguardandoRecebimento` conforme o valor), além dos blocos de bloqueio por atividade descritos em A.8 (`!= 23`, `!= 61`, `!= 250`).
 - **`G12-AnexosEmail.js`**: arquivo novo, carregado no `<head>` do formulário — contém apenas `function AnexosEmail() {}` **vazia**, sem chamada em nenhum outro arquivo lido. Mesmo padrão de código morto já registrado na seção 13 para `G12-Loading.js`.
 - **Campos hidden novos relevantes**: `historico2102`, `historico2201` (listas acumuladas de IDMOV, ver A.1/A.5), `historicoNumMov2201`/`historicoNumMov2102` (não lidos em nenhum outro ponto do código — possível remanescente), `infoTransmOKRecebimento`, `infoSetorAjusteRecebimento`, `qtdeCancelamentos`, `controleDeFluxo`, `valorAcimaDe1`, `valorBrutoOriginal` (já existente, agora também consumido pelo alerta de variação de A.6).
+
+---
+
+## Adendo 2 — Atualizações de 02/09/2026 (import do servidor de HOMOLOGAÇÃO)
+
+> Este segundo adendo cobre o que veio no código importado do servidor de homologação em **02/09/2026**, **posterior** ao Adendo de 28/08/2026 acima. Mesmo método: apenas o que está no código-fonte do repositório. Onde a mudança tornou desatualizado um capítulo original, a correção foi feita diretamente nos capítulos **4** (mecanismos), **13** (código morto/inconsistências) e **14** (riscos).
+
+### A2.1 `G12-APROVACAO-ST.js` — roteamento nominal por centro de custo REATIVADO (29/08/2026)
+
+O levantamento de 29/07 e o Adendo de 28/08 registravam o mecanismo `mechanisms/G12-APROVACAO-ST.js` (atividade **17 — APROVAÇÃO SETOR TÉCNICO**) como tendo **todo** o roteamento nominal por centro de custo **comentado**, retornando sempre o usuário fixo `4ef20412-7687-40a4-b1c8-095c0a92503e` ("Fluig"). Isso **mudou**: o cabeçalho do arquivo agora traz `@data 29/08/2026` e o bloco foi **reativado**.
+
+`getUser(CentroDeCusto, CodColigada)` hoje percorre `CodColigada` em três ramos (`2`, `1`, `3`) e, dentro de cada um, dezenas de condições `CentroDeCusto == "..."` que apontam para colleagueIds de colaboradores nomeados nos comentários (higor `44001bcd-…`, odijerfeson `bbe0cc93-…`, Vanylk Souza `fdbc23c0-…`, thiago.leite, lucas.vinicius `d60eeee8-…`, diego `70f0fe39-…`, ciro.farias `0288d7f0-…`, "Sérgio Franco" `2abf965d-…`, Rodrigo Medeiros, marcelo.maia, isaac.medeiros, kaio.dorneles, José Emanuel, Tercio Porto, matheus.brito, "João Azevedo" `4b63d52d-…` para os lotes SEFAZ PB da coligada 3, entre outros). Cada um dos três ramos de coligada tem um `else` final → usuário fixo `4ef20412-…`.
+
+- **Não há `else` de nível superior:** se `CodColigada` não for `1`, `2` nem `3`, `getUser` devolve lista vazia e `resolve()` lança `Error("Nenhum usuario encontrado para CentroDeCusto: … e CodColigada: …")` — a atividade 17 não é atribuída.
+- **Inconsistência observada:** um dos ramos de `CodColigada == 2` compara `CentroDeCusto == '02.06.01.0sergio4.003'` — string corrompida (a palavra "sergio" foi colada dentro do código do centro de custo). Esse ramo nunca casa. Registrado na seção 13.
+- **`mechanisms/G12-CONTRATOS-VALIDA.js` NÃO acompanhou** essa mudança: continua com o bloco comentado, usuário fixo, e continua não referenciado por nenhuma atividade do BPMN (ver seção 13). O mecanismo de fato ligado à atividade 173/183 continua sendo `G12-VALIDIACAO-CONTRATOS.js` (seção 4.3), que roteia por grupo.
+
+Reflexo na doc: seções **4.1**, **13** (linha de roteamento) e **14** (risco nº 1) foram reescritas.
+
+### A2.2 Cinco novos mecanismos de atribuição (ainda não referenciados no processo exportado)
+
+Cinco arquivos novos em `mechanisms/`, todos com `function resolve(process, colleague)` + `function getGroup(...)`, autoria "Enos Rocha":
+
+| Arquivo | `@data` no cabeçalho | Campos lidos do card | Grupos de saída |
+|---|---|---|---|
+| `G12-CHECAGEM-DE-TRANSMISSAO.js` | 06/07/2026 | `centro_de_custo`, `coligada`, `filial` | Col. 2 + 12 centros de custo da PB → `Pool:Group:G12-CHECAGEMTRANSMISSAO-CONTRATOS-PB`, senão `-GERAL`; Col. 1 (Filial 1/5) e Col. 3 (Filial 2) → `-DFGO`, senão `-GERAL` |
+| `G12-AGUARDANDORECEB.js` | 06/07/2026 | `centro_de_custo`, `coligada`, `filial` | mesma lógica, grupos `Pool:Group:G12-AGUARDANDO-RECEBIMENTO-CONTRATOS-{PB,GERAL,DFGO}` |
+| `G12-FATURAR-NOTAS.js` | 29/08/2026 | `CCcustoMEC`, `EmpresaMEC` | só por coligada: `2` → `Pool:Group:G12-ENGPAC-FATURAR-NOTAS`; `1` → `G12-GENNESIS-FATURAR-NOTAS`; `3` → `G12-ECONTECX-FATURAR-NOTAS`; outro → `Pool:Group:Suporte` |
+| `G12-NFSE-TRANSMITIDA.js` | 29/08/2026 | `CCcustoMEC`, `EmpresaMEC` | idem, grupos `G12-{ENGPAC,GENNESIS,ECONTECX}-NFSE-TRANSMITIDA`; fallback `Pool:Group:Suporte` |
+| `G12-AJUSTE-FINANCEIRO.js` | 29/08/2026 | `CCcustoMEC`, `EmpresaMEC` | idem, grupos `G12-{ENGPAC,GENNESIS,ECONTECX}-AJUSTE-FINANCEIRO`; fallback `Pool:Group:Suporte` |
+
+> **Não referenciados no processo exportado.** Nem `workflow/diagrams/G12.process` nem `workflow/.resources/G12.ecm30.xml` citam esses 5 nomes como `engineAllocationId`/mecanismo de nenhuma atividade — os únicos mecanismos ligados a atividades no export são `G12-APROVACAO-ST` (ativ. 17) e `G12-VALIDIACAO-CONTRATOS` (ativ. 173/183). As atividades 23 (Faturar Notas), 61 (NFS-e Transmitida), 62 (Aguardando Recebimento), 242 (Checagem de Transmissão) e 250 (Ajuste Financeiro) continuam, no export atual, com o mecanismo **`Usuário`** (colleagueId fixo `4ef20412-…`). Os arquivos aparentam estar preparados para uma versão futura do processo, ou já vinculados no servidor Fluig e ainda não reexportados. É a mesma situação de `G12-CONTRATOS-VALIDA.js` (seção 13).
+>
+> - Os grupos `Pool:Group:G12-*` e `Pool:Group:Suporte` citados **não existem neste repositório** (ver seção 16 — grupos/usuários Fluig).
+> - Os campos `CCcustoMEC`/`EmpresaMEC` (lidos pelos 3 mecanismos de 29/08) **não aparecem** no `G12.html` nem são gravados por nenhum script deste repositório — provavelmente campos auxiliares que o próprio motor de mecanismos do Fluig preenche em runtime.
+
+### A2.3 `buscarInfoGed()` — busca do período de medição e do GED no client-side (`G12-GED.js`)
+
+`forms/G12/G12-GED.js` ganhou, no topo, a função `buscarInfoGed()`, chamada em `$(document).ready` **antes** de `GED()`. Ela faz **no navegador (client-side)** o que `G12.beforeStateEntry.js` já fazia no servidor (seção 3.7):
+
+1. `DatasetFactory.getDataset("G12-PERIODOS-MEDICAO", null, [IDMOV, CODCOLIGADA])` → grava o `PERIODOMED` da última linha retornada em `#periodoMedicao`.
+2. `DatasetFactory.getDataset("G12-GED", null, [CODCOLIGADA, IDPRJ, IDCONTRATO, PERIODO, REVISAO])` → concatena `NOMEPASTA + "|" + CODDOCUMENTO + "|" + DESCRICAO` de cada linha, separado por `;`, e grava em `#gedInfo`.
+
+Cada um dos dois blocos está em `try/catch` com `throw error` no `catch` (aborta o carregamento se a consulta falhar). Lê os campos `#CodColigada`, `#idprj`, `#IdMov`, `#idContrato`, `#revisaoProjeto` do formulário.
+
+- **Pré-requisito habilitado no HTML:** `G12.html` passou a carregar `<script type="text/javascript" src="/webdesk/vcXMLRPC.js">` no `<head>` — comentário no código: *"Habilita DatasetFactory no client-side (necessario para consultar datasets a partir do JS do formulario, como o G4 faz)"*. Sem esse script, `DatasetFactory` não funciona dentro do iframe do formulário.
+- **Consequência:** `#periodoMedicao`/`#gedInfo` passam a ter **dois** caminhos de preenchimento — server-side (`beforeStateEntry.js`, a cada transição de estado) e client-side (`buscarInfoGed`, a cada carregamento do formulário). Não há trava contra os dois: o client-side sobrescreve o valor vindo do servidor a cada abertura. `GED()` (seção 8.10), que consome esses dois campos para renderizar os cartões de documento, não mudou.
+
+### A2.4 Splash screen de carregamento "G12" (`#carregamentoG12`)
+
+Tela de carregamento em tela cheia exibida enquanto o formulário monta:
+
+- **`G12.html`**: novo `<div id="carregamentoG12"><span>G12</span></div>` logo antes de `</body>`.
+- **`G12-Main.js`**: `exibirCarregamento()` é a **primeira** chamada do `$(document).ready` (comentário: *"CARREGAMENTO COM O SIMBOLO DO G12 PARA MELHOR EXPERIENCIA DO USUÁRIO"*).
+- **`G12-Toogle.js`**: nova função `exibirCarregamento()` — exibe `#carregamentoG12` e o esconde no evento `window.load` (imagens/GIFs/CSS já prontos), respeitando **tempo mínimo em tela de 900 ms** (`TEMPO_MIN`) e **trava de segurança de 8 s** (`TRAVA_MAX`, um `setTimeout` final que esconde de qualquer jeito). A saída adiciona a classe `.carregamentoG12` (animação `g12LoaderOut`) e, 500 ms depois, `$el.hide()`. Há também pequenos ajustes de indentação/espaçamento em `desabilitarCampos()` no mesmo arquivo, sem mudança de comportamento.
+- **`G12-Style.css`**: `#carregamentoG12` (`position: fixed`, tela cheia, `z-index: 100000`, flex centralizado), `#carregamentoG12 span` (fonte 160 px, peso 900, cor `#1eaad9`, `font-family: system-ui`), e os keyframes `g12LoaderIn` / `g12LoaderOut` (opacidade 0↔1 com `scale(0.3)`↔`scale(1)`) e `entradaSuave`.
+
+### A2.5 Ajustes menores
+
+- **`G12.beforeStateEntry.js`** — a lista de destinatários do e-mail das atividades 242/62 (Adendo A.4) perdeu `enos.rocha@engpac.com`; ficou apenas `ens4562@gmail.com`, com `contratos@engpac.com.br` e `contratos@gennesisengenharia.com.br` comentados. (A seção A.4 já reflete esse estado.)
+- **`G12.html`** — removido o BOM (`﻿`) do início do arquivo.
+- **`forms/G12/.metadata`** — binário do formulário atualizado (545 → 541 bytes); não decodificado (ver seção 16).
+- **`workflow/.resources/PRODUCAO.ws.cache` e `PRODUCAO.ws.cache.bkp`** — **novos**. Cache binário de WSDL do webservice do RM apontando para o ambiente de **PRODUÇÃO**, no mesmo formato dos `HOMOLOGACAO.ws.cache(.bkp)` já versionados. Não interpretável como texto (ver seção 16).
+- **`workflow/diagrams/G12.process` / `G12.ecm30.xml` / `G12.png` / `G12.processimage.svg`** — reexportados. Inclui o reposicionamento da Service Task **418 "AJUSTAR VALOR DO RPS"** para antes dos ajustes tributários no fluxo (ver Adendo A.1/A.6). O diff é grande e majoritariamente reordenação/reformatação do XMI; a fiação exata dos estados novos não foi reconferida linha a linha (mesma limitação declarada no Adendo A.1).
 
 ---
 
@@ -258,7 +323,7 @@ ProjetoG12Homologacao/
 │   └── G12-TRIBUTOS-MUNICIPAIS.js
 │
 ├── forms/G12/                       # Formulário do processo (HTML + JS + CSS)
-│   ├── G12.html                     # Formulário principal
+│   ├── G12.html                     # Formulário principal; [ATUALIZADO] carrega vcXMLRPC.js + splash screen #carregamentoG12 (ver Adendo A2.3/A2.4)
 │   ├── G12.TemplateEmail.html       # [NOVO] Template do e-mail disparado por beforeStateEntry.js (ver Adendo A.4)
 │   ├── G12-Style.css                # Estilos
 │   ├── G12-Main.js                  # Bootstrap de eventos on document.ready
@@ -271,7 +336,7 @@ ProjetoG12Homologacao/
 │   ├── G12-CheckBot.js              # Painel flutuante de pendências de preenchimento
 │   ├── G12-Cno.js                   # Função inteira comentada (código morto)
 │   ├── G12-ControleDeEtiquetas.js   # [NOVO] Marcação visual de notas fiscais canceladas (ver Adendo A.7)
-│   ├── G12-GED.js                   # Renderização dos anexos do GED por período
+│   ├── G12-GED.js                   # Renderização dos anexos do GED por período; [ATUALIZADO] `buscarInfoGed()` consulta período/GED no client-side (ver Adendo A2.3)
 │   ├── G12-HistoricoMovimentos.js   # [NOVO] Painel "Histórico dos Movimentos" (ver Adendo A.5)
 │   ├── G12-IRRF-INSS.js             # Toggle de exibição das tabelas de IRRF/INSS
 │   ├── G12-NF-e.js                  # Modal "DANFSe" (espelho de nota fiscal)
@@ -287,11 +352,16 @@ ProjetoG12Homologacao/
 │   ├── .metadata                    # Objeto Java serializado (FormularioServerDto) — form G12/HOMOLOGACAO/DSG12
 │   └── Images/charging.gif          # GIF de carregamento (não referenciado nos JS lidos)
 │
-├── mechanisms/                      # Mecanismos de atribuição de atividade (workflow)
+├── mechanisms/                      # Mecanismos de atribuição de atividade (workflow) — 9 arquivos
 │   ├── G12-AJUSTE-SOLICITACAO.js
-│   ├── G12-APROVACAO-ST.js
+│   ├── G12-APROVACAO-ST.js          # [ATUALIZADO] roteamento nominal por centro de custo reativado (ver Adendo A2.1)
 │   ├── G12-CONTRATOS-VALIDA.js      # Não referenciado no BPMN (ver seção 13)
-│   └── G12-VALIDIACAO-CONTRATOS.js
+│   ├── G12-VALIDIACAO-CONTRATOS.js
+│   ├── G12-CHECAGEM-DE-TRANSMISSAO.js # [NOVO] não referenciado no processo exportado (ver Adendo A2.2)
+│   ├── G12-AGUARDANDORECEB.js       # [NOVO] idem
+│   ├── G12-FATURAR-NOTAS.js         # [NOVO] idem
+│   ├── G12-NFSE-TRANSMITIDA.js      # [NOVO] idem
+│   └── G12-AJUSTE-FINANCEIRO.js     # [NOVO] idem
 │
 ├── workflow/
 │   ├── diagrams/G12.process         # Modelo BPMN2/Graphiti completo
@@ -448,7 +518,7 @@ Não foram encontrados **timer events** (BPMN Timer) no processo. Os únicos pra
 
 ### 3.7 Eventos globais do processo
 
-- **`G12.beforeStateEntry.js` → `beforeStateEntry(sequenceId)`**: executado antes de entrar em praticamente qualquer atividade humana/de serviço do processo (lista extensa de `sequenceId`, cobrindo 30 estados). A cada entrada, busca o **período de medição atual** (dataset `G12-PERIODOS-MEDICAO`, por `IDMOV`+`CODCOLIGADA`) e, em seguida, os **documentos do GED** (dataset `G12-GED`, por `CODCOLIGADA`+`IDPRJ`+`IDCONTRATO`+`PERIODO`+`REVISAO`), concatenando os resultados em `gedInfo` (formato `pasta|codigoDocumento|descricao` separado por `;`) para consumo posterior por `G12-GED.js` no front-end.
+- **`G12.beforeStateEntry.js` → `beforeStateEntry(sequenceId)`**: executado antes de entrar em praticamente qualquer atividade humana/de serviço do processo (lista extensa de `sequenceId`, cobrindo 30 estados). A cada entrada, busca o **período de medição atual** (dataset `G12-PERIODOS-MEDICAO`, por `IDMOV`+`CODCOLIGADA`) e, em seguida, os **documentos do GED** (dataset `G12-GED`, por `CODCOLIGADA`+`IDPRJ`+`IDCONTRATO`+`PERIODO`+`REVISAO`), concatenando os resultados em `gedInfo` (formato `pasta|codigoDocumento|descricao` separado por `;`) para consumo posterior por `G12-GED.js` no front-end. **Atualizações:** ganhou um segundo bloco que dispara e-mail nas atividades 242/62 (Adendo A.4); e a mesma busca de período/GED passou a ter também uma versão **client-side** em `G12-GED.js` (`buscarInfoGed`, Adendo A2.3), que sobrescreve `gedInfo`/`periodoMedicao` a cada carregamento do formulário.
 - **`G12.atualizaçãoCNOPB.js` → `gerAtualizacaoCNOPB()`**: função pura usada apenas como condição do gateway 177; retorna `true` somente quando `CodColigada == 2` **e** `centro_de_custo` pertence à lista fixa de 12 centros de custo da Paraíba.
 
 ---
@@ -457,11 +527,15 @@ Não foram encontrados **timer events** (BPMN Timer) no processo. Os únicos pra
 
 Mecanismos Fluig implementam `function resolve(process, colleague)` e devolvem uma `java.util.ArrayList` de usuários (`Colleague`) ou grupos (`Pool:Group:...`) que receberão a tarefa.
 
-### 4.1 `G12-APROVACAO-ST.js`
-- **Usado por:** atividade 17 (APROVAÇÃO SETOR TÉCNICO).
+> O repositório tem **9 arquivos** em `mechanisms/`: os 4 originais (4.1–4.4) e **5 adicionados em jul–ago/2026** (4.5–4.9, ver Adendo A2.2). Apenas **`G12-APROVACAO-ST`** e **`G12-VALIDIACAO-CONTRATOS`** estão de fato referenciados como mecanismo de alguma atividade no processo exportado (`G12.process` / `G12.ecm30.xml`); os demais 7 arquivos não aparecem no export (ver seção 13).
+
+### 4.1 `G12-APROVACAO-ST.js`  *(reescrito — ver Adendo A2.1)*
+- **Usado por:** atividade 17 (APROVAÇÃO SETOR TÉCNICO) — referenciado em `G12.process` **e** `G12.ecm30.xml`.
 - **Entrada:** `centro_de_custo`, `CodColigada` (via `hAPI.getCardValue`).
-- **Lógica ativa:** retorna sempre o usuário fixo `4ef20412-7687-40a4-b1c8-095c0a92503e` (apelidado "Fluig" nos comentários).
-- **Observação relevante:** existe um extenso bloco (≈115 linhas) **totalmente comentado** com uma tabela de roteamento por centro de custo → usuário nomeado (dezenas de colaboradores, ex. "Higor Wesley", "Vanylk Souza", "Sérgio Franco" etc.), segmentada por `CodColigada` (1, 2, 3). Esse bloco está desativado — hoje **todas** as aprovações vão para o usuário fixo, independentemente do centro de custo/coligada. Ver seção 15 (riscos).
+- **Lógica ativa (cabeçalho `@data 29/08/2026`):** o roteamento nominal por centro de custo, antes **totalmente comentado**, foi **reativado**. `getUser(CentroDeCusto, CodColigada)` percorre `CodColigada` (`2`, `1`, `3`) e, em cada ramo, dezenas de condições `CentroDeCusto == "..."` apontando para colleagueIds de colaboradores nomeados (higor, odijerfeson, Vanylk Souza, thiago.leite, lucas.vinicius, diego, ciro.farias, "Sérgio Franco", Rodrigo Medeiros, marcelo.maia, isaac.medeiros, kaio.dorneles, José Emanuel, Tercio Porto, matheus.brito, "João Azevedo", entre outros). Cada ramo de coligada tem um `else` final → usuário fixo `4ef20412-7687-40a4-b1c8-095c0a92503e` ("Fluig").
+- **Sem `else` de nível superior:** `CodColigada` diferente de `1`/`2`/`3` → `getUser` retorna lista vazia → `resolve()` lança `Error("Nenhum usuario encontrado ...")` e a atividade 17 não é atribuída.
+- **Inconsistência:** um ramo de `CodColigada == 2` compara `CentroDeCusto == '02.06.01.0sergio4.003'` (string corrompida — nunca casa). Ver seção 13.
+- **`mechanisms/G12-CONTRATOS-VALIDA.js` NÃO acompanhou** essa mudança: continua com o bloco comentado, usuário fixo, e não referenciado no BPMN (seção 13). Ver seção 14 (risco nº 1).
 
 ### 4.2 `G12-CONTRATOS-VALIDA.js`
 - **Propósito declarado no cabeçalho:** "Mecanismo de atribuição de usuário para validação de contratos".
@@ -484,6 +558,29 @@ Mecanismos Fluig implementam `function resolve(process, colleague)` e devolvem u
   - `1` → `Pool:Group:G12-GENNESIS-AJUSTELICITACOES-FINANCEIRO`
   - `3` → `Pool:Group:G12-ECONTECX-AJUSTELICITACOES-FINANCEIRO`
   - outro → `Pool:Group:G12-AJUSTE-SEM GRUPO`
+
+### 4.5 `G12-CHECAGEM-DE-TRANSMISSAO.js`  *(novo — ver Adendo A2.2)*
+- **Usado por:** *nenhuma atividade no processo exportado.* Aparenta estar preparado para a atividade 242 (CHECAGEM DE TRANSMISSÃO).
+- **Entrada:** `centro_de_custo`, `coligada`, `filial`.
+- **Lógica (idêntica em estrutura à 4.3):** `CodColigada == 2` + centro de custo em lista de 12 códigos da Paraíba → `Pool:Group:G12-CHECAGEMTRANSMISSAO-CONTRATOS-PB`; senão `-GERAL`. `CodColigada == 1` com `Filial` 1 ou 5 → `-DFGO`; `CodColigada == 3` com `Filial == 2` → `-DFGO`; demais casos → `-GERAL`.
+
+### 4.6 `G12-AGUARDANDORECEB.js`  *(novo — ver Adendo A2.2)*
+- **Usado por:** *nenhuma atividade no processo exportado.* Aparenta estar preparado para a atividade 62 (AGUARDANDO RECEBIMENTO).
+- **Entrada e lógica:** idênticas à 4.5, com os grupos `Pool:Group:G12-AGUARDANDO-RECEBIMENTO-CONTRATOS-{PB,GERAL,DFGO}`.
+
+### 4.7 `G12-FATURAR-NOTAS.js`  *(novo — ver Adendo A2.2)*
+- **Usado por:** *nenhuma atividade no processo exportado.* Aparenta estar preparado para a atividade 23 (FATURAR NOTAS).
+- **Entrada:** `CCcustoMEC`, `EmpresaMEC` (campos ausentes do `G12.html` e não gravados por nenhum script deste repositório — ver Adendo A2.2). `CCcustoMEC` é lido mas **não é usado** por `getGroup`.
+- **Lógica (só por coligada):** `2` → `Pool:Group:G12-ENGPAC-FATURAR-NOTAS`; `1` → `G12-GENNESIS-FATURAR-NOTAS`; `3` → `G12-ECONTECX-FATURAR-NOTAS`; outro → `Pool:Group:Suporte`.
+
+### 4.8 `G12-NFSE-TRANSMITIDA.js`  *(novo — ver Adendo A2.2)*
+- **Usado por:** *nenhuma atividade no processo exportado.* Aparenta estar preparado para a atividade 61 (NFS-e TRANSMITIDA).
+- **Entrada e lógica:** idênticas à 4.7, grupos `G12-{ENGPAC,GENNESIS,ECONTECX}-NFSE-TRANSMITIDA`; fallback `Pool:Group:Suporte`.
+
+### 4.9 `G12-AJUSTE-FINANCEIRO.js`  *(novo — ver Adendo A2.2)*
+- **Usado por:** *nenhuma atividade no processo exportado.* Aparenta estar preparado para a atividade 250 / sub-fluxo "AJUSTE FINANCEIRO" (Adendo A.1).
+- **Entrada e lógica:** idênticas à 4.7, grupos `G12-{ENGPAC,GENNESIS,ECONTECX}-AJUSTE-FINANCEIRO`; fallback `Pool:Group:Suporte`.
+- **Não confundir com a 4.4** (`G12-AJUSTE-SOLICITACAO.js`), que é o mecanismo hoje efetivamente ligado à atividade 250 e usa outros grupos (`G12-*-AJUSTELICITACOES-FINANCEIRO`).
 
 ---
 
@@ -565,6 +662,8 @@ G12-ChecagemTransmissao.js
 + G12-Style.css
 ```
 > `G12-Cno.js` e `G12-Loading.js` são carregados mas **não contêm código ativo** (ver seção 15).
+>
+> **Atualização (Adendo A2/A2.3):** o `<head>` também carrega hoje `/webdesk/vcXMLRPC.js` (habilita `DatasetFactory` no client-side, usado por `buscarInfoGed` em `G12-GED.js`) e os arquivos novos dos Adendos 1 e 2 — `G12.TemplateEmail.html` (template de e-mail, não é `<script>`), `G12-AnexosEmail.js`, `G12-ControleDeEtiquetas.js`, `G12-HistoricoMovimentos.js`. O `<body>` ganhou a `div#carregamentoG12` (splash screen — Adendo A2.4).
 
 ### 7.3 Seções (painéis) do formulário
 
@@ -595,7 +694,7 @@ Praticamente todos os dados vindos do RM (prestador, tomador, tributação, loca
 ## 8. JavaScript do Formulário — função por função
 
 ### 8.1 `G12-Main.js`
-- `$(document).ready(...)`: dispara, em sequência, `dispararTributosTimeOut()`, `checkAllInfo()`, `competenciaMudou()`, `desabilitarParaAjuste()`.
+- `$(document).ready(...)`: dispara, em sequência, `exibirCarregamento()` *(novo — splash screen, Adendo A2.4)*, `dispararTributosTimeOut()`, `checkAllInfo()`, `competenciaMudou()`, `desabilitarParaAjuste()` e demais rotinas dos Adendos 1/2 (`desabilitarCampos`, `renderizarHistoricoMovimentos`, `checarNotaCancelada`, `restaurarAvisoVariacaoValor`, etc.).
 - `$(document).on('change', 'input, select, textarea', ...)`: reexecuta `checkAllInfo()` a cada alteração de qualquer campo (recalcula o painel de pendências em tempo real).
 
 ### 8.2 `G12-Carregamento.js`
@@ -636,7 +735,8 @@ Praticamente todos os dados vindos do RM (prestador, tomador, tributação, loca
 - `valiodateCompetencia(data)`: compara a data de competência informada com "hoje" (ambas como string `pt-BR`), retornando `true` se a competência for anterior a hoje (comparação **lexicográfica de string**, não de data real — ver seção 15, risco).
 
 ### 8.10 `G12-GED.js`
-- `GED()`: lê `gedInfo` (preenchido no servidor por `beforeStateEntry.js`) e `periodoMedicao`, filtra as entradas cujo "código de pasta" contém o período atual, e monta cartões HTML com link direto para `.../portal/p/1/ecmnavigation?app_ecm_navigation_doc=<codigo>` (**URL do portal Fluig hardcoded** com host `gennesisengenharia160517.fluig.cloudtotvs.com.br:1650` — ver seção 15, risco de portabilidade entre ambientes).
+- `buscarInfoGed()` *(novo — ver Adendo A2.3)*: consulta, no client-side, os datasets `G12-PERIODOS-MEDICAO` e `G12-GED` e grava `#periodoMedicao`/`#gedInfo` — os mesmos campos que `beforeStateEntry.js` já preenchia no servidor. Chamada em `$(document).ready` **antes** de `GED()`. Depende de `/webdesk/vcXMLRPC.js` (carregado no `<head>`).
+- `GED()`: lê `gedInfo` (preenchido no servidor por `beforeStateEntry.js` **e/ou** no client-side por `buscarInfoGed`) e `periodoMedicao`, filtra as entradas cujo "código de pasta" contém o período atual, e monta cartões HTML com link direto para `.../portal/p/1/ecmnavigation?app_ecm_navigation_doc=<codigo>` (**URL do portal Fluig hardcoded** com host `gennesisengenharia160517.fluig.cloudtotvs.com.br:1650` — ver seção 15, risco de portabilidade entre ambientes).
 - Executado 1s após o `document.ready`.
 
 ### 8.11 `G12-Cno.js`
@@ -649,6 +749,8 @@ Praticamente todos os dados vindos do RM (prestador, tomador, tributação, loca
 - `pickerDate(campo)`: abre o calendário nativo do Fluig (`FLUIGC.calendar`) no campo de competência, a menos que ele esteja `readonly`.
 - `competenciaMudou()`: apenas na atividade 23, se `dataDeCompetencia` já tiver valor e o aviso ainda não tiver sido inserido, insere uma mensagem "A data de competência já foi alterada!" abaixo do campo.
 - `desabilitarParaAjuste()`: nas atividades 250 (ajuste financeiro) e 43 (retornar ao solicitante), força **todos** os `input/textarea/button/select` da página para somente leitura e estilo acinzentado (bloqueio total de edição do formulário nessas etapas).
+- `desabilitarCampos()`: bloqueia os campos da checagem de transmissão fora da etapa ativa (Adendo A.2).
+- `exibirCarregamento()` *(novo — ver Adendo A2.4)*: controla a splash screen `#carregamentoG12` — exibe no início e esconde no `window.load`, com tempo mínimo de 900 ms em tela e trava de segurança de 8 s.
 
 ### 8.13 `G12-CheckagemTransmissao.js`
 - `selecionarBotaoTransmissao(botao)`: alterna visualmente entre os botões "Sim"/"Não" de `infoTransmissaoCorreta`; quando "Não" é selecionado, habilita os botões de setor responsável (financeiro/técnico) e o campo de descrição do ajuste; quando "Sim", desabilita-os (`pointer-events:none`).
@@ -807,7 +909,9 @@ Autenticação: **Basic Auth** com usuário/senha lidos de constantes (`ds_Const
 | **Campos hidden não lidos** *(novo, ver Adendo A.5)* | `historicoNumMov2201`, `historicoNumMov2102` | Gravados pelo formulário (`G12-HistoricoMovimentos.js`), mas não encontrados sendo lidos em nenhum outro arquivo — possíveis remanescentes de uma versão anterior da lógica de histórico, hoje substituída pelas listas acumuladas `historico2102`/`historico2201`. |
 | **Função inteira comentada** | `forms/G12/G12-Cno.js` | `checkOnCno()` totalmente desativada (mostrar/ocultar campo `CNOPB` por coligada+centro de custo); a exibição condicional de `CNOPB` hoje depende só de `enableFields.js`/`displayFields.js`. |
 | **Mecanismo aparentemente não utilizado** | `mechanisms/G12-CONTRATOS-VALIDA.js` | Não referenciado por nenhuma atividade do BPMN analisado (`G12.process`); `G12-VALIDIACAO-CONTRATOS.js` é quem está de fato ligado à atividade 173/183. Pode ser resquício de uma versão anterior do processo. |
-| **Regras de roteamento desativadas** | `mechanisms/G12-APROVACAO-ST.js`, `mechanisms/G12-CONTRATOS-VALIDA.js` | Grandes blocos (>100 linhas cada) de roteamento nominal por centro de custo estão comentados; ambos os mecanismos hoje retornam sempre o mesmo usuário fixo (`4ef20412-7687-40a4-b1c8-095c0a92503e`), independentemente da coligada/centro de custo. Isso concentra toda a aprovação técnica e toda a validação de contratos em uma única pessoa — divergindo do que o código comentado sugere ser o comportamento original/pretendido. |
+| **Regras de roteamento REATIVADAS** *(atualizado — ver Adendo A2.1)* | `mechanisms/G12-APROVACAO-ST.js` | O bloco de roteamento nominal por centro de custo, antes totalmente comentado, foi **reativado** (cabeçalho `@data 29/08/2026`). A atividade 17 volta a ser roteada por colaborador conforme `CodColigada` + `centro_de_custo`, com `else` de fallback (por coligada) para o usuário fixo `4ef20412-…`. Um ramo compara `CentroDeCusto == '02.06.01.0sergio4.003'` (string corrompida — nunca casa). **Sem `else` de topo:** `CodColigada` fora de `{1,2,3}` faz `resolve()` lançar erro e a atividade não é atribuída. |
+| **Regras de roteamento ainda desativadas** | `mechanisms/G12-CONTRATOS-VALIDA.js` | Continua com o bloco de roteamento nominal comentado, retornando sempre o usuário fixo `4ef20412-…`. Além disso não é referenciado por nenhuma atividade do BPMN — `G12-VALIDIACAO-CONTRATOS.js` é quem está ligado às atividades 173/183 (e roteia por grupo). |
+| **Mecanismos não referenciados no processo exportado** *(novo — ver Adendo A2.2)* | `mechanisms/G12-{CHECAGEM-DE-TRANSMISSAO, AGUARDANDORECEB, FATURAR-NOTAS, NFSE-TRANSMITIDA, AJUSTE-FINANCEIRO}.js` | Cinco mecanismos de atribuição por grupo adicionados em jul–ago/2026. Nenhum aparece como mecanismo de atividade em `G12.process` / `G12.ecm30.xml`; as atividades 23/61/62/242/250 seguem, no export atual, com o mecanismo `Usuário` (colleagueId fixo `4ef20412-…`). Aparentam estar preparados para uma versão futura do processo (ou já ligados no servidor Fluig e ainda não reexportados). `G12-FATURAR-NOTAS`/`-NFSE-TRANSMITIDA`/`-AJUSTE-FINANCEIRO` leem `CCcustoMEC` mas não o utilizam. |
 | **Duplicação de lógica de renderização de tabelas de tributos** | `G12-Carregamento.js` (`preencherFormulario`/`renderizarTabelasTributacao`) vs. `G12-TabelaDeTributos.js` (`CarregarTabelasDeTriutos`) | As duas funções constroem HTML de tabela quase idêntico a partir dos mesmos campos ocultos; `CarregarTabelasDeTriutos` parece ser a versão "de produção" (chamada no `document.ready` via `dispararTributosTimeOut`), enquanto `preencherFormulario`/`carregarDadosContrato` parecem suportar uma rota alternativa client-side que não foi encontrada sendo chamada em nenhum evento do formulário lido. |
 | **Possível inconsistência de dataset** | `datasets/G12-MOVIMENTOS-2102.js` | O array `COLUNAS` declara `IDMOV`/`CODCOLIGADA`, mas `buildRow` lê a chave `IDMOV_DESTINO`, que não está em `COLUNAS` nem é adicionada como coluna do dataset antes de `dataset.addRow`. Como o Fluig identifica colunas pelo índice posicional na hora de `addColumn`/`addRow`, isso é, na melhor hipótese, incoerente com a nomenclatura documentada no cabeçalho do arquivo, e no pior caso pode indicar que o valor de `IDMOV_DESTINO` nunca é de fato o esperado (a consulta `G12MOV02` pode não devolver essa coluna) — **não confirmável sem acesso à consulta SQL cadastrada no RM**. |
 | **Nome de campo com capitalização divergente** | `G12.servicetask30.js` lê `hAPI.getCardValue("numeroMov")`; o campo HTML correspondente é `NumeroMov` (`id="NumeroMov"`, preenchido em `servicetask9` como `hAPI.setCardValue('NumeroMov', ...)`) | Divergência de capitalização entre gravação e leitura do mesmo campo lógico. Não foi possível confirmar neste repositório se o Fluig trata nomes de campo do card de forma case-insensitive; se não tratar, `servicetask30` sempre recebe `numeroMov` vazio/indefinido ao montar o XML de cancelamento. |
@@ -822,7 +926,7 @@ Autenticação: **Basic Auth** com usuário/senha lidos de constantes (`ds_Const
 
 ## 14. Pontos Críticos, Gargalos e Riscos (síntese)
 
-1. **Concentração de responsabilidade**: aprovação técnica (17) e validação de contratos (173/183, quando cai em erro) hoje recaem sobre o mesmo usuário fixo, por causa das regras de roteamento comentadas (seção 13) — risco operacional caso essa pessoa fique indisponível.
+1. **Concentração de responsabilidade (parcial — ver Adendo A2.1)**: desde 29/08/2026 a **aprovação técnica (17)** voltou a ser roteada por colaborador (`G12-APROVACAO-ST` reativado), mas com `else` de fallback para o usuário fixo `4ef20412-…` sempre que a coligada/centro de custo não casar com nenhum ramo — ou seja, todo centro de custo não mapeado ainda recai numa única pessoa. A **validação de contratos** via `G12-CONTRATOS-VALIDA.js` continua 100% concentrada no mesmo usuário fixo (mas esse mecanismo não é usado pelo BPMN; quem responde pela atividade 173/183 é `G12-VALIDIACAO-CONTRATOS`, que roteia por grupo). Risco operacional caso o usuário fixo fique indisponível e o movimento pertença a um centro de custo não mapeado.
 2. **Latência por comunicação síncrona com o RM**: cada Service Task faz pelo menos uma chamada SOAP síncrona (`receive.timeout=180000` = 3 minutos configurados), e os Service Tasks de checagem de erro (`servicetask193`/`servicetask200`) fazem *polling* bloqueante com `Thread.sleep` (até 5 tentativas), o que mantém a instância do processo ocupada por vários segundos em cada passagem por essas atividades.
 3. **Múltiplas consultas SQL redundantes por transição de estado**: `beforeStateEntry.js` roda em ~30 estados diferentes e sempre executa duas consultas (`G12-PERIODOS-MEDICAO` + `G12-GED`), mesmo que o usuário não abra a aba de Anexos naquele passo.
 4. **Dependência de datasets/constantes externos não documentados no repositório** (`dsTBCConnector`, `ds_Constantes`) — qualquer mudança nesses objetos globais do Fluig impacta silenciosamente todos os scripts deste processo, sem que isso seja rastreável neste código-fonte.
@@ -840,7 +944,7 @@ Autenticação: **Basic Auth** com usuário/senha lidos de constantes (`ds_Const
 
 Os itens abaixo **não puderam ser interpretados ou confirmados** a partir do código-fonte disponível neste repositório:
 
-- **`workflow/.resources/HOMOLOGACAO.ws.cache`** e **`HOMOLOGACAO.ws.cache.bkp`**: arquivos binários de cache de WSDL do webservice do RM. Não é texto/XML legível linha a linha; não foi decodificado.
+- **`workflow/.resources/HOMOLOGACAO.ws.cache`**, **`HOMOLOGACAO.ws.cache.bkp`** e (novos — Adendo A2.5) **`PRODUCAO.ws.cache`**, **`PRODUCAO.ws.cache.bkp`**: arquivos binários de cache de WSDL do webservice do RM (ambientes de homologação e de produção). Não é texto/XML legível linha a linha; não foi decodificado.
 - **`forms/G12/.metadata`**: objeto Java serializado (stream binário, formato `ObjectOutputStream`). Foi possível identificar, por assinaturas de classe visíveis no binário, que se trata de um `FormularioServerDto`/`FormularioDto` apontando para o servidor `HOMOLOGACAO`, serviço `DSG12`, arquivo principal `G12.html` — o restante do conteúdo binário não foi decodificado byte a byte.
 - **Texto das consultas SQL nomeadas no RM** (`G12FORMULARIO`, `G12Tributos`, `G12TRIBUMUNICI`, `G12AJUSTARTRIBU`, `G12TRIBMUNIZOOM`, `G12IRRFZOOM`, `G12INSSZOOM`, `G12EXERCICIOFISC`, `G12MOV02`, `G12INFONFSE`, `G12HISTORICONFS`, `G12GED`, `G12PERIODOMED`): são objetos cadastrados no RM e **não estão presentes neste repositório**. A documentação das seções 6 e 6.1 é baseada exclusivamente nos parâmetros de entrada e nas colunas de saída efetivamente consumidas pelo código Fluig.
 - **Datasets globais `dsTBCConnector` e `ds_Constantes`**: não fazem parte deste repositório (são recursos configurados diretamente no ambiente Fluig); apenas seu uso (chaves lidas: `user`/`pass`, `rm_usuario`/`rm_senha`) pôde ser documentado.
