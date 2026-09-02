@@ -11,6 +11,123 @@
 
 ---
 
+## Adendo — Atualizações Pós-Levantamento (28/08/2026)
+
+> Este adendo documenta tudo que foi identificado no código-fonte **após** o levantamento original de 29/07/2026 (capítulos 1 a 18, abaixo). Segue o mesmo método: apenas o que foi observado diretamente no repositório. Onde a extensão exata de um sub-fluxo novo não pôde ser confirmada por leitura integral do `.process`/`.ecm30.xml` (por ser uma área extensa e recém-adicionada), isso é dito explicitamente. As tabelas e listas dos capítulos originais que ficaram desatualizadas por essas mudanças (estrutura de arquivos, catálogo de atividades, tabela de Service Tasks, painéis do formulário) foram atualizadas diretamente nos respectivos capítulos.
+
+### A.1 Novo sub-fluxo "AJUSTE FINANCEIRO" (reprocessamento fiscal completo)
+
+O gateway `exclusivegateway246` (seção 3.5) já direcionava, em caso de `infoSetorAjuste == "financeiro"`, para a atividade **250 — AJUSTE DE SOLICITAÇÃO [FINANCEIRO]**. O levantamento original registrava essa atividade como um fim de linha simples (`→ Fim`). Isso não é mais o caso: a partir dela existe hoje um **sub-fluxo completo de reprocessamento fiscal**, que repete — com o mesmo padrão de integração RM já documentado na seção 5 — praticamente toda a cadeia de faturamento/tributação original, agora como uma etapa de correção:
+
+| Seq. (estado) | Nome da atividade | Script |
+|---|---|---|
+| 353 | CHEGADA EM FATURAR MOVIMENTO 2.1.02 E GERAR 2.2.01 DE AJUSTE FINANCEIRO | — (link de chegada) |
+| 394 | FATURAR MOVIMENTO 2.1.01 DE AJUSTE FINANCEIRO | `G12.servicetask394.js` |
+| 308 | FATURAR MOVIMENTO 2.1.02 E GERAR O MOVIMENTO 2.2.01 DE AJUSTE FINANCEIRO | `G12.servicetask308.js` |
+| 321 | CHEGADA AJUSTAR TRIBUTOS DO MOVIMENTO DE AJUSTE FINANCEIRO | — (link de chegada) |
+| 355 | AJUSTE TRIBUTOS DO MOVIMENTO [AJUSTE FINANCEIRO] | `G12.servicetask355.js` |
+| 317 | TRATAMENTO DE ERRO [AJUSTAR DE TRIBUTOS DO AJUSTE FINANCEIRO] | — (task de erro) |
+| 325 | CADASTRAR/AJUSTAR TRIBUTO MUNICIPAL [AJUSTE FINANCEIRO] | `G12.servicetask325.js` |
+| 334 | AJUSTAR IRRF/INSS [AJUSTE FINANCEIRO] | `G12.servicetask334.js` |
+| 343 | AJUSTAR COMPETÊNCIA [AJUSTE FINANCEIRO] | `G12.servicetask343.js` |
+| 363 | BUSCAR STATUS DA NOTA [AJUSTE FINANCEIRO] | `G12.servicetask363.js` |
+| 369 | CANCELAR NOTA FISCAL | `G12.servicetask369.js` |
+| 375 | CANCELAR MOVIMENTO 2.1.02 | `G12.servicetask375.js` |
+| 267 | CANCELAR MOVIMENTO 2.2.01 | `G12.servicetask267.js` |
+| 418 | AJUSTAR VALOR DO RPS | `G12.servicetask418.js` |
+| 421 | Intermediário (erro, anexado a 418) | — |
+| 420 | TRATAMENTO DE ERRO [AJUSTE DE VALOR RPS] | — (task de erro) |
+| 404 | AJUSTAR INFORMAÇÕES DE HISTÓRICO (2.1.02) | `G12.servicetask404.js` |
+| 410 | AJUSTAR INFORMAÇÕES DE HISTÓRICO 2.2.01 | `G12.servicetask410.js` ⚠️ ver observação abaixo |
+
+> **Limitação declarada:** ao contrário do capítulo 3.3 (pool principal, catalogado estado a estado por leitura integral do `.process`), este sub-fluxo foi mapeado por busca dirigida (nome de cada estado localizado individualmente a partir do `eventId` de cada `servicetaskNN` novo, pela convenção `servicetaskNN` ↔ `sequence NN` já confirmada em `servicetask418`/estado 418). A ordem exata de todos os links/gateways entre esses estados (e a existência de mais nós de "chegada"/tratamento de erro não amostrados) **não foi confirmada por leitura linear completa** do trecho correspondente do `.ecm30.xml`/`.process` — apenas os 18 estados acima, obtidos por nome.
+
+**Propósito observado (pelo conteúdo dos scripts):** a atividade 250 permite ao setor financeiro **refazer o faturamento inteiro do movimento** (2.1.01 → 2.1.02 → 2.2.01), reajustar tributos nacionais/municipais/IRRF/INSS/competência, cancelar a NFS-e e os movimentos 2.1.02/2.2.01 anteriores, alterar o **valor unitário do RPS** e reemitir — cobrindo o caso de a nota original ter sido transmitida com valor ou tributação incorretos.
+
+- **`G12.servicetask394.js`** — idêntico em estrutura ao `servicetask71` original (busca `G12-EXERCICIO-FISCAL`, chama `MovFaturamentoProc` 2.1.01→2.1.02), mas acrescenta o novo IDMOV 2.1.02 gerado ao **final** da lista em `historico2102` (`hAPI.getCardValue("historico2102") + "," + novoIdmov2102`), preservando o histórico dos movimentos anteriores — é essa lista acumulada que alimenta o painel "Histórico dos Movimentos" (ver A.5).
+- **`G12.servicetask308.js`** — equivalente ao `servicetask78` original (2.1.02→2.2.01), também acumulando o novo IDMOV em `historico2201`; ao final, limpa `infoSetorAjusteRecebimento`/`infoSetorAjuste` (`hAPI.setCardValue(..., "")`) para resetar a seleção de setor da checagem de transmissão.
+- **`G12.servicetask355.js`** — lê os tributos atuais do movimento no RM (`readRecord("MovMovimentoTBCData")`), mescla com o que o usuário editou nos campos dinâmicos `impostos_selecao_subs`/`valorImpostoSub`/`aliquotaSub`/`baseCalculoSub` (tabela filha do painel "Ajuste Financeiro", até 50 linhas) e regrava (`saveRecord`); **se nenhum tributo foi editado no formulário, a função retorna cedo e não recarrega `tributosNacionais`** — comportamento correto para este estado específico (é opcional editar tributo aqui), mas era a causa de um bug relatado quando o usuário esperava ver o valor recalculado após a **atividade 418** (que fica *depois* deste estado no fluxo) — ver A.6.
+- **`G12.servicetask325.js`** / **`G12.servicetask334.js`** / **`G12.servicetask343.js`** — mesmo padrão de `servicetask108`/`servicetask118`/`servicetask223` originais, mas lendo os campos `_sub`/`Sub` do painel de Ajuste Financeiro (`impostos_selecao_municipal_sub___N`, `irrfCodSub___N`/`inssCodSub___N`, `dataDeCompetenciaSub`). Em `servicetask334`, há um comentário explícito no código alertando que os campos `irrfCodigoAjusteSub___i`/`inssCodigoAjusteSub___i` guardam a **descrição** do zoom, não o código — por isso a função usa os campos ocultos espelhados `irrfCodSub___i`/`inssCodSub___i` (preenchidos por `setSelectedZoomItem`, `G12-Zoom.js`) e, adicionalmente, **usa apenas a última linha preenchida** de cada lista (IRRF/INSS), descartando entradas anteriores.
+- **`G12.servicetask363.js`** — mesmo padrão de `servicetask200` original (consulta `G12-HISTORICO-NFSE` com retry, até 5 tentativas / 2s), mas grava o resultado em `statusAutorizacao`/`errorAoAutorizarNotas`, e grava `"VAZIO"` em `statusAutorizacao` caso nenhum registro seja encontrado (usado como sinalizador por `servicetask369` logo em seguida).
+- **`G12.servicetask369.js`** — só executa o cancelamento se `statusAutorizacao != "VAZIO"` (setado pelo estado anterior). Dispara duas ações RM em sequência: `FisNFSeCancelarNotasAction` (payload SOAP `FisNFSeCancelarParamsProc`, com `CodigoMotivoCancelamento=1`/`MotivoCancelamento="DADOS INCORRETOS"` fixos) seguida de nova consulta `FisNFSeRetornarNotasAction` — ambas com os mesmos **parâmetros de contexto hardcoded** já registrados na seção 13 para `servicetask148`/`servicetask157` (`$CODCOLIGADA=3`, `$EXERCICIOFISCAL=7` fixo neste segundo payload, host `DESKTOP-HBHNI5F`, IP `10.0.2.3`).
+- **`G12.servicetask375.js`** / **`G12.servicetask267.js`** — cancelam, respectivamente, o último movimento 2.1.02 e o último 2.2.01 (`historico2102`/`historico2201`, `.split(",").pop()`) via `MovCancelMovProc`, mesmo padrão do `servicetask30` original mas com autenticação obtida via `dsTBCConnector` (`getAccess()`) em vez de `ds_Constantes`. **Ambos têm a checagem de erro na resposta do RM comentada** (bloco `if (response.indexOf("Exception")...) throw` desativado em código) — ou seja, hoje essas duas Service Tasks **não detectam falha de cancelamento retornada pelo RM como texto na resposta**; qualquer erro só interromperia o fluxo se lançado como exceção Java pelo próprio `executeWithParams`.
+- **`G12.servicetask418.js`** — grava o novo `PRECOUNITARIO` do item do movimento 2.1.02 (lido do campo `valorAlterado`, preenchido pelo usuário no painel "Ajuste do setor técnico após nota emitida" — ver A.4) via `saveRecord("MOVMOVIMENTOTBCDATA", ...)`; **atualizado em 28/08/2026** para, na sequência, reconsultar `G12-CARREGAR-TRIBUTOS` e regravar `tributosNacionais` no card — ver A.6.
+- **`G12.servicetask404.js`** — grava `HISTORICOLONGO` no movimento 2.1.02 (mesmo padrão do `servicetask233` original, porém usando `historico2102` como chave em vez de `idmov2`).
+- **`G12.servicetask410.js`** ⚠️ **inconsistência de código observada**: o corpo da função `servicetask410` apenas **declara** uma função aninhada `servicetask404` (idêntica à `G12.servicetask404.js` só que gravando `HISTORICOLONGO` no movimento **2.2.01**, via `historico2201`) — mas **nunca a chama**. Como está escrito hoje, ao entrar no estado 410 o script não executa nenhuma ação (a função interna fica definida e sem uso); o histórico do movimento 2.2.01 não é atualizado por este passo. Não foi possível confirmar se isso é uma cópia incompleta de `servicetask404.js` (renomear a função interna e faltou adicionar a chamada) ou comportamento intencional.
+
+### A.2 Checagem de transmissão espelhada em "Aguardando Recebimento" (atividade 62)
+
+O painel `checagemDeTransmissao` (atividade 242, já documentado na seção 7.3) ganhou um **gêmeo completo** dentro da atividade **62 — AGUARDANDO RECEBIMENTO**, que antes (levantamento original) era uma tarefa simples sem lógica própria de formulário. Hoje a atividade 62 tem seu próprio painel `#aguardandoRecebimento`, com os mesmos campos da checagem original sob sufixo `Recebimento`:
+
+| Painel 242 | Painel 62 (novo) |
+|---|---|
+| `infoNfseCorretas`/`infoNfseErradas` | `infoNfseCorretasRecebimento`/`infoNfseErradasRecebimento` |
+| `financeiroReponsavel`/`tecnicoReponsavel` | `financeiroReponsavelRecebimento`/`tecnicoReponsavelRecebimento` |
+| `motivoReemissao` (select) | `motivoReemissaoRecebimento` |
+| `ajusteTransmissao` (textarea) | `ajusteTransmissaoRecebimento` |
+| `infoTransmOK` (hidden, sim/não) | `infoTransmOKRecebimento` |
+| `infoSetorAjuste` (hidden, financeiro/tecnico) | `infoSetorAjusteRecebimento` |
+
+`G12-ChecagemTransmissao.js` foi generalizado para atender ambos os painéis por meio de um parâmetro `sufixo` (`""` para 242, `"Recebimento"` para 62) em `selecionarBotaoTransmissao`, `selecionarBotaoTransmissaoSetor`, `restaurarSelecaoTransmissao`/`restaurarBotoesTransmissao` (reaplica o estado visual "selecionado" ao reabrir o formulário — a classe CSS só era aplicada no clique e se perdia a cada reload) e `chagenSelect` (libera o textarea de descrição apenas quando o motivo selecionado é `"outros"`).
+
+`G12-Toogle.js` ganhou a função **`desabilitarCampos()`**, chamada em `$(document).ready` (`G12-Main.js`), que bloqueia (`readOnly`, `pointer-events: none`, cor cinza) todos os campos de `#checagemDeTransmissao` quando a atividade não é 242, e todos os campos de `#aguardandoRecebimento` quando a atividade não é 62 — impedindo que o usuário edite a checagem de uma etapa em que ela não está ativa. Um botão já marcado como "selecionado" **mantém a cor de seleção** mesmo bloqueado (só perde a possibilidade de clique), em vez de ficar cinza como os demais.
+
+`G12.afterTaskComplete.js` (evento global novo — ver A.3) grava, ao concluir a tarefa em qualquer um dos dois painéis, um **comentário automático da tarefa** (`hAPI.setTaskComments`) no formato `"MOTIVO DO AJUSTE: <motivo> | DESCRIÇÃO DETALHADA: <texto>"` (ou só o motivo, se a descrição estiver vazia).
+
+### A.3 Novo evento global — `G12.afterTaskComplete.js`
+
+Terceiro evento global do processo (além de `beforeStateEntry`/`atualizaçãoCNOPB`, seção 3.7): `function afterTaskComplete(colleagueId, nextSequenceId, userList)`, disparado pelo Fluig **ao concluir** uma tarefa. Hoje só age nas atividades 242 e 62 (grava o comentário automático descrito em A.2); os parâmetros `colleagueId`/`nextSequenceId`/`userList` são recebidos mas não utilizados no código atual.
+
+> Uma versão anterior desta função também disparava um e-mail de notificação (mesmo template/estrutura HTML hoje presente em `beforeStateEntry.js`, ver A.4) ao concluir a atividade 62. Essa lógica foi **removida** de `afterTaskComplete.js` e o disparo de e-mail foi **reimplementado em `beforeStateEntry.js`**, passando a notificar na **entrada** das atividades 242/62 em vez de na conclusão de uma tarefa anterior a elas.
+
+### A.4 Notificação por e-mail ao entrar em Checagem de Transmissão / Aguardando Recebimento
+
+`G12.beforeStateEntry.js` (já documentado na seção 3.7 pela busca de período/GED) ganhou um segundo bloco, disparado quando `sequenceId == 242 || sequenceId == 62`: monta um e-mail HTML (tabelas inline, sem CSS externo) com os dados de Coligada/Filial/Centro de Custo/Projeto e Dados do Contrato (Cliente, Número do Contrato, Valor Bruto Original, datas de contrato/início/término) e chama `notifier.notify("admin", "G12.TemplateEmail", params, destinatarios, "text/html")`.
+
+- **Template**: novo arquivo `forms/G12/G12.TemplateEmail.html` (cabeçalho com gradiente azul e borda vermelha, corpo injetado via placeholder `${corpoEmail}`, rodapé — não lido linha a linha na íntegra).
+- **Destinatário**: hoje **hardcoded** — `destinatarios.add("ens4562@gmail.com")` — com duas linhas alternativas de e-mail corporativo comentadas (`contratos@engpac.com.br`, `contratos@gennesisengenharia.com.br`). Não existe, no formulário, nenhum campo de e-mail de responsável; o comentário no próprio código (`"E-mail fixo temporário até definição do endereço por setor..."`) confirma que é um valor provisório.
+- **Link do processo**: reaproveita o mesmo padrão de URL hardcoded já registrado na seção 13 para `G12-GED.js` (host `gennesisengenharia160517.fluig.cloudtotvs.com.br:1650`).
+
+### A.5 Novo painel "Histórico dos Movimentos" — `G12-HistoricoMovimentos.js`
+
+Arquivo novo (`forms/G12/G12-HistoricoMovimentos.js`), carregado no `<head>` do formulário. Deriva, **sem nenhuma integração própria**, uma tabela de status a partir de campos já existentes no card:
+
+- `montarLinhasHistoricoMovimentos()`: lê `IDMOV_numero` (2.1.01, valor único), `historico2102`/`historico2201` (listas separadas por vírgula, acumuladas pelos Service Tasks de faturamento — ver A.1) e `qtdeCancelamentos`, e monta uma lista de linhas `{tipo, numero, status}` (`"faturado"` / `"a-faturar"` / `"cancelado"`). Regra: dentro de cada lista (2.1.02 e 2.2.01), **todos os itens exceto o último são sempre "cancelado"** (foram substituídos por reemissão); o status do último item depende da comparação entre `qtdeCancelamentos` e o tamanho das listas.
+- `countTipoAtividade()`: na atividade 375 ("CANCELAR MOVIMENTO 2.1.02", ver A.1), incrementa `qtdeCancelamentos` — é esse contador que a função acima usa para saber quantas reemissões já ocorreram.
+- `renderizarHistoricoMovimentos()`: renderiza a tabela (`#tblHistoricoMovimentosBody`) com uma badge colorida por status (CSS `.historico-status-*`, seção 9). Chamada em `$(document).ready` e a cada `change` de qualquer campo do formulário (delegação em `G12-Main.js`).
+- `atualizaMovimnentoManualmente(campo)`: acionada pelo `onblur` do campo readonly `numeroIdmov2201` (preenchido automaticamente por `servicetask78` original). Além de gravar o valor em `historicoNumMov2201` (campo hidden que **não é lido em nenhum outro ponto do código** — provável campo remanescente/não utilizado), também acrescenta o número à lista de `historico2201` (evitando duplicata) antes de re-renderizar — sem isso a tabela só refletia o valor após um reload completo da página, quando o card já vinha atualizado do servidor.
+
+### A.6 Ajuste manual do valor do RPS + alerta de variação ≥ 1%
+
+Novo painel `#ajusteSetorTecnicoPosNotaEmitida` ("ajuste do setor técnico após nota emitida"), visível conforme `displayFields.js` (ver A.9). Contém:
+
+- `valorAlterado` (`input type="text"`, **não** `type="number"` — um `<input type="number">` nativo não aceita vírgula decimal, formato usado em todo o restante do formulário; usar `type="number"` aqui quebrava a gravação do valor, sintoma observado e corrigido). `onblur` chama `ajustarValorDoSetorTecnico(this)` (`G12-CalcularAjusteTributos.js`): sanitiza a entrada por regex (remove qualquer caractere que não seja dígito/ponto/vírgula), converte e formata para 4 casas decimais no padrão BR; se o resultado não for um número válido, limpa o campo em vez de gravar `NaN`.
+- `avisoVariacaoValorDiv` (div vazia) + `valorAcimaDe1` (hidden): nova função `verificarVariacaoValorAlterado(valorAlteradoNumerico)`, chamada ao final de `ajustarValorDoSetorTecnico`, compara o valor digitado com `valorBrutoOriginal` e calcula a variação percentual absoluta. Se **≥ 1%**, injeta um aviso visual (`.aviso-variacao-valor`, seção 9) com o texto *"Variação no valor da nota igual ou maior que 1%, notificar ao diretor técnico"* e grava `"SIM"` no hidden `valorAcimaDe1`; abaixo de 1%, limpa ambos. Como esse aviso é gerado só em memória (DOM), uma segunda função — `restaurarAvisoVariacaoValor()`, chamada em `$(document).ready` — relê `valorAlterado` e recalcula a variação a cada carregamento da página, para o aviso não desaparecer ao sair e voltar ao formulário.
+- Textarea `ajusteSetorTecnicoPosNota` ("Informações Ajustadas") — campo livre para descrição do ajuste, referenciado em `enableFields.js` (`form.setEnabled("ajusteSetorTecnicoPosNota", false)` fora da atividade correspondente).
+
+O valor de `valorAlterado` é o que `G12.servicetask418.js` (A.1) grava como novo `PRECOUNITARIO` no RM. Até 28/08/2026, **nada no fluxo relia os tributos recalculados pelo RM de volta para o card** depois dessa alteração de valor — `servicetask404`, que roda em seguida, só atualiza o histórico (A.1) — fazendo `#tributosNacionais` exibir um valor de base desatualizado (o calculado antes do ajuste de valor) mesmo depois do RM já ter recalculado tudo internamente. Corrigido adicionando, ao final de `servicetask418.js`, a mesma releitura de `G12-CARREGAR-TRIBUTOS` que `servicetask71`/`servicetask355` já faziam.
+
+### A.7 Marcação visual de notas fiscais canceladas — `G12-ControleDeEtiquetas.js`
+
+Arquivo novo. `checarNotaCancelada()` (chamada em `$(document).ready`) conta quantos números de movimento 2.2.01 existem em `historico2201` (mesmo campo usado pelo painel de Histórico, A.5); se houver mais de um (ou seja, já ocorreu reemissão), pinta de rosa (`#f7b9bf`) o painel da primeira nota (`#enviarNota .panel-body`) e as linhas anteriores à mais recente na tabela filha de notas substituídas (`input[name^='notaFiscalSub___']`, dentro de `#ajusteFinanceiro`), e insere um selo **"Cancelado"** (reaproveitando a classe `.historico-status-cancelado` já usada no painel de Histórico dos Movimentos, A.5) posicionado no canto superior direito de cada bloco (`.selo-nota-cancelada`, `position: absolute`), sem duplicar o selo em execuções repetidas.
+
+- **`preencherMovimentoEmNotasCanceladas()`**: também em `$(document).ready`, distribui os números de `historico2201` (posições 1 em diante — a posição 0 é a nota "pai", tratada à parte) para os campos `numeroIdmov2201Sub___N` da tabela filha, na ordem em que aparecem.
+
+### A.8 Padronização de cores de campo desabilitado
+
+As diversas rotinas que bloqueiam campos por atividade (`desabilitarParaAjuste`, `desabilitarCampos` em `G12-Toogle.js`; blocos `atividade != 23`/`!= 61`/`!= 250` em `events/displayFields.js`; classes `.campo-desabilitado`/`.textarea-desabilitado` em `G12-Style.css`) usavam cores inconsistentes entre si (`#dddddd`, `#e9ecef`, `#6c757d` misturados sem critério, inclusive aplicando cor de botão a campos de texto e vice-versa). Padronizado: **inputs/selects/textareas desabilitados** → fundo `#f2f2f2`, texto `#a7a9ac`; **botões desabilitados** → fundo `#6c757d`, texto branco. Isso exigiu também:
+- Adicionar `!important` ao `pointer-events` das classes `.campo-desabilitado`/`.campo-habilitado`/`.textarea-desabilitado`/`.textarea-habilitado` (sem isso, o bloqueio programático por `element.style.setProperty(..., "important")` de `desabilitarCampos()` conseguia ser revertido por essas classes quando aplicadas depois, e vice-versa).
+- Em `events/displayFields.js`, dois seletores estavam incorretos e por isso nunca bloqueavam nada: `$('button[onclick='exibirEdicaoManual()']')` (aspas simples aninhadas incorretamente — quebrava a sintaxe do `<script>` inteiro injetado, derrubando **todos** os blocos daquele mesmo `<script>`, não só aquele) e `$(".portaisNfseWrap button")` (os links de portal de NFS-e são `<a>`, não `<button>`); e `$('#ajusteFinanceiro').querySelectorAll('input')` (método nativo do DOM chamado sobre um objeto jQuery, que não o possui) — todos corrigidos.
+
+### A.9 Outras adições observadas
+
+- **Painel `#ajusteFinanceiro`** ("Ajuste Financeiro"): novo painel do formulário, visível conforme a atividade/`recebimentoFluxo` (campo hidden `controleDeFluxo`, setado como `"1"`/`"2"`/`"3"` em `displayFields.js` conforme a atividade 242/250/62), contendo a tabela filha de ajuste de tributos e a tabela filha de notas substituídas/canceladas usada por A.7.
+- **`displayFields.js`**: passou a cobrir também as atividades 250 e 62 com lógica condicional por `controleDeFluxo` (mostrar `#ajusteFinanceiro`/`#aguardandoRecebimento` conforme o valor), além dos blocos de bloqueio por atividade descritos em A.8 (`!= 23`, `!= 61`, `!= 250`).
+- **`G12-AnexosEmail.js`**: arquivo novo, carregado no `<head>` do formulário — contém apenas `function AnexosEmail() {}` **vazia**, sem chamada em nenhum outro arquivo lido. Mesmo padrão de código morto já registrado na seção 13 para `G12-Loading.js`.
+- **Campos hidden novos relevantes**: `historico2102`, `historico2201` (listas acumuladas de IDMOV, ver A.1/A.5), `historicoNumMov2201`/`historicoNumMov2102` (não lidos em nenhum outro ponto do código — possível remanescente), `infoTransmOKRecebimento`, `infoSetorAjusteRecebimento`, `qtdeCancelamentos`, `controleDeFluxo`, `valorAcimaDe1`, `valorBrutoOriginal` (já existente, agora também consumido pelo alerta de variação de A.6).
+
+---
+
 ## 1. Resumo Executivo
 
 ### 1.1 Objetivo do projeto
@@ -141,26 +258,30 @@ ProjetoG12Homologacao/
 │   └── G12-TRIBUTOS-MUNICIPAIS.js
 │
 ├── forms/G12/                       # Formulário do processo (HTML + JS + CSS)
-│   ├── G12.html                     # Formulário principal (1701 linhas)
-│   ├── G12-Style.css                # Estilos (846 linhas)
+│   ├── G12.html                     # Formulário principal
+│   ├── G12.TemplateEmail.html       # [NOVO] Template do e-mail disparado por beforeStateEntry.js (ver Adendo A.4)
+│   ├── G12-Style.css                # Estilos
 │   ├── G12-Main.js                  # Bootstrap de eventos on document.ready
-│   ├── G12-Loading.js               # Arquivo vazio (ver seção 15 — código morto)
+│   ├── G12-Loading.js               # Arquivo vazio (ver seção 13 — código morto)
 │   ├── G12-Carregamento.js          # Preenchimento do formulário a partir do dataset
 │   ├── G12-Anexos.js                # Upload/visualização/remoção de anexos (aba Anexos do Fluig)
-│   ├── G12-CalcularAjusteTributos.js# Cálculo de valor de imposto (base x alíquota)
-│   ├── G12-ChecagemTransmissao.js   # Seleção visual dos botões de checagem de transmissão
+│   ├── G12-AnexosEmail.js           # [NOVO] Arquivo vazio (ver seção 13 — código morto)
+│   ├── G12-CalcularAjusteTributos.js# Cálculo de valor de imposto (base x alíquota); [ATUALIZADO] ajuste de valor do RPS + alerta de variação ≥1% (ver Adendo A.6)
+│   ├── G12-ChecagemTransmissao.js   # Seleção visual dos botões de checagem de transmissão; [ATUALIZADO] generalizado para o painel espelhado da atividade 62 (ver Adendo A.2)
 │   ├── G12-CheckBot.js              # Painel flutuante de pendências de preenchimento
 │   ├── G12-Cno.js                   # Função inteira comentada (código morto)
+│   ├── G12-ControleDeEtiquetas.js   # [NOVO] Marcação visual de notas fiscais canceladas (ver Adendo A.7)
 │   ├── G12-GED.js                   # Renderização dos anexos do GED por período
+│   ├── G12-HistoricoMovimentos.js   # [NOVO] Painel "Histórico dos Movimentos" (ver Adendo A.5)
 │   ├── G12-IRRF-INSS.js             # Toggle de exibição das tabelas de IRRF/INSS
 │   ├── G12-NF-e.js                  # Modal "DANFSe" (espelho de nota fiscal)
 │   ├── G12-TabelaDeTributos.js      # Toggle de exibição da tabela de tributos do movimento
-│   ├── G12-Toogle.js                # Toggle de exibição da checagem + edição manual/competência
+│   ├── G12-Toogle.js                # Toggle de exibição da checagem + edição manual/competência; [ATUALIZADO] `desabilitarCampos()` novo + padronização de cores (ver Adendo A.2/A.8)
 │   ├── G12-TributosDoMovimento.js   # Toggle de exibição da tabela de tributos ajustáveis
 │   ├── G12-TributosMunicipaisFuncoesAuxiliares.js # Toggle da tabela de tributos municipais
 │   ├── G12-Zoom.js                  # Callback do componente "zoom" (autocomplete) de IRRF/INSS
 │   ├── events/
-│   │   ├── displayFields.js         # Hook Fluig: mostra/oculta seções conforme a atividade
+│   │   ├── displayFields.js         # Hook Fluig: mostra/oculta seções conforme a atividade; [ATUALIZADO] cobre também 250/62 e bloqueios por atividade (ver Adendo A.8/A.9)
 │   │   ├── enableFields.js          # Hook Fluig: habilita/desabilita campos conforme a atividade
 │   │   └── validateForm.js          # Hook Fluig: validação obrigatória de CNOPB
 │   ├── .metadata                    # Objeto Java serializado (FormularioServerDto) — form G12/HOMOLOGACAO/DSG12
@@ -169,14 +290,16 @@ ProjetoG12Homologacao/
 ├── mechanisms/                      # Mecanismos de atribuição de atividade (workflow)
 │   ├── G12-AJUSTE-SOLICITACAO.js
 │   ├── G12-APROVACAO-ST.js
-│   ├── G12-CONTRATOS-VALIDA.js      # Não referenciado no BPMN (ver seção 15)
+│   ├── G12-CONTRATOS-VALIDA.js      # Não referenciado no BPMN (ver seção 13)
 │   └── G12-VALIDIACAO-CONTRATOS.js
 │
 ├── workflow/
-│   ├── diagrams/G12.process         # Modelo BPMN2/Graphiti completo (13.928 linhas)
+│   ├── diagrams/G12.process         # Modelo BPMN2/Graphiti completo
 │   ├── scripts/                     # Service Tasks e eventos globais do processo
-│   │   ├── G12.servicetask9.js ... G12.servicetask233.js  (13 service tasks)
-│   │   ├── G12.beforeStateEntry.js  # Evento global "antes de entrar no estado"
+│   │   ├── G12.servicetask9.js ... G12.servicetask233.js  (15 service tasks originais)
+│   │   ├── G12.servicetask267/308/325/334/343/355/363/369/375/394/404/410/418.js  # [NOVOS] sub-fluxo "AJUSTE FINANCEIRO" (ver Adendo A.1)
+│   │   ├── G12.beforeStateEntry.js  # Evento global "antes de entrar no estado"; [ATUALIZADO] agora também dispara e-mail nas atividades 242/62 (ver Adendo A.4)
+│   │   ├── G12.afterTaskComplete.js # [NOVO] Evento global "ao concluir tarefa" — comentário automático nas atividades 242/62 (ver Adendo A.3)
 │   │   └── G12.atualizaçãoCNOPB.js  # Função de suporte à condição do gateway 177
 │   └── .resources/
 │       ├── G12.ecm30.xml            # Export do processo para o ECM (9.462 linhas)
@@ -679,6 +802,9 @@ Autenticação: **Basic Auth** com usuário/senha lidos de constantes (`ds_Const
 | Item | Local | Descrição |
 |---|---|---|
 | **Arquivo vazio** | `forms/G12/G12-Loading.js` | 0 bytes; carregado no HTML sem nenhum efeito. |
+| **Função vazia** *(novo, ver Adendo A.9)* | `forms/G12/G12-AnexosEmail.js` | Contém apenas `function AnexosEmail() {}`; carregada no HTML mas sem chamada em nenhum outro arquivo lido. |
+| **Função nunca chamada** *(novo, ver Adendo A.1)* | `workflow/scripts/G12.servicetask410.js` | O corpo de `servicetask410` apenas declara uma função aninhada `servicetask404` (que atualizaria o histórico do movimento 2.2.01) e nunca a invoca — o estado 410 não executa nenhuma ação hoje. |
+| **Campos hidden não lidos** *(novo, ver Adendo A.5)* | `historicoNumMov2201`, `historicoNumMov2102` | Gravados pelo formulário (`G12-HistoricoMovimentos.js`), mas não encontrados sendo lidos em nenhum outro arquivo — possíveis remanescentes de uma versão anterior da lógica de histórico, hoje substituída pelas listas acumuladas `historico2102`/`historico2201`. |
 | **Função inteira comentada** | `forms/G12/G12-Cno.js` | `checkOnCno()` totalmente desativada (mostrar/ocultar campo `CNOPB` por coligada+centro de custo); a exibição condicional de `CNOPB` hoje depende só de `enableFields.js`/`displayFields.js`. |
 | **Mecanismo aparentemente não utilizado** | `mechanisms/G12-CONTRATOS-VALIDA.js` | Não referenciado por nenhuma atividade do BPMN analisado (`G12.process`); `G12-VALIDIACAO-CONTRATOS.js` é quem está de fato ligado à atividade 173/183. Pode ser resquício de uma versão anterior do processo. |
 | **Regras de roteamento desativadas** | `mechanisms/G12-APROVACAO-ST.js`, `mechanisms/G12-CONTRATOS-VALIDA.js` | Grandes blocos (>100 linhas cada) de roteamento nominal por centro de custo estão comentados; ambos os mecanismos hoje retornam sempre o mesmo usuário fixo (`4ef20412-7687-40a4-b1c8-095c0a92503e`), independentemente da coligada/centro de custo. Isso concentra toda a aprovação técnica e toda a validação de contratos em uma única pessoa — divergindo do que o código comentado sugere ser o comportamento original/pretendido. |

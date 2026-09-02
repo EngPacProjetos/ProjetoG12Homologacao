@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>G12</processId>
-      <version>389</version>
+      <version>1</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>68555</formId>
@@ -430,7 +430,7 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1690</positionX>
       <positionY>450</positionY>
@@ -7533,7 +7533,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>1</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>177</sequence>
       </conditionProcessStatePK>
       <condition>gerAtualizacaoCNOPB() == true</condition>
@@ -7545,7 +7545,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>2</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>177</sequence>
       </conditionProcessStatePK>
       <condition>gerAtualizacaoCNOPB() == false </condition>
@@ -7557,7 +7557,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>1</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>246</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7569,7 +7569,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>2</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>246</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7581,7 +7581,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>3</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>246</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7593,7 +7593,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>1</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>291</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7605,7 +7605,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>2</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>291</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7617,7 +7617,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>3</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>291</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7629,7 +7629,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>1</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>388</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7641,7 +7641,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>2</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>388</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7653,7 +7653,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>3</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>388</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -7665,7 +7665,7 @@
         <companyId>1</companyId>
         <processId>G12</processId>
         <expressionOrder>4</expressionOrder>
-        <version>389</version>
+        <version>1</version>
         <sequence>388</sequence>
       </conditionProcessStatePK>
       <condition></condition>
@@ -14440,8 +14440,9 @@ function getDatasetError(exception) {
             var destinatarios = new java.util.ArrayList();&#xd;
 &#xd;
             // E-mail fixo temporário até definição do endereço por setor (financeiro/tecnico).&#xd;
+            // destinatarios.add(&quot;contratos@engpac.com.br&quot;);&#xd;
+            // destinatarios.add(&quot;contratos@gennesisengenharia.com.br&quot;);&#xd;
             destinatarios.add(&quot;ens4562@gmail.com&quot;);&#xd;
-            destinatarios.add(&quot;enos.rocha@engpac.com&quot;);&#xd;
 &#xd;
             notifier.notify(&#xd;
                 &quot;admin&quot;,&#xd;
@@ -15522,7 +15523,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>179</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -15533,7 +15534,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>179</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -15544,7 +15545,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>232</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -15555,7 +15556,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>232</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -15566,7 +15567,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>266</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -15577,7 +15578,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>266</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -15588,7 +15589,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>280</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -15599,7 +15600,7 @@ function getConstante(param) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>G12</processId>
-        <version>389</version>
+        <version>1</version>
         <linkSequence>280</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -15926,7 +15927,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -15936,7 +15937,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -15946,7 +15947,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -15956,7 +15957,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -15966,7 +15967,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>17</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -15976,7 +15977,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -15986,7 +15987,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -15996,7 +15997,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -16006,7 +16007,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -16016,7 +16017,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>61</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -16026,7 +16027,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -16036,7 +16037,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -16046,7 +16047,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -16056,7 +16057,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -16066,7 +16067,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>62</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -16076,7 +16077,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -16086,7 +16087,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -16096,7 +16097,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -16106,7 +16107,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -16116,7 +16117,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>242</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -16126,7 +16127,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>278</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -16136,7 +16137,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>278</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -16146,7 +16147,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>278</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -16156,7 +16157,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>278</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -16166,7 +16167,7 @@ function getConstante(param) {
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>G12</processId>
-      <processVersion>389</processVersion>
+      <processVersion>1</processVersion>
       <stateSequence>278</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

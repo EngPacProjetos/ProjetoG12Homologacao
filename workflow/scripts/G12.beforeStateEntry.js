@@ -312,8 +312,9 @@ function beforeStateEntry(sequenceId) {
             var destinatarios = new java.util.ArrayList();
 
             // E-mail fixo temporário até definição do endereço por setor (financeiro/tecnico).
+            // destinatarios.add("contratos@engpac.com.br");
+            // destinatarios.add("contratos@gennesisengenharia.com.br");
             destinatarios.add("ens4562@gmail.com");
-            destinatarios.add("enos.rocha@engpac.com");
 
             notifier.notify(
                 "admin",
