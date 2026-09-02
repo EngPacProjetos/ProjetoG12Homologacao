@@ -1,5 +1,6 @@
 // FUNCOES DISPARADAS AO CARREGAR O DOM DA PAGINA 
 $(document).ready(function () {
+    exibirCarregamento(); // CARREGAMENTO COM O SIMBOLO DO G12 PARA MELHOR EXPERIENCIA DO USUÁRIO
     dispararTributosTimeOut(); // atrasa a execuçao do ajuste de tributos para dar tepo do dom ser montado
     //checkOnCno();
     checkAllInfo(); // Check as informacoes do formulario para o bot exibir ao usuario 

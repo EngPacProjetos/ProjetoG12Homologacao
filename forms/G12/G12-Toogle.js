@@ -109,9 +109,9 @@ function desabilitarCampos() {
     console.log(typeof atividade);
 
     console.log("ATIVIDADE DA VEZ CHECAGEM -->", atividade)
-    
+
     $camposDaDiv = $("#checagemDeTransmissao").find("input, textarea, button, select");
-    
+
     $camposDaDivRecebimento = $("#aguardandoRecebimento").find("input, textarea, button, select");
 
     if (atividade != 242) {
@@ -135,8 +135,8 @@ function desabilitarCampos() {
                 }
             }
         });
-    }else{
-         $camposDaDiv.each(function () {
+    } else {
+        $camposDaDiv.each(function () {
             $(this).prop("readOnly", false);
             // Nao forcar pointer-events/background aqui: dentro da etapa ativa, quem
             // decide se cada campo fica clicavel/editavel sao as classes
@@ -170,6 +170,37 @@ function desabilitarCampos() {
             this.style.removeProperty("color");
         });
     }
+}
+
+function exibirCarregamento() {
+    var $carregamento = $("#carregamentoG12");
+
+    // Nao adianta chutar um setTimeout fixo: o form as vezes demora mais que isso
+    // pra montar. Aqui a saida so dispara quando a pagina termina de carregar de
+    // verdade (evento window.load - imagens, gifs e css ja prontos), respeitando
+    // um tempo minimo em tela pra nao "piscar", com uma trava de seguranca no fim.
+    var TEMPO_MIN = 900;    // ms visivel no minimo
+    var TRAVA_MAX = 8000;   // ms - esconde de qualquer jeito
+    var inicio = Date.now();
+    var jaSaiu = false;
+
+    function esconder() {
+        if (jaSaiu) return;
+        jaSaiu = true;
+
+        var espera = Math.max(0, TEMPO_MIN - (Date.now() - inicio));
+        setTimeout(function () {
+            $carregamento.addClass("carregamentoG12");           // dispara a animacao de saida
+            setTimeout(function () { $carregamento.hide(); }, 500);
+        }, espera);
+    }
+
+    if (document.readyState === "complete") {
+        esconder();
+    } else {
+        $(window).on("load", esconder);
+    }
+    setTimeout(esconder, TRAVA_MAX);
 }
 
 
